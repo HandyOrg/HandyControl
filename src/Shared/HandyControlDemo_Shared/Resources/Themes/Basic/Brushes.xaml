@@ -11,7 +11,7 @@
             <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,157,157"/>
         </DrawingBrush.Drawing>
     </DrawingBrush>
-    
+
     <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
         <DrawingBrush.Drawing>
             <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
@@ -57,7 +57,7 @@
             <GeometryDrawing o:Freeze="True" Brush="#f06632" Geometry="{StaticResource LogoGeometry}"/>
         </DrawingBrush.Drawing>
     </DrawingBrush>
-    
+
     <DrawingBrush o:Freeze="True" x:Key="Brush.SortAscending">
         <DrawingBrush.Drawing>
             <DrawingGroup>
@@ -71,7 +71,7 @@
             </DrawingGroup>
         </DrawingBrush.Drawing>
     </DrawingBrush>
-    
+
     <DrawingBrush o:Freeze="True" x:Key="Brush.Brush">
         <DrawingBrush.Drawing>
             <DrawingGroup>
@@ -1383,6 +1383,18 @@
                     <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
                     <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M10.9998,0.999700000000001L10.9998,4.0007 12.9998,4.0007 12.9998,12.0007 10.9998,12.0007 10.9998,14.9997 15.9998,14.9997 15.9998,0.999700000000001z M-0.000199999999999534,0.999700000000001L-0.000199999999999534,14.9997 5.0008,14.9997 5.0008,12.0007 2.9998,12.0007 2.9998,4.0007 5.0008,4.0007 5.0008,0.999700000000001z" />
                     <GeometryDrawing Brush="#FF424242" Geometry="F1M15,2L12,2 12,3 14,3 14,13 12,13 12,14 15,14z M4,14L1,14 1,2 4,2 4,3 2,3 2,13 4,13z" />
+                </DrawingGroup.Children>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush o:Freeze="True" x:Key="Brush.Favorite">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Children>
+                    <GeometryDrawing Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
+                    <GeometryDrawing Brush="#FFF6F6F6" Geometry="F1M7.2729,-0.000199999999999534L5.6649,4.9998 -9.99999999997669E-05,4.9998 -9.99999999997669E-05,6.5148 4.2109,9.5218 2.1279,15.9998 3.8809,15.9998 7.9999,12.3378 12.1199,15.9998 13.8719,15.9998 11.7899,9.5218 15.9999,6.5148 15.9999,4.9998 10.3369,4.9998 8.7289,-0.000199999999999534z" />
+                    <GeometryDrawing Brush="#FF424242" Geometry="F1M10.6143,9.1328L12.5003,14.9998 8.0003,10.9998 3.5003,14.9998 5.3863,9.1328 1.0003,5.9998 6.3933,5.9998 8.0013,0.9998 9.6073,5.9998 15.0003,5.9998z" />
                 </DrawingGroup.Children>
             </DrawingGroup>
         </DrawingBrush.Drawing>

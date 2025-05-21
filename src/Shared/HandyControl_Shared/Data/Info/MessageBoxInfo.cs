@@ -24,4 +24,6 @@ public class MessageBoxInfo
     public Style Style { get; set; }
 
     public string StyleKey { get; set; }
+
+    public Window Owner { get; set; }
 }

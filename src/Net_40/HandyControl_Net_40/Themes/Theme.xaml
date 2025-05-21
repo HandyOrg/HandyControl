@@ -1186,7 +1186,7 @@
 			</Grid.RowDefinitions>
 			<AdornedElementPlaceholder x:Name="adornedElementPlaceholder" />
 			<hc:TransitioningContentControl TransitionMode="Top2Bottom" Grid.Row="1" ClipToBounds="True">
-				<TextBlock Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedElementPlaceholder}" />
+				<TextBlock HorizontalAlignment="Right" Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)/ErrorContent, ElementName=adornedElementPlaceholder}" />
 			</hc:TransitioningContentControl>
 		</Grid>
 	</ControlTemplate>
@@ -2010,6 +2010,27 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+		<Style.Triggers>
+			<Trigger Property="hc:ScrollViewerAttach.IsHoverResizingEnabled" Value="False">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Thumb">
+							<Border Width="{TemplateBinding Width}" Background="Transparent">
+								<Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" HorizontalAlignment="Right" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" Width="8" Fill="{TemplateBinding Background}" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="true">
+									<Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource SecondaryTextBrush}" />
+								</Trigger>
+								<Trigger Property="IsDragging" Value="true">
+									<Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource PrimaryTextBrush}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<Style x:Key="ScrollBarBaseThumbHorizontal" TargetType="Thumb">
 		<Setter Property="OverridesDefaultStyle" Value="true" />
@@ -2073,6 +2094,27 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+		<Style.Triggers>
+			<Trigger Property="hc:ScrollViewerAttach.IsHoverResizingEnabled" Value="False">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="Thumb">
+							<Border Height="{TemplateBinding Height}" Background="Transparent">
+								<Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" VerticalAlignment="Bottom" Height="8" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}" />
+							</Border>
+							<ControlTemplate.Triggers>
+								<Trigger Property="IsMouseOver" Value="true">
+									<Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource SecondaryTextBrush}" />
+								</Trigger>
+								<Trigger Property="IsDragging" Value="true">
+									<Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource PrimaryTextBrush}" />
+								</Trigger>
+							</ControlTemplate.Triggers>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<Style x:Key="ScrollBarBaseStyle" TargetType="ScrollBar">
 		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
@@ -4754,7 +4796,15 @@
 							<ColumnDefinition Width="Auto" />
 							<ColumnDefinition />
 						</Grid.ColumnDefinitions>
-						<Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+						<Button Name="ButtonIcon" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+							<Button.Visibility>
+								<MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+									<MultiBinding.Bindings>
+										<Binding Path="ShowIcon" RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
+									</MultiBinding.Bindings>
+								</MultiBinding>
+							</Button.Visibility>
 							<interactivity:Interaction.Triggers>
 								<interactivity:EventTrigger EventName="MouseDoubleClick">
 									<interactivity:InvokeCommandAction Command="{x:Static shell:SystemCommands.CloseWindowCommand}" />
@@ -4854,7 +4904,15 @@
 									<ColumnDefinition Width="Auto" />
 									<ColumnDefinition />
 								</Grid.ColumnDefinitions>
-								<Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+								<Button Name="ButtonIcon" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+									<Button.Visibility>
+										<MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+											<MultiBinding.Bindings>
+												<Binding Path="ShowIcon" RelativeSource="{RelativeSource TemplatedParent}" />
+												<Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
+											</MultiBinding.Bindings>
+										</MultiBinding>
+									</Button.Visibility>
 									<interactivity:Interaction.Triggers>
 										<interactivity:EventTrigger EventName="MouseDoubleClick">
 											<interactivity:InvokeCommandAction Command="{x:Static shell:SystemCommands.CloseWindowCommand}" />
@@ -8848,23 +8906,25 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="FlowDocumentScrollViewer">
 					<DockPanel Background="{TemplateBinding Background}" LastChildFill="True">
-						<Grid x:Name="PART_ToolBarHost" Panel.ZIndex="1" DockPanel.Dock="Bottom" Margin="0,6">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="*" />
-							</Grid.ColumnDefinitions>
-							<Border x:Name="PART_FindToolBarHost" Grid.Column="0" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Center" />
-							<Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+						<Decorator x:Name="PART_ToolBarHost" Panel.ZIndex="1" DockPanel.Dock="Bottom" Margin="0,6">
+							<Grid>
 								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="Auto" />
-									<ColumnDefinition />
-									<ColumnDefinition Width="Auto" />
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="*" />
 								</Grid.ColumnDefinitions>
-								<RepeatButton Height="20" Width="20" Padding="5,8" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource SubGeometry}" Grid.Column="0" Command="NavigationCommands.DecreaseZoom" IsEnabled="{TemplateBinding CanDecreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomOut}" />
-								<Slider hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" Grid.Column="1" HorizontalAlignment="Stretch" LargeChange="{TemplateBinding ZoomIncrement}" Maximum="{TemplateBinding MaxZoom}" Minimum="{TemplateBinding MinZoom}" SmallChange="{TemplateBinding ZoomIncrement}" TickFrequency="{TemplateBinding ZoomIncrement}" Value="{Binding Zoom, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="180" />
-								<RepeatButton Height="20" Width="20" Padding="4" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource AddGeometry}" Grid.Column="2" Command="NavigationCommands.IncreaseZoom" IsEnabled="{TemplateBinding CanIncreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomIn}" />
+								<Border x:Name="PART_FindToolBarHost" Grid.Column="0" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Center" />
+								<Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<RepeatButton Height="20" Width="20" Padding="5,8" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource SubGeometry}" Grid.Column="0" Command="NavigationCommands.DecreaseZoom" IsEnabled="{TemplateBinding CanDecreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomOut}" />
+									<Slider hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" Grid.Column="1" HorizontalAlignment="Stretch" LargeChange="{TemplateBinding ZoomIncrement}" Maximum="{TemplateBinding MaxZoom}" Minimum="{TemplateBinding MinZoom}" SmallChange="{TemplateBinding ZoomIncrement}" TickFrequency="{TemplateBinding ZoomIncrement}" Value="{Binding Zoom, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="180" />
+									<RepeatButton Height="20" Width="20" Padding="4" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource AddGeometry}" Grid.Column="2" Command="NavigationCommands.IncreaseZoom" IsEnabled="{TemplateBinding CanIncreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomIn}" />
+								</Grid>
 							</Grid>
-						</Grid>
+						</Decorator>
 						<Border Panel.ZIndex="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{TemplateBinding Padding}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
 							<ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 						</Border>
@@ -13625,6 +13685,7 @@
 	<Style x:Key="TabControlCapsule" TargetType="TabControl">
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="hc:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:TitleElement.Foreground" Value="{DynamicResource PrimaryBrush}" />
@@ -13646,7 +13707,7 @@
 							<RowDefinition x:Name="RowDefinition1" Height="*" />
 						</Grid.RowDefinitions>
 						<UniformGrid Rows="1" KeyboardNavigation.TabNavigation="Once" KeyboardNavigation.DirectionalNavigation="Cycle" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="headerPanel" Background="Transparent" Grid.Column="0" IsItemsHost="true" Margin="0" Grid.Row="0" />
-						<Border x:Name="contentPanel" Margin="0,6,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{DynamicResource BorderBrush}" Background="{TemplateBinding Background}" Grid.Column="0" Grid.Row="1">
+						<Border x:Name="contentPanel" Margin="0,6,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Grid.Column="0" Grid.Row="1">
 							<ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 						</Border>
 					</Grid>

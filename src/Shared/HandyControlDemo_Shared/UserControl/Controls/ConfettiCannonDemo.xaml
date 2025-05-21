@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ConfettiCannonDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             hc:ConfettiCannon.Token="ConfettiCannonDemo"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True"
+                         Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="16">
+                <Button Content="Basic Cannon"
+                        Click="ButtonBasicCannonOnClick" />
+                <Button Content="Random Direction"
+                        Click="ButtonRandomDirectionOnClick" />
+                <Button Content="Realistic Look"
+                        Click="ButtonRealisticLookClick" />
+                <Button Content="Fireworks"
+                        Click="ButtonFireworksOnClick" />
+                <Button Content="Stars"
+                        Click="ButtonStarsOnClick" />
+                <Button Content="Snow"
+                        Click="ButtonSnowOnClick" />
+                <Button Content="School Pride"
+                        Click="ButtonSchoolPrideOnClick" />
+                <Button Content="Custom Canvas"
+                        Click="ButtonCustomCanvasOnClick" />
+                <hc:ConfettiCannonContainer>
+                    <Border MinWidth="500"
+                            Height="300"
+                            Style="{StaticResource BorderRegion}" />
+                </hc:ConfettiCannonContainer>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

@@ -78,6 +78,27 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="hc:ScrollViewerAttach.IsHoverResizingEnabled" Value="False">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Thumb">
+                            <Border Width="{TemplateBinding Width}" Background="Transparent">
+                                <Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" HorizontalAlignment="Right" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" Width="8" Fill="{TemplateBinding Background}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource SecondaryTextBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsDragging" Value="true">
+                                    <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource PrimaryTextBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ScrollBarBaseThumbHorizontal" TargetType="Thumb">
@@ -142,6 +163,27 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="hc:ScrollViewerAttach.IsHoverResizingEnabled" Value="False">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Thumb">
+                            <Border Height="{TemplateBinding Height}" Background="Transparent">
+                                <Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" VerticalAlignment="Bottom" Height="8" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource SecondaryTextBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsDragging" Value="true">
+                                    <Setter Property="Fill" TargetName="rectangle" Value="{DynamicResource PrimaryTextBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ScrollBarBaseStyle" TargetType="ScrollBar">

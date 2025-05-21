@@ -807,4 +807,7 @@
   <data name="CloseMainWindowDialog" xml:space="preserve">
     <value>Close main window dialog</value>
   </data>
+  <data name="ConfettiCannon" xml:space="preserve">
+    <value>ConfettiCannon</value>
+  </data>
 </root>

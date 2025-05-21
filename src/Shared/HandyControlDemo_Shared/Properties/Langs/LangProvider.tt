@@ -11,7 +11,7 @@
     var langDic = new Dictionary<string, string>();
     foreach(var item in propertyNameList)
     {
-        langDic[item] = 
+        langDic[item] =
         @$"/// <summary>
     ///   {string.Format(Lang.LangComment, Lang.ResourceManager.GetString(item, Lang.Culture))}
     /// </summary>";
@@ -62,7 +62,7 @@ public class LangProvider : INotifyPropertyChanged
 	private void UpdateLangs()
     {
 <#foreach(var item in propertyNameList){#>
-		OnPropertyChanged(nameof(<#=item#>));
+	OnPropertyChanged(nameof(<#=item#>));
 <#}#>
     }
 

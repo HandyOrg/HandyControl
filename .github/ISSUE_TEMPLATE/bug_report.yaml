@@ -30,6 +30,8 @@ body:
     attributes:
       label: NuGet package version
       options:
+        - "HandyControl 3.5.1"
+        - "HandyControl 3.5.0"
         - "HandyControl 3.4.0"
         - "HandyControl 3.3.0"
         - "HandyControl 3.2.0"
@@ -58,10 +60,14 @@ body:
       description: please specify for which framework type you have encountered the issue.
       multiple: true
       options:
+        - ".Net 9.0"
+        - ".Net 8.0"
+        - ".Net 7.0"
         - ".Net 6.0"
         - ".Net 5.0"
         - ".Net Core 3.1"
         - ".Net Core 3.0"
+        - ".Net Framework 4.8.1"
         - ".Net Framework 4.8"
         - ".Net Framework 4.7.2"
         - ".Net Framework 4.7.1"

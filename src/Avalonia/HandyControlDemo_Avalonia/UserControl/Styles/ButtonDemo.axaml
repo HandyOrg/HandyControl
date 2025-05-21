@@ -1,8 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="HandyControlDemo.UserControl.ButtonDemo"
-             xmlns:hc="https://handyorg.github.io/handycontrol"
-             Background="{DynamicResource RegionBrush}">
+             xmlns:hc="https://handyorg.github.io/handycontrol">
     <ScrollViewer>
         <hc:UniformSpacingPanel ChildWrapping="Wrap"
                                 Spacing="32"

@@ -669,7 +669,7 @@
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>HatchBrushGenerator</value>
   </data>
-  <data name="Morphing Animation" xml:space="preserve">
+  <data name="MorphingAnimation" xml:space="preserve">
     <value>Animacja przekształcająca</value>
   </data>
   <data name="Divider" xml:space="preserve">

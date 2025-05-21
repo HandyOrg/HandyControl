@@ -5,6 +5,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Tools;
 
+namespace HandyControl.Media.Animation;
+
 public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 {
     internal double[] Numbers;

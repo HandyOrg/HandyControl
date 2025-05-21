@@ -37,14 +37,16 @@ public class SlidingTabContainer : ContentControl
         _tabControl = VisualHelper.GetParent<System.Windows.Controls.TabControl>(this);
         _sliding = GetTemplateChild(ElementSliding) as FrameworkElement;
 
-        if (_tabControl is not null)
+        if (_tabControl is null)
         {
-            _tabControl.SelectionChanged += OnSelectionChanged;
+            return;
+        }
 
-            if (IsLoaded)
-            {
-                OnSelectionChanged(null, null);
-            }
+        _tabControl.SelectionChanged += OnSelectionChanged;
+
+        if (IsLoaded)
+        {
+            OnSelectionChanged(null, null);
         }
     }
 
@@ -80,31 +82,31 @@ public class SlidingTabContainer : ContentControl
         if (useAnimation)
         {
             var storyboard = new Storyboard();
-            var easingFuction = new PowerEase
+            var easingFunction = new PowerEase
             {
                 EasingMode = EasingMode.EaseOut,
             };
 
             var widthAnimation = AnimationHelper.CreateAnimation(tabWidth);
-            widthAnimation.EasingFunction = easingFuction;
+            widthAnimation.EasingFunction = easingFunction;
             Storyboard.SetTarget(widthAnimation, _sliding);
             Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(WidthProperty.Name));
             storyboard.Children.Add(widthAnimation);
 
             var heightAnimation = AnimationHelper.CreateAnimation(tabHeight);
-            heightAnimation.EasingFunction = easingFuction;
+            heightAnimation.EasingFunction = easingFunction;
             Storyboard.SetTarget(heightAnimation, _sliding);
             Storyboard.SetTargetProperty(heightAnimation, new PropertyPath(HeightProperty.Name));
             storyboard.Children.Add(heightAnimation);
 
             var xAnimation = AnimationHelper.CreateAnimation(offset.X);
-            xAnimation.EasingFunction = easingFuction;
+            xAnimation.EasingFunction = easingFunction;
             Storyboard.SetTarget(xAnimation, _sliding);
             Storyboard.SetTargetProperty(xAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.X)"));
             storyboard.Children.Add(xAnimation);
 
             var yAnimation = AnimationHelper.CreateAnimation(offset.Y);
-            yAnimation.EasingFunction = easingFuction;
+            yAnimation.EasingFunction = easingFunction;
             Storyboard.SetTarget(yAnimation, _sliding);
             Storyboard.SetTargetProperty(yAnimation, new PropertyPath("(UIElement.RenderTransform).(TranslateTransform.Y)"));
             storyboard.Children.Add(yAnimation);

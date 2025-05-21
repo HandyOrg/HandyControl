@@ -117,9 +117,7 @@
 
             <Style Selector="^ /template/ LayoutTransformControl">
                 <Setter Property="LayoutTransform">
-                    <Setter.Value>
-                        <RotateTransform Angle="-90" />
-                    </Setter.Value>
+                    <RotateTransform Angle="-90" />
                 </Setter>
             </Style>
 
@@ -360,23 +358,21 @@
                   BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
                   TargetType="ProgressBar">
         <Setter Property="Foreground">
-            <Setter.Value>
-                <DrawingBrush TileMode="Tile"
-                              SourceRect="0,0,20,32"
-                              DestinationRect="0,0,20,32"
-                              Stretch="None">
-                    <DrawingBrush.Transform>
-                        <RotateTransform Angle="20" />
-                    </DrawingBrush.Transform>
-                    <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{StaticResource SuccessStripeBrush}">
-                            <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32" />
-                            </GeometryDrawing.Geometry>
-                        </GeometryDrawing>
-                    </DrawingBrush.Drawing>
-                </DrawingBrush>
-            </Setter.Value>
+            <DrawingBrush TileMode="Tile"
+                          SourceRect="0,0,20,32"
+                          DestinationRect="0,0,20,32"
+                          Stretch="None">
+                <DrawingBrush.Transform>
+                    <RotateTransform Angle="20" />
+                </DrawingBrush.Transform>
+                <DrawingBrush.Drawing>
+                    <GeometryDrawing Brush="{StaticResource SuccessStripeBrush}">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,20,32" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
         </Setter>
 
         <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
@@ -417,23 +413,21 @@
                   BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
                   TargetType="ProgressBar">
         <Setter Property="Foreground">
-            <Setter.Value>
-                <DrawingBrush TileMode="Tile"
-                              SourceRect="0,0,20,32"
-                              DestinationRect="0,0,20,32"
-                              Stretch="None">
-                    <DrawingBrush.Transform>
-                        <RotateTransform Angle="20" />
-                    </DrawingBrush.Transform>
-                    <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{StaticResource InfoStripeBrush}">
-                            <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32" />
-                            </GeometryDrawing.Geometry>
-                        </GeometryDrawing>
-                    </DrawingBrush.Drawing>
-                </DrawingBrush>
-            </Setter.Value>
+            <DrawingBrush TileMode="Tile"
+                          SourceRect="0,0,20,32"
+                          DestinationRect="0,0,20,32"
+                          Stretch="None">
+                <DrawingBrush.Transform>
+                    <RotateTransform Angle="20" />
+                </DrawingBrush.Transform>
+                <DrawingBrush.Drawing>
+                    <GeometryDrawing Brush="{StaticResource InfoStripeBrush}">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,20,32" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
         </Setter>
 
         <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
@@ -474,23 +468,21 @@
                   BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
                   TargetType="ProgressBar">
         <Setter Property="Foreground">
-            <Setter.Value>
-                <DrawingBrush TileMode="Tile"
-                              SourceRect="0,0,20,32"
-                              DestinationRect="0,0,20,32"
-                              Stretch="None">
-                    <DrawingBrush.Transform>
-                        <RotateTransform Angle="20" />
-                    </DrawingBrush.Transform>
-                    <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{StaticResource WarningStripeBrush}">
-                            <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32" />
-                            </GeometryDrawing.Geometry>
-                        </GeometryDrawing>
-                    </DrawingBrush.Drawing>
-                </DrawingBrush>
-            </Setter.Value>
+            <DrawingBrush TileMode="Tile"
+                          SourceRect="0,0,20,32"
+                          DestinationRect="0,0,20,32"
+                          Stretch="None">
+                <DrawingBrush.Transform>
+                    <RotateTransform Angle="20" />
+                </DrawingBrush.Transform>
+                <DrawingBrush.Drawing>
+                    <GeometryDrawing Brush="{StaticResource WarningStripeBrush}">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,20,32" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
         </Setter>
 
         <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
@@ -531,23 +523,21 @@
                   BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
                   TargetType="ProgressBar">
         <Setter Property="Foreground">
-            <Setter.Value>
-                <DrawingBrush TileMode="Tile"
-                              SourceRect="0,0,20,32"
-                              DestinationRect="0,0,20,32"
-                              Stretch="None">
-                    <DrawingBrush.Transform>
-                        <RotateTransform Angle="20" />
-                    </DrawingBrush.Transform>
-                    <DrawingBrush.Drawing>
-                        <GeometryDrawing Brush="{StaticResource DangerStripeBrush}">
-                            <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32" />
-                            </GeometryDrawing.Geometry>
-                        </GeometryDrawing>
-                    </DrawingBrush.Drawing>
-                </DrawingBrush>
-            </Setter.Value>
+            <DrawingBrush TileMode="Tile"
+                          SourceRect="0,0,20,32"
+                          DestinationRect="0,0,20,32"
+                          Stretch="None">
+                <DrawingBrush.Transform>
+                    <RotateTransform Angle="20" />
+                </DrawingBrush.Transform>
+                <DrawingBrush.Drawing>
+                    <GeometryDrawing Brush="{StaticResource DangerStripeBrush}">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,20,32" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
         </Setter>
 
         <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">

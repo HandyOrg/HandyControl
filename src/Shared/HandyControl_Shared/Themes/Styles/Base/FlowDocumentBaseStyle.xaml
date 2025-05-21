@@ -16,23 +16,25 @@
             <Setter.Value>
                 <ControlTemplate TargetType="FlowDocumentScrollViewer">
                     <DockPanel Background="{TemplateBinding Background}" LastChildFill="True">
-                        <Grid x:Name="PART_ToolBarHost" Panel.ZIndex="1" DockPanel.Dock="Bottom" Margin="0,6">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Border x:Name="PART_FindToolBarHost" Grid.Column="0" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Center"/>
-                            <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Decorator x:Name="PART_ToolBarHost" Panel.ZIndex="1" DockPanel.Dock="Bottom" Margin="0,6">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <RepeatButton Height="20" Width="20" Padding="5,8" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource SubGeometry}" Grid.Column="0" Command="NavigationCommands.DecreaseZoom" IsEnabled="{TemplateBinding CanDecreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomOut}"/>
-                                <Slider hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" Grid.Column="1" HorizontalAlignment="Stretch" LargeChange="{TemplateBinding ZoomIncrement}" Maximum="{TemplateBinding MaxZoom}" Minimum="{TemplateBinding MinZoom}" SmallChange="{TemplateBinding ZoomIncrement}" TickFrequency="{TemplateBinding ZoomIncrement}" Value="{Binding Zoom, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="180"/>
-                                <RepeatButton Height="20" Width="20" Padding="4" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource AddGeometry}" Grid.Column="2" Command="NavigationCommands.IncreaseZoom" IsEnabled="{TemplateBinding CanIncreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomIn}"/>
+                                <Border x:Name="PART_FindToolBarHost" Grid.Column="0" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Center"/>
+                                <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RepeatButton Height="20" Width="20" Padding="5,8" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource SubGeometry}" Grid.Column="0" Command="NavigationCommands.DecreaseZoom" IsEnabled="{TemplateBinding CanDecreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomOut}"/>
+                                    <Slider hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" Grid.Column="1" HorizontalAlignment="Stretch" LargeChange="{TemplateBinding ZoomIncrement}" Maximum="{TemplateBinding MaxZoom}" Minimum="{TemplateBinding MinZoom}" SmallChange="{TemplateBinding ZoomIncrement}" TickFrequency="{TemplateBinding ZoomIncrement}" Value="{Binding Zoom, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="180"/>
+                                    <RepeatButton Height="20" Width="20" Padding="4" hc:BorderElement.CornerRadius="10" hc:IconElement.Geometry="{StaticResource AddGeometry}" Grid.Column="2" Command="NavigationCommands.IncreaseZoom" IsEnabled="{TemplateBinding CanIncreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomIn}"/>
+                                </Grid>
                             </Grid>
-                        </Grid>
+                        </Decorator>
                         <Border Panel.ZIndex="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{TemplateBinding Padding}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
@@ -183,5 +185,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
 </ResourceDictionary>

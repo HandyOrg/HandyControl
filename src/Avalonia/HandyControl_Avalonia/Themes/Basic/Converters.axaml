@@ -10,5 +10,8 @@
     <hc:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
     <hc:DoubleExpandConverter x:Key="DoubleExpandConverter" />
     <avalonia:StringFormatConverter x:Key="StringFormatConverter" />
+    <avalonia:MarginMultiplierConverter x:Key="LeftMarginConverter"
+                                        Indent="16"
+                                        Left="True" />
 
 </ResourceDictionary>

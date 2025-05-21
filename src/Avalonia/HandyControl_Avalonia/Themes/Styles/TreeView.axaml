@@ -1,0 +1,187 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <Geometry x:Key="TreeArrow">M508.893248 762.931659a65.039498 65.039498 0 0 1-46.420659-19.485839L97.125746 371.004022c-25.143018-25.634319-24.752868-66.816849 0.881451-91.959868 25.648769-25.164693 66.809624-24.745643 91.959867 0.881451l318.933409 325.125238 318.933408-325.125238a65.025048 65.025048 0 0 1 92.841318 91.078417L555.313907 743.44582a65.025048 65.025048 0 0 1-46.420659 19.485839z</Geometry>
+
+    <ControlTheme x:Key="ExpandCollapseToggleStyle"
+                  TargetType="ToggleButton">
+        <Setter Property="Width"
+                Value="16" />
+        <Setter Property="Height"
+                Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="Transparent"
+                        Height="16"
+                        Padding="4"
+                        Width="16">
+                    <Path x:Name="expandPath"
+                          Stretch="Uniform"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Data="{StaticResource TreeArrow}"
+                          Fill="{TemplateBinding Foreground}">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="-90" />
+                        </Path.RenderTransform>
+                    </Path>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked /template/ Path#expandPath">
+            <Setter Property="RenderTransform">
+                <RotateTransform Angle="0" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TreeViewItemBaseStyle"
+                  TargetType="TreeViewItem">
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Margin"
+                Value="0,0,0,2" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel>
+                    <Border Name="SelectionBorder"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Focusable="True"
+                            Padding="{TemplateBinding Padding}"
+                            TemplatedControl.IsTemplateFocusTarget="True">
+                        <Grid Name="PART_Header"
+                              Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}"
+                              ColumnDefinitions="16, *">
+                            <ToggleButton Name="PART_ExpandCollapseChevron"
+                                          Focusable="False"
+                                          Background="Transparent"
+                                          IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+                                          Theme="{StaticResource ExpandCollapseToggleStyle}" />
+                            <ContentPresenter Name="PART_HeaderPresenter"
+                                              Grid.Column="1"
+                                              Background="Transparent"
+                                              VerticalAlignment="Center"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalAlignment}"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              Focusable="False" />
+                        </Grid>
+                    </Border>
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    IsVisible="{TemplateBinding IsExpanded}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Border#SelectionBorder:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ Border#SelectionBorder, ^ /template/ Border#SelectionBorder:pointerover">
+                <Setter Property="Background"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource TextIconBrush}" />
+            </Style>
+            <Style Selector="^ /template/ ToggleButton#PART_ExpandCollapseChevron">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource TextIconBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
+            <Setter Property="IsVisible"
+                    Value="False" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TreeViewBaseStyle"
+                  TargetType="TreeView">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Padding"
+                Value="2,2,2,0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled"
+                Value="True" />
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource TreeViewItemBaseStyle}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                  IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                  VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
+                                  HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TreeView}"
+                  BasedOn="{StaticResource TreeViewBaseStyle}"
+                  TargetType="TreeView" />
+
+    <ControlTheme x:Key="TreeViewItemBaseStyle.Small"
+                  BasedOn="{StaticResource TreeViewItemBaseStyle}"
+                  TargetType="TreeViewItem">
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="24" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TreeView.Small"
+                  BasedOn="{StaticResource TreeViewBaseStyle}"
+                  TargetType="TreeView">
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource TreeViewItemBaseStyle.Small}" />
+    </ControlTheme>
+</ResourceDictionary>

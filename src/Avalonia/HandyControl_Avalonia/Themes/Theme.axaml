@@ -26,10 +26,10 @@
                 <MergeResourceInclude Source="/Themes/Styles/CheckBox.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Border.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ItemsControl.axaml" />
-                <MergeResourceInclude Source="/Themes/Styles/TabItem.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/TabControl.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ScrollViewer.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ListBox.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/TreeView.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Label.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Slider.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Expander.axaml" />

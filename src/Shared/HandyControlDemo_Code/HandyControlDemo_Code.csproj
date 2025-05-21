@@ -3,7 +3,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net481;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net481;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows;net9.0-windows</TargetFrameworks>
     <NoWarn>MSB3026;MSB3061</NoWarn>
     <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
   </PropertyGroup>
@@ -100,6 +100,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml">
       <Link>UserControl\Controls\CompareSliderDemo.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ConfettiCannonDemo.xaml">
+      <Link>UserControl\Controls\ConfettiCannonDemo.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml">
       <Link>UserControl\Controls\CoverFlowDemo.xaml</Link>
@@ -494,6 +497,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml.cs">
       <Link>UserControl\Controls\CompareSliderDemo.xaml.cs</Link>
       <DependentUpon>CompareSliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ConfettiCannonDemo.xaml.cs">
+      <Link>UserControl\Controls\ConfettiCannonDemo.xaml.cs</Link>
+      <DependentUpon>ConfettiCannonDemo.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml.cs">
       <Link>UserControl\Controls\CoverFlowDemo.xaml.cs</Link>

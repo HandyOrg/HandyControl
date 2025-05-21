@@ -64,6 +64,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemo.xaml.cs">
       <DependentUpon>AutoCompleteTextBoxDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ConfettiCannonDemo.xaml.cs">
+      <DependentUpon>ConfettiCannonDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemo.xaml.cs">
       <DependentUpon>ElementGroupDemo.xaml</DependentUpon>
     </Compile>
@@ -551,6 +554,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ConfettiCannonDemo.xaml" />
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -22,7 +22,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '9.0.x'
 
       - name: Publish
         working-directory: ./build
@@ -31,8 +31,7 @@ jobs:
             git config --local user.email "836904362@qq.com"
             dotnet new tool-manifest
             dotnet tool install cake.tool --version 4.0.0
-            dotnet tool install minver-cli --version 3.0.0
-            dotnet cake --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }}
+            dotnet cake --target publish --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }} --nuget-token=${{ secrets.NUGETTOKEN }}
 
       - name: Push git changes
         uses: ad-m/github-push-action@master
@@ -40,9 +39,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
           tags: true
-
-      - name: Push to nuget
-        run: dotnet nuget push ./build/outputs/nuget/HandyControl.*nupkg -k ${{ secrets.NUGETTOKEN }}
 
       - name: Create github release
         uses: softprops/action-gh-release@v2
