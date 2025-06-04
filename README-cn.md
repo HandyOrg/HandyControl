@@ -1,3 +1,6 @@
+### 找工作
+我有一个朋友，9 年工作经验，github 主页：https://github.com/DingpingZhang 目前在找上海的工作。他熟悉设计模式并具有大型客户端架构经验，技术栈涉及：python、wpf、pg、react，有意向可联系邮箱：dingpingzhang@outlook.com
+
 ## 友情链接
 
 [SimpleFactoryGenerator](https://github.com/DingpingZhang/SimpleFactoryGenerator) - A simple factory source generator that enables the pattern to not violate the open-close principle.
