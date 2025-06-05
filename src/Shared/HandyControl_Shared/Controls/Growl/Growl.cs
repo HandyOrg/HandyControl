@@ -440,8 +440,19 @@ public class Growl : Control
 
     private static Panel CreateDefaultPanel()
     {
-        FrameworkElement element = WindowHelper.GetActiveWindow();
-        var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
+       var win = WindowHelper.GetActiveWindow();
+        win.Closed+= (s, e) =>
+        {
+            if (GrowlPanel != null)
+            {
+                foreach (var item in GrowlPanel.Children.OfType<Growl>())
+                {
+                    item.Close(false);
+                }
+                GrowlPanel = null;
+            }
+        };
+        var decorator = VisualHelper.GetChild<AdornerDecorator>(win);
 
         if (decorator != null)
         {
