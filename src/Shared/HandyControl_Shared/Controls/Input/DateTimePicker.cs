@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
+using HandyControl.Data.Enum;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls;
@@ -91,6 +92,24 @@ public class DateTimePicker : Control
     }
 
     #region Public Properties
+
+    public static readonly DependencyProperty ClockTypeProperty = DependencyProperty.Register(
+        nameof(ClockType),
+        typeof(ClockType),
+        typeof(DateTimePicker),
+        new PropertyMetadata(ClockType.Clock, ClockStyleChanged));
+
+    private static void ClockStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var dp = (DateTimePicker) d;
+        dp._calendarWithClock.ClockType = (ClockType) e.NewValue;
+    }
+
+    public ClockType ClockType
+    {
+        get { return (ClockType) GetValue(ClockTypeProperty); }
+        set { SetValue(ClockTypeProperty, value); }
+    }
 
     public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
         nameof(DateTimeFormat), typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
