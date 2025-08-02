@@ -107,6 +107,8 @@
     <SolidColorBrush x:Key="DarkAccentBrush"
                      Color="{DynamicResource DarkAccentColor}" />
 
+    <SolidColorBrush x:Key="HighlightBrush"
+                     Color="{DynamicResource HighlightColor}" />
     <SolidColorBrush x:Key="DarkMaskBrush"
                      Color="{DynamicResource DarkMaskColor}" />
     <SolidColorBrush x:Key="DarkOpacityBrush"

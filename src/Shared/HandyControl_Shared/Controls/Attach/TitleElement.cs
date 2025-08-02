@@ -16,7 +16,7 @@ public class TitleElement
         => (string) element.GetValue(TitleProperty);
 
     public static readonly DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached(
-        "Background", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "Background", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetBackground(DependencyObject element, Brush value)
         => element.SetValue(BackgroundProperty, value);
@@ -25,7 +25,7 @@ public class TitleElement
         => (Brush) element.GetValue(BackgroundProperty);
 
     public static readonly DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached(
-        "Foreground", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "Foreground", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetForeground(DependencyObject element, Brush value)
         => element.SetValue(ForegroundProperty, value);
@@ -34,7 +34,7 @@ public class TitleElement
         => (Brush) element.GetValue(ForegroundProperty);
 
     public static readonly DependencyProperty BorderBrushProperty = DependencyProperty.RegisterAttached(
-        "BorderBrush", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));
+        "BorderBrush", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetBorderBrush(DependencyObject element, Brush value)
         => element.SetValue(BorderBrushProperty, value);

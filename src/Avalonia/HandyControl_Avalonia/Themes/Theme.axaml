@@ -35,6 +35,7 @@
                 <MergeResourceInclude Source="/Themes/Styles/Expander.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ProgressBar.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Calendar.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/TextBox.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

@@ -9,6 +9,7 @@
     <hc:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
     <hc:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
     <hc:DoubleExpandConverter x:Key="DoubleExpandConverter" />
+    <hc:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
     <avalonia:StringFormatConverter x:Key="StringFormatConverter" />
     <avalonia:MarginMultiplierConverter x:Key="LeftMarginConverter"
                                         Indent="16"

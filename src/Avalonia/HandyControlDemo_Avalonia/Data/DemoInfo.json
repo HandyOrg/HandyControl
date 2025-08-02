@@ -13,7 +13,7 @@
       [ "ScrollViewer", "NativeScrollViewerDemo", "Brush.ScrollBox", "", "" ],
       [ "Slider", "SliderDemo", "Brush.Slider", "", "" ],
       [ "TextBlock", "TextBlockDemo", "Brush.TextBlock", "", "" ],
-      [ "TextBox", "NativeTextBoxDemo", "Brush.TextBox", "", "" ],
+      [ "TextBox", "TextBoxDemo", "Brush.TextBox", "", "" ],
       [ "ComboBox", "NativeComboBoxDemo", "Brush.ComboBox", "", "" ],
       [ "PasswordBox", "NativePasswordBoxDemo", "Brush.PasswordBox", "", "" ],
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],

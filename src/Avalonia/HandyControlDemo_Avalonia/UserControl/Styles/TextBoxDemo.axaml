@@ -1,0 +1,90 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="HandyControlDemo.UserControl.TextBoxDemo">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Spacing="32"
+                                Margin="32"
+                                ChildWrapping="Wrap">
+            <StackPanel>
+                <TextBox Text="This is the content" />
+                <TextBox Text="This is the content"
+                         Margin="0,16,0,0"
+                         IsEnabled="False" />
+
+                <TextBox hc:TitleElement.Title="This is the title"
+                         Theme="{StaticResource TextBoxExtend}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox hc:TitleElement.Title="This is the title"
+                         Theme="{StaticResource TextBoxExtend}"
+                         Margin="0,16,0,0"
+                         Text="This is the content"
+                         IsEnabled="False" />
+                <TextBox Watermark="please enter email"
+                         hc:TitleElement.Title="This item must be filled in"
+                         Theme="{StaticResource TextBoxExtend}"
+                         hc:InfoElement.Necessary="True"
+                         Margin="0,16,0,0" />
+                <TextBox Width="380"
+                         hc:TitleElement.TitleWidth="120"
+                         hc:TitleElement.TitlePlacement="Left"
+                         hc:TitleElement.Title="The title is on the left"
+                         Theme="{StaticResource TextBoxExtend}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox Width="380"
+                         hc:TitleElement.TitleWidth="120"
+                         Watermark="Please enter content"
+                         hc:TitleElement.TitlePlacement="Left"
+                         hc:TitleElement.Title="The title is on the left"
+                         hc:InfoElement.Necessary="True"
+                         Theme="{StaticResource TextBoxExtend}"
+                         Margin="0,16,0,0" />
+            </StackPanel>
+            <StackPanel>
+                <TextBox Text="This is the content"
+                         Theme="{StaticResource TextBox.Small}" />
+                <TextBox Text="This is the content"
+                         Margin="0,16,0,0"
+                         IsEnabled="False"
+                         Theme="{StaticResource TextBox.Small}" />
+
+                <TextBox hc:TitleElement.Title="This is the title"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox hc:TitleElement.Title="This is the title"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         Margin="0,16,0,0"
+                         Text="This is the content"
+                         IsEnabled="False" />
+                <TextBox Watermark="please enter email"
+                         hc:TitleElement.Title="This item must be filled in"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         hc:InfoElement.Necessary="True"
+                         Margin="0,16,0,0" />
+                <TextBox Width="380"
+                         hc:TitleElement.TitleWidth="120"
+                         hc:TitleElement.TitlePlacement="Left"
+                         hc:TitleElement.Title="The title is on the left"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox Width="380"
+                         hc:TitleElement.TitleWidth="120"
+                         Watermark="Please enter content"
+                         hc:TitleElement.TitlePlacement="Left"
+                         hc:TitleElement.Title="The title is on the left"
+                         hc:InfoElement.Necessary="True"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         Margin="0,16,0,0" />
+            </StackPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

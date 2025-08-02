@@ -44,6 +44,7 @@
             <Color x:Key="AccentColor">#f8491e</Color>
             <Color x:Key="DarkAccentColor">#f8491e</Color>
 
+            <Color x:Key="HighlightColor">#783399FF</Color>
             <Color x:Key="DarkMaskColor">#20000000</Color>
             <Color x:Key="DarkOpacityColor">#40000000</Color>
             <system:UInt32 x:Key="BlurGradientValue">2583691263</system:UInt32>
@@ -90,6 +91,7 @@
             <Color x:Key="AccentColor">#ff5722</Color>
             <Color x:Key="DarkAccentColor">#d43f3a</Color>
 
+            <Color x:Key="HighlightColor">#783399FF</Color>
             <Color x:Key="DarkMaskColor">#40000000</Color>
             <Color x:Key="DarkOpacityColor">#40000000</Color>
             <system:UInt32 x:Key="BlurGradientValue">2583691263</system:UInt32>
