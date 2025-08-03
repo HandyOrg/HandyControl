@@ -7,7 +7,7 @@ namespace HandyControl.Tools.Converter;
 
 public class Double2GridLengthConverter : IValueConverter
 {
-    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not double doubleValue)
         {
@@ -22,7 +22,7 @@ public class Double2GridLengthConverter : IValueConverter
         return new GridLength(doubleValue);
     }
 
-    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         throw new NotSupportedException();
     }

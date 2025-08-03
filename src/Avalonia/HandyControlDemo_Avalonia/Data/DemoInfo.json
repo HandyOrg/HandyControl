@@ -24,11 +24,8 @@
       [ "DataGrid", "DataGridDemo", "Brush.DataGrid", "", "" ],
       [ "TreeView", "TreeViewDemo", "Brush.TreeView", "", "" ],
       [ "ListBox", "ListBoxDemo", "Brush.ListBox", "", "" ],
-      [ "ListView", "ListViewDemo", "Brush.ListView", "", "" ],
       [ "GroupBox", "GroupBoxDemo", "Brush.GroupBox", "", "" ],
       [ "Menu", "MenuDemo", "Brush.ContextMenu", "", "" ],
-      [ "RichTextBox", "RichTextBoxDemo", "Brush.RichTextBox", "", "" ],
-      [ "FlowDocument", "FlowDocumentDemo", "Brush.WPFFlowDocument", "", "" ],
       [ "ToolBar", "ToolBarDemo", "Brush.ToolBar", "", "" ],
       [ "Border", "BorderDemo", "Brush.BorderElement", "", "" ],
       [ "Label", "LabelDemo", "Brush.Label", "", "" ],
@@ -121,7 +118,7 @@
     "group": false,
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemo", "Brush.DataGenerator", "", "" ],
-      [ "Morphing_Animation", "GeometryAnimationDemo", "Brush.Animation", "", "" ],
+      [ "MorphingAnimation", "GeometryAnimationDemo", "Brush.Animation", "", "" ],
       [ "Effects", "EffectsDemo", "Brush.Effects", "", "" ]
     ]
   }

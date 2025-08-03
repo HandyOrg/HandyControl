@@ -1,20 +1,20 @@
-﻿using System;
+using System;
 using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
+using Avalonia;
+using Avalonia.Data.Converters;
 
 namespace HandyControl.Tools.Converter;
 
 public class ThicknessSplitConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not Thickness thickness || parameter is not string str)
         {
             return value;
         }
 
-        var arr = str.Split(',');
+        string[] arr = str.Split(',');
 
         if (arr.Length != 4)
         {
@@ -29,7 +29,7 @@ public class ThicknessSplitConverter : IValueConverter
         );
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         throw new NotSupportedException();
     }

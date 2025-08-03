@@ -22,6 +22,11 @@
                          Margin="0,32,0,0"
                          Text="This is the content" />
                 <TextBox hc:TitleElement.Title="This is the title"
+                         hc:InfoElement.ShowClearButton="True"
+                         Theme="{StaticResource TextBoxExtend}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox hc:TitleElement.Title="This is the title"
                          Theme="{StaticResource TextBoxExtend}"
                          Margin="0,16,0,0"
                          Text="This is the content"
@@ -56,6 +61,11 @@
                          Theme="{StaticResource TextBox.Small}" />
 
                 <TextBox hc:TitleElement.Title="This is the title"
+                         Theme="{StaticResource TextBoxExtend.Small}"
+                         Margin="0,32,0,0"
+                         Text="This is the content" />
+                <TextBox hc:TitleElement.Title="This is the title"
+                         hc:InfoElement.ShowClearButton="True"
                          Theme="{StaticResource TextBoxExtend.Small}"
                          Margin="0,32,0,0"
                          Text="This is the content" />
