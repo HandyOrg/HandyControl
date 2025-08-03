@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +27,11 @@ public class Growl : Control
     private const string ElementButtonClose = "PART_ButtonClose";
     private const int MinWaitTime = 2;
 
+    private static GrowlWindow GrowlWindow;
+
+    private static readonly ControlTokenManager<Panel> TokenManager =
+        new(registerCallback: OnTokenRegistered, unregisterCallback: OnTokenUnregistered);
+
     public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
         "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
         {
@@ -36,31 +40,40 @@ public class Growl : Control
                 SetGrowlPanel(panel);
             }
         }));
+
     public static readonly DependencyProperty ShowModeProperty = DependencyProperty.RegisterAttached(
         "ShowMode", typeof(GrowlShowMode), typeof(Growl),
         new FrameworkPropertyMetadata(default(GrowlShowMode), FrameworkPropertyMetadataOptions.Inherits));
+
     public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
         nameof(ShowDateTime), typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
+
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
         nameof(Message), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
     public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
         nameof(Time), typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
+
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
         nameof(Icon), typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
+
     public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
         nameof(IconBrush), typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
+
     public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
         nameof(Type), typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
+
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
-        "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
+        "Token", typeof(string), typeof(Growl), new PropertyMetadata(null, TokenManager.OnTokenChanged));
+
     internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
         nameof(CancelStr), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
     internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
         nameof(ConfirmStr), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
     private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
         "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
-    private static GrowlWindow GrowlWindow;
-    private static readonly Dictionary<string, Panel> PanelDic = new();
 
     private Panel _panelMore;
     private Grid _gridMain;
@@ -141,51 +154,15 @@ public class Growl : Control
         CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonOk_OnClick));
     }
 
-    public static void Register(string token, Panel panel)
+    private static void OnTokenRegistered(string token, Panel panel)
     {
-        if (string.IsNullOrEmpty(token) || panel == null) return;
-        PanelDic[token] = panel;
         InitGrowlPanel(panel);
     }
 
-    public static void Unregister(string token, Panel panel)
+    private static void OnTokenUnregistered(string token, Panel panel)
     {
-        if (string.IsNullOrEmpty(token) || panel == null) return;
-
-        if (PanelDic.ContainsKey(token))
-        {
-            if (ReferenceEquals(PanelDic[token], panel))
-            {
-                PanelDic.Remove(token);
-                panel.ContextMenu = null;
-                panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
-            }
-        }
-    }
-
-    public static void Unregister(Panel panel)
-    {
-        if (panel == null) return;
-        var first = PanelDic.FirstOrDefault(item => ReferenceEquals(panel, item.Value));
-        if (!string.IsNullOrEmpty(first.Key))
-        {
-            PanelDic.Remove(first.Key);
-            panel.ContextMenu = null;
-            panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
-        }
-    }
-
-    public static void Unregister(string token)
-    {
-        if (string.IsNullOrEmpty(token)) return;
-
-        if (PanelDic.ContainsKey(token))
-        {
-            var panel = PanelDic[token];
-            PanelDic.Remove(token);
-            panel.ContextMenu = null;
-            panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
-        }
+        panel.ContextMenu = null;
+        panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
     }
 
     protected override void OnMouseEnter(MouseEventArgs e)
@@ -219,36 +196,26 @@ public class Growl : Control
         if (_panelMore == null || _gridMain == null || _buttonClose == null) throw new Exception();
     }
 
-    private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is Panel panel)
-        {
-            if (e.NewValue == null)
-            {
-                Unregister(panel);
-            }
-            else
-            {
-                Register(e.NewValue.ToString(), panel);
-            }
-        }
-    }
-
     public static void SetToken(DependencyObject element, string value) => element.SetValue(TokenProperty, value);
 
     public static string GetToken(DependencyObject element) => (string) element.GetValue(TokenProperty);
 
-    public static void SetShowMode(DependencyObject element, GrowlShowMode value) => element.SetValue(ShowModeProperty, value);
+    public static void SetShowMode(DependencyObject element, GrowlShowMode value) =>
+        element.SetValue(ShowModeProperty, value);
 
-    public static GrowlShowMode GetShowMode(DependencyObject element) => (GrowlShowMode) element.GetValue(ShowModeProperty);
+    public static GrowlShowMode GetShowMode(DependencyObject element) =>
+        (GrowlShowMode) element.GetValue(ShowModeProperty);
 
-    public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
+    public static void SetGrowlParent(DependencyObject element, bool value) =>
+        element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
     public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
 
-    private static void SetIsCreatedAutomatically(DependencyObject element, bool value) => element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
+    private static void SetIsCreatedAutomatically(DependencyObject element, bool value) =>
+        element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
 
-    private static bool GetIsCreatedAutomatically(DependencyObject element) => (bool) element.GetValue(IsCreatedAutomaticallyProperty);
+    private static bool GetIsCreatedAutomatically(DependencyObject element) =>
+        (bool) element.GetValue(IsCreatedAutomaticallyProperty);
 
     /// <summary>
     ///     开始计时器
@@ -308,7 +275,8 @@ public class Growl : Control
             }
         };
 
-        PanelElement.SetFluidMoveBehavior(panel, ResourceHelper.GetResourceInternal<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
+        PanelElement.SetFluidMoveBehavior(panel,
+            ResourceHelper.GetResourceInternal<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
     }
 
     private void Update()
@@ -353,37 +321,37 @@ public class Growl : Control
 #if NET40
             new Action(
 #endif
-                () =>
+            () =>
+            {
+                if (GrowlWindow == null)
                 {
-                    if (GrowlWindow == null)
-                    {
-                        GrowlWindow = new GrowlWindow();
-                        GrowlWindow.Show();
-                        InitGrowlPanel(GrowlWindow.GrowlPanel);
-                        GrowlWindow.Init();
-                    }
-
-                    GrowlWindow.Show(true);
-
-                    var ctl = new Growl
-                    {
-                        Message = growlInfo.Message,
-                        Time = DateTime.Now,
-                        Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
-                        IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
-                        _showCloseButton = growlInfo.ShowCloseButton,
-                        ActionBeforeClose = growlInfo.ActionBeforeClose,
-                        _staysOpen = growlInfo.StaysOpen,
-                        ShowDateTime = growlInfo.ShowDateTime,
-                        ConfirmStr = growlInfo.ConfirmStr,
-                        CancelStr = growlInfo.CancelStr,
-                        Type = growlInfo.Type,
-                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
-                        FlowDirection = growlInfo.FlowDirection
-                    };
-
-                    ShowInternal(GrowlWindow.GrowlPanel, ctl);
+                    GrowlWindow = new GrowlWindow();
+                    GrowlWindow.Show();
+                    InitGrowlPanel(GrowlWindow.GrowlPanel);
+                    GrowlWindow.Init();
                 }
+
+                GrowlWindow.Show(true);
+
+                var ctl = new Growl
+                {
+                    Message = growlInfo.Message,
+                    Time = DateTime.Now,
+                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
+                    _showCloseButton = growlInfo.ShowCloseButton,
+                    ActionBeforeClose = growlInfo.ActionBeforeClose,
+                    _staysOpen = growlInfo.StaysOpen,
+                    ShowDateTime = growlInfo.ShowDateTime,
+                    ConfirmStr = growlInfo.ConfirmStr,
+                    CancelStr = growlInfo.CancelStr,
+                    Type = growlInfo.Type,
+                    _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
+                    FlowDirection = growlInfo.FlowDirection
+                };
+
+                ShowInternal(GrowlWindow.GrowlPanel, ctl);
+            }
 #if NET40
             )
 #endif
@@ -400,38 +368,38 @@ public class Growl : Control
 #if NET40
             new Action(
 #endif
-                () =>
+            () =>
+            {
+                var ctl = new Growl
                 {
-                    var ctl = new Growl
-                    {
-                        Message = growlInfo.Message,
-                        Time = DateTime.Now,
-                        Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
-                        IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
-                        _showCloseButton = growlInfo.ShowCloseButton,
-                        ActionBeforeClose = growlInfo.ActionBeforeClose,
-                        _staysOpen = growlInfo.StaysOpen,
-                        ShowDateTime = growlInfo.ShowDateTime,
-                        ConfirmStr = growlInfo.ConfirmStr,
-                        CancelStr = growlInfo.CancelStr,
-                        Type = growlInfo.Type,
-                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime)
-                    };
+                    Message = growlInfo.Message,
+                    Time = DateTime.Now,
+                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
+                    _showCloseButton = growlInfo.ShowCloseButton,
+                    ActionBeforeClose = growlInfo.ActionBeforeClose,
+                    _staysOpen = growlInfo.StaysOpen,
+                    ShowDateTime = growlInfo.ShowDateTime,
+                    ConfirmStr = growlInfo.ConfirmStr,
+                    CancelStr = growlInfo.CancelStr,
+                    Type = growlInfo.Type,
+                    _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime)
+                };
 
-                    if (!string.IsNullOrEmpty(growlInfo.Token))
+                if (!string.IsNullOrEmpty(growlInfo.Token))
+                {
+                    if (TokenManager.TryGetControl(growlInfo.Token, out var panel))
                     {
-                        if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
-                        {
-                            ShowInternal(panel, ctl);
-                        }
-                    }
-                    else
-                    {
-                        // GrowlPanel is null, we create it automatically
-                        GrowlPanel ??= CreateDefaultPanel();
-                        ShowInternal(GrowlPanel, ctl);
+                        ShowInternal(panel, ctl);
                     }
                 }
+                else
+                {
+                    // GrowlPanel is null, we create it automatically
+                    GrowlPanel ??= CreateDefaultPanel();
+                    ShowInternal(GrowlPanel, ctl);
+                }
+            }
 #if NET40
             )
 #endif
@@ -514,6 +482,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.SuccessGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.SuccessBrush;
                 }
+
                 break;
             case InfoType.Info:
                 if (!growlInfo.IsCustom)
@@ -526,6 +495,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.InfoGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.InfoBrush;
                 }
+
                 break;
             case InfoType.Warning:
                 if (!growlInfo.IsCustom)
@@ -538,6 +508,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.WarningGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.WarningBrush;
                 }
+
                 break;
             case InfoType.Error:
                 if (!growlInfo.IsCustom)
@@ -551,6 +522,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.ErrorGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.DangerBrush;
                 }
+
                 break;
             case InfoType.Fatal:
                 if (!growlInfo.IsCustom)
@@ -565,6 +537,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.FatalGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.PrimaryTextBrush;
                 }
+
                 break;
             case InfoType.Ask:
                 growlInfo.StaysOpen = true;
@@ -579,6 +552,7 @@ public class Growl : Control
                     growlInfo.IconKey ??= ResourceToken.AskGeometry;
                     growlInfo.IconBrushKey ??= ResourceToken.AccentBrush;
                 }
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(infoType), infoType, null);
@@ -844,7 +818,8 @@ public class Growl : Control
         _timerClose?.Stop();
         var transform = new TranslateTransform();
         _gridMain.RenderTransform = transform;
-        var animation = AnimationHelper.CreateAnimation(FlowDirection == FlowDirection.LeftToRight ? ActualWidth : -ActualWidth);
+        var animation =
+            AnimationHelper.CreateAnimation(FlowDirection == FlowDirection.LeftToRight ? ActualWidth : -ActualWidth);
         animation.Completed += (s, e) =>
         {
             if (Parent is Panel panel)
@@ -853,7 +828,7 @@ public class Growl : Control
 
                 if (GrowlWindow != null)
                 {
-                    if (GrowlWindow.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                    if (GrowlWindow.GrowlPanel is { Children.Count: 0 })
                     {
                         GrowlWindow.Close();
                         GrowlWindow = null;
@@ -861,9 +836,9 @@ public class Growl : Control
                 }
                 else
                 {
-                    if (GrowlPanel != null && GrowlPanel.Children.Count == 0 && GetIsCreatedAutomatically(GrowlPanel))
+                    if (GrowlPanel is { Children.Count: 0 } && GetIsCreatedAutomatically(GrowlPanel))
                     {
-                        // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically  
+                        // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically
                         RemoveDefaultPanel(GrowlPanel);
                         GrowlPanel = null;
                     }
@@ -881,7 +856,7 @@ public class Growl : Control
     {
         if (!string.IsNullOrEmpty(token))
         {
-            if (PanelDic.TryGetValue(token, out var panel))
+            if (TokenManager.TryGetControl(token, out var panel))
             {
                 Clear(panel);
             }

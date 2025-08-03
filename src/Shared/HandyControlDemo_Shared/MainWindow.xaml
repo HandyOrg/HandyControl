@@ -11,7 +11,7 @@
            Background="{DynamicResource SecondaryRegionBrush}"
            ResizeMode="CanResizeWithGrip"
            WindowStartupLocation="CenterScreen"
-           d:DesignHeight="800" 
+           d:DesignHeight="800"
            d:DesignWidth="1400"
            hc:Empty.ShowEmpty="True"
            Icon="/HandyControlDemo;component/Resources/Img/icon.ico">

@@ -13,8 +13,11 @@ namespace HandyControl.Controls;
 
 public class ConfettiCannon
 {
+    private static readonly ControlTokenManager<FrameworkElement> TokenManager =
+        new(unregisterCallback: OnTokenUnregistered);
+
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
-        "Token", typeof(string), typeof(ConfettiCannon), new PropertyMetadata(null, OnTokenChanged));
+        "Token", typeof(string), typeof(ConfettiCannon), new PropertyMetadata(null, TokenManager.OnTokenChanged));
 
     public static void SetToken(DependencyObject element, string value)
         => element.SetValue(TokenProperty, value);
@@ -23,7 +26,6 @@ public class ConfettiCannon
         => (string) element.GetValue(TokenProperty);
 
     private static readonly ConcurrentDictionary<string, ConfettiCannon> ConfettiCannons = new();
-    private static readonly Dictionary<string, FrameworkElement> ContainerDict = new();
     private static readonly Lazy<ConfettiCannon> DefaultConfettiCannon = new(() => new ConfettiCannon(), true);
     private static readonly Random Random = new();
 
@@ -50,35 +52,8 @@ public class ConfettiCannon
         confettiCannon.StartAnimation();
     }
 
-    public static void Register(string token, FrameworkElement element)
+    private static void OnTokenUnregistered(string token, FrameworkElement element)
     {
-        if (string.IsNullOrEmpty(token) || element is null)
-        {
-            return;
-        }
-
-        ContainerDict[token] = element;
-    }
-
-    public static void Unregister(FrameworkElement element)
-    {
-        if (element is null)
-        {
-            return;
-        }
-
-        var first = ContainerDict.FirstOrDefault(item => ReferenceEquals(element, item.Value));
-        Unregister(first.Key);
-    }
-
-    public static void Unregister(string token)
-    {
-        if (string.IsNullOrEmpty(token))
-        {
-            return;
-        }
-
-        ContainerDict.Remove(token);
         ConfettiCannons.TryRemove(token, out _);
     }
 
@@ -98,23 +73,6 @@ public class ConfettiCannon
         return ConfettiCannons[token];
     }
 
-    private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is not FrameworkElement element)
-        {
-            return;
-        }
-
-        if (e.NewValue is null)
-        {
-            Unregister(element);
-        }
-        else
-        {
-            Register(e.NewValue.ToString(), element);
-        }
-    }
-
     private static AdornerLayer GetAdornerLayer(string token)
     {
         AdornerDecorator decorator;
@@ -125,7 +83,7 @@ public class ConfettiCannon
         }
         else
         {
-            ContainerDict.TryGetValue(token, out FrameworkElement element);
+            TokenManager.TryGetControl(token, out FrameworkElement element);
             decorator = element is System.Windows.Window
                 ? VisualHelper.GetChild<AdornerDecorator>(element)
                 : VisualHelper.GetChild<ConfettiCannonContainer>(element);

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -20,7 +19,7 @@ public class Dialog : ContentControl
     private Border _backElement;
     private AdornerContainer _container;
 
-    private static readonly Dictionary<string, FrameworkElement> ContainerDict = new();
+    private static readonly ControlTokenManager<FrameworkElement> TokenManager = new();
     private static readonly Dictionary<string, Dialog> DialogDict = new();
 
     public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
@@ -33,7 +32,8 @@ public class Dialog : ContentControl
     }
 
     public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.RegisterAttached(
-        "MaskCanClose", typeof(bool), typeof(Dialog), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        "MaskCanClose", typeof(bool), typeof(Dialog),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetMaskCanClose(DependencyObject element, bool value)
         => element.SetValue(MaskCanCloseProperty, ValueBoxes.BooleanBox(value));
@@ -51,22 +51,7 @@ public class Dialog : ContentControl
     }
 
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
-        "Token", typeof(string), typeof(Dialog), new PropertyMetadata(default(string), OnTokenChanged));
-
-    private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is FrameworkElement element)
-        {
-            if (e.NewValue == null)
-            {
-                Unregister(element);
-            }
-            else
-            {
-                Register(e.NewValue.ToString(), element);
-            }
-        }
-    }
+        "Token", typeof(string), typeof(Dialog), new PropertyMetadata(null, TokenManager.OnTokenChanged));
 
     public static void SetToken(DependencyObject element, string value)
         => element.SetValue(TokenProperty, value);
@@ -77,45 +62,6 @@ public class Dialog : ContentControl
     public Dialog()
     {
         CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
-    }
-
-    public static void Register(string token, FrameworkElement element)
-    {
-        if (string.IsNullOrEmpty(token) || element == null) return;
-        ContainerDict[token] = element;
-    }
-
-    public static void Unregister(string token, FrameworkElement element)
-    {
-        if (string.IsNullOrEmpty(token) || element == null) return;
-
-        if (ContainerDict.ContainsKey(token))
-        {
-            if (ReferenceEquals(ContainerDict[token], element))
-            {
-                ContainerDict.Remove(token);
-            }
-        }
-    }
-
-    public static void Unregister(FrameworkElement element)
-    {
-        if (element == null) return;
-        var first = ContainerDict.FirstOrDefault(item => ReferenceEquals(element, item.Value));
-        if (!string.IsNullOrEmpty(first.Key))
-        {
-            ContainerDict.Remove(first.Key);
-        }
-    }
-
-    public static void Unregister(string token)
-    {
-        if (string.IsNullOrEmpty(token)) return;
-
-        if (ContainerDict.ContainsKey(token))
-        {
-            ContainerDict.Remove(token);
-        }
     }
 
     public static Dialog Show<T>(string token = "") where T : new() => Show(new T(), token);
@@ -140,10 +86,10 @@ public class Dialog : ContentControl
         {
             Close(token);
             DialogDict[token] = dialog;
-            ContainerDict.TryGetValue(token, out element);
-            decorator = element is System.Windows.Window ?
-                VisualHelper.GetChild<AdornerDecorator>(element) :
-                VisualHelper.GetChild<DialogContainer>(element);
+            TokenManager.TryGetControl(token, out element);
+            decorator = element is System.Windows.Window
+                ? VisualHelper.GetChild<AdornerDecorator>(element)
+                : VisualHelper.GetChild<DialogContainer>(element);
         }
 
         if (decorator != null)
@@ -183,7 +129,7 @@ public class Dialog : ContentControl
         {
             Close(WindowHelper.GetActiveWindow());
         }
-        else if (ContainerDict.TryGetValue(_token, out var element))
+        else if (TokenManager.TryGetControl(_token, out var element))
         {
             Close(element);
             DialogDict.Remove(_token);
@@ -216,6 +162,7 @@ public class Dialog : ContentControl
                 {
                     decorator.Child.IsEnabled = true;
                 }
+
                 var layer = decorator.AdornerLayer;
                 layer?.Remove(_container);
                 IsClosed = true;
