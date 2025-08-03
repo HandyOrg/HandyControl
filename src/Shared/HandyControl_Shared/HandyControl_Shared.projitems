@@ -363,10 +363,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\InteropValues.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\SafeFileMappingHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\WpfSafeHandle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\IPool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\SimplePool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Pool\SynchronizedPool`1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Collections\Queue\Deque`1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
