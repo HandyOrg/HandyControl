@@ -10,7 +10,8 @@ internal class ControlTokenManager<T>(
 )
     where T : FrameworkElement
 {
-    private static readonly Dictionary<string, WeakReference<T>> ControlDict = new();
+#if NET40
+    private readonly Dictionary<string, WeakReference> _controlDict = new();
 
     public void Register(string token, T control)
     {
@@ -19,7 +20,7 @@ internal class ControlTokenManager<T>(
             return;
         }
 
-        ControlDict[token] = new WeakReference<T>(control);
+        _controlDict[token] = new WeakReference(control);
         registerCallback?.Invoke(token, control);
     }
 
@@ -30,7 +31,115 @@ internal class ControlTokenManager<T>(
             return;
         }
 
-        if (!ControlDict.TryGetValue(token, out var reference))
+        if (!_controlDict.TryGetValue(token, out var reference))
+        {
+            return;
+        }
+
+        if (!ReferenceEquals(reference.Target, control))
+        {
+            return;
+        }
+
+        _controlDict.Remove(token);
+        unregisterCallback?.Invoke(token, control);
+    }
+
+    public void Unregister(T control)
+    {
+        if (control == null)
+        {
+            return;
+        }
+
+        string unregisteredToken = null;
+        foreach (var item in _controlDict)
+        {
+            if (!ReferenceEquals(control, item.Value.Target))
+            {
+                continue;
+            }
+
+            unregisteredToken = item.Key;
+            break;
+        }
+
+        if (unregisteredToken == null)
+        {
+            return;
+        }
+
+        _controlDict.Remove(unregisteredToken);
+        unregisterCallback?.Invoke(unregisteredToken, control);
+    }
+
+    public void Unregister(string token)
+    {
+        if (string.IsNullOrEmpty(token))
+        {
+            return;
+        }
+
+        if (!_controlDict.TryGetValue(token, out var reference))
+        {
+            return;
+        }
+
+        _controlDict.Remove(token);
+        unregisterCallback?.Invoke(token, (T) reference.Target);
+    }
+
+    public bool TryGetControl(string token, out T control)
+    {
+        control = null;
+
+        if (string.IsNullOrEmpty(token) || !_controlDict.TryGetValue(token, out var reference))
+        {
+            return false;
+        }
+
+        control = (T) reference.Target;
+        return true;
+    }
+
+    public void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not T control)
+        {
+            return;
+        }
+
+        if (e.NewValue == null)
+        {
+            Unregister(control);
+        }
+        else
+        {
+            Register(e.NewValue.ToString(), control);
+        }
+    }
+#else
+    private readonly Dictionary<string, WeakReference<T>> _controlDict = new();
+
+    public void Register(string token, T control)
+    {
+        if (string.IsNullOrEmpty(token) || control == null)
+        {
+            return;
+        }
+
+        _controlDict[token] = new WeakReference<T>(control);
+        registerCallback?.Invoke(token, control);
+    }
+
+    public void Unregister(string token, T control)
+    {
+        if (string.IsNullOrEmpty(token) || control == null)
+        {
+            return;
+        }
+
+        if (!_controlDict.TryGetValue(token, out var reference))
         {
             return;
         }
@@ -45,7 +154,7 @@ internal class ControlTokenManager<T>(
             return;
         }
 
-        ControlDict.Remove(token);
+        _controlDict.Remove(token);
         unregisterCallback?.Invoke(token, control);
     }
 
@@ -57,7 +166,7 @@ internal class ControlTokenManager<T>(
         }
 
         string unregisteredToken = null;
-        foreach (var item in ControlDict)
+        foreach (var item in _controlDict)
         {
             if (!item.Value.TryGetTarget(out var target) || !ReferenceEquals(control, target))
             {
@@ -73,7 +182,7 @@ internal class ControlTokenManager<T>(
             return;
         }
 
-        ControlDict.Remove(unregisteredToken);
+        _controlDict.Remove(unregisteredToken);
         unregisterCallback?.Invoke(unregisteredToken, control);
     }
 
@@ -84,12 +193,12 @@ internal class ControlTokenManager<T>(
             return;
         }
 
-        if (!ControlDict.TryGetValue(token, out var reference))
+        if (!_controlDict.TryGetValue(token, out var reference))
         {
             return;
         }
 
-        ControlDict.Remove(token);
+        _controlDict.Remove(token);
 
         if (!reference.TryGetTarget(out var target))
         {
@@ -103,7 +212,7 @@ internal class ControlTokenManager<T>(
     {
         control = null;
 
-        if (string.IsNullOrEmpty(token) || !ControlDict.TryGetValue(token, out var reference))
+        if (string.IsNullOrEmpty(token) || !_controlDict.TryGetValue(token, out var reference))
         {
             return false;
         }
@@ -127,4 +236,5 @@ internal class ControlTokenManager<T>(
             Register(e.NewValue.ToString(), control);
         }
     }
+#endif
 }
