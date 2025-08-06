@@ -19,9 +19,12 @@ public class ViewModelLocator
 
         services.AddSingleton<DataService>();
         services.AddTransient<MainViewModel>();
+        services.AddTransient<InputElementDemoViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
     }
 
     public MainViewModel Main => _serviceProvider.GetService<MainViewModel>()!;
+
+    public InputElementDemoViewModel InputElementDemo => _serviceProvider.GetService<InputElementDemoViewModel>()!;
 }

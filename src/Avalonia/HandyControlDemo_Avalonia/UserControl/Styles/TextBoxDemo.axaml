@@ -1,12 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
-             x:Class="HandyControlDemo.UserControl.TextBoxDemo">
+             xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             x:Class="HandyControlDemo.UserControl.TextBoxDemo"
+             DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
     <ScrollViewer>
         <hc:UniformSpacingPanel Spacing="32"
                                 Margin="32"
@@ -32,6 +29,7 @@
                          Text="This is the content"
                          IsEnabled="False" />
                 <TextBox Watermark="please enter email"
+                         Text="{Binding Email1, UpdateSourceTrigger=PropertyChanged}"
                          hc:TitleElement.Title="This item must be filled in"
                          Theme="{StaticResource TextBoxExtend}"
                          hc:InfoElement.Necessary="True"
@@ -44,6 +42,7 @@
                          Margin="0,32,0,0"
                          Text="This is the content" />
                 <TextBox Width="380"
+                         Text="{Binding Text1, UpdateSourceTrigger=PropertyChanged}"
                          hc:TitleElement.TitleWidth="120"
                          Watermark="Please enter content"
                          hc:TitleElement.TitlePlacement="Left"
@@ -75,6 +74,7 @@
                          Text="This is the content"
                          IsEnabled="False" />
                 <TextBox Watermark="please enter email"
+                         Text="{Binding Email2, UpdateSourceTrigger=PropertyChanged}"
                          hc:TitleElement.Title="This item must be filled in"
                          Theme="{StaticResource TextBoxExtend.Small}"
                          hc:InfoElement.Necessary="True"
@@ -87,6 +87,7 @@
                          Margin="0,32,0,0"
                          Text="This is the content" />
                 <TextBox Width="380"
+                         Text="{Binding Text2, UpdateSourceTrigger=PropertyChanged}"
                          hc:TitleElement.TitleWidth="120"
                          Watermark="Please enter content"
                          hc:TitleElement.TitlePlacement="Left"
