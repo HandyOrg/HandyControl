@@ -188,4 +188,6 @@ public static class ControlCommands
     public static RoutedCommand More { get; } = new(nameof(More), typeof(ControlCommands));
 
     public static RoutedCommand Toggle { get; } = new(nameof(Toggle), typeof(ControlCommands));
+
+    public static RoutedCommand Focus { get; } = new(nameof(Focus), typeof(ControlCommands));
 }
