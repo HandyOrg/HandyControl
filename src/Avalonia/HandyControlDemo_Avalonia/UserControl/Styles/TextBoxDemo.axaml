@@ -53,6 +53,7 @@
             </StackPanel>
             <StackPanel>
                 <TextBox Text="This is the content"
+                         PasswordChar="●"
                          Theme="{StaticResource TextBox.Small}" />
                 <TextBox Text="This is the content"
                          Margin="0,16,0,0"

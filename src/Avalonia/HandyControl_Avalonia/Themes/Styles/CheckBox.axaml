@@ -60,14 +60,16 @@
                                    Opacity="1"
                                    x:Name="indeterminateMark" />
                     </Panel>
-                    <ContentPresenter x:Name="contentPresenter"
-                                      IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                    <ContentPresenter Name="PART_ContentPresenter"
                                       Grid.Column="1"
-                                      Focusable="False"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                                       RecognizesAccessKey="True"
-                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
                 </Grid>
             </ControlTemplate>
         </Setter>

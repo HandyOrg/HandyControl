@@ -28,12 +28,6 @@
                         Height="16"
                         Margin="4,0,1,0"
                         Background="Transparent">
-                    <Canvas.Styles>
-                        <Style Selector="ToolTip">
-                            <Setter Property="BorderBrush"
-                                    Value="{DynamicResource DangerBrush}" />
-                        </Style>
-                    </Canvas.Styles>
                     <ToolTip.Tip>
                         <ItemsControl x:DataType="DataValidationErrors"
                                       ItemsSource="{Binding}" />
