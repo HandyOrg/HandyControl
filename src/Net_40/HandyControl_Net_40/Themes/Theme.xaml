@@ -11468,7 +11468,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ToolTip">
-					<Border Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" BorderThickness="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}">
+					<Border Margin="8" Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" BorderThickness="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}">
 						<ContentPresenter />
 					</Border>
 				</ControlTemplate>

@@ -20,6 +20,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"
+                                  Margin="8"
                                   Effect="{StaticResource EffectShadow2}"
                                   Background="{TemplateBinding Background}"
                                   Padding="{TemplateBinding Padding}"

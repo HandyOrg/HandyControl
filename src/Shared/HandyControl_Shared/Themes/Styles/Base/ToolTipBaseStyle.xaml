@@ -21,7 +21,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">
-                    <Border Effect="{StaticResource EffectShadow2}"
+                    <Border Margin="8"
+                            Effect="{StaticResource EffectShadow2}"
                             Background="{TemplateBinding Background}"
                             Padding="{TemplateBinding Padding}"
                             BorderThickness="1"
