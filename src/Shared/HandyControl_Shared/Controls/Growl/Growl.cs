@@ -262,7 +262,7 @@ public class Growl : Control
 
         menuItem.Click += (s, e) =>
         {
-            foreach (var item in panel.Children.OfType<Growl>())
+            foreach (var item in panel.Children.OfType<Growl>().ToArray())
             {
                 item.Close(false);
             }
