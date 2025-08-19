@@ -39,43 +39,45 @@
                 Value="True" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Panel>
-                    <Border x:Name="border"
-                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" />
-                    <ScrollViewer Name="PART_ScrollViewer"
-                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <TextPresenter Name="PART_TextPresenter"
-                                       Margin="{TemplateBinding Padding}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                                       CaretBrush="{TemplateBinding CaretBrush}"
-                                       CaretIndex="{TemplateBinding CaretIndex}"
-                                       LineHeight="{TemplateBinding LineHeight}"
-                                       LetterSpacing="{TemplateBinding LetterSpacing}"
-                                       PasswordChar="{TemplateBinding PasswordChar}"
-                                       RevealPassword="{TemplateBinding RevealPassword}"
-                                       SelectionBrush="{TemplateBinding SelectionBrush}"
-                                       SelectionEnd="{TemplateBinding SelectionEnd}"
-                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                       SelectionStart="{TemplateBinding SelectionStart}"
-                                       Text="{TemplateBinding Text,Mode=TwoWay}"
-                                       TextAlignment="{TemplateBinding TextAlignment}"
-                                       TextWrapping="{TemplateBinding TextWrapping}" />
-                        <ScrollViewer.Styles>
-                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Cursor"
-                                        Value="IBeam" />
-                            </Style>
-                        </ScrollViewer.Styles>
-                    </ScrollViewer>
-                </Panel>
+                <DataValidationErrors>
+                    <Panel>
+                        <Border x:Name="border"
+                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <ScrollViewer Name="PART_ScrollViewer"
+                                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                      BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                            <TextPresenter Name="PART_TextPresenter"
+                                           Margin="{TemplateBinding Padding}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                           LineHeight="{TemplateBinding LineHeight}"
+                                           LetterSpacing="{TemplateBinding LetterSpacing}"
+                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                           Text="{TemplateBinding Text,Mode=TwoWay}"
+                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                            <ScrollViewer.Styles>
+                                <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Cursor"
+                                            Value="IBeam" />
+                                </Style>
+                            </ScrollViewer.Styles>
+                        </ScrollViewer>
+                    </Panel>
+                </DataValidationErrors>
             </ControlTemplate>
         </Setter>
 

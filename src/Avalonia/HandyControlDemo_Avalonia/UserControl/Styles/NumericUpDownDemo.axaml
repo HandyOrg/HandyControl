@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             x:Class="HandyControlDemo.UserControl.NumericUpDownDemo"
+             DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Spacing="32"
+                                Margin="32"
+                                ChildWrapping="Wrap">
+            <hc:UniformSpacingPanel Spacing="16"
+                                    Orientation="Vertical">
+                <NumericUpDown Value="0"
+                               Width="380"
+                               Maximum="100" />
+                <NumericUpDown Value="0"
+                               IsEnabled="False" />
+                <NumericUpDown Value="0"
+                               IsReadOnly="True" />
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

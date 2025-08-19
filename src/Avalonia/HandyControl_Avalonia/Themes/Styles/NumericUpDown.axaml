@@ -1,0 +1,99 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <ControlTheme x:Key="NumericUpDownBaseStyle"
+                  TargetType="NumericUpDown">
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,7,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="8,0,0,5" />
+        <Setter Property="hc:TitleElement.HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultInputPadding}" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Left" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <ButtonSpinner Name="PART_Spinner"
+                                   HorizontalContentAlignment="Stretch"
+                                   VerticalContentAlignment="Stretch"
+                                   IsTabStop="False"
+                                   Padding="{TemplateBinding Padding}"
+                                   MinWidth="0"
+                                   AllowSpin="{TemplateBinding AllowSpin}"
+                                   Background="{TemplateBinding Background}"
+                                   BorderBrush="{TemplateBinding BorderBrush}"
+                                   BorderThickness="{TemplateBinding BorderThickness}"
+                                   ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+                                   CornerRadius="{TemplateBinding CornerRadius}"
+                                   ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+                        <TextBox Name="PART_TextBox"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Padding="0"
+                                 MinWidth="0"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 Text="{TemplateBinding Text}"
+                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                 AcceptsReturn="False"
+                                 TextWrapping="NoWrap" />
+                    </ButtonSpinner>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ButtonSpinner#PART_Spinner">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:focus-within">
+            <Style Selector="^:pointerover /template/ ButtonSpinner#PART_Spinner">
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:error /template/ ButtonSpinner#PART_Spinner">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource DangerBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type NumericUpDown}"
+                  BasedOn="{StaticResource NumericUpDownBaseStyle}"
+                  TargetType="NumericUpDown" />
+
+</ResourceDictionary>

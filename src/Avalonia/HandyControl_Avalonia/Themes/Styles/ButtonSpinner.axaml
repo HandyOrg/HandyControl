@@ -1,0 +1,141 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <ControlTheme x:Key="{x:Type ButtonSpinner}"
+                  TargetType="ButtonSpinner">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultInputPadding}" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Left" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <Panel>
+                        <Border Name="border"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        <DockPanel>
+                            <UniformGrid Name="PART_SpinnerPanel"
+                                         TabIndex="2"
+                                         DockPanel.Dock="Right"
+                                         IsVisible="{TemplateBinding ShowButtonSpinner}"
+                                         Rows="2">
+                                <RepeatButton Name="PART_IncreaseButton"
+                                              Height="{x:Static system:Double.NaN}"
+                                              Width="{x:Static system:Double.NaN}"
+                                              Foreground="{TemplateBinding BorderBrush}"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              Theme="{StaticResource RepeatButtonIcon}"
+                                              VerticalContentAlignment="Bottom"
+                                              VerticalAlignment="Stretch"
+                                              Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                              hc:IconElement.Geometry="{StaticResource UpGeometry}"
+                                              hc:IconElement.Height="6"
+                                              hc:IconElement.Width="{x:Static system:Double.NaN}" />
+                                <RepeatButton Name="PART_DecreaseButton"
+                                              Height="{x:Static system:Double.NaN}"
+                                              Width="{x:Static system:Double.NaN}"
+                                              Foreground="{TemplateBinding BorderBrush}"
+                                              IsTabStop="{TemplateBinding IsTabStop}"
+                                              Theme="{StaticResource RepeatButtonIcon}"
+                                              VerticalContentAlignment="Top"
+                                              VerticalAlignment="Stretch"
+                                              Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                              hc:IconElement.Geometry="{StaticResource DownGeometry}"
+                                              hc:IconElement.Height="6"
+                                              hc:IconElement.Width="{x:Static system:Double.NaN}" />
+                            </UniformGrid>
+                            <ContentPresenter Name="PART_ContentPresenter"
+                                              TabIndex="1"
+                                              Padding="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </DockPanel>
+                    </Panel>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:left">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Right" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <DataValidationErrors>
+                        <Panel>
+                            <Border Name="border"
+                                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="{TemplateBinding CornerRadius}" />
+                            <DockPanel>
+                                <UniformGrid Name="PART_SpinnerPanel"
+                                             TabIndex="2"
+                                             DockPanel.Dock="Left"
+                                             IsVisible="{TemplateBinding ShowButtonSpinner}"
+                                             Rows="2">
+                                    <RepeatButton Name="PART_IncreaseButton"
+                                                  Height="{x:Static system:Double.NaN}"
+                                                  Width="{x:Static system:Double.NaN}"
+                                                  Foreground="{TemplateBinding BorderBrush}"
+                                                  IsTabStop="{TemplateBinding IsTabStop}"
+                                                  Theme="{StaticResource RepeatButtonIcon}"
+                                                  VerticalContentAlignment="Bottom"
+                                                  VerticalAlignment="Stretch"
+                                                  Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,0,0,0'}"
+                                                  hc:IconElement.Geometry="{StaticResource UpGeometry}"
+                                                  hc:IconElement.Height="6"
+                                                  hc:IconElement.Width="{x:Static system:Double.NaN}" />
+                                    <RepeatButton Name="PART_DecreaseButton"
+                                                  Height="{x:Static system:Double.NaN}"
+                                                  Width="{x:Static system:Double.NaN}"
+                                                  Foreground="{TemplateBinding BorderBrush}"
+                                                  IsTabStop="{TemplateBinding IsTabStop}"
+                                                  Theme="{StaticResource RepeatButtonIcon}"
+                                                  VerticalContentAlignment="Top"
+                                                  VerticalAlignment="Stretch"
+                                                  Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,0,0,0'}"
+                                                  hc:IconElement.Geometry="{StaticResource DownGeometry}"
+                                                  hc:IconElement.Height="6"
+                                                  hc:IconElement.Width="{x:Static system:Double.NaN}" />
+                                </UniformGrid>
+                                <ContentPresenter Name="PART_ContentPresenter"
+                                                  TabIndex="1"
+                                                  Padding="{TemplateBinding Padding}"
+                                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            </DockPanel>
+                        </Panel>
+                    </DataValidationErrors>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
