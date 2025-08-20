@@ -35,7 +35,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}" />
-                        <DockPanel>
+                        <DockPanel Margin="{Binding BorderThickness, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,0,1,0'}">
                             <UniformGrid Name="PART_SpinnerPanel"
                                          TabIndex="2"
                                          DockPanel.Dock="Right"

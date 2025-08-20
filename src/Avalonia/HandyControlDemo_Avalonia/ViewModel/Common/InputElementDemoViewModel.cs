@@ -16,4 +16,8 @@ public partial class InputElementDemoViewModel : ObservableValidator
 
     [Required] [ObservableProperty] [NotifyDataErrorInfo]
     private string? _text2;
+
+    [ObservableProperty] private double? _doubleValue1;
+
+    [ObservableProperty] private double? _doubleValue2;
 }

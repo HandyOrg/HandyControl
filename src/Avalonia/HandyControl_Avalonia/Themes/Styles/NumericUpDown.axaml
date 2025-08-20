@@ -39,6 +39,7 @@
                                    VerticalContentAlignment="Stretch"
                                    IsTabStop="False"
                                    Padding="{TemplateBinding Padding}"
+                                   MinHeight="{TemplateBinding MinHeight}"
                                    MinWidth="0"
                                    AllowSpin="{TemplateBinding AllowSpin}"
                                    Background="{TemplateBinding Background}"
@@ -53,6 +54,7 @@
                                  BorderThickness="0"
                                  Padding="0"
                                  MinWidth="0"
+                                 MinHeight="{TemplateBinding MinHeight}"
                                  Foreground="{TemplateBinding Foreground}"
                                  Watermark="{TemplateBinding Watermark}"
                                  IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -92,8 +94,224 @@
         </Style>
     </ControlTheme>
 
+    <ControlTemplate x:Key="NumericUpDownExtendTopTemplate"
+                     TargetType="NumericUpDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                               Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
+            </Grid.RowDefinitions>
+            <DockPanel LastChildFill="True"
+                       IsHitTestVisible="False"
+                       IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent},Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                       Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter DockPanel.Dock="Right"
+                                  TextElement.Foreground="{DynamicResource DangerBrush}"
+                                  Margin="4,0,0,0"
+                                  Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                                  IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
+                <TextBlock TextWrapping="NoWrap"
+                           TextTrimming="CharacterEllipsis"
+                           Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
+            </DockPanel>
+            <DataValidationErrors Grid.Row="1">
+                <ButtonSpinner Name="PART_Spinner"
+                               HorizontalContentAlignment="Stretch"
+                               VerticalContentAlignment="Stretch"
+                               IsTabStop="False"
+                               Padding="{TemplateBinding Padding}"
+                               MinHeight="{TemplateBinding MinHeight}"
+                               MinWidth="0"
+                               AllowSpin="{TemplateBinding AllowSpin}"
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+                               CornerRadius="{TemplateBinding CornerRadius}"
+                               ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+                    <DockPanel>
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Stretch"
+                                hc:IconElement.Width="14"
+                                Width="{x:Static system:Double.NaN}"
+                                Command="{Binding Clear, ElementName=PART_TextBox}"
+                                Name="ButtonClear"
+                                Focusable="False"
+                                DockPanel.Dock="Right"
+                                Theme="{StaticResource ButtonIcon}"
+                                Padding="0,0,4,0"
+                                Margin="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,-1,0'}"
+                                hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{Binding BorderBrush,ElementName=PART_Spinner}">
+                            <Button.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsPointerOver" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="(hc:InfoElement.ShowClearButton)" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsReadOnly"
+                                             Converter="{x:Static BoolConverters.Not}" />
+                                </MultiBinding>
+                            </Button.IsVisible>
+                        </Button>
+                        <TextBox Name="PART_TextBox"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Padding="0"
+                                 MinWidth="0"
+                                 MinHeight="{TemplateBinding MinHeight}"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 Text="{TemplateBinding Text}"
+                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                 AcceptsReturn="False"
+                                 TextWrapping="NoWrap" />
+                    </DockPanel>
+                </ButtonSpinner>
+            </DataValidationErrors>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="NumericUpDownExtendLeftTemplate"
+                     TargetType="NumericUpDown">
+        <Grid MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
+              Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=(hc:TitleElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <DockPanel LastChildFill="True"
+                       IsHitTestVisible="False"
+                       IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent},Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                       VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                       Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter DockPanel.Dock="Right"
+                                  TextElement.Foreground="{DynamicResource DangerBrush}"
+                                  Margin="4,0,0,0"
+                                  Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                                  IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
+                <TextBlock TextWrapping="NoWrap"
+                           TextTrimming="CharacterEllipsis"
+                           Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
+            </DockPanel>
+            <DataValidationErrors Grid.Column="1">
+                <ButtonSpinner Name="PART_Spinner"
+                               HorizontalContentAlignment="Stretch"
+                               VerticalContentAlignment="Stretch"
+                               IsTabStop="False"
+                               Padding="{TemplateBinding Padding}"
+                               MinHeight="{TemplateBinding MinHeight}"
+                               MinWidth="0"
+                               AllowSpin="{TemplateBinding AllowSpin}"
+                               Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               ButtonSpinnerLocation="{TemplateBinding ButtonSpinnerLocation}"
+                               CornerRadius="{TemplateBinding CornerRadius}"
+                               ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}">
+                    <DockPanel>
+                        <Button HorizontalAlignment="Right"
+                                VerticalAlignment="Stretch"
+                                hc:IconElement.Width="14"
+                                Width="{x:Static system:Double.NaN}"
+                                Command="{Binding Clear, ElementName=PART_TextBox}"
+                                Name="ButtonClear"
+                                Focusable="False"
+                                DockPanel.Dock="Right"
+                                Theme="{StaticResource ButtonIcon}"
+                                Padding="0"
+                                hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{Binding BorderBrush,ElementName=PART_Spinner}">
+                            <Button.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsPointerOver" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="(hc:InfoElement.ShowClearButton)" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsReadOnly"
+                                             Converter="{x:Static BoolConverters.Not}" />
+                                </MultiBinding>
+                            </Button.IsVisible>
+                        </Button>
+                        <TextBox Name="PART_TextBox"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Padding="0"
+                                 MinWidth="0"
+                                 MinHeight="{TemplateBinding MinHeight}"
+                                 Foreground="{TemplateBinding Foreground}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 IsReadOnly="{TemplateBinding IsReadOnly}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 Text="{TemplateBinding Text}"
+                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                 AcceptsReturn="False"
+                                 TextWrapping="NoWrap" />
+                    </DockPanel>
+                </ButtonSpinner>
+            </DataValidationErrors>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTheme x:Key="NumericUpDownExtendBaseStyle"
+                  BasedOn="{StaticResource NumericUpDownBaseStyle}"
+                  TargetType="NumericUpDown">
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template"
+                Value="{StaticResource NumericUpDownExtendTopTemplate}" />
+
+        <Style Selector="^[(hc|TitleElement.TitlePlacement)=Left]">
+            <Setter Property="Template"
+                    Value="{StaticResource NumericUpDownExtendLeftTemplate}" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type NumericUpDown}"
                   BasedOn="{StaticResource NumericUpDownBaseStyle}"
                   TargetType="NumericUpDown" />
+
+    <ControlTheme x:Key="NumericUpDown.Small"
+                  BasedOn="{StaticResource NumericUpDownBaseStyle}"
+                  TargetType="NumericUpDown">
+        <Setter Property="MinHeight"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="NumericUpDownExtend"
+                  BasedOn="{StaticResource NumericUpDownExtendBaseStyle}"
+                  TargetType="NumericUpDown" />
+
+    <ControlTheme x:Key="NumericUpDownExtend.Small"
+                  BasedOn="{StaticResource NumericUpDownExtend}"
+                  TargetType="NumericUpDown">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+    </ControlTheme>
 
 </ResourceDictionary>
