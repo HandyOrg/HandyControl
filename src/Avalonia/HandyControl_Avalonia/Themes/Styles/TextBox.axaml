@@ -13,6 +13,8 @@
                 Value="Left" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="MinHeight"
                 Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="Padding"
@@ -42,7 +44,7 @@
                 <DataValidationErrors>
                     <Panel>
                         <Border x:Name="border"
-                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" />
@@ -132,7 +134,7 @@
                 <Grid ColumnDefinitions="*,Auto">
                     <Border x:Name="border"
                             Grid.ColumnSpan="2"
-                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}" />
@@ -230,7 +232,7 @@
                 <Grid ColumnDefinitions="*,Auto">
                     <Border x:Name="border"
                             Grid.ColumnSpan="2"
-                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}" />

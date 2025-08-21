@@ -128,6 +128,8 @@
                 Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness"
                 Value="1" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="CornerRadius"
                 Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Padding"
@@ -140,8 +142,6 @@
                 Value="True" />
         <Setter Property="ItemContainerTheme"
                 Value="{StaticResource TreeViewItemBaseStyle}" />
-        <Setter Property="hc:BorderElement.CornerRadius"
-                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border BorderBrush="{TemplateBinding BorderBrush}"

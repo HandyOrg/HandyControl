@@ -5,6 +5,8 @@
                   TargetType="ProgressBar">
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Background"
                 Value="{DynamicResource SecondaryRegionBrush}" />
         <Setter Property="BorderBrush"
@@ -14,7 +16,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Theme="{StaticResource BorderClip}"
-                        CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Background="{TemplateBinding Background}">

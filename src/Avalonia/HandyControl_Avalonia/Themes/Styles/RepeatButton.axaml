@@ -375,6 +375,8 @@
                 Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border BorderThickness="{TemplateBinding BorderThickness}"
@@ -415,6 +417,8 @@
                 Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Padding"
                 Value="6" />
         <Setter Property="Template">

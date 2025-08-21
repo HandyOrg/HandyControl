@@ -158,6 +158,8 @@
                 Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="hc:VisualElement.HighlightBrush"
                 Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Template">

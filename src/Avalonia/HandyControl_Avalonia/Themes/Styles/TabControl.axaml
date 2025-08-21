@@ -253,7 +253,7 @@
     <ControlTheme x:Key="TabItemCapsuleHorizontalFirst"
                   BasedOn="{StaticResource TabItemCapsuleBaseStyle}"
                   TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius"
+        <Setter Property="CornerRadius"
                 Value="4,0,0,4" />
         <Setter Property="Margin"
                 Value="0" />
@@ -262,21 +262,21 @@
     <ControlTheme x:Key="TabItemCapsuleHorizontalLast"
                   BasedOn="{StaticResource TabItemCapsuleBaseStyle}"
                   TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius"
+        <Setter Property="CornerRadius"
                 Value="0,4,4,0" />
     </ControlTheme>
 
     <ControlTheme x:Key="TabItemCapsuleSingle"
                   BasedOn="{StaticResource TabItemCapsuleBaseStyle}"
                   TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius"
+        <Setter Property="CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
     </ControlTheme>
 
     <ControlTheme x:Key="TabItemCapsuleVerticalFirst"
                   BasedOn="{StaticResource TabItemCapsuleBaseStyle}"
                   TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius"
+        <Setter Property="CornerRadius"
                 Value="4,4,0,0" />
         <Setter Property="Margin"
                 Value="0" />
@@ -285,7 +285,7 @@
     <ControlTheme x:Key="TabItemCapsuleVerticalLast"
                   BasedOn="{StaticResource TabItemCapsuleBaseStyle}"
                   TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius"
+        <Setter Property="CornerRadius"
                 Value="0,0,4,4" />
     </ControlTheme>
 

@@ -17,6 +17,8 @@
                 Value="12" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter Name="PART_ContentPresenter"
@@ -25,7 +27,7 @@
                                   Background="{TemplateBinding Background}"
                                   Padding="{TemplateBinding Padding}"
                                   BorderThickness="{TemplateBinding BorderThickness}"
-                                  CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
                                   Content="{TemplateBinding Content}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}" />

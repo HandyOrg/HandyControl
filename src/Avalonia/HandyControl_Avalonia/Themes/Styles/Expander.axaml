@@ -177,6 +177,8 @@
                 Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
 
         <Style Selector="^:left">
             <Setter Property="Template"
@@ -200,22 +202,22 @@
 
         <Style Selector="^[IsExpanded=True]">
             <Style Selector="^:left /template/ ToggleButton">
-                <Setter Property="hc:BorderElement.CornerRadius"
+                <Setter Property="CornerRadius"
                         Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}">
                 </Setter>
             </Style>
             <Style Selector="^:up /template/ ToggleButton">
-                <Setter Property="hc:BorderElement.CornerRadius"
+                <Setter Property="CornerRadius"
                         Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,0,1,1'}">
                 </Setter>
             </Style>
             <Style Selector="^:right /template/ ToggleButton">
-                <Setter Property="hc:BorderElement.CornerRadius"
+                <Setter Property="CornerRadius"
                         Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}">
                 </Setter>
             </Style>
             <Style Selector="^:down /template/ ToggleButton">
-                <Setter Property="hc:BorderElement.CornerRadius"
+                <Setter Property="CornerRadius"
                         Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}">
                 </Setter>
             </Style>
@@ -231,7 +233,7 @@
 
         <Style Selector="^[IsExpanded=False]">
             <Style Selector="^ /template/ ToggleButton">
-                <Setter Property="hc:BorderElement.CornerRadius"
+                <Setter Property="CornerRadius"
                         Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,1,1'}">
                 </Setter>
             </Style>

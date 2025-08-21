@@ -217,12 +217,14 @@
                 Value="{DynamicResource TitleBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="hc:TitleElement.Foreground"
                 Value="{DynamicResource TextIconBrush}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Margin="8,4,8,8">
-                    <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
