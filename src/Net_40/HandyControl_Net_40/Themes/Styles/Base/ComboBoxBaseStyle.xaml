@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    
+
     <!--默认下拉框模板-->
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="ComboBox">
         <Grid>
@@ -478,7 +478,7 @@
                                 <Condition Property="IsSelected" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" TargetName="Bd" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

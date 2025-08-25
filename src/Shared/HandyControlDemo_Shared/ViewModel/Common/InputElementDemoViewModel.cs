@@ -108,12 +108,12 @@ public class InputElementDemoViewModel : ViewModelBase
         SelectedDataList = DataList.Where((t, i) => i % 2 == 0).ToList();
     }
 
-    private void Search(string key)
+    private static void Search(string key)
     {
         Growl.Info(key);
     }
 
-    private List<string> GetComboBoxDemoDataList()
+    private static List<string> GetComboBoxDemoDataList()
     {
         var converter = new StringRepeatConverter();
         var list = new List<string>();

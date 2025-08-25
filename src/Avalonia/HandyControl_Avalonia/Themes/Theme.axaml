@@ -41,6 +41,7 @@
                 <MergeResourceInclude Source="/Themes/Styles/TextBox.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/NumericUpDown.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ComboBox.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

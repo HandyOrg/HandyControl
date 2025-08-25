@@ -48,6 +48,12 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" />
+                        <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Margin="{TemplateBinding Padding}"
+                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                   HorizontalAlignment="Stretch"
+                                   Theme="{StaticResource TextBlockDefaultThiLight}"
+                                   Text="{TemplateBinding Watermark}" />
                         <ScrollViewer Name="PART_ScrollViewer"
                                       AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                       BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"

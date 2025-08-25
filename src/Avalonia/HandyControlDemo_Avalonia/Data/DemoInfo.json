@@ -15,7 +15,7 @@
       [ "TextBlock", "TextBlockDemo", "Brush.TextBlock", "", "" ],
       [ "NumericUpDown", "NumericUpDownDemo", "Brush.NumericListBox", "", "" ],
       [ "TextBox", "TextBoxDemo", "Brush.TextBox", "", "" ],
-      [ "ComboBox", "NativeComboBoxDemo", "Brush.ComboBox", "", "" ],
+      [ "ComboBox", "ComboBoxDemo", "Brush.ComboBox", "", "" ],
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],
       [ "ProgressBar", "NativeProgressBarDemo", "Brush.ProgressBar", "", "" ],
       [ "Calendar", "CalendarDemo", "Brush.Calendar", "", "" ],

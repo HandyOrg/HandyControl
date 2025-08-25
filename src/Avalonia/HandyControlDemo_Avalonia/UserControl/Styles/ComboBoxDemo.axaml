@@ -1,0 +1,101 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             x:Class="HandyControlDemo.UserControl.ComboBoxDemo"
+             DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Spacing="32"
+                                Margin="32"
+                                ChildWrapping="Wrap">
+            <StackPanel>
+                <ComboBox ItemsSource="{Binding DataList}" />
+                <ComboBox ItemsSource="{Binding DataList}"
+                          Margin="0,16,0,0"
+                          IsEnabled="False" />
+
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          hc:InfoElement.ShowClearButton="True"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          Margin="0,16,0,0"
+                          ItemsSource="{Binding DataList}"
+                          IsEnabled="False" />
+                <ComboBox PlaceholderText="Please enter content"
+                          ItemsSource="{Binding DataList}"
+                          hc:TitleElement.Title="This item must be filled in"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          hc:InfoElement.Necessary="True"
+                          Margin="0,16,0,0" />
+                <ComboBox Width="380"
+                          hc:TitleElement.TitleWidth="120"
+                          hc:TitleElement.TitlePlacement="Left"
+                          hc:TitleElement.Title="The title is on the left"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox Width="380"
+                          ItemsSource="{Binding DataList}"
+                          hc:TitleElement.TitleWidth="120"
+                          PlaceholderText="Please enter content"
+                          hc:TitleElement.TitlePlacement="Left"
+                          hc:TitleElement.Title="The title is on the left"
+                          hc:InfoElement.Necessary="True"
+                          Theme="{StaticResource ComboBoxExtend}"
+                          Margin="0,16,0,0" />
+            </StackPanel>
+            <StackPanel>
+                <ComboBox ItemsSource="{Binding DataList}"
+                          Theme="{StaticResource ComboBox.Small}" />
+                <ComboBox ItemsSource="{Binding DataList}"
+                          Margin="0,16,0,0"
+                          IsEnabled="False"
+                          Theme="{StaticResource ComboBox.Small}" />
+
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          hc:InfoElement.ShowClearButton="True"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox hc:TitleElement.Title="This is the title"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          Margin="0,16,0,0"
+                          ItemsSource="{Binding DataList}"
+                          IsEnabled="False" />
+                <ComboBox PlaceholderText="Please enter content"
+                          ItemsSource="{Binding DataList}"
+                          hc:TitleElement.Title="This item must be filled in"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          hc:InfoElement.Necessary="True"
+                          Margin="0,16,0,0" />
+                <ComboBox Width="380"
+                          hc:TitleElement.TitleWidth="120"
+                          hc:TitleElement.TitlePlacement="Left"
+                          hc:TitleElement.Title="The title is on the left"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          Margin="0,32,0,0"
+                          ItemsSource="{Binding DataList}" />
+                <ComboBox Width="380"
+                          ItemsSource="{Binding DataList}"
+                          hc:TitleElement.TitleWidth="120"
+                          PlaceholderText="Please enter content"
+                          hc:TitleElement.TitlePlacement="Left"
+                          hc:TitleElement.Title="The title is on the left"
+                          hc:InfoElement.Necessary="True"
+                          Theme="{StaticResource ComboBoxExtend.Small}"
+                          Margin="0,16,0,0" />
+            </StackPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

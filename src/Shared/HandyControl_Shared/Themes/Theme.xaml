@@ -5662,7 +5662,7 @@
 								<Condition Property="IsSelected" Value="True" />
 							</MultiTrigger.Conditions>
 							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource PrimaryBrush}" />
-							<Setter Property="Foreground" Value="White" />
+							<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
 						</MultiTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
