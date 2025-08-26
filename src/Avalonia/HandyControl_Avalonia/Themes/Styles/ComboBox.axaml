@@ -212,9 +212,9 @@
                            Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
             </DockPanel>
             <DataValidationErrors Grid.Row="1">
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid ColumnDefinitions="*,Auto,Auto">
                     <Border x:Name="border"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="3"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -233,24 +233,47 @@
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                    <Path Grid.Column="1"
-                          IsVisible="{TemplateBinding IsDropDownOpen, Converter={x:Static BoolConverters.Not}}"
-                          Data="{StaticResource DownGeometry}"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Right"
-                          Width="14"
-                          Stretch="Uniform"
-                          Fill="{Binding BorderBrush, ElementName=border}"
-                          Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
-                    <Path Grid.Column="1"
-                          IsVisible="{TemplateBinding IsDropDownOpen}"
-                          Data="{StaticResource UpGeometry}"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Right"
-                          Width="14"
-                          Stretch="Uniform"
-                          Fill="{Binding BorderBrush, ElementName=border}"
-                          Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                    <Button Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Stretch"
+                            hc:IconElement.Width="14"
+                            Command="{Binding $parent[ComboBox].Clear}"
+                            Width="{x:Static system:Double.NaN}"
+                            Name="ButtonClear"
+                            Focusable="False"
+                            DockPanel.Dock="Right"
+                            Theme="{StaticResource ButtonIcon}"
+                            Padding="0,0,3,0"
+                            hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                            Foreground="{Binding BorderBrush, ElementName=border}">
+                        <Button.IsVisible>
+                            <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                         Path="IsPointerOver" />
+                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                         Path="(hc:InfoElement.ShowClearButton)" />
+                            </MultiBinding>
+                        </Button.IsVisible>
+                    </Button>
+                    <Panel Grid.Column="2"
+                           Margin="{TemplateBinding BorderThickness, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}">
+                        <Path IsVisible="{TemplateBinding IsDropDownOpen, Converter={x:Static BoolConverters.Not}}"
+                              Data="{StaticResource DownGeometry}"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Width="14"
+                              Stretch="Uniform"
+                              Fill="{Binding BorderBrush, ElementName=border}"
+                              Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                        <Path IsVisible="{TemplateBinding IsDropDownOpen}"
+                              Data="{StaticResource UpGeometry}"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Width="14"
+                              Stretch="Uniform"
+                              Fill="{Binding BorderBrush, ElementName=border}"
+                              Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                    </Panel>
                     <Popup Grid.Column="0"
                            Name="PART_Popup"
                            WindowManagerAddShadowHint="False"
@@ -306,9 +329,9 @@
                            Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
             </DockPanel>
             <DataValidationErrors Grid.Column="1">
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid ColumnDefinitions="*,Auto,Auto">
                     <Border x:Name="border"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="3"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -327,24 +350,47 @@
                                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                     ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                    <Path Grid.Column="1"
-                          IsVisible="{TemplateBinding IsDropDownOpen, Converter={x:Static BoolConverters.Not}}"
-                          Data="{StaticResource DownGeometry}"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Right"
-                          Width="14"
-                          Stretch="Uniform"
-                          Fill="{Binding BorderBrush, ElementName=border}"
-                          Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
-                    <Path Grid.Column="1"
-                          IsVisible="{TemplateBinding IsDropDownOpen}"
-                          Data="{StaticResource UpGeometry}"
-                          VerticalAlignment="Center"
-                          HorizontalAlignment="Right"
-                          Width="14"
-                          Stretch="Uniform"
-                          Fill="{Binding BorderBrush, ElementName=border}"
-                          Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                    <Button Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Stretch"
+                            hc:IconElement.Width="14"
+                            Command="{Binding $parent[ComboBox].Clear}"
+                            Width="{x:Static system:Double.NaN}"
+                            Name="ButtonClear"
+                            Focusable="False"
+                            DockPanel.Dock="Right"
+                            Theme="{StaticResource ButtonIcon}"
+                            Padding="0,0,4,0"
+                            hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                            Foreground="{Binding BorderBrush, ElementName=border}">
+                        <Button.IsVisible>
+                            <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                         Path="IsPointerOver" />
+                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                         Path="(hc:InfoElement.ShowClearButton)" />
+                            </MultiBinding>
+                        </Button.IsVisible>
+                    </Button>
+                    <Panel Grid.Column="2"
+                           Margin="{TemplateBinding BorderThickness, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}">
+                        <Path IsVisible="{TemplateBinding IsDropDownOpen, Converter={x:Static BoolConverters.Not}}"
+                              Data="{StaticResource DownGeometry}"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Width="14"
+                              Stretch="Uniform"
+                              Fill="{Binding BorderBrush, ElementName=border}"
+                              Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                        <Path IsVisible="{TemplateBinding IsDropDownOpen}"
+                              Data="{StaticResource UpGeometry}"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Right"
+                              Width="14"
+                              Stretch="Uniform"
+                              Fill="{Binding BorderBrush, ElementName=border}"
+                              Margin="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" />
+                    </Panel>
                     <Popup Grid.Column="0"
                            Name="PART_Popup"
                            WindowManagerAddShadowHint="False"
