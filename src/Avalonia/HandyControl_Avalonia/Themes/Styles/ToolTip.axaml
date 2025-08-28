@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="https://handyorg.github.io/handycontrol">
-    <ControlTheme x:Key="{x:Type ToolTip}"
+    <ControlTheme x:Key="ToolTipBaseStyle"
                   TargetType="ToolTip">
         <Setter Property="Padding"
                 Value="{StaticResource DefaultControlPadding}" />
@@ -34,4 +34,9 @@
             </ControlTemplate>
         </Setter>
     </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ToolTip}"
+                  BasedOn="{StaticResource ToolTipBaseStyle}"
+                  TargetType="ToolTip" />
+
 </ResourceDictionary>

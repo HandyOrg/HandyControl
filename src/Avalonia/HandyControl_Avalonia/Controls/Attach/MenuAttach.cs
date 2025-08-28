@@ -1,0 +1,32 @@
+using Avalonia;
+
+namespace HandyControl.Controls;
+
+public class MenuAttach
+{
+    public static readonly AttachedProperty<double> PopupVerticalOffsetProperty =
+        AvaloniaProperty.RegisterAttached<MenuAttach, AvaloniaObject, double>("PopupVerticalOffset");
+
+    public static void SetPopupVerticalOffset(AvaloniaObject element, double value) =>
+        element.SetValue(PopupVerticalOffsetProperty, value);
+
+    public static double GetPopupVerticalOffset(AvaloniaObject element) =>
+        element.GetValue(PopupVerticalOffsetProperty);
+
+    public static readonly AttachedProperty<double> PopupHorizontalOffsetProperty =
+        AvaloniaProperty.RegisterAttached<MenuAttach, AvaloniaObject, double>("PopupHorizontalOffset");
+
+    public static void SetPopupHorizontalOffset(AvaloniaObject element, double value) =>
+        element.SetValue(PopupHorizontalOffsetProperty, value);
+
+    public static double GetPopupHorizontalOffset(AvaloniaObject element) =>
+        element.GetValue(PopupHorizontalOffsetProperty);
+
+    public static readonly AttachedProperty<Thickness> ItemPaddingProperty =
+        AvaloniaProperty.RegisterAttached<MenuAttach, AvaloniaObject, Thickness>("ItemPadding");
+
+    public static void SetItemPadding(AvaloniaObject element, Thickness value) =>
+        element.SetValue(ItemPaddingProperty, value);
+
+    public static Thickness GetItemPadding(AvaloniaObject element) => element.GetValue(ItemPaddingProperty);
+}

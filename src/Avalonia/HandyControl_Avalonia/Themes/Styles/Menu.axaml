@@ -1,0 +1,161 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol"
+                    xmlns:sys="using:System">
+
+    <ControlTheme x:Key="MenuItemBaseStyle"
+                  TargetType="MenuItem">
+        <Setter Property="Padding"
+                Value="{Binding Path=(hc:MenuAttach.ItemPadding),RelativeSource={RelativeSource AncestorType=MenuBase}}" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Margin"
+                Value="0,0,0,2" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="MinWidth"
+                Value="240" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="root"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="26" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="Auto"
+                                              SharedSizeGroup="MenuItemIGT" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <ContentControl Grid.Column="0"
+                                        x:Name="PART_ToggleIconPresenter"
+                                        IsVisible="False"
+                                        Margin="3"
+                                        Width="16"
+                                        Height="16" />
+                        <ContentControl Grid.Column="0"
+                                        Name="PART_IconPresenter"
+                                        Width="16"
+                                        Height="16"
+                                        Margin="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Icon}" />
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Grid.Column="1"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="sys:String">
+                                    <AccessText Text="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <TextBlock x:Name="PART_InputGestureText"
+                                   Grid.Column="3"
+                                   VerticalAlignment="Center"
+                                   Text="{TemplateBinding InputGesture, Converter={StaticResource PlatformKeyGestureConverter}}" />
+                        <Path Name="rightArrow"
+                              Grid.Column="4"
+                              Margin="10,0,0,0"
+                              Width="10"
+                              Height="10"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Stretch="Uniform"
+                              Data="{StaticResource RightGeometry}"
+                              Fill="{TemplateBinding Foreground}" />
+                        <Popup Grid.Column="1"
+                               Name="PART_Popup"
+                               IsLightDismissEnabled="False"
+                               IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
+                               Placement="RightEdgeAlignedTop">
+                            <Border Background="{DynamicResource RegionBrush}"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                                <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
+                                              Margin="2,2,2,0">
+                                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                                    Grid.IsSharedSizeScope="True"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:selected /template/ Border#root">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:empty /template/ Path#rightArrow">
+            <Setter Property="IsVisible"
+                    Value="False" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="MenuBaseStyle"
+                  TargetType="Menu">
+        <Setter Property="hc:MenuAttach.ItemPadding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset"
+                Value="-9" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
+                Value="10" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    KeyboardNavigation.TabNavigation="Continue" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type MenuItem}"
+                  BasedOn="{StaticResource MenuItemBaseStyle}"
+                  TargetType="MenuItem" />
+
+    <ControlTheme x:Key="{x:Type Menu}"
+                  BasedOn="{StaticResource MenuBaseStyle}"
+                  TargetType="Menu" />
+
+    <ControlTheme x:Key="Menu.Small"
+                  BasedOn="{StaticResource MenuBaseStyle}"
+                  TargetType="Menu">
+        <Setter Property="hc:MenuAttach.ItemPadding"
+                Value="6,0" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset"
+                Value="-3" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
+                Value="6" />
+    </ControlTheme>
+
+</ResourceDictionary>

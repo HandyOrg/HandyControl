@@ -1,5 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol"
+                    xmlns:converters="using:Avalonia.Controls.Converters">
     <ControlTheme x:Key="ScrollBarBaseRepeatButton"
                   TargetType="RepeatButton">
         <Setter Property="Background"
@@ -184,7 +186,7 @@
         </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type ScrollViewer}"
+    <ControlTheme x:Key="ScrollViewerNativeBaseStyle"
                   TargetType="ScrollViewer">
         <Setter Property="Background"
                 Value="Transparent" />
@@ -228,5 +230,74 @@
             <Setter Property="Opacity"
                     Value=".8" />
         </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ScrollViewer}"
+                  BasedOn="{StaticResource ScrollViewerNativeBaseStyle}"
+                  TargetType="ScrollViewer" />
+
+    <ControlTheme x:Key="ScrollViewerUpDownRepeatButtonStyle"
+                  BasedOn="{StaticResource RepeatButtonIcon}"
+                  TargetType="RepeatButton">
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="Height"
+                Value="10" />
+        <Setter Property="Padding"
+                Value="0,2" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ScrollViewerUpDown"
+                  TargetType="ScrollViewer">
+        <Setter Property="VerticalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DockPanel>
+                    <RepeatButton Theme="{StaticResource ScrollViewerUpDownRepeatButtonStyle}"
+                                  hc:IconElement.Geometry="{StaticResource UpGeometry}"
+                                  Command="{Binding LineUp, RelativeSource={RelativeSource TemplatedParent}}"
+                                  DockPanel.Dock="Top">
+                        <RepeatButton.IsVisible>
+                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
+                                          ConverterParameter="0">
+                                <Binding Path="VerticalScrollBarVisibility"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Offset.Y"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Extent.Height"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Viewport.Height"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.IsVisible>
+                    </RepeatButton>
+                    <RepeatButton Theme="{StaticResource ScrollViewerUpDownRepeatButtonStyle}"
+                                  hc:IconElement.Geometry="{StaticResource DownGeometry}"
+                                  Command="{Binding LineDown, RelativeSource={RelativeSource TemplatedParent}}"
+                                  DockPanel.Dock="Bottom">
+                        <RepeatButton.IsVisible>
+                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
+                                          ConverterParameter="100">
+                                <Binding Path="VerticalScrollBarVisibility"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Offset.Y"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Extent.Height"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                                <Binding Path="Viewport.Height"
+                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                            </MultiBinding>
+                        </RepeatButton.IsVisible>
+                    </RepeatButton>
+                    <ScrollContentPresenter Name="PART_ContentPresenter"
+                                            Margin="{TemplateBinding Padding}" />
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
     </ControlTheme>
 </ResourceDictionary>

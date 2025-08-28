@@ -19,19 +19,12 @@
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],
       [ "ProgressBar", "NativeProgressBarDemo", "Brush.ProgressBar", "", "" ],
       [ "Calendar", "CalendarDemo", "Brush.Calendar", "", "" ],
-      [ "DatePicker", "NativeDatePickerDemo", "Brush.DateTimePicker", "", "" ],
       [ "TabControl", "NativeTabControlDemo", "Brush.TabPage", "", "" ],
-      [ "DataGrid", "DataGridDemo", "Brush.DataGrid", "", "" ],
       [ "TreeView", "TreeViewDemo", "Brush.TreeView", "", "" ],
       [ "ListBox", "ListBoxDemo", "Brush.ListBox", "", "" ],
-      [ "GroupBox", "GroupBoxDemo", "Brush.GroupBox", "", "" ],
       [ "Menu", "MenuDemo", "Brush.ContextMenu", "", "" ],
-      [ "ToolBar", "ToolBarDemo", "Brush.ToolBar", "", "" ],
       [ "Border", "BorderDemo", "Brush.BorderElement", "", "" ],
       [ "Label", "LabelDemo", "Brush.Label", "", "" ],
-      [ "Frame", "FrameDemo", "Brush.FrameBorder", "", "" ],
-      [ "Window", "NativeWindowDemo", "Brush.WindowsForm", "", "" ],
-      [ "Geometry", "GeometryDemo", "Brush.Path", "", "" ]
     ]
   },
   {

@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.MenuDemo">
+    <hc:UniformSpacingPanel Spacing="16"
+                            Margin="32">
+        <hc:DashedBorder Width="200"
+                         Height="112"
+                         Background="Transparent"
+                         CornerRadius="4"
+                         BorderBrush="{DynamicResource BorderBrush}"
+                         BorderThickness="1"
+                         BorderDashArray="2,2">
+            <hc:DashedBorder.ContextMenu>
+                <ContextMenu ItemsSource="{Binding DataList}">
+                    <ContextMenu.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding DataList}">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                    </ContextMenu.ItemTemplate>
+                </ContextMenu>
+            </hc:DashedBorder.ContextMenu>
+            <TextBlock Foreground="{DynamicResource BorderBrush}"
+                       Theme="{StaticResource TextBlockTitle}"
+                       TextAlignment="Center">
+                <Run Text="Right click here" />
+                <LineBreak />
+                <Run Text="Default" />
+            </TextBlock>
+        </hc:DashedBorder>
+        <hc:DashedBorder Width="200"
+                         Height="112"
+                         Background="Transparent"
+                         CornerRadius="4"
+                         BorderBrush="{DynamicResource BorderBrush}"
+                         BorderThickness="1"
+                         BorderDashArray="2,2">
+            <hc:DashedBorder.ContextMenu>
+                <ContextMenu ItemsSource="{Binding DataList}"
+                             Theme="{StaticResource ContextMenu.Small}">
+                    <ContextMenu.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding DataList}">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                    </ContextMenu.ItemTemplate>
+                </ContextMenu>
+            </hc:DashedBorder.ContextMenu>
+            <TextBlock Foreground="{DynamicResource BorderBrush}"
+                       Theme="{StaticResource TextBlockTitle}"
+                       TextAlignment="Center">
+                <Run Text="Right click here" />
+                <LineBreak />
+                <Run Text="Small" />
+            </TextBlock>
+        </hc:DashedBorder>
+    </hc:UniformSpacingPanel>
+</UserControl>
