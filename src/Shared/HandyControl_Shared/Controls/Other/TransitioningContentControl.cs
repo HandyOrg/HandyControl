@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -11,7 +12,8 @@ public class TransitioningContentControl : ContentControl
 {
     private FrameworkElement _contentPresenter;
 
-    private static Storyboard StoryboardBuildInDefault;
+    private static readonly Lazy<Storyboard> StoryboardBuildInDefault = new(() =>
+        ResourceHelper.GetResourceInternal<Storyboard>($"{default(TransitionMode)}Transition"), isThreadSafe: true);
 
     private Storyboard _storyboardBuildIn;
 
@@ -22,7 +24,8 @@ public class TransitioningContentControl : ContentControl
     }
 
     public static readonly DependencyProperty TransitionModeProperty = DependencyProperty.Register(
-        nameof(TransitionMode), typeof(TransitionMode), typeof(TransitioningContentControl), new PropertyMetadata(default(TransitionMode), OnTransitionModeChanged));
+        nameof(TransitionMode), typeof(TransitionMode), typeof(TransitioningContentControl),
+        new PropertyMetadata(default(TransitionMode), OnTransitionModeChanged));
 
     private static void OnTransitionModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -43,7 +46,8 @@ public class TransitioningContentControl : ContentControl
     }
 
     public static readonly DependencyProperty TransitionStoryboardProperty = DependencyProperty.Register(
-        nameof(TransitionStoryboard), typeof(Storyboard), typeof(TransitioningContentControl), new PropertyMetadata(default(Storyboard)));
+        nameof(TransitionStoryboard), typeof(Storyboard), typeof(TransitioningContentControl),
+        new PropertyMetadata(default(Storyboard)));
 
     public Storyboard TransitionStoryboard
     {
@@ -51,7 +55,8 @@ public class TransitioningContentControl : ContentControl
         set => SetValue(TransitionStoryboardProperty, value);
     }
 
-    private void TransitioningContentControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) => StartTransition();
+    private void TransitioningContentControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) =>
+        StartTransition();
 
     private void TransitioningContentControl_Loaded(object sender, RoutedEventArgs e)
     {
@@ -77,8 +82,7 @@ public class TransitioningContentControl : ContentControl
         }
         else
         {
-            StoryboardBuildInDefault ??= ResourceHelper.GetResourceInternal<Storyboard>($"{default(TransitionMode)}Transition");
-            StoryboardBuildInDefault?.Begin(_contentPresenter);
+            StoryboardBuildInDefault.Value?.Begin(_contentPresenter);
         }
     }
 
