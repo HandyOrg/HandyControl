@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Data.Enum;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls;
 
@@ -29,7 +31,7 @@ public class CalendarWithClock : Control
 
     private ContentPresenter _calendarPresenter;
 
-    private Clock _clock;
+    private ClockBase _clock;
 
     private Calendar _calendar;
 
@@ -71,6 +73,25 @@ public class CalendarWithClock : Control
     }
 
     #region Public Properties
+
+    public static readonly DependencyProperty ClockTypeProperty = DependencyProperty.Register(
+        nameof(ClockType),
+        typeof(ClockType),
+        typeof(CalendarWithClock),
+        new PropertyMetadata(ClockType.Clock, ClockStyleChanged));
+
+    private static void ClockStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var dp = (CalendarWithClock) d;
+        dp.ClockType = (ClockType) e.NewValue;
+        dp.InitClock();
+    }
+
+    public ClockType ClockType
+    {
+        get { return (ClockType) GetValue(ClockTypeProperty); }
+        set { SetValue(ClockTypeProperty, value); }
+    }
 
     public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
         nameof(DateTimeFormat), typeof(string), typeof(CalendarWithClock), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
@@ -214,13 +235,7 @@ public class CalendarWithClock : Control
 
     private void InitCalendarAndClock()
     {
-        _clock = new Clock
-        {
-            BorderThickness = new Thickness(),
-            Background = Brushes.Transparent
-        };
-        TitleElement.SetBackground(_clock, Brushes.Transparent);
-        _clock.DisplayTimeChanged += Clock_DisplayTimeChanged;
+        InitClock();
 
         _calendar = new Calendar
         {
@@ -230,6 +245,45 @@ public class CalendarWithClock : Control
         };
         TitleElement.SetBackground(_calendar, Brushes.Transparent);
         _calendar.SelectedDatesChanged += Calendar_SelectedDatesChanged;
+    }
+
+    private void InitClock()
+    {
+        if (_clock != null)
+        {
+            _clock.DisplayTimeChanged -= Clock_DisplayTimeChanged;
+        }
+
+        switch (ClockType)
+        {
+            case ClockType.Clock:
+                _clock = new Clock
+                {
+                    BorderThickness = new Thickness(),
+                    Background = Brushes.Transparent
+                };
+                break;
+
+            case ClockType.ListClock:
+                _clock = new ListClock
+                {
+                    BorderThickness = new Thickness(),
+                    Background = Brushes.Transparent,
+                    Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.ListClockForCalendarWithClockStyle)
+                };
+                break;
+
+            default:
+                _clock = new Clock
+                {
+                    BorderThickness = new Thickness(),
+                    Background = Brushes.Transparent
+                };
+                break;
+        }
+
+        TitleElement.SetBackground(_clock, Brushes.Transparent);
+        _clock.DisplayTimeChanged += Clock_DisplayTimeChanged;
     }
 
     private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
