@@ -37,6 +37,7 @@ public class GrowlInfo
 
     public string Token { get; set; }
 
+    [Obsolete("use TransitionMode instead")]
     public FlowDirection FlowDirection { get; set; }
 
     public Dispatcher Dispatcher { get; set; }

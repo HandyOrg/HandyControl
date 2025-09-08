@@ -47,11 +47,13 @@ public class Growl : Control
         "ShowMode", typeof(GrowlShowMode), typeof(Growl),
         new FrameworkPropertyMetadata(default(GrowlShowMode), FrameworkPropertyMetadataOptions.Inherits));
 
-    public static readonly DependencyProperty TransitionModeProperty = DependencyProperty.Register(
-        nameof(TransitionMode), typeof(TransitionMode), typeof(Growl), new PropertyMetadata(default(TransitionMode)));
+    public static readonly DependencyProperty TransitionModeProperty = DependencyProperty.RegisterAttached(
+        "TransitionMode", typeof(TransitionMode), typeof(Growl),
+        new FrameworkPropertyMetadata(default(TransitionMode), FrameworkPropertyMetadataOptions.Inherits));
 
-    public static readonly DependencyProperty TransitionStoryboardProperty = DependencyProperty.Register(
-        nameof(TransitionStoryboard), typeof(Storyboard), typeof(Growl), new PropertyMetadata(default(Storyboard)));
+    public static readonly DependencyProperty TransitionStoryboardProperty = DependencyProperty.RegisterAttached(
+        "TransitionStoryboard", typeof(Storyboard), typeof(Growl),
+        new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
         nameof(ShowDateTime), typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
@@ -104,18 +106,6 @@ public class Growl : Control
     ///     消息容器
     /// </summary>
     public static Panel GrowlPanel { get; set; }
-
-    public TransitionMode TransitionMode
-    {
-        get => (TransitionMode) GetValue(TransitionModeProperty);
-        set => SetValue(TransitionModeProperty, value);
-    }
-
-    public Storyboard TransitionStoryboard
-    {
-        get => (Storyboard) GetValue(TransitionStoryboardProperty);
-        set => SetValue(TransitionStoryboardProperty, value);
-    }
 
     public InfoType Type
     {
@@ -230,6 +220,18 @@ public class Growl : Control
 
     public static GrowlShowMode GetShowMode(DependencyObject element) =>
         (GrowlShowMode) element.GetValue(ShowModeProperty);
+
+    public static void SetTransitionMode(DependencyObject element, TransitionMode value)
+        => element.SetValue(TransitionModeProperty, value);
+
+    public static TransitionMode GetTransitionMode(DependencyObject element)
+        => (TransitionMode) element.GetValue(TransitionModeProperty);
+
+    public static void SetTransitionStoryboard(DependencyObject element, Storyboard value)
+        => element.SetValue(TransitionStoryboardProperty, value);
+
+    public static Storyboard GetTransitionStoryboard(DependencyObject element)
+        => (Storyboard) element.GetValue(TransitionStoryboardProperty);
 
     public static void SetGrowlParent(DependencyObject element, bool value) =>
         element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
@@ -371,7 +373,6 @@ public class Growl : Control
                         CancelStr = growlInfo.CancelStr,
                         Type = growlInfo.Type,
                         _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
-                        FlowDirection = growlInfo.FlowDirection
                     };
 
                     ShowInternal(GrowlWindow.GrowlPanel, ctl);
@@ -422,6 +423,10 @@ public class Growl : Control
                         // GrowlPanel is null, we create it automatically
                         GrowlPanel ??= CreateDefaultPanel();
                         ShowInternal(GrowlPanel, ctl);
+
+                        var transitionMode = GetTransitionMode(ctl);
+                        GrowlPanel.VerticalAlignment = GetPanelVerticalAlignment(transitionMode);
+                        GrowlPanel.HorizontalAlignment = GetPanelHorizontalAlignment(transitionMode);
                     }
                 }
 #if NET40
@@ -435,40 +440,33 @@ public class Growl : Control
         FrameworkElement element = WindowHelper.GetActiveWindow();
         var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
 
-        if (decorator != null)
+        var layer = decorator?.AdornerLayer;
+        if (layer == null)
         {
-            var layer = decorator.AdornerLayer;
-            if (layer != null)
-            {
-                var panel = new StackPanel
-                {
-                    VerticalAlignment = VerticalAlignment.Top
-                };
-
-                InitGrowlPanel(panel);
-                SetIsCreatedAutomatically(panel, true);
-
-                var scrollViewer = new ScrollViewer
-                {
-                    HorizontalAlignment = HorizontalAlignment.Right,
-                    VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
-                    IsInertiaEnabled = true,
-                    IsPenetrating = true,
-                    Content = panel
-                };
-
-                var container = new AdornerContainer(layer)
-                {
-                    Child = scrollViewer
-                };
-
-                layer.Add(container);
-
-                return panel;
-            }
+            return null;
         }
 
-        return null;
+        var panel = new SimpleStackPanel();
+
+        InitGrowlPanel(panel);
+        SetIsCreatedAutomatically(panel, true);
+
+        var scrollViewer = new ScrollViewer
+        {
+            VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
+            IsInertiaEnabled = true,
+            IsPenetrating = true,
+            Content = panel
+        };
+
+        var container = new AdornerContainer(layer)
+        {
+            Child = scrollViewer
+        };
+
+        layer.Add(container);
+
+        return panel;
     }
 
     private static void RemoveDefaultPanel(Panel panel)
@@ -918,7 +916,7 @@ public class Growl : Control
 
     private void StartTransition(bool isClose, Action completed = null)
     {
-        var actualStoryboard = TransitionStoryboard ?? CreateStoryboard(isClose, TransitionMode);
+        var actualStoryboard = GetTransitionStoryboard(this) ?? CreateStoryboard(isClose, GetTransitionMode(this));
         if (actualStoryboard is null)
         {
             return;
@@ -1062,6 +1060,30 @@ public class Growl : Control
             TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade or TransitionMode.Top2Bottom
                 or TransitionMode.Top2BottomWithFade => Orientation.Vertical,
             _ => null
+        };
+    }
+
+    private static VerticalAlignment GetPanelVerticalAlignment(TransitionMode transitionMode)
+    {
+        return transitionMode switch
+        {
+            TransitionMode.Right2Left or TransitionMode.Right2LeftWithFade or TransitionMode.Left2Right
+                or TransitionMode.Left2RightWithFade => VerticalAlignment.Top,
+            TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade => VerticalAlignment.Bottom,
+            TransitionMode.Top2Bottom or TransitionMode.Top2BottomWithFade => VerticalAlignment.Top,
+            _ => VerticalAlignment.Stretch
+        };
+    }
+
+    private static HorizontalAlignment GetPanelHorizontalAlignment(TransitionMode transitionMode)
+    {
+        return transitionMode switch
+        {
+            TransitionMode.Right2Left or TransitionMode.Right2LeftWithFade => HorizontalAlignment.Right,
+            TransitionMode.Left2Right or TransitionMode.Left2RightWithFade => HorizontalAlignment.Left,
+            TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade or TransitionMode.Top2Bottom
+                or TransitionMode.Top2BottomWithFade => HorizontalAlignment.Center,
+            _ => HorizontalAlignment.Stretch
         };
     }
 }

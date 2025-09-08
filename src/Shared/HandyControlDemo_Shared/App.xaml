@@ -2,12 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:viewModel="clr-namespace:HandyControlDemo.ViewModel"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:d1P1="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             d1P1:Ignorable="d" 
+             d1P1:Ignorable="d"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -30,6 +30,7 @@
             <hc:EnumDataProvider x:Key="DemoTypes" Type="data:DemoType"/>
             <hc:EnumDataProvider x:Key="ShowAnimations" Type="hc:ShowAnimation"/>
             <hc:EnumDataProvider x:Key="HatchStyles" Type="hc:HatchStyle"/>
+            <hc:EnumDataProvider x:Key="TransitionModes" Type="hc:TransitionMode"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

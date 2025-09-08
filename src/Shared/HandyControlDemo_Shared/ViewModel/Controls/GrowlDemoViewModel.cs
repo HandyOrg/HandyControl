@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
@@ -6,9 +7,11 @@ using HandyControlDemo.Window;
 
 namespace HandyControlDemo.ViewModel;
 
-public class GrowlDemoViewModel
+public class GrowlDemoViewModel : ViewModelBase
 {
     private readonly string _token;
+
+    private TransitionMode _transitionMode;
 
     public GrowlDemoViewModel()
     {
@@ -18,6 +21,24 @@ public class GrowlDemoViewModel
     public GrowlDemoViewModel(string token)
     {
         _token = token;
+    }
+
+    public TransitionMode TransitionMode
+    {
+        get => _transitionMode;
+#if NET40
+        set
+        {
+            Set(nameof(TransitionMode), ref _transitionMode, value);
+            Growl.SetTransitionMode(Application.Current.MainWindow, value);
+        }
+#else
+        set
+        {
+            Set(ref _transitionMode, value);
+            Growl.SetTransitionMode(Application.Current.MainWindow, value);
+        }
+#endif
     }
 
     #region Window
