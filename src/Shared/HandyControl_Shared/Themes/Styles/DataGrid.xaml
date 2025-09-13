@@ -66,15 +66,16 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
-                                        <Button Command="{x:Static DataGrid.SelectAllCommand}" MaxHeight="30" Height="auto" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}">
-                                            <Button.Visibility>
+                                        <hc:SimplePanel Margin="0,0,0,6" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}">
+                                            <CheckBox hc:SelectAllButtonAttach.Target="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}}" HorizontalAlignment="Center" />
+                                            <hc:SimplePanel.Visibility>
                                                 <MultiBinding Converter="{StaticResource DataGridSelectAllButtonVisibilityConverter}">
                                                     <Binding Path="HeadersVisibility" RelativeSource="{RelativeSource AncestorType=DataGrid}"/>
                                                     <Binding Path="(hc:DataGridAttach.ShowSelectAllButton)" RelativeSource="{RelativeSource AncestorType=DataGrid}"/>
                                                 </MultiBinding>
-                                            </Button.Visibility>
-                                        </Button>
-                                        <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                            </hc:SimplePanel.Visibility>
+                                        </hc:SimplePanel>
+                                        <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Margin="0,0,0,6" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
                                         <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                                         <hc:ToggleBlock VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" IsChecked="{Binding HasItems, RelativeSource={RelativeSource AncestorType=DataGrid}, Mode=OneWay}">
                                             <hc:ToggleBlock.UnCheckedContent>

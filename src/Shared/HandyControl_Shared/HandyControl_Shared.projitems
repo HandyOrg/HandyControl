@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ScrollViewerAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\SelectAllButtonAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\AdornerElement.cs" />
