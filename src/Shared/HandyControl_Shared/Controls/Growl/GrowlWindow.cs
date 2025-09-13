@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
 
@@ -15,11 +16,8 @@ public sealed class GrowlWindow : Window
         WindowStyle = WindowStyle.None;
         AllowsTransparency = true;
 
-        GrowlPanel = new StackPanel
-        {
-            VerticalAlignment = VerticalAlignment.Top
-        };
-
+        Growl.SetTransitionStoryboard(this, Growl.GetTransitionStoryboard(Application.Current.MainWindow));
+        GrowlPanel = new InverseStackPanel();
         Content = new ScrollViewer
         {
             VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
@@ -28,12 +26,24 @@ public sealed class GrowlWindow : Window
         };
     }
 
-    internal void Init()
+    internal void UpdatePosition(TransitionMode transitionMode)
     {
         var desktopWorkingArea = SystemParameters.WorkArea;
         Height = desktopWorkingArea.Height;
-        Left = desktopWorkingArea.Right - Width;
         Top = 0;
+
+        var panelHorizontalAlignment = Growl.GetPanelHorizontalAlignment(transitionMode);
+        Left = panelHorizontalAlignment switch
+        {
+            HorizontalAlignment.Right => desktopWorkingArea.Right - Width,
+            HorizontalAlignment.Left => desktopWorkingArea.Left,
+            HorizontalAlignment.Center => desktopWorkingArea.Left + (desktopWorkingArea.Width - Width) * 0.5,
+            _ => desktopWorkingArea.Right - Width
+        };
+
+        Growl.SetTransitionMode(this, transitionMode);
+        GrowlPanel.SetValue(InverseStackPanel.IsInverseEnabledProperty,
+            transitionMode is TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade);
     }
 
     protected override void OnSourceInitialized(EventArgs e)

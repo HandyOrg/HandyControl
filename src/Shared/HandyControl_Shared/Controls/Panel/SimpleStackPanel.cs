@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -19,18 +20,14 @@ public class SimpleStackPanel : Panel
     protected override Size MeasureOverride(Size constraint)
     {
         var stackDesiredSize = new Size();
-        var children = InternalChildren;
         var layoutSlotSize = constraint;
 
         if (Orientation == Orientation.Horizontal)
         {
             layoutSlotSize.Width = double.PositiveInfinity;
 
-            for (int i = 0, count = children.Count; i < count; ++i)
+            foreach (var child in GetVisibleChildren())
             {
-                var child = children[i];
-                if (child == null) continue;
-
                 child.Measure(layoutSlotSize);
                 var childDesiredSize = child.DesiredSize;
 
@@ -42,11 +39,8 @@ public class SimpleStackPanel : Panel
         {
             layoutSlotSize.Height = double.PositiveInfinity;
 
-            for (int i = 0, count = children.Count; i < count; ++i)
+            foreach (var child in GetVisibleChildren())
             {
-                var child = children[i];
-                if (child == null) continue;
-
                 child.Measure(layoutSlotSize);
                 var childDesiredSize = child.DesiredSize;
 
@@ -60,17 +54,13 @@ public class SimpleStackPanel : Panel
 
     protected override Size ArrangeOverride(Size arrangeSize)
     {
-        var children = InternalChildren;
         var rcChild = new Rect(arrangeSize);
         var previousChildSize = 0.0;
 
         if (Orientation == Orientation.Horizontal)
         {
-            for (int i = 0, count = children.Count; i < count; ++i)
+            foreach (var child in GetVisibleChildren())
             {
-                var child = children[i];
-                if (child == null) continue;
-
                 rcChild.X += previousChildSize;
                 previousChildSize = child.DesiredSize.Width;
                 rcChild.Width = previousChildSize;
@@ -81,11 +71,8 @@ public class SimpleStackPanel : Panel
         }
         else
         {
-            for (int i = 0, count = children.Count; i < count; ++i)
+            foreach (var child in GetVisibleChildren())
             {
-                var child = children[i];
-                if (child == null) continue;
-
                 rcChild.Y += previousChildSize;
                 previousChildSize = child.DesiredSize.Height;
                 rcChild.Height = previousChildSize;
@@ -96,5 +83,24 @@ public class SimpleStackPanel : Panel
         }
 
         return arrangeSize;
+    }
+
+    public virtual IEnumerable<UIElement> GetVisibleChildren()
+    {
+        var children = InternalChildren;
+
+        for (int i = 0, count = children.Count; i < count; ++i)
+        {
+            var child = children[i];
+            if (child == null)
+            {
+                continue;
+            }
+
+            if (child.Visibility != Visibility.Collapsed)
+            {
+                yield return child;
+            }
+        }
     }
 }

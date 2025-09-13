@@ -12839,6 +12839,14 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+		<Style.Triggers>
+			<Trigger Property="hc:Growl.TransitionMode" Value="Bottom2Top">
+				<Setter Property="Margin" Value="10,0,10,10" />
+			</Trigger>
+			<Trigger Property="hc:Growl.TransitionMode" Value="Bottom2TopWithFade">
+				<Setter Property="Margin" Value="10,0,10,10" />
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<Style BasedOn="{StaticResource ImageSelectorBaseStyle}" TargetType="hc:ImageSelector" />
 	<Style TargetType="hc:ImageViewer">

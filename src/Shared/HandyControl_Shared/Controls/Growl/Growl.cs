@@ -291,7 +291,7 @@ public class Growl : Control
         {
             foreach (var item in panel.Children.OfType<Growl>())
             {
-                item.Close(false);
+                item.Close(invokeParam: false, isClear: true);
             }
         };
         panel.ContextMenu = new ContextMenu
@@ -354,9 +354,9 @@ public class Growl : Control
                         GrowlWindow = new GrowlWindow();
                         GrowlWindow.Show();
                         InitGrowlPanel(GrowlWindow.GrowlPanel);
-                        GrowlWindow.Init();
                     }
 
+                    GrowlWindow.UpdatePosition(Growl.GetTransitionMode(Application.Current.MainWindow));
                     GrowlWindow.Show(true);
 
                     var ctl = new Growl
@@ -408,7 +408,7 @@ public class Growl : Control
                         ConfirmStr = growlInfo.ConfirmStr,
                         CancelStr = growlInfo.CancelStr,
                         Type = growlInfo.Type,
-                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime)
+                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
                     };
 
                     if (!string.IsNullOrEmpty(growlInfo.Token))
@@ -424,9 +424,11 @@ public class Growl : Control
                         GrowlPanel ??= CreateDefaultPanel();
                         ShowInternal(GrowlPanel, ctl);
 
-                        var transitionMode = GetTransitionMode(ctl);
+                        var transitionMode = GetTransitionMode(GrowlPanel);
                         GrowlPanel.VerticalAlignment = GetPanelVerticalAlignment(transitionMode);
                         GrowlPanel.HorizontalAlignment = GetPanelHorizontalAlignment(transitionMode);
+                        GrowlPanel.SetValue(InverseStackPanel.IsInverseEnabledProperty,
+                            transitionMode is TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade);
                     }
                 }
 #if NET40
@@ -446,7 +448,7 @@ public class Growl : Control
             return null;
         }
 
-        var panel = new SimpleStackPanel();
+        var panel = new InverseStackPanel();
 
         InitGrowlPanel(panel);
         SetIsCreatedAutomatically(panel, true);
@@ -830,14 +832,15 @@ public class Growl : Control
     /// <summary>
     ///     关闭
     /// </summary>
-    private void Close(bool invokeParam)
+    private void Close(bool invokeParam, bool isClear = false)
     {
-        if (ActionBeforeClose?.Invoke(invokeParam) == false)
+        if (!isClear && ActionBeforeClose?.Invoke(invokeParam) == false)
         {
             return;
         }
 
         _timerClose?.Stop();
+        Panel.SetZIndex(this, int.MinValue);
         StartTransition(true, OnStoryboardCompleted);
         return;
 
@@ -942,16 +945,19 @@ public class Growl : Control
     {
         var transformLength = GetTransformLength(isClose, transitionMode);
         var transformAnimation = CreateTransformAnimation(isClose, transitionMode, transformLength);
-        _gridMain.RenderTransform = CreateRenderTransform(isClose, transitionMode, transformLength);
-
         var storyboard = new Storyboard
         {
             Duration = transformAnimation.Duration
         };
-        Storyboard.SetTarget(transformAnimation, _gridMain);
-        storyboard.Children.Add(transformAnimation);
 
-        if (CreateFadeAnimation(transitionMode) is not { } fadeAnimation)
+        if (transitionMode is not TransitionMode.Fade)
+        {
+            _gridMain.RenderTransform = CreateRenderTransform(isClose, transitionMode, transformLength);
+            Storyboard.SetTarget(transformAnimation, _gridMain);
+            storyboard.Children.Add(transformAnimation);
+        }
+
+        if (CreateFadeAnimation(isClose, transitionMode) is not { } fadeAnimation)
         {
             return storyboard;
         }
@@ -970,7 +976,7 @@ public class Growl : Control
             TransitionMode.Left2Right or TransitionMode.Left2RightWithFade => -ActualWidth,
             TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade => ActualHeight,
             TransitionMode.Top2Bottom or TransitionMode.Top2BottomWithFade => -ActualHeight,
-            _ => 0
+            _ => ActualWidth
         };
 
 
@@ -1007,6 +1013,9 @@ public class Growl : Control
             case Orientation.Vertical:
                 ((TranslateTransform) transformGroup.Children[TranslateTransformIndex]).Y = transformLength;
                 break;
+            default:
+                ((TranslateTransform) transformGroup.Children[TranslateTransformIndex]).X = transformLength;
+                break;
         }
 
         return transformGroup;
@@ -1029,23 +1038,29 @@ public class Growl : Control
                     new PropertyPath(
                         $"(UIElement.RenderTransform).(TransformGroup.Children)[{TranslateTransformIndex}].(TranslateTransform.Y)"));
                 break;
+            default:
+                Storyboard.SetTargetProperty(animation,
+                    new PropertyPath(
+                        $"(UIElement.RenderTransform).(TransformGroup.Children)[{TranslateTransformIndex}].(TranslateTransform.X)"));
+                break;
         }
 
         return animation;
     }
 
-    private static DoubleAnimation CreateFadeAnimation(TransitionMode transitionMode)
+    private static DoubleAnimation CreateFadeAnimation(bool isClose, TransitionMode transitionMode)
     {
         if (transitionMode is TransitionMode.Right2Left or
             TransitionMode.Left2Right or
             TransitionMode.Bottom2Top or
-            TransitionMode.Top2Bottom)
+            TransitionMode.Top2Bottom or
+            TransitionMode.Custom)
         {
             return null;
-        }
+        } 
 
-        var animation = AnimationHelper.CreateAnimation(1);
-        animation.From = 0;
+        var animation = AnimationHelper.CreateAnimation(isClose ? 0 : 1);
+        animation.From = isClose ? 1 : 0;
         Storyboard.SetTargetProperty(animation, new PropertyPath("(UIElement.Opacity)"));
 
         return animation;
@@ -1059,23 +1074,16 @@ public class Growl : Control
                 or TransitionMode.Left2RightWithFade => Orientation.Horizontal,
             TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade or TransitionMode.Top2Bottom
                 or TransitionMode.Top2BottomWithFade => Orientation.Vertical,
-            _ => null
+            _ => Orientation.Horizontal
         };
     }
 
-    private static VerticalAlignment GetPanelVerticalAlignment(TransitionMode transitionMode)
+    internal static VerticalAlignment GetPanelVerticalAlignment(TransitionMode transitionMode)
     {
-        return transitionMode switch
-        {
-            TransitionMode.Right2Left or TransitionMode.Right2LeftWithFade or TransitionMode.Left2Right
-                or TransitionMode.Left2RightWithFade => VerticalAlignment.Top,
-            TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade => VerticalAlignment.Bottom,
-            TransitionMode.Top2Bottom or TransitionMode.Top2BottomWithFade => VerticalAlignment.Top,
-            _ => VerticalAlignment.Stretch
-        };
+        return VerticalAlignment.Stretch;
     }
 
-    private static HorizontalAlignment GetPanelHorizontalAlignment(TransitionMode transitionMode)
+    internal static HorizontalAlignment GetPanelHorizontalAlignment(TransitionMode transitionMode)
     {
         return transitionMode switch
         {
@@ -1083,7 +1091,7 @@ public class Growl : Control
             TransitionMode.Left2Right or TransitionMode.Left2RightWithFade => HorizontalAlignment.Left,
             TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade or TransitionMode.Top2Bottom
                 or TransitionMode.Top2BottomWithFade => HorizontalAlignment.Center,
-            _ => HorizontalAlignment.Stretch
+            _ => HorizontalAlignment.Right
         };
     }
 }
