@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -287,13 +286,7 @@ public class Growl : Control
         var menuItem = new MenuItem();
         LangProvider.SetLang(menuItem, HeaderedItemsControl.HeaderProperty, LangKeys.Clear);
 
-        menuItem.Click += (s, e) =>
-        {
-            foreach (var item in panel.Children.OfType<Growl>())
-            {
-                item.Close(invokeParam: false, isClear: true);
-            }
-        };
+        menuItem.Click += (s, e) => Clear(panel);
         panel.ContextMenu = new ContextMenu
         {
             Items =
@@ -439,21 +432,11 @@ public class Growl : Control
 
     private static Panel CreateDefaultPanel()
     {
-       var win = WindowHelper.GetActiveWindow();
-        win.Closed+= (s, e) =>
-        {
-            if (GrowlPanel != null)
-            {
-                foreach (var item in GrowlPanel.Children.OfType<Growl>())
-                {
-                    item.Close(false);
-                }
-                GrowlPanel = null;
-            }
-        };
-        var decorator = VisualHelper.GetChild<AdornerDecorator>(win);
-
+        var window = WindowHelper.GetActiveWindow();
+        window.Closed += (s, e) => Clear(GrowlPanel);
+        var decorator = VisualHelper.GetChild<AdornerDecorator>(window);
         var layer = decorator?.AdornerLayer;
+
         if (layer == null)
         {
             return null;
@@ -1068,7 +1051,7 @@ public class Growl : Control
             TransitionMode.Custom)
         {
             return null;
-        } 
+        }
 
         var animation = AnimationHelper.CreateAnimation(isClose ? 0 : 1);
         animation.From = isClose ? 1 : 0;
