@@ -37,6 +37,8 @@ public class Pagination : Control
 
     #region Data
 
+    private readonly string _groupName = Guid.NewGuid().ToString("N");
+
     private Button _buttonLeft;
     private Button _buttonRight;
     private RadioButton _buttonFirst;
@@ -45,10 +47,7 @@ public class Pagination : Control
     private FrameworkElement _moreRight;
     private RadioButton _buttonLast;
     private NumericUpDown _jumpNumericUpDown;
-
     private bool _appliedTemplate;
-
-    private readonly string groupName = Guid.NewGuid().ToString("N");
 
     #endregion Data
 
@@ -93,9 +92,9 @@ public class Pagination : Control
     public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
         nameof(MaxPageCount), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
-    private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
+    private static object CoerceMaxPageCount(DependencyObject d, object baseValue)
     {
-        var intValue = (int) basevalue;
+        var intValue = (int) baseValue;
         return intValue < 1 ? 1 : intValue;
     }
 
@@ -161,11 +160,11 @@ public class Pagination : Control
     public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
         nameof(PageIndex), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
-    private static object CoercePageIndex(DependencyObject d, object basevalue)
+    private static object CoercePageIndex(DependencyObject d, object baseValue)
     {
         if (d is not Pagination pagination) return 1;
 
-        var intValue = (int) basevalue;
+        var intValue = (int) baseValue;
         return intValue < 1
             ? 1
             : intValue > pagination.MaxPageCount
@@ -275,6 +274,7 @@ public class Pagination : Control
     public override void OnApplyTemplate()
     {
         _appliedTemplate = false;
+
         base.OnApplyTemplate();
 
         _buttonLeft = GetTemplateChild(ElementButtonLeft) as Button;
@@ -286,12 +286,13 @@ public class Pagination : Control
         _buttonLast = GetTemplateChild(ElementButtonLast) as RadioButton;
         _jumpNumericUpDown = GetTemplateChild(ElementJump) as NumericUpDown;
 
-        _buttonFirst.GroupName = groupName;
-        _buttonLast.GroupName = groupName;
-
         CheckNull();
 
+        _buttonFirst.Content = "1";
+        _buttonFirst.GroupName = _groupName;
+        _buttonLast.GroupName = _groupName;
         _appliedTemplate = true;
+
         Update();
     }
 
@@ -397,11 +398,11 @@ public class Pagination : Control
 
     private RadioButton CreateButton(int page)
     {
-        return new()
+        return new RadioButton
         {
             Style = PaginationButtonStyle,
             Content = page.ToString(),
-            GroupName = groupName
+            GroupName = _groupName,
         };
     }
 
