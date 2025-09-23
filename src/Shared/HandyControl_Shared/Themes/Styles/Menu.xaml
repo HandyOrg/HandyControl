@@ -7,6 +7,7 @@
 
     <Style x:Key="Menu.Small" BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu">
         <Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
     </Style>

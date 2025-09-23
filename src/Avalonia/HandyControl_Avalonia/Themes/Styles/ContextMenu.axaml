@@ -6,10 +6,12 @@
                   TargetType="ContextMenu">
         <Setter Property="hc:MenuAttach.ItemPadding"
                 Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset"
-                Value="-9" />
+                Value="-16" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
-                Value="10" />
+                Value="1" />
         <Setter Property="Background"
                 Value="{DynamicResource RegionBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
@@ -18,6 +20,8 @@
                 Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Padding"
                 Value="2,2,2,0" />
+        <Setter Property="BorderThickness"
+                Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContextMenu">
@@ -26,7 +30,7 @@
                             Background="{TemplateBinding Background}"
                             CornerRadius="{TemplateBinding CornerRadius}"
                             MaxHeight="{TemplateBinding MaxHeight}"
-                            BorderThickness="1"
+                            BorderThickness="{TemplateBinding BorderThickness}"
                             BorderBrush="{DynamicResource BorderBrush}">
                         <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
                                       Margin="{TemplateBinding Padding}">
@@ -49,10 +53,12 @@
                   TargetType="ContextMenu">
         <Setter Property="hc:MenuAttach.ItemPadding"
                 Value="6,0" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight"
+                Value="20" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset"
-                Value="-3" />
+                Value="-11" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
-                Value="6" />
+                Value="-2" />
     </ControlTheme>
 
 </ResourceDictionary>

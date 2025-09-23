@@ -6414,6 +6414,8 @@
 	</Style>
 	<Style x:Key="MenuItemBaseStyle" TargetType="MenuItem">
 		<Setter Property="Padding" Value="{Binding Path=(hc:MenuAttach.ItemPadding),RelativeSource={RelativeSource AncestorType=MenuBase}}" />
+		<Setter Property="MinHeight" Value="{Binding Path=(hc:MenuAttach.ItemMinHeight),RelativeSource={RelativeSource AncestorType=MenuBase}}" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="OverridesDefaultStyle" Value="True" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="BorderThickness" Value="0" />
@@ -6425,7 +6427,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="MenuItem">
-					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+					<Border x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
 						<Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="26" />
@@ -6435,10 +6437,10 @@
 								<ColumnDefinition Width="20" />
 							</Grid.ColumnDefinitions>
 							<ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
-							<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
+							<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="Red" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
 								<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 							</Border>
-							<ContentPresenter Grid.Column="1" x:Name="ContentPresenter" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" Margin="0,3" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							<ContentPresenter Grid.Column="1" x:Name="ContentPresenter" VerticalAlignment="Center" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 							<TextBlock x:Name="InputGestureText" Margin="0,0,10,0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{TemplateBinding InputGestureText}" />
 						</Grid>
 					</Border>
@@ -6460,7 +6462,7 @@
 					<Setter.Value>
 						<ControlTemplate TargetType="MenuItem">
 							<Border MinWidth="44" x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-								<Grid VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+								<Grid Margin="{TemplateBinding Padding}">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="Auto" />
@@ -6469,7 +6471,7 @@
 									<Border Margin="0,0,10,0" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
-									<ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									<ContentPresenter x:Name="menuHeaderContainer" VerticalAlignment="Center" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Popup Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=templateRoot}" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom">
 										<hc:SimplePanel Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8">
 											<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,0,1,1'}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
@@ -6557,7 +6559,7 @@
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="MenuItem">
-							<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+							<Border x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
 								<Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="26" />
@@ -6570,7 +6572,7 @@
 									<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
-									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" x:Name="ContentPresenter" ContentStringFormat="{TemplateBinding HeaderStringFormat}" VerticalAlignment="Center" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center" />
 									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="{Binding Path=(hc:MenuAttach.PopupVerticalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}" HorizontalOffset="{Binding Path=(hc:MenuAttach.PopupHorizontalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}">
 										<Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
@@ -6600,6 +6602,7 @@
 	</Style>
 	<Style x:Key="MenuBaseStyle" TargetType="Menu">
 		<Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
+		<Setter Property="hc:MenuAttach.ItemMinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
 		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
 		<Setter Property="OverridesDefaultStyle" Value="True" />
@@ -7109,6 +7112,7 @@
 	<Style BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu" />
 	<Style x:Key="Menu.Small" BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu">
 		<Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+		<Setter Property="hc:MenuAttach.ItemMinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
 		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
 	</Style>
@@ -8062,16 +8066,18 @@
 	</Style>
 	<Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
 		<Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
-		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
+		<Setter Property="hc:MenuAttach.ItemMinHeight" Value="{StaticResource DefaultControlHeight}" />
+		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-8" />
 		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="2,2,2,0" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ContextMenu">
-					<Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+					<Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{DynamicResource BorderBrush}">
 						<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="{TemplateBinding Padding}">
 							<ItemsPresenter />
 						</ScrollViewer>
@@ -12578,6 +12584,7 @@
 	<Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu" />
 	<Style x:Key="ContextMenu.Small" BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu">
 		<Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+		<Setter Property="hc:MenuAttach.ItemMinHeight" Value="20" />
 		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
 		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
 	</Style>

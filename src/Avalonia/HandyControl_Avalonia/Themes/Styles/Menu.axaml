@@ -6,7 +6,9 @@
     <ControlTheme x:Key="MenuItemBaseStyle"
                   TargetType="MenuItem">
         <Setter Property="Padding"
-                Value="{Binding Path=(hc:MenuAttach.ItemPadding),RelativeSource={RelativeSource AncestorType=MenuBase}}" />
+                Value="{Binding $self.(hc:MenuAttach.ItemPadding)}" />
+        <Setter Property="MinHeight"
+                Value="{Binding $self.(hc:MenuAttach.ItemMinHeight)}" />
         <Setter Property="Background"
                 Value="Transparent" />
         <Setter Property="BorderThickness"
@@ -38,20 +40,19 @@
                         <ContentControl Grid.Column="0"
                                         x:Name="PART_ToggleIconPresenter"
                                         IsVisible="False"
-                                        Margin="3"
                                         Width="16"
-                                        Height="16" />
+                                        Height="16"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center" />
                         <ContentControl Grid.Column="0"
                                         Name="PART_IconPresenter"
                                         Width="16"
                                         Height="16"
-                                        Margin="3"
-                                        HorizontalAlignment="Center"
+                                        HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Content="{TemplateBinding Icon}" />
                         <ContentPresenter Name="PART_HeaderPresenter"
                                           Grid.Column="1"
-                                          Margin="{TemplateBinding Padding}"
                                           VerticalAlignment="Center"
                                           Content="{TemplateBinding Header}"
                                           ContentTemplate="{TemplateBinding HeaderTemplate}">
@@ -64,10 +65,11 @@
                         <TextBlock x:Name="PART_InputGestureText"
                                    Grid.Column="3"
                                    VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
                                    Text="{TemplateBinding InputGesture, Converter={StaticResource PlatformKeyGestureConverter}}" />
                         <Path Name="rightArrow"
                               Grid.Column="4"
-                              Margin="10,0,0,0"
+                              Margin="0,0,10,0"
                               Width="10"
                               Height="10"
                               HorizontalAlignment="Left"
@@ -79,10 +81,14 @@
                                Name="PART_Popup"
                                IsLightDismissEnabled="False"
                                IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
-                               Placement="RightEdgeAlignedTop">
+                               Placement="RightEdgeAlignedTop"
+                               VerticalOffset="{Binding $self.(hc:MenuAttach.PopupVerticalOffset)}"
+                               HorizontalOffset="{Binding $self.(hc:MenuAttach.PopupHorizontalOffset)}">
                             <Border Background="{DynamicResource RegionBrush}"
                                     BorderBrush="{DynamicResource BorderBrush}"
                                     BorderThickness="1"
+                                    Margin="8"
+                                    Effect="{StaticResource EffectShadow2}"
                                     CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                                 <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
                                               Margin="2,2,2,0">
@@ -112,10 +118,12 @@
                   TargetType="Menu">
         <Setter Property="hc:MenuAttach.ItemPadding"
                 Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset"
-                Value="-9" />
+                Value="-16" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
-                Value="10" />
+                Value="1" />
         <Setter Property="Background"
                 Value="{DynamicResource RegionBrush}" />
         <Setter Property="Foreground"
@@ -152,10 +160,12 @@
                   TargetType="Menu">
         <Setter Property="hc:MenuAttach.ItemPadding"
                 Value="6,0" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight"
+                Value="20" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset"
-                Value="-3" />
+                Value="-11" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
-                Value="6" />
+                Value="-2" />
     </ControlTheme>
 
 </ResourceDictionary>
