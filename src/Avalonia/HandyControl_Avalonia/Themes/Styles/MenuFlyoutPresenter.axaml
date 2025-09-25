@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
+
+    <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}"
+                  TargetType="MenuFlyoutPresenter">
+        <Setter Property="hc:MenuAttach.ItemPadding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="hc:MenuAttach.ItemMinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset"
+                Value="-16" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
+                Value="1" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Padding"
+                Value="2,2,2,0" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Effect="{StaticResource EffectShadow2}"
+                        Margin="8"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        MaxHeight="{TemplateBinding MaxHeight}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
+                                  Margin="{TemplateBinding Padding}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        KeyboardNavigation.TabNavigation="Continue" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

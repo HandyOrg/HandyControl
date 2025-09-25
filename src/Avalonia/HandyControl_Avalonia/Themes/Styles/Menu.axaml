@@ -11,6 +11,8 @@
                 Value="{Binding $self.(hc:MenuAttach.ItemMinHeight)}" />
         <Setter Property="Background"
                 Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Foreground"
@@ -42,12 +44,14 @@
                                         IsVisible="False"
                                         Width="16"
                                         Height="16"
+                                        Margin="0,0,10,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center" />
                         <ContentControl Grid.Column="0"
                                         Name="PART_IconPresenter"
                                         Width="16"
                                         Height="16"
+                                        Margin="0,0,10,0"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Center"
                                         Content="{TemplateBinding Icon}" />
@@ -66,6 +70,8 @@
                                    Grid.Column="3"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
+                                   Margin="0,0,10,0"
+                                   IsVisible="False"
                                    Text="{TemplateBinding InputGesture, Converter={StaticResource PlatformKeyGestureConverter}}" />
                         <Path Name="rightArrow"
                               Grid.Column="4"
@@ -108,7 +114,28 @@
                     Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
-        <Style Selector="^:empty /template/ Path#rightArrow">
+        <Style Selector="^:empty">
+            <Style Selector="^ /template/Path#rightArrow">
+                <Setter Property="IsVisible"
+                        Value="False" />
+            </Style>
+            <Style Selector="^ /template/TextBlock#PART_InputGestureText">
+                <Setter Property="IsVisible"
+                        Value="True" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:toggle /template/ ContentControl#PART_ToggleIconPresenter, ^:radio /template/ ContentControl#PART_ToggleIconPresenter">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <Style Selector="^:toggle /template/ ContentPresenter#PART_IconPresenter, ^:radio /template/ ContentPresenter#PART_IconPresenter">
             <Setter Property="IsVisible"
                     Value="False" />
         </Style>

@@ -27,7 +27,7 @@
                                 <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
                             <ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
-                            <Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="Red" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
+                            <Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
                                 <Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                             </Border>
                             <ContentPresenter Grid.Column="1" x:Name="ContentPresenter" VerticalAlignment="Center" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>

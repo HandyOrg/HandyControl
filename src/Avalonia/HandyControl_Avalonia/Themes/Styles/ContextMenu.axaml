@@ -14,6 +14,8 @@
                 Value="1" />
         <Setter Property="Background"
                 Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="CornerRadius"
@@ -31,7 +33,7 @@
                             CornerRadius="{TemplateBinding CornerRadius}"
                             MaxHeight="{TemplateBinding MaxHeight}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{DynamicResource BorderBrush}">
+                            BorderBrush="{TemplateBinding BorderBrush}">
                         <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
                                       Margin="{TemplateBinding Padding}">
                             <ItemsPresenter Name="PART_ItemsPresenter"

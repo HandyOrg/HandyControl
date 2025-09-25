@@ -16,6 +16,7 @@
                 <MergeResourceInclude Source="/Themes/Basic/Converters.axaml" />
 
                 <MergeResourceInclude Source="/Themes/Styles/DataValidationErrors.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/MenuFlyoutPresenter.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/PopupRoot.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/ToolTip.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/TextBlock.axaml" />
