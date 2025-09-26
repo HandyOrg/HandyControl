@@ -22,7 +22,7 @@
         <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="RowHeight" Value="44"/>
-        <Setter Property="ColumnHeaderHeight" Value="44"/>
+        <Setter Property="ColumnHeaderHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}"/>
         <Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource DataGridEditingTextColumnStyle}"/>
         <Setter Property="hc:DataGridAttach.ComboBoxColumnStyle" Value="{StaticResource DataGridComboBoxColumnStyle}"/>

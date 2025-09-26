@@ -9335,7 +9335,7 @@
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="SnapsToDevicePixels" Value="true" />
 		<Setter Property="Margin" Value="0,0,0,4" />
-		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
+		<Setter Property="Padding" Value="6,0" />
 		<Setter Property="MinHeight" Value="44" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -11807,7 +11807,7 @@
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
 		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DataGridCell">
@@ -12474,7 +12474,7 @@
 		<Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}" />
 		<Setter Property="Padding" Value="6" />
 		<Setter Property="RowHeight" Value="44" />
-		<Setter Property="ColumnHeaderHeight" Value="44" />
+		<Setter Property="ColumnHeaderHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}" />
 		<Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource DataGridEditingTextColumnStyle}" />
 		<Setter Property="hc:DataGridAttach.ComboBoxColumnStyle" Value="{StaticResource DataGridComboBoxColumnStyle}" />
@@ -12806,7 +12806,7 @@
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemBaseStyle}" />
-		<Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="44" />
+		<Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -12843,9 +12843,9 @@
 											<RowDefinition Height="*" />
 											<RowDefinition Height="Auto" />
 										</Grid.RowDefinitions>
-										<DockPanel Grid.ColumnSpan="2" x:Name="Header">
+										<DockPanel Grid.ColumnSpan="2" x:Name="Header" Margin="0,0,0,6">
 											<ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Focusable="false">
-												<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplateSelector="{Binding View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource AncestorType=ListView}}" Columns="{Binding View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+												<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplateSelector="{Binding View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource AncestorType=ListView}}" Columns="{Binding View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 											</ScrollViewer>
 										</DockPanel>
 										<hc:ToggleBlock Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" IsChecked="{Binding HasItems,RelativeSource={RelativeSource AncestorType=ListView},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -12900,7 +12900,7 @@
 	</Style>
 	<Style x:Key="ListView.Small" BasedOn="{StaticResource ListViewBaseStyle}" TargetType="ListView">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemBaseStyle.Small}" />
-		<Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="30" />
+		<Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="20" />
 	</Style>
 	<Style BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="hc:LoadingLine" />
 	<Style x:Key="LoadingLineLight" BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="hc:LoadingLine">
