@@ -38,6 +38,7 @@ public class SelectAllButtonAttach
             return;
         }
 
+        button.IsEnabled = GetIsEnabled(newSelector);
         button.Click += OnButtonOnClick;
         newSelector.SelectionChanged += OnSelectorSelectionChanged;
 
@@ -88,40 +89,47 @@ public class SelectAllButtonAttach
 
     private static void SelectAll(Selector selector)
     {
-        if (selector is MultiSelector multiSelector)
+        switch (selector)
         {
-            multiSelector.SelectAll();
-        }
-        else if (selector is ListBox listBox)
-        {
-            listBox.SelectAll();
+            case MultiSelector multiSelector:
+                multiSelector.SelectAll();
+                break;
+            case ListBox listBox:
+                listBox.SelectAll();
+                break;
         }
     }
 
     private static void UnselectAll(Selector selector)
     {
-        if (selector is MultiSelector multiSelector)
+        switch (selector)
         {
-            multiSelector.UnselectAll();
-        }
-        else if (selector is ListBox listBox)
-        {
-            listBox.UnselectAll();
+            case MultiSelector multiSelector:
+                multiSelector.UnselectAll();
+                break;
+            case ListBox listBox:
+                listBox.UnselectAll();
+                break;
         }
     }
 
     private static int GetSelectedItemsCount(Selector selector)
     {
-        if (selector is MultiSelector multiSelector)
+        return selector switch
         {
-            return multiSelector.SelectedItems.Count;
-        }
+            MultiSelector multiSelector => multiSelector.SelectedItems.Count,
+            ListBox listBox => listBox.SelectedItems.Count,
+            _ => 0
+        };
+    }
 
-        if (selector is ListBox listBox)
+    private static bool GetIsEnabled(Selector selector)
+    {
+        return selector switch
         {
-            return listBox.SelectedItems.Count;
-        }
-
-        return 0;
+            DataGrid dataGrid => dataGrid.SelectionMode is not DataGridSelectionMode.Single,
+            ListBox listBox => listBox.SelectionMode is not SelectionMode.Single,
+            _ => false
+        };
     }
 }
