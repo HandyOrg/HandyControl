@@ -95,7 +95,7 @@
                                     BorderThickness="1"
                                     Margin="8"
                                     Effect="{StaticResource EffectShadow2}"
-                                    CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                                    CornerRadius="{TemplateBinding CornerRadius}">
                                 <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
                                               Margin="2,2,2,0">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
@@ -141,8 +141,92 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="TopLevelMenuItemBaseStyle"
+                  TargetType="MenuItem">
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset"
+                Value="-8" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset"
+                Value="-8" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="MinWidth"
+                Value="44" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="root"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <Panel>
+                        <ContentPresenter Name="PART_HeaderPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="sys:String">
+                                    <AccessText Text="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+                        <Popup Name="PART_Popup"
+                               IsLightDismissEnabled="True"
+                               IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}"
+                               Placement="BottomEdgeAlignedLeft"
+                               OverlayInputPassThroughElement="{Binding $parent[Menu]}"
+                               VerticalOffset="{Binding $self.(hc:MenuAttach.PopupVerticalOffset)}"
+                               HorizontalOffset="{Binding $self.(hc:MenuAttach.PopupHorizontalOffset)}">
+                            <Border Background="{DynamicResource RegionBrush}"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="1"
+                                    Margin="8"
+                                    Effect="{StaticResource EffectShadow2}"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <ScrollViewer Theme="{StaticResource ScrollViewerUpDown}"
+                                              Margin="2,2,2,0">
+                                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                                    Grid.IsSharedSizeScope="True"
+                                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:selected /template/ Border#root">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:empty /template/ Path#rightArrow">
+            <Setter Property="IsVisible"
+                    Value="False" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
     <ControlTheme x:Key="MenuBaseStyle"
                   TargetType="Menu">
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource TopLevelMenuItemBaseStyle}" />
         <Setter Property="hc:MenuAttach.ItemPadding"
                 Value="{StaticResource DefaultControlPadding}" />
         <Setter Property="hc:MenuAttach.ItemMinHeight"
