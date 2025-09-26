@@ -6,9 +6,9 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <TabControl Style="{StaticResource TabControlInLine}">
+        <TabControl Style="{StaticResource TabControlInLine}" BorderThickness="0,1,0,0">
             <TabItem Header="Default">
-                <ListView ItemsSource="{Binding DataList}">
+                <ListView ItemsSource="{Binding DataList}" Margin="8">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="80" Header="{ex:Lang Key={x:Static langs:LangKeys.Index}}" DisplayMemberBinding="{Binding Index}" />
@@ -19,7 +19,7 @@
                 </ListView>
             </TabItem>
             <TabItem Header="Small">
-                <ListView ItemsSource="{Binding DataList}" Style="{StaticResource ListView.Small}">
+                <ListView ItemsSource="{Binding DataList}" Style="{StaticResource ListView.Small}" Margin="8">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="80" Header="{ex:Lang Key={x:Static langs:LangKeys.Index}}" DisplayMemberBinding="{Binding Index}" />
