@@ -1,5 +1,6 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
                     xmlns:system="using:System">
     <system:Double x:Key="LargeFontSize">24</system:Double>
     <system:Double x:Key="HeadFontSize">20</system:Double>
