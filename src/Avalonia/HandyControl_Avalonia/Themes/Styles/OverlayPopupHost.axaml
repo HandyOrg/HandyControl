@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal">
+
+    <ControlTheme x:Key="{x:Type OverlayPopupHost}"
+                  TargetType="OverlayPopupHost">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+                    <VisualLayerManager IsPopup="True">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Padding="{TemplateBinding Padding}"
+                                          Background="{TemplateBinding Background}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </VisualLayerManager>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

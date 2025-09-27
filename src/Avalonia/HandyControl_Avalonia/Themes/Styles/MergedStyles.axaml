@@ -22,6 +22,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/EmbeddableControlRoot.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/PopupRoot.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/OverlayPopupHost.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/PathIcon.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Separator.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ToolTip.axaml" />
