@@ -18,6 +18,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/AdornerLayer.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/DataValidationErrors.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/MenuFlyoutPresenter.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TransitioningContentControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/PopupRoot.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/PathIcon.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ToolTip.axaml" />
