@@ -115,219 +115,6 @@
         </Style>
     </ControlTheme>
 
-    <ControlTemplate x:Key="TextBoxExtendTopTemplate"
-                     TargetType="TextBox">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
-                               Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
-            </Grid.RowDefinitions>
-            <DockPanel LastChildFill="True"
-                       IsHitTestVisible="False"
-                       IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent},Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                       HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
-                       Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter DockPanel.Dock="Right"
-                                  TextElement.Foreground="{DynamicResource DangerBrush}"
-                                  Margin="4,0,0,0"
-                                  Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
-                                  IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
-                <TextBlock TextWrapping="NoWrap"
-                           TextTrimming="CharacterEllipsis"
-                           Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
-            </DockPanel>
-            <DataValidationErrors Grid.Row="1">
-                <Grid ColumnDefinitions="*,Auto">
-                    <Border x:Name="border"
-                            Grid.ColumnSpan="2"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" />
-                    <TextBlock Grid.Column="0"
-                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                               Margin="{TemplateBinding Padding}"
-                               IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
-                               HorizontalAlignment="Stretch"
-                               Theme="{StaticResource TextBlockDefaultThiLight}"
-                               Text="{TemplateBinding Watermark}" />
-                    <ScrollViewer Grid.Column="0"
-                                  Name="PART_ScrollViewer"
-                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <TextPresenter Name="PART_TextPresenter"
-                                       Margin="{TemplateBinding Padding}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                                       CaretBrush="{TemplateBinding CaretBrush}"
-                                       CaretIndex="{TemplateBinding CaretIndex}"
-                                       LineHeight="{TemplateBinding LineHeight}"
-                                       LetterSpacing="{TemplateBinding LetterSpacing}"
-                                       PasswordChar="{TemplateBinding PasswordChar}"
-                                       RevealPassword="{TemplateBinding RevealPassword}"
-                                       SelectionBrush="{TemplateBinding SelectionBrush}"
-                                       SelectionEnd="{TemplateBinding SelectionEnd}"
-                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                       SelectionStart="{TemplateBinding SelectionStart}"
-                                       Text="{TemplateBinding Text,Mode=TwoWay}"
-                                       TextAlignment="{TemplateBinding TextAlignment}"
-                                       TextWrapping="{TemplateBinding TextWrapping}" />
-                        <ScrollViewer.Styles>
-                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Cursor"
-                                        Value="IBeam" />
-                            </Style>
-                        </ScrollViewer.Styles>
-                    </ScrollViewer>
-                    <Button HorizontalContentAlignment="Left"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            hc:IconElement.Width="14"
-                            Command="{Binding $parent[TextBox].Clear}"
-                            Name="ButtonClear"
-                            Focusable="False"
-                            Grid.Column="1"
-                            Theme="{StaticResource ButtonIcon}"
-                            Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
-                            hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
-                            Foreground="{Binding BorderBrush,ElementName=border}">
-                        <Button.IsVisible>
-                            <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="IsPointerOver" />
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="(hc:InfoElement.ShowClearButton)" />
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="IsReadOnly"
-                                         Converter="{x:Static BoolConverters.Not}" />
-                            </MultiBinding>
-                        </Button.IsVisible>
-                    </Button>
-                </Grid>
-            </DataValidationErrors>
-        </Grid>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="TextBoxExtendLeftTemplate"
-                     TargetType="TextBox">
-        <Grid MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
-              Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="{Binding Path=(hc:TitleElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <DockPanel LastChildFill="True"
-                       IsHitTestVisible="False"
-                       IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent},Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                       HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
-                       VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
-                       Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}">
-                <ContentPresenter DockPanel.Dock="Right"
-                                  TextElement.Foreground="{DynamicResource DangerBrush}"
-                                  Margin="4,0,0,0"
-                                  Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
-                                  IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
-                <TextBlock TextWrapping="NoWrap"
-                           TextTrimming="CharacterEllipsis"
-                           Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
-            </DockPanel>
-            <DataValidationErrors Grid.Column="1">
-                <Grid ColumnDefinitions="*,Auto">
-                    <Border x:Name="border"
-                            Grid.ColumnSpan="2"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" />
-                    <TextBlock Grid.Column="0"
-                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                               Margin="{TemplateBinding Padding}"
-                               IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
-                               HorizontalAlignment="Stretch"
-                               Theme="{StaticResource TextBlockDefaultThiLight}"
-                               Text="{TemplateBinding Watermark}" />
-                    <ScrollViewer Grid.Column="0"
-                                  Name="PART_ScrollViewer"
-                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                                  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                                  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
-                        <TextPresenter Name="PART_TextPresenter"
-                                       Margin="{TemplateBinding Padding}"
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                                       CaretBrush="{TemplateBinding CaretBrush}"
-                                       CaretIndex="{TemplateBinding CaretIndex}"
-                                       LineHeight="{TemplateBinding LineHeight}"
-                                       LetterSpacing="{TemplateBinding LetterSpacing}"
-                                       PasswordChar="{TemplateBinding PasswordChar}"
-                                       RevealPassword="{TemplateBinding RevealPassword}"
-                                       SelectionBrush="{TemplateBinding SelectionBrush}"
-                                       SelectionEnd="{TemplateBinding SelectionEnd}"
-                                       SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                                       SelectionStart="{TemplateBinding SelectionStart}"
-                                       Text="{TemplateBinding Text,Mode=TwoWay}"
-                                       TextAlignment="{TemplateBinding TextAlignment}"
-                                       TextWrapping="{TemplateBinding TextWrapping}" />
-                        <ScrollViewer.Styles>
-                            <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
-                                <Setter Property="Cursor"
-                                        Value="IBeam" />
-                            </Style>
-                        </ScrollViewer.Styles>
-                    </ScrollViewer>
-                    <Button HorizontalContentAlignment="Left"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            hc:IconElement.Width="14"
-                            Command="{Binding $parent[TextBox].Clear}"
-                            Name="ButtonClear"
-                            Focusable="False"
-                            Grid.Column="1"
-                            Theme="{StaticResource ButtonIcon}"
-                            Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
-                            hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
-                            Foreground="{Binding BorderBrush,ElementName=border}">
-                        <Button.IsVisible>
-                            <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="IsPointerOver" />
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="(hc:InfoElement.ShowClearButton)" />
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}"
-                                         Path="IsReadOnly"
-                                         Converter="{x:Static BoolConverters.Not}" />
-                            </MultiBinding>
-                        </Button.IsVisible>
-                    </Button>
-                </Grid>
-            </DataValidationErrors>
-        </Grid>
-    </ControlTemplate>
-
-    <ControlTheme x:Key="TextBoxExtendBaseStyle"
-                  BasedOn="{StaticResource TextBoxBaseStyle}"
-                  TargetType="TextBox">
-        <Setter Property="hc:InfoElement.Symbol"
-                Value="●" />
-        <Setter Property="hc:InfoElement.ContentHeight"
-                Value="{x:Static system:Double.NaN}" />
-        <Setter Property="hc:InfoElement.MinContentHeight"
-                Value="{StaticResource DefaultControlHeight}" />
-        <Setter Property="Template"
-                Value="{StaticResource TextBoxExtendTopTemplate}" />
-
-        <Style Selector="^[(hc|TitleElement.TitlePlacement)=Left]">
-            <Setter Property="Template"
-                    Value="{StaticResource TextBoxExtendLeftTemplate}" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="{x:Type TextBox}"
                   BasedOn="{StaticResource TextBoxBaseStyle}"
                   TargetType="TextBox" />
@@ -342,8 +129,91 @@
     </ControlTheme>
 
     <ControlTheme x:Key="TextBoxExtend"
-                  BasedOn="{StaticResource TextBoxExtendBaseStyle}"
-                  TargetType="TextBox" />
+                  BasedOn="{StaticResource TextBoxBaseStyle}"
+                  TargetType="TextBox">
+        <Setter Property="hc:InfoElement.Symbol"
+                Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent.(hc:TitleElement.Title)}">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Border x:Name="border"
+                                Grid.ColumnSpan="2"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <TextBlock Grid.Column="0"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Margin="{TemplateBinding Padding}"
+                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                   HorizontalAlignment="Stretch"
+                                   Theme="{StaticResource TextBlockDefaultThiLight}"
+                                   Text="{TemplateBinding Watermark}" />
+                        <ScrollViewer Grid.Column="0"
+                                      Name="PART_ScrollViewer"
+                                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                      BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                      HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                      VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                            <TextPresenter Name="PART_TextPresenter"
+                                           Margin="{TemplateBinding Padding}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                           LineHeight="{TemplateBinding LineHeight}"
+                                           LetterSpacing="{TemplateBinding LetterSpacing}"
+                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                           Text="{TemplateBinding Text,Mode=TwoWay}"
+                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                            <ScrollViewer.Styles>
+                                <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                    <Setter Property="Cursor"
+                                            Value="IBeam" />
+                                </Style>
+                            </ScrollViewer.Styles>
+                        </ScrollViewer>
+                        <Button HorizontalContentAlignment="Left"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                hc:IconElement.Width="14"
+                                Command="{Binding $parent[TextBox].Clear}"
+                                Name="ButtonClear"
+                                Focusable="False"
+                                Grid.Column="1"
+                                Theme="{StaticResource ButtonIcon}"
+                                Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{Binding BorderBrush,ElementName=border}">
+                            <Button.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsPointerOver" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="(hc:InfoElement.ShowClearButton)" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsReadOnly"
+                                             Converter="{x:Static BoolConverters.Not}" />
+                                </MultiBinding>
+                            </Button.IsVisible>
+                        </Button>
+                    </Grid>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 
     <ControlTheme x:Key="TextBoxExtend.Small"
                   BasedOn="{StaticResource TextBoxExtend}"
