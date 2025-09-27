@@ -53,6 +53,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ComboBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Menu.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ContextMenu.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/SelectableTextBlock.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
