@@ -17,7 +17,7 @@ public sealed class GrowlWindow : Window
         AllowsTransparency = true;
 
         Growl.SetTransitionStoryboard(this, Growl.GetTransitionStoryboard(Application.Current.MainWindow));
-        GrowlPanel = new InverseStackPanel();
+        GrowlPanel = new ReversibleStackPanel();
         Content = new ScrollViewer
         {
             VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
@@ -42,7 +42,7 @@ public sealed class GrowlWindow : Window
         };
 
         Growl.SetTransitionMode(this, transitionMode);
-        GrowlPanel.SetValue(InverseStackPanel.IsInverseEnabledProperty,
+        GrowlPanel.SetValue(ReversibleStackPanel.ReverseOrderProperty,
             transitionMode is TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade);
     }
 

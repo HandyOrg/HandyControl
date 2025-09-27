@@ -420,7 +420,7 @@ public class Growl : Control
                         var transitionMode = GetTransitionMode(GrowlPanel);
                         GrowlPanel.VerticalAlignment = GetPanelVerticalAlignment(transitionMode);
                         GrowlPanel.HorizontalAlignment = GetPanelHorizontalAlignment(transitionMode);
-                        GrowlPanel.SetValue(InverseStackPanel.IsInverseEnabledProperty,
+                        GrowlPanel.SetValue(ReversibleStackPanel.ReverseOrderProperty,
                             transitionMode is TransitionMode.Bottom2Top or TransitionMode.Bottom2TopWithFade);
                     }
                 }
@@ -442,7 +442,7 @@ public class Growl : Control
             return null;
         }
 
-        var panel = new InverseStackPanel();
+        var panel = new ReversibleStackPanel();
 
         InitGrowlPanel(panel);
         SetIsCreatedAutomatically(panel, true);

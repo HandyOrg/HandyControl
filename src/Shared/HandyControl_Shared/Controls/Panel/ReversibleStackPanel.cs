@@ -4,21 +4,21 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls;
 
-public class InverseStackPanel : SimpleStackPanel
+public class ReversibleStackPanel : SimpleStackPanel
 {
-    public static readonly DependencyProperty IsInverseEnabledProperty = DependencyProperty.Register(
-        nameof(IsInversed), typeof(bool), typeof(InverseStackPanel),
-        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
+    public static readonly DependencyProperty ReverseOrderProperty = DependencyProperty.Register(
+        nameof(ReverseOrder), typeof(bool), typeof(ReversibleStackPanel),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
-    public bool IsInversed
+    public bool ReverseOrder
     {
-        get => (bool) GetValue(IsInverseEnabledProperty);
-        set => SetValue(IsInverseEnabledProperty, ValueBoxes.BooleanBox(value));
+        get => (bool) GetValue(ReverseOrderProperty);
+        set => SetValue(ReverseOrderProperty, ValueBoxes.BooleanBox(value));
     }
 
     protected override Size ArrangeOverride(Size arrangeSize)
     {
-        if (!IsInversed)
+        if (!ReverseOrder)
         {
             return base.ArrangeOverride(arrangeSize);
         }
