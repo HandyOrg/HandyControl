@@ -286,13 +286,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\MainWindowContent.xaml.cs">
       <DependentUpon>MainWindowContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\NonClientAreaContent.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\NonClientAreaContent.xaml.cs">
       <DependentUpon>NonClientAreaContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\PracticalDemo.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\PracticalDemo.xaml.cs">
       <DependentUpon>PracticalDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\ContributorsView.xaml.cs">
