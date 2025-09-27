@@ -38,7 +38,7 @@ public class InfoElement
 
     public static readonly AttachedProperty<double> MaxContentHeightProperty =
         AvaloniaProperty.RegisterAttached<InfoElement, AvaloniaObject, double>("MaxContentHeight",
-            defaultValue: double.PositiveInfinity);
+            defaultValue: double.PositiveInfinity, inherits: true);
 
     public static void SetMaxContentHeight(AvaloniaObject element, double value) =>
         element.SetValue(MaxContentHeightProperty, value);

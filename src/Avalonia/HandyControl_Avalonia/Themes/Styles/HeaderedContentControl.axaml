@@ -1,0 +1,131 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:sys="using:System">
+
+    <ControlTemplate x:Key="HeaderedContentControlTopTemplate"
+                     TargetType="HeaderedContentControl">
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                Padding="{TemplateBinding Padding}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                                   Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
+                </Grid.RowDefinitions>
+                <DockPanel LastChildFill="True"
+                           IsHitTestVisible="False"
+                           IsVisible="{TemplateBinding Header, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                           HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                           Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}">
+                    <ContentPresenter DockPanel.Dock="Right"
+                                      TextElement.Foreground="{DynamicResource DangerBrush}"
+                                      Margin="4,0,0,0"
+                                      Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                                      IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
+                    <ContentPresenter Name="PART_HeaderPresenter"
+                                      Content="{TemplateBinding Header}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="sys:String">
+                                <TextBlock Text="{Binding}"
+                                           TextWrapping="NoWrap"
+                                           TextTrimming="CharacterEllipsis"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontStyle="{TemplateBinding FontStyle}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                </DockPanel>
+                <DataValidationErrors Grid.Row="1">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      RecognizesAccessKey="True"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      FontSize="{TemplateBinding FontSize}"
+                                      FontWeight="{TemplateBinding FontWeight}"
+                                      FontFamily="{TemplateBinding FontFamily}"
+                                      FontStyle="{TemplateBinding FontStyle}" />
+                </DataValidationErrors>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="HeaderedContentControlLeftTemplate"
+                     TargetType="HeaderedContentControl">
+        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Background="{TemplateBinding Background}"
+                Padding="{TemplateBinding Padding}">
+            <Grid MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}"
+                  Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding Path=(hc:TitleElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <DockPanel LastChildFill="True"
+                           IsHitTestVisible="False"
+                           IsVisible="{TemplateBinding Header, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                           HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                           VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                           Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}">
+                    <ContentPresenter DockPanel.Dock="Right"
+                                      TextElement.Foreground="{DynamicResource DangerBrush}"
+                                      Margin="4,0,0,0"
+                                      Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                                      IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}" />
+                    <ContentPresenter Name="PART_HeaderPresenter"
+                                      Content="{TemplateBinding Header}">
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="sys:String">
+                                <TextBlock Text="{Binding}"
+                                           TextWrapping="NoWrap"
+                                           TextTrimming="CharacterEllipsis"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontStyle="{TemplateBinding FontStyle}" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                </DockPanel>
+                <DataValidationErrors Grid.Column="1">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Content="{TemplateBinding Content}"
+                                      RecognizesAccessKey="True"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      FontSize="{TemplateBinding FontSize}"
+                                      FontWeight="{TemplateBinding FontWeight}"
+                                      FontFamily="{TemplateBinding FontFamily}"
+                                      FontStyle="{TemplateBinding FontStyle}" />
+                </DataValidationErrors>
+            </Grid>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTheme x:Key="HeaderedContentControlBaseStyle"
+                  TargetType="HeaderedContentControl">
+        <Setter Property="Template"
+                Value="{StaticResource HeaderedContentControlTopTemplate}" />
+
+        <Style Selector="^[(hc|TitleElement.TitlePlacement)=Left]">
+            <Setter Property="Template"
+                    Value="{StaticResource HeaderedContentControlLeftTemplate}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type HeaderedContentControl}"
+                  BasedOn="{StaticResource HeaderedContentControlBaseStyle}"
+                  TargetType="HeaderedContentControl" />
+
+</ResourceDictionary>

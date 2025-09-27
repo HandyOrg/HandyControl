@@ -95,14 +95,14 @@ public class TitleElement
     public static Thickness GetMarginOnTheTop(AvaloniaObject element) => element.GetValue(MarginOnTheTopProperty);
 
     public static readonly AttachedProperty<double> MinHeightProperty =
-        AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, double>("MinHeight");
+        AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, double>("MinHeight", inherits: true);
 
     public static void SetMinHeight(AvaloniaObject element, double value) => element.SetValue(MinHeightProperty, value);
 
     public static double GetMinHeight(AvaloniaObject element) => element.GetValue(MinHeightProperty);
 
     public static readonly AttachedProperty<double> MinWidthProperty =
-        AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, double>("MinWidth");
+        AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, double>("MinWidth", inherits: true);
 
     public static void SetMinWidth(AvaloniaObject element, double value) => element.SetValue(MinWidthProperty, value);
 

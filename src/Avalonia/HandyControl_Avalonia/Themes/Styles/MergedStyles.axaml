@@ -54,6 +54,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Menu.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ContextMenu.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/SelectableTextBlock.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/HeaderedContentControl.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
