@@ -1,0 +1,258 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <ControlTheme x:Key="AutoCompleteBoxBaseStyle"
+                  TargetType="AutoCompleteBox">
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,7,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="8,0,0,5" />
+        <Setter Property="hc:TitleElement.HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultInputPadding}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <TextBox Name="PART_TextBox"
+                             Padding="{TemplateBinding Padding}"
+                             MinHeight="{TemplateBinding MinHeight}"
+                             Background="{TemplateBinding Background}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             CornerRadius="{TemplateBinding CornerRadius}"
+                             CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
+                             ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
+                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                             Watermark="{TemplateBinding Watermark}"
+                             MaxLength="{TemplateBinding MaxLength}" />
+                    <Popup Name="PART_Popup"
+                           MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                           MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                           IsLightDismissEnabled="True"
+                           PlacementTarget="{TemplateBinding}">
+                        <Border Background="{DynamicResource RegionBrush}"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="0,1,0,0"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                Margin="8,0,8,8"
+                                Effect="{StaticResource EffectShadow2}"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="{TemplateBinding CornerRadius}">
+                            <ListBox Name="PART_SelectingItemsControl"
+                                     Background="{TemplateBinding Background}"
+                                     BorderThickness="0"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                        </Border>
+                    </Popup>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type AutoCompleteBox}"
+                  BasedOn="{StaticResource AutoCompleteBoxBaseStyle}"
+                  TargetType="AutoCompleteBox" />
+
+    <ControlTheme x:Key="AutoCompleteBox.Small"
+                  BasedOn="{StaticResource AutoCompleteBoxBaseStyle}"
+                  TargetType="AutoCompleteBox">
+        <Setter Property="MinHeight"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="AutoCompleteBoxExtend"
+                  BasedOn="{StaticResource AutoCompleteBoxBaseStyle}"
+                  TargetType="AutoCompleteBox">
+        <Setter Property="hc:InfoElement.Symbol"
+                Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent.(hc:TitleElement.Title)}">
+                    <Panel>
+                        <TextBox Name="PART_TextBox"
+                                 Padding="{TemplateBinding Padding}"
+                                 MinHeight="{TemplateBinding MinHeight}"
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 CornerRadius="{TemplateBinding CornerRadius}"
+                                 CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
+                                 ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
+                                 DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 MaxLength="{TemplateBinding MaxLength}" />
+                        <Popup Name="PART_Popup"
+                               MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                               MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                               IsLightDismissEnabled="True"
+                               PlacementTarget="{TemplateBinding}">
+                            <Border Background="{DynamicResource RegionBrush}"
+                                    BorderBrush="{DynamicResource BorderBrush}"
+                                    BorderThickness="0,1,0,0"
+                                    MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                    Margin="8,0,8,8"
+                                    Effect="{StaticResource EffectShadow2}"
+                                    HorizontalAlignment="Stretch"
+                                    CornerRadius="{TemplateBinding CornerRadius}">
+                                <ListBox Name="PART_SelectingItemsControl"
+                                         Background="{TemplateBinding Background}"
+                                         BorderThickness="0"
+                                         Foreground="{TemplateBinding Foreground}"
+                                         ItemTemplate="{TemplateBinding ItemTemplate}"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                            </Border>
+                        </Popup>
+                    </Panel>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ TextBox#PART_TextBox">
+            <Setter Property="Theme">
+                <ControlTheme BasedOn="{StaticResource TextBoxBaseStyle}"
+                              TargetType="TextBox">
+                    <Setter Property="hc:InfoElement.Symbol"
+                            Value="●" />
+                    <Setter Property="hc:InfoElement.ContentHeight"
+                            Value="{x:Static system:Double.NaN}" />
+                    <Setter Property="hc:InfoElement.MinContentHeight"
+                            Value="{StaticResource DefaultControlHeight}" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Border x:Name="border"
+                                        Grid.ColumnSpan="2"
+                                        CornerRadius="{TemplateBinding CornerRadius}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        Background="{TemplateBinding Background}" />
+                                <TextBlock Grid.Column="0"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           Margin="{TemplateBinding Padding}"
+                                           IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                           HorizontalAlignment="Stretch"
+                                           Theme="{StaticResource TextBlockDefaultThiLight}"
+                                           Text="{TemplateBinding Watermark}" />
+                                <ScrollViewer Grid.Column="0"
+                                              Name="PART_ScrollViewer"
+                                              AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                              BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                              HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                              IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                              VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <TextPresenter Name="PART_TextPresenter"
+                                                   Margin="{TemplateBinding Padding}"
+                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                   CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                                   CaretBrush="{TemplateBinding CaretBrush}"
+                                                   CaretIndex="{TemplateBinding CaretIndex}"
+                                                   LineHeight="{TemplateBinding LineHeight}"
+                                                   LetterSpacing="{TemplateBinding LetterSpacing}"
+                                                   PasswordChar="{TemplateBinding PasswordChar}"
+                                                   RevealPassword="{TemplateBinding RevealPassword}"
+                                                   SelectionBrush="{TemplateBinding SelectionBrush}"
+                                                   SelectionEnd="{TemplateBinding SelectionEnd}"
+                                                   SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                                   SelectionStart="{TemplateBinding SelectionStart}"
+                                                   Text="{TemplateBinding Text,Mode=TwoWay}"
+                                                   TextAlignment="{TemplateBinding TextAlignment}"
+                                                   TextWrapping="{TemplateBinding TextWrapping}" />
+                                    <ScrollViewer.Styles>
+                                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Cursor"
+                                                    Value="IBeam" />
+                                        </Style>
+                                    </ScrollViewer.Styles>
+                                </ScrollViewer>
+                                <Button HorizontalContentAlignment="Left"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        hc:IconElement.Width="14"
+                                        Command="{Binding $parent[TextBox].Clear}"
+                                        Name="ButtonClear"
+                                        Focusable="False"
+                                        Grid.Column="1"
+                                        Theme="{StaticResource ButtonIcon}"
+                                        Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                        hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                        Foreground="{Binding BorderBrush,ElementName=border}">
+                                    <Button.IsVisible>
+                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                            <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                     Path="IsPointerOver" />
+                                            <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                     Path="(hc:InfoElement.ShowClearButton)" />
+                                            <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                                     Path="IsReadOnly"
+                                                     Converter="{x:Static BoolConverters.Not}" />
+                                        </MultiBinding>
+                                    </Button.IsVisible>
+                                </Button>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter>
+                </ControlTheme>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="AutoCompleteBoxExtend.Small"
+                  BasedOn="{StaticResource AutoCompleteBoxExtend}"
+                  TargetType="AutoCompleteBox">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+
+        <Style Selector="^ /template/ ListBox#PART_SelectingItemsControl">
+            <Setter Property="ItemContainerTheme">
+                <ControlTheme BasedOn="{StaticResource ListBoxItemBaseStyle}"
+                              TargetType="ListBoxItem">
+                    <Setter Property="Padding"
+                            Value="6,0" />
+                    <Setter Property="MinHeight"
+                            Value="20" />
+                </ControlTheme>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

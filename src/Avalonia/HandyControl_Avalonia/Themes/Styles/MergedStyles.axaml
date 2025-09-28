@@ -48,6 +48,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ProgressBar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Calendar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TextBox.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ButtonSpinner.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/NumericUpDown.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ComboBox.axaml" />
