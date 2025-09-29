@@ -32,6 +32,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/UserControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Window.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Button.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/HyperlinkButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/RepeatButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ToggleButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/RadioButton.axaml" />
@@ -59,5 +60,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
+
+    <StyleInclude Source="avares://HandyControl/Themes/Styles/HyperlinkButton.classes.axaml" />
 
 </Styles>

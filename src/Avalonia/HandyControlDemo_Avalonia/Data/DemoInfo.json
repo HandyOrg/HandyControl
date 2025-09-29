@@ -9,6 +9,7 @@
       [ "RepeatButton", "RepeatButtonDemo", "Brush.RepeatButton", "", "" ],
       [ "ToggleButton", "ToggleButtonDemo", "Brush.Toggle", "", "" ],
       [ "RadioButton", "RadioButtonDemo", "Brush.RadioButton", "", "" ],
+      [ "HyperlinkButton", "HyperlinkButtonDemo", "Brush.Hyperlink", "", "" ],
       [ "CheckBox", "CheckBoxDemo", "Brush.CheckBoxChecked", "", "" ],
       [ "ScrollViewer", "NativeScrollViewerDemo", "Brush.ScrollBox", "", "" ],
       [ "Slider", "SliderDemo", "Brush.Slider", "", "" ],

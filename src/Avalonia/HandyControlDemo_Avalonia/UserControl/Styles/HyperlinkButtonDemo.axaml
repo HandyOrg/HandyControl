@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.HyperlinkButtonDemo">
+    <hc:UniformSpacingPanel Margin="32"
+                            Spacing="32"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            ItemVerticalAlignment="Top">
+        <Border Theme="{StaticResource BorderRegion}">
+            <hc:UniformSpacingPanel Spacing="16"
+                                    Orientation="Vertical">
+                <HyperlinkButton Content="HandyControl"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl"
+                                 IsEnabled="False" />
+
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost primary"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost success"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost info"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost warning"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost danger"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+            </hc:UniformSpacingPanel>
+        </Border>
+        <Border Theme="{StaticResource BorderRegion}">
+            <hc:UniformSpacingPanel Spacing="16"+
+
+                                    Orientation="Vertical">
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl"
+                                 IsEnabled="False" />
+
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost primary small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost success small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost info small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost warning small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost danger small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
+            </hc:UniformSpacingPanel>
+        </Border>
+    </hc:UniformSpacingPanel>
+</UserControl>

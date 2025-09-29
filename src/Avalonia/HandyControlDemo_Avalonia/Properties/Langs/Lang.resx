@@ -132,7 +132,7 @@
   <data name="Ask" xml:space="preserve">
     <value>询问</value>
   </data>
-  <data name="AutoCompleteTextBox" xml:space="preserve">
+  <data name="AutoCompleteBox" xml:space="preserve">
     <value>自动补全文本框</value>
   </data>
   <data name="Badge" xml:space="preserve">
@@ -806,5 +806,8 @@
   </data>
   <data name="Window" xml:space="preserve">
     <value>窗口</value>
+  </data>
+  <data name="HyperlinkButton" xml:space="preserve">
+    <value>超链接按钮</value>
   </data>
 </root>

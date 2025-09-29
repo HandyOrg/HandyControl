@@ -1,0 +1,62 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:ClassModifier="internal"
+        xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <Style Selector="HyperlinkButton.ghost">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverBackground)}" />
+            <Setter Property="Foreground"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverForeground)}" />
+        </Style>
+    </Style>
+
+    <Style Selector="HyperlinkButton.primary">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style Selector="HyperlinkButton.success">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style Selector="HyperlinkButton.info">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style Selector="HyperlinkButton.warning">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style Selector="HyperlinkButton.danger">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </Style>
+
+    <Style Selector="HyperlinkButton.small">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+    </Style>
+
+</Styles>
