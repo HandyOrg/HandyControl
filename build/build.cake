@@ -1,4 +1,5 @@
-﻿#addin nuget:?package=Cake.Git&version=4.0.0
+﻿#addin nuget:?package=Cake.Git&version=5.0.1
+#addin nuget:?package=Cake.GitHub&version=1.0.0
 #tool nuget:?package=NuGet.CommandLine&version=6.9.1
 
 using System;
@@ -26,6 +27,7 @@ var preRelease = Argument("pre-release", false);
 var username = Argument("username", "NaBian");
 var email = Argument("email", "836904362@qq.com");
 var nugetToken = Argument("nuget-token", "");
+var githubToken = Argument("github-token", "");
 
 var libVersion = "";
 var nugetVersion = "";
@@ -127,13 +129,14 @@ Task("commit files")
 
     var exitCode = StartProcess(
         "git",
-        new ProcessSettings {
+        new ProcessSettings
+        {
             Arguments = "diff --cached --quiet",
             WorkingDirectory = gitRootPath
         }
     );
-    
-    if(exitCode == 0)
+
+    if (exitCode == 0)
     {
         Information("no change.");
         return;
@@ -345,6 +348,33 @@ Task("push to nuget")
     });
 });
 
+Task("create github release")
+    .Does(async () =>
+{
+    await GitHubCreateReleaseAsync(
+        /// The user name to use for authentication (pass null when using an access token).
+        userName: null,
+        /// The access token or password to use for authentication.
+        apiToken: githubToken,
+        // The owner (user or group) of the repository to create a release in.
+        owner: "HandyOrg",
+        /// The name of the repository to create a release in.
+        repository: "HandyControl",
+        /// The name of the tag to create a release for.
+        /// If the tag does not yet exist, a new tag will be created (using either the HEAD of the default branch or the commit specified in the settings).
+        /// If the tag already exists, the existing tag will be used and the commit specified in the settings will be ignored.
+        tagName: $"v{nugetVersion}",
+        settints: new GitHubCreateReleaseSettings
+        {
+            ReleaseName = $"Release v{nugetVersion}",
+            Body = ReadAllText(Combine(buildConfig.OutputsFolder, "CHANGELOG.md"), Encoding.UTF8),
+            Prerelease = preRelease,
+            Overwrite = false,
+            Assets = GetFiles("../build/outputs/installer/net40/*").ToArray(),
+        }
+    );
+});
+
 Task("publish")
     .IsDependentOn("update license")
     .IsDependentOn("update version")
@@ -362,6 +392,7 @@ Task("publish")
     .IsDependentOn("pack nuspec files")
     .IsDependentOn("create demo installers")
     .IsDependentOn("push to nuget")
+    .IsDependentOn("create github release")
     ;
 
 Task("build")

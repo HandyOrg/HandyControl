@@ -20,5 +20,5 @@ jobs:
         working-directory: ./build
         run: |
             dotnet new tool-manifest
-            dotnet tool install cake.tool --version 4.0.0
+            dotnet tool install cake.tool --version 5.0.0
             dotnet cake

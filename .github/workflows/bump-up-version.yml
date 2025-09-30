@@ -30,8 +30,8 @@ jobs:
             git config --local user.name "${{ github.actor }}"
             git config --local user.email "836904362@qq.com"
             dotnet new tool-manifest
-            dotnet tool install cake.tool --version 4.0.0
-            dotnet cake --target publish --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }} --nuget-token=${{ secrets.NUGETTOKEN }}
+            dotnet tool install cake.tool --version 5.0.0
+            dotnet cake --target publish --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }} --nuget-token=${{ secrets.NUGETTOKEN }} --github-token=${{ secrets.GITHUB_TOKEN }}
 
       - name: Push git changes
         uses: ad-m/github-push-action@master
@@ -39,12 +39,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
           tags: true
-
-      - name: Create github release
-        uses: softprops/action-gh-release@v2
-        with:
-          # For maximum compatibility, we choose the .net40
-          files: ./build/outputs/installer/net40/*
-          body_path: ./build/outputs/CHANGELOG.md
-          token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: ${{ inputs.pre_release }}
