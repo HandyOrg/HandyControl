@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -35,6 +35,8 @@ public class NotifyIcon : FrameworkElement, IDisposable
     private IconHandle _iconHandle;
 
     private const int WmTrayMouseMessage = InteropValues.WM_USER + 1024;
+
+    private const int NIN_BALLOONUSERCLICK = InteropValues.WM_USER + 1025;
 
     private string _windowClassName;
 
@@ -574,7 +576,9 @@ public class NotifyIcon : FrameworkElement, IDisposable
                         _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
                         _dispatcherTimerPos.Start();
                     }
-
+                    break;
+                case NIN_BALLOONUSERCLICK:
+                    RaiseEvent(new RoutedEventArgs(BalloonTipClickedEvent));
                     break;
             }
         }
@@ -670,6 +674,15 @@ public class NotifyIcon : FrameworkElement, IDisposable
     {
         add => AddHandler(MouseDoubleClickEvent, value);
         remove => RemoveHandler(MouseDoubleClickEvent, value);
+    }
+
+    public static readonly RoutedEvent BalloonTipClickedEvent =
+    EventManager.RegisterRoutedEvent("BalloonTipClicked", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+    public event RoutedEventHandler BalloonTipClicked
+    {
+        add { AddHandler(BalloonTipClickedEvent, value); }
+        remove { RemoveHandler(BalloonTipClickedEvent, value); }
     }
 
     private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
