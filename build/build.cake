@@ -1,5 +1,6 @@
-﻿#addin nuget:?package=Cake.Git&version=5.0.1
+﻿#addin nuget:?package=Cake.Git&version=4.0.0
 #addin nuget:?package=Cake.GitHub&version=1.0.0
+#addin nuget:?package=Octokit&version=13.0.1
 #tool nuget:?package=NuGet.CommandLine&version=6.9.1
 
 using System;
@@ -364,9 +365,9 @@ Task("create github release")
         /// If the tag does not yet exist, a new tag will be created (using either the HEAD of the default branch or the commit specified in the settings).
         /// If the tag already exists, the existing tag will be used and the commit specified in the settings will be ignored.
         tagName: $"v{nugetVersion}",
-        settints: new GitHubCreateReleaseSettings
+        settings: new GitHubCreateReleaseSettings
         {
-            ReleaseName = $"Release v{nugetVersion}",
+            Name = $"Release v{nugetVersion}",
             Body = ReadAllText(Combine(buildConfig.OutputsFolder, "CHANGELOG.md"), Encoding.UTF8),
             Prerelease = preRelease,
             Overwrite = false,
