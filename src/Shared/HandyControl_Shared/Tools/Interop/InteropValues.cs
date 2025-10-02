@@ -101,8 +101,7 @@ internal class InteropValues
         SC_RESTORE = 0xF120,
         SRCCOPY = 0x00CC0020,
         MONITOR_DEFAULTTOPRIMARY = 0x00000001,
-        MONITOR_DEFAULTTONEAREST = 0x00000002,
-        NIN_BALLOONUSERCLICK = 0x0405;
+        MONITOR_DEFAULTTONEAREST = 0x00000002;
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
     internal class NOTIFYICONDATA
