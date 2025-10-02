@@ -153,7 +153,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
             uID = _id,
             szInfoTitle = title ?? string.Empty,
             szInfo = content ?? string.Empty,
-            uCallbackMessage = WmTrayMouseMessage
+            uCallbackMessage = InteropValues.WM_TRAYMOUSEMESSAGE
         };
 
         data.dwInfoFlags = infoType switch
