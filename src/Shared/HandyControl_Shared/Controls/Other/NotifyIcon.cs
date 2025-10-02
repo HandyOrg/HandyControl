@@ -36,8 +36,6 @@ public class NotifyIcon : FrameworkElement, IDisposable
 
     private const int WmTrayMouseMessage = InteropValues.WM_USER + 1024;
 
-    private const int NIN_BALLOONUSERCLICK = InteropValues.WM_USER + 1025;
-
     private string _windowClassName;
 
     private int _wmTaskbarCreated;
@@ -152,11 +150,12 @@ public class NotifyIcon : FrameworkElement, IDisposable
 
         var data = new InteropValues.NOTIFYICONDATA
         {
-            uFlags = InteropValues.NIF_INFO,
+            uFlags = InteropValues.NIF_INFO | InteropValues.NIF_MESSAGE,
             hWnd = _messageWindowHandle,
             uID = _id,
             szInfoTitle = title ?? string.Empty,
-            szInfo = content ?? string.Empty
+            szInfo = content ?? string.Empty,
+            uCallbackMessage = WmTrayMouseMessage
         };
 
         data.dwInfoFlags = infoType switch
@@ -167,6 +166,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
             NotifyIconInfoType.None => InteropValues.NIIF_NONE,
             _ => data.dwInfoFlags
         };
+        data.dwInfoFlags |= InteropValues.NIIF_USER;
 
         InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
     }
@@ -577,7 +577,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
                         _dispatcherTimerPos.Start();
                     }
                     break;
-                case NIN_BALLOONUSERCLICK:
+                case InteropValues.NIN_BALLOONUSERCLICK:
                     RaiseEvent(new RoutedEventArgs(BalloonTipClickedEvent));
                     break;
             }
@@ -677,12 +677,13 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly RoutedEvent BalloonTipClickedEvent =
-    EventManager.RegisterRoutedEvent("BalloonTipClicked", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(NotifyIcon));
+    EventManager.RegisterRoutedEvent("BalloonTipClicked", RoutingStrategy.Bubble,
+        typeof(RoutedEventHandler), typeof(NotifyIcon));
 
     public event RoutedEventHandler BalloonTipClicked
     {
-        add { AddHandler(BalloonTipClickedEvent, value); }
-        remove { RemoveHandler(BalloonTipClickedEvent, value); }
+        add => AddHandler(BalloonTipClickedEvent, value);
+        remove => RemoveHandler(BalloonTipClickedEvent, value);
     }
 
     private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
