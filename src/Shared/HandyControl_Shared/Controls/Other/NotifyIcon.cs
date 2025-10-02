@@ -34,8 +34,6 @@ public class NotifyIcon : FrameworkElement, IDisposable
 
     private IconHandle _iconHandle;
 
-    private const int WmTrayMouseMessage = InteropValues.WM_USER + 1024;
-
     private string _windowClassName;
 
     private int _wmTaskbarCreated;
@@ -494,7 +492,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
             _isTransparent = isTransparent;
             var data = new InteropValues.NOTIFYICONDATA
             {
-                uCallbackMessage = WmTrayMouseMessage,
+                uCallbackMessage = InteropValues.WM_TRAYMOUSEMESSAGE,
                 uFlags = InteropValues.NIF_MESSAGE | InteropValues.NIF_ICON | InteropValues.NIF_TIP,
                 hWnd = _messageWindowHandle,
                 uID = _id,
@@ -578,7 +576,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
                     }
                     break;
                 case InteropValues.NIN_BALLOONUSERCLICK:
-                    RaiseEvent(new RoutedEventArgs(BalloonTipClickedEvent));
+                    RaiseEvent(new RoutedEventArgs(BalloonTipClickEvent));
                     break;
             }
         }
@@ -676,14 +674,14 @@ public class NotifyIcon : FrameworkElement, IDisposable
         remove => RemoveHandler(MouseDoubleClickEvent, value);
     }
 
-    public static readonly RoutedEvent BalloonTipClickedEvent =
-    EventManager.RegisterRoutedEvent("BalloonTipClicked", RoutingStrategy.Bubble,
-        typeof(RoutedEventHandler), typeof(NotifyIcon));
+    public static readonly RoutedEvent BalloonTipClickEvent =
+        EventManager.RegisterRoutedEvent("BalloonTipClick", RoutingStrategy.Bubble, typeof(RoutedEventHandler),
+            typeof(NotifyIcon));
 
-    public event RoutedEventHandler BalloonTipClicked
+    public event RoutedEventHandler BalloonTipClick
     {
-        add => AddHandler(BalloonTipClickedEvent, value);
-        remove => RemoveHandler(BalloonTipClickedEvent, value);
+        add => AddHandler(BalloonTipClickEvent, value);
+        remove => RemoveHandler(BalloonTipClickEvent, value);
     }
 
     private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
