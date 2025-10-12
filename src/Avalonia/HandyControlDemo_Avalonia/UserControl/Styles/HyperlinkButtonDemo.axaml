@@ -37,8 +37,7 @@
             </hc:UniformSpacingPanel>
         </Border>
         <Border Theme="{StaticResource BorderRegion}">
-            <hc:UniformSpacingPanel Spacing="16"+
-
+            <hc:UniformSpacingPanel Spacing="16"
                                     Orientation="Vertical">
                 <HyperlinkButton Content="HandyControl"
                                  Classes="small"
