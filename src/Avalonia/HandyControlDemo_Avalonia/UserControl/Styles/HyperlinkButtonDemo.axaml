@@ -17,28 +17,27 @@
                                  IsEnabled="False" />
 
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost"
+                                 Theme="{StaticResource HyperlinkButtonGhost}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost primary"
+                                 Theme="{StaticResource HyperlinkButtonGhostPrimary}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost success"
+                                 Theme="{StaticResource HyperlinkButtonGhostSuccess}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost info"
+                                 Theme="{StaticResource HyperlinkButtonGhostInfo}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost warning"
+                                 Theme="{StaticResource HyperlinkButtonGhostWarning}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
-                                 Classes="ghost danger"
+                                 Theme="{StaticResource HyperlinkButtonGhostDanger}"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />
             </hc:UniformSpacingPanel>
         </Border>
         <Border Theme="{StaticResource BorderRegion}">
-            <hc:UniformSpacingPanel Spacing="16"+
-
+            <hc:UniformSpacingPanel Spacing="16"
                                     Orientation="Vertical">
                 <HyperlinkButton Content="HandyControl"
                                  Classes="small"
@@ -48,6 +47,9 @@
                                  NavigateUri="https://github.com/HandyOrg/HandyControl"
                                  IsEnabled="False" />
 
+                <HyperlinkButton Content="HandyControl"
+                                 Classes="ghost small"
+                                 NavigateUri="https://github.com/HandyOrg/HandyControl" />
                 <HyperlinkButton Content="HandyControl"
                                  Classes="ghost primary small"
                                  NavigateUri="https://github.com/HandyOrg/HandyControl" />

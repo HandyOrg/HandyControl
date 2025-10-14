@@ -66,8 +66,150 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="HyperlinkButtonDefault"
+                  BasedOn="{StaticResource HyperlinkButtonBaseStyle}"
+                  TargetType="HyperlinkButton" />
+
+    <ControlTheme x:Key="HyperlinkButtonDefault.Small"
+                  BasedOn="{StaticResource HyperlinkButtonBaseStyle}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type HyperlinkButton}"
                   BasedOn="{StaticResource HyperlinkButtonBaseStyle}"
                   TargetType="HyperlinkButton" />
+
+    <ControlTheme x:Key="HyperlinkButtonGhost"
+                  BasedOn="{StaticResource HyperlinkButtonBaseStyle}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverBackground)}" />
+            <Setter Property="Foreground"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverForeground)}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhost.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostPrimary"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostPrimary.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhostPrimary}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostSuccess"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostSuccess.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhostSuccess}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostInfo"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostInfo.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhostInfo}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostWarning"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostWarning.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhostWarning}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostDanger"
+                  BasedOn="{StaticResource HyperlinkButtonGhost}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverBackground"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="hc:BackgroundSwitchElement.MouseHoverForeground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="HyperlinkButtonGhostDanger.Small"
+                  BasedOn="{StaticResource HyperlinkButtonGhostDanger}"
+                  TargetType="HyperlinkButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
 
 </ResourceDictionary>
