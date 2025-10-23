@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
@@ -182,6 +182,11 @@ public class DateTimePicker : Control
         {
             var time = dp.SelectedDateTime.Value;
             dp.SetTextInternal(dp.DateTimeToString(time));
+        }
+        else
+        {
+            // 修复：当 SelectedDateTime 为 null 时，清空文本框
+            dp.SetTextInternal(string.Empty);
         }
 
         dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedDateTimeChangedEvent, dp)
@@ -620,7 +625,8 @@ public class DateTimePicker : Control
                 }
 
                 var d = SetTextBoxValue(s);
-                if (!SelectedDateTime.Equals(d))
+                // 修复：使用静态的 Equals 方法进行安全的 null 比较
+                if (!Equals(SelectedDateTime, d))
                 {
                     SetCurrentValue(SelectedDateTimeProperty, d);
                     SetCurrentValue(DisplayDateTimeProperty, d);
@@ -632,12 +638,18 @@ public class DateTimePicker : Control
                 {
                     SetCurrentValue(SelectedDateTimeProperty, null);
                 }
+                else
+                {
+                    // 修复：确保文本框同步清空
+                    SetTextInternal(string.Empty);
+                }
             }
         }
         else
         {
             var d = SetTextBoxValue(_defaultText);
-            if (!SelectedDateTime.Equals(d))
+            // 修复：使用静态的 Equals 方法进行安全的 null 比较
+            if (!Equals(SelectedDateTime, d))
             {
                 SetCurrentValue(SelectedDateTimeProperty, d);
             }
