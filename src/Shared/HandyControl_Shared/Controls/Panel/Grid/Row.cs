@@ -12,9 +12,7 @@ namespace HandyControl.Controls;
 public class Row : Panel
 {
     private ColLayoutStatus _layoutStatus;
-
     private double _maxChildDesiredHeight;
-
     private double _fixedWidth;
 
     public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
@@ -31,6 +29,7 @@ public class Row : Panel
         set => SetValue(GutterProperty, value);
     }
 
+    #region 父布局监控
     // 当视觉父发生变化，订阅父的 SizeChanged / LayoutUpdated，确保在父确定尺寸后重新测量
     protected override void OnVisualParentChanged(DependencyObject oldParent)
     {
@@ -64,9 +63,7 @@ public class Row : Panel
     {
         if (sender is FrameworkElement parent && parent.ActualWidth > 0)
         {
-            parent.SizeChanged -= Parent_SizeChanged;
-            parent.LayoutUpdated -= Parent_LayoutUpdated;
-            // 延迟到渲染优先级再触发重测，确保父已稳定
+            UnsubscribeParentSizeChanged(parent);
             Dispatcher.BeginInvoke(new Action(InvalidateMeasure), DispatcherPriority.Render);
         }
     }
@@ -75,18 +72,19 @@ public class Row : Panel
     {
         if (sender is FrameworkElement parent && parent.ActualWidth > 0)
         {
-            parent.SizeChanged -= Parent_SizeChanged;
-            parent.LayoutUpdated -= Parent_LayoutUpdated;
+            UnsubscribeParentSizeChanged(parent);
             Dispatcher.BeginInvoke(new Action(InvalidateMeasure), DispatcherPriority.Render);
         }
     }
+
+    #endregion
 
     protected override Size MeasureOverride(Size constraint)
     {
         var gutter = Gutter;
 
-        // 如果父没有给出有限宽度，尝试用父 ActualWidth
-        if (double.IsInfinity(constraint.Width) || constraint.Width == 0)
+        // --- 防止无限约束 ---
+        if (double.IsInfinity(constraint.Width) || double.IsNaN(constraint.Width) || constraint.Width <= 0)
         {
             if (Parent is FrameworkElement parent && parent.ActualWidth > 0)
             {
@@ -94,14 +92,17 @@ public class Row : Panel
             }
             else
             {
-                // 延迟再测量一帧，避免返回错误测量尺寸被上层缓存
+                // 给出一个合理的默认宽度，避免返回 Infinity
+                constraint = new Size(100, constraint.Height);
+                // 延迟重新测量，等待父尺寸稳定
                 Dispatcher.BeginInvoke(new Action(InvalidateMeasure), DispatcherPriority.Render);
-                // 返回一个合理的最小高度（尽量不要返回 0 宽，否则会导致上层布局认为没有宽度）
-                return new Size(constraint.Width, 0);
             }
         }
 
-        // 在 Measure 阶段应该自己根据 constraint 计算 layoutStatus，而不要依赖 _layoutStatus（它在 Arrange 中被设置）
+        // 高度也进行防御
+        if (double.IsInfinity(constraint.Height) || double.IsNaN(constraint.Height))
+            constraint = new Size(constraint.Width, 100);
+
         var localLayoutStatus = ColLayout.GetLayoutStatus(constraint.Width);
 
         var totalCellCount = 0;
@@ -110,7 +111,7 @@ public class Row : Panel
         _maxChildDesiredHeight = 0;
         var cols = InternalChildren.OfType<Col>().ToList();
 
-        // 先测量固定或不参与栅格的子元素，累加 fixed 宽度与最大高度
+        // 先测量固定或不参与栅格的子元素
         foreach (var child in cols)
         {
             var cellCount = child.GetLayoutCellCount(localLayoutStatus);
@@ -124,7 +125,6 @@ public class Row : Panel
 
         var availableWidth = Math.Max(0, constraint.Width - _fixedWidth + gutter);
         var itemWidth = availableWidth / ColLayout.ColMaxCellCount;
-        itemWidth = Math.Max(0, itemWidth);
 
         foreach (var child in cols)
         {
@@ -145,9 +145,22 @@ public class Row : Panel
             }
         }
 
-        // 返回宽度尽量用 constraint.Width（如果是 Infinity 则尝试 parent.ActualWidth），避免返回 0 宽度
-        var returnWidth = double.IsInfinity(constraint.Width) ? (Parent is FrameworkElement p ? p.ActualWidth : 0) : constraint.Width;
-        return new Size(returnWidth, _maxChildDesiredHeight * totalRowCount);
+        // --- 返回安全尺寸 ---
+        var returnWidth = constraint.Width;
+        var returnHeight = _maxChildDesiredHeight * totalRowCount;
+
+        if (double.IsInfinity(returnWidth) || double.IsNaN(returnWidth) || returnWidth <= 0)
+        {
+            if (Parent is FrameworkElement p && p.ActualWidth > 0)
+                returnWidth = p.ActualWidth;
+            else
+                returnWidth = 100; // fallback
+        }
+
+        if (double.IsInfinity(returnHeight) || double.IsNaN(returnHeight) || returnHeight < 0)
+            returnHeight = 0;
+
+        return new Size(returnWidth, returnHeight);
     }
 
     protected override Size ArrangeOverride(Size finalSize)
@@ -155,7 +168,6 @@ public class Row : Panel
         var gutter = Gutter;
         var totalCellCount = 0;
         var cols = InternalChildren.OfType<Col>().ToList();
-
         // 再次设置布局状态，供 Arrange 使用
         _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
 
@@ -167,14 +179,15 @@ public class Row : Panel
         foreach (var child in cols)
         {
             if (!child.IsVisible)
-            {
                 continue;
-            }
 
             var cellCount = child.GetLayoutCellCount(_layoutStatus);
             totalCellCount += cellCount;
 
-            var childWidth = (cellCount > 0 && !child.IsFixed) ? Math.Max(0, cellCount * itemWidth - gutter) : child.DesiredSize.Width;
+            var childWidth = (cellCount > 0 && !child.IsFixed)
+                ? Math.Max(0, cellCount * itemWidth - gutter)
+                : child.DesiredSize.Width;
+
             childBounds.Width = childWidth;
             childBounds.X += child.Offset * itemWidth;
 
