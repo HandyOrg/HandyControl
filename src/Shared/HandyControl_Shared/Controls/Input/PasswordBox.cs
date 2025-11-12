@@ -149,7 +149,11 @@ public class PasswordBox : Control
 
 #endif
 
-    public PasswordBox() => CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+    public PasswordBox()
+    {
+        CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Focus, (s, e) => Focus()));
+    }
 
     public System.Windows.Controls.PasswordBox ActualPasswordBox { get; set; }
 
@@ -268,6 +272,12 @@ public class PasswordBox : Control
     {
         ActualPasswordBox.Clear();
         _textBox.Clear();
+    }
+
+    public new void Focus()
+    {
+        ActualPasswordBox.Focus();
+        _textBox.Focus();
     }
 
     private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
