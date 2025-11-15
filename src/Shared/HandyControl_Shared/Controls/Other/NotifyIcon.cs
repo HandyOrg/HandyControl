@@ -148,11 +148,12 @@ public class NotifyIcon : FrameworkElement, IDisposable
 
         var data = new InteropValues.NOTIFYICONDATA
         {
-            uFlags = InteropValues.NIF_INFO,
+            uFlags = InteropValues.NIF_INFO | InteropValues.NIF_MESSAGE,
             hWnd = _messageWindowHandle,
             uID = _id,
             szInfoTitle = title ?? string.Empty,
-            szInfo = content ?? string.Empty
+            szInfo = content ?? string.Empty,
+            uCallbackMessage = InteropValues.WM_TRAYMOUSEMESSAGE
         };
 
         data.dwInfoFlags = infoType switch
@@ -163,6 +164,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
             NotifyIconInfoType.None => InteropValues.NIIF_NONE,
             _ => data.dwInfoFlags
         };
+        data.dwInfoFlags |= InteropValues.NIIF_USER;
 
         InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
     }
