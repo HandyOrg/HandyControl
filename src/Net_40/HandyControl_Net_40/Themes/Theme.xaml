@@ -10733,7 +10733,6 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Foreground" Value="White" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TabItemStyle}" />
 		<Setter Property="Template">
 			<Setter.Value>
