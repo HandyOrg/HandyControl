@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -190,8 +190,13 @@ public class Carousel : SimpleItemsControl, IDisposable
             else
                 _pageIndex = value;
             UpdatePageButtons(_pageIndex);
+            PageIndexChanged?.Invoke(this, _pageIndex);
         }
     }
+    /// <summary>
+    ///     页码改变事件
+    /// </summary>
+    public EventHandler<int> PageIndexChanged;
 
     /// <summary>
     ///     计时器开关
@@ -372,7 +377,7 @@ public class Carousel : SimpleItemsControl, IDisposable
                 _entryDic[item] = element;
                 ItemsHost.Children.Insert(index, element);
 
-                if (IsLoaded && !_isRefresh && _itemsSourceInternal != null)
+                if (!_isRefresh && _itemsSourceInternal != null)
                 {
                     Items.Insert(index, item);
                 }
