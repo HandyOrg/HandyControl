@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -372,7 +372,7 @@ public class Carousel : SimpleItemsControl, IDisposable
                 _entryDic[item] = element;
                 ItemsHost.Children.Insert(index, element);
 
-                if (IsLoaded && !_isRefresh && _itemsSourceInternal != null)
+                if (!_isRefresh && _itemsSourceInternal != null)
                 {
                     Items.Insert(index, item);
                 }
