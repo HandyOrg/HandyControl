@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -50,6 +50,7 @@ internal class InteropValues
         NIIF_INFO = 0x00000001,
         NIIF_WARNING = 0x00000002,
         NIIF_ERROR = 0x00000003,
+        NIIF_USER = 0x00000004,
         WM_ACTIVATE = 0x0006,
         WM_QUIT = 0x0012,
         WM_GETMINMAXINFO = 0x0024,
