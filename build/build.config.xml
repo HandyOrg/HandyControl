@@ -20,5 +20,6 @@
     <task framework="net7.0-windows" target="net7.0" outputsFolder="net7.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
     <task framework="net8.0-windows" target="net8.0" outputsFolder="net8.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
     <task framework="net9.0-windows" target="net9.0" outputsFolder="net9.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net10.0-windows" target="net10.0" outputsFolder="net10.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
   </tasks>
 </config>
