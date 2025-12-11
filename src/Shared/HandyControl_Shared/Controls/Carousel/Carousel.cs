@@ -190,8 +190,13 @@ public class Carousel : SimpleItemsControl, IDisposable
             else
                 _pageIndex = value;
             UpdatePageButtons(_pageIndex);
+            PageIndexChanged?.Invoke(this, _pageIndex);
         }
     }
+    /// <summary>
+    ///     页码改变事件
+    /// </summary>
+    public EventHandler<int> PageIndexChanged;
 
     /// <summary>
     ///     计时器开关
