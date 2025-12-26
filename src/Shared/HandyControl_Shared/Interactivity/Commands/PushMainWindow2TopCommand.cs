@@ -11,10 +11,10 @@ public class PushMainWindow2TopCommand : ICommand
 
     public void Execute(object parameter)
     {
-        if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
+        Window mainWindow = Application.Current.MainWindow;
+        if (mainWindow != null && mainWindow.Visibility != Visibility.Visible || mainWindow.WindowState == WindowState.Minimized)
         {
-            Application.Current.MainWindow.Show();
-            WindowHelper.SetWindowToForeground(Application.Current.MainWindow);
+            WindowHelper.SetWindowToForeground(mainWindow);
         }
     }
 
