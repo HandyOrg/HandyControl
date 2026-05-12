@@ -3,6 +3,8 @@
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
+             xmlns:vm="using:HandyControlDemo.ViewModel"
+             x:DataType="{x:Type vm:MainViewModel}"
              Margin="16,16,0,16"
              CornerRadius="10"
              Effect="{StaticResource EffectShadow4}">

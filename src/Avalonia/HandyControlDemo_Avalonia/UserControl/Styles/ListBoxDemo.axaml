@@ -1,5 +1,7 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="using:HandyControlDemo.Data"
+             x:DataType="{x:Type data:DemoDataModel}"
              x:Class="HandyControlDemo.UserControl.ListBoxDemo">
     <WrapPanel Margin="16">
         <ListBox Margin="16"

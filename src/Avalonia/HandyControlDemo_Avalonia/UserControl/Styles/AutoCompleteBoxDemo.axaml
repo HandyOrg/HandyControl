@@ -1,6 +1,8 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:data="using:HandyControlDemo.Data"
+             x:DataType="{x:Type data:DemoDataModel}"
              x:Class="HandyControlDemo.UserControl.AutoCompleteBoxDemo">
     <ScrollViewer>
         <hc:UniformSpacingPanel Spacing="32"
@@ -36,7 +38,7 @@
                                  FilterMode="Contains"
                                  Margin="0,16,0,0"
                                  IsEnabled="False" />
-                <AutoCompleteBox Watermark="please enter content"
+                <AutoCompleteBox PlaceholderText="please enter content"
                                  hc:TitleElement.Title="This item must be filled in"
                                  Theme="{StaticResource AutoCompleteBoxExtend}"
                                  ItemsSource="{Binding DataList}"
@@ -55,7 +57,7 @@
                                  Margin="0,32,0,0" />
                 <AutoCompleteBox Width="380"
                                  hc:TitleElement.TitleWidth="120"
-                                 Watermark="Please enter content"
+                                 PlaceholderText="Please enter content"
                                  hc:TitleElement.TitlePlacement="Left"
                                  hc:TitleElement.Title="The title is on the left"
                                  hc:InfoElement.Necessary="True"
@@ -97,7 +99,7 @@
                                  FilterMode="Contains"
                                  Margin="0,16,0,0"
                                  IsEnabled="False" />
-                <AutoCompleteBox Watermark="please enter content"
+                <AutoCompleteBox PlaceholderText="please enter content"
                                  hc:TitleElement.Title="This item must be filled in"
                                  Theme="{StaticResource AutoCompleteBoxExtend.Small}"
                                  ItemsSource="{Binding DataList}"
@@ -116,7 +118,7 @@
                                  Margin="0,32,0,0" />
                 <AutoCompleteBox Width="380"
                                  hc:TitleElement.TitleWidth="120"
-                                 Watermark="Please enter content"
+                                 PlaceholderText="Please enter content"
                                  hc:TitleElement.TitlePlacement="Left"
                                  hc:TitleElement.Title="The title is on the left"
                                  hc:InfoElement.Necessary="True"

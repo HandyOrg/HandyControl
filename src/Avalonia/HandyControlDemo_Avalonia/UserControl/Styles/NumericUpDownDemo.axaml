@@ -1,8 +1,10 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
              x:Class="HandyControlDemo.UserControl.NumericUpDownDemo"
+             x:DataType="{x:Type vm:InputElementDemoViewModel}"
+             x:CompileBindings="False"
              DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
     <ScrollViewer>
         <hc:UniformSpacingPanel Spacing="32"
