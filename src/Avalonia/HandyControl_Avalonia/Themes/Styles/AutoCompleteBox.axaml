@@ -41,7 +41,7 @@
                              CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
                              ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
                              DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             Watermark="{TemplateBinding Watermark}"
+                             PlaceholderText="{TemplateBinding PlaceholderText}"
                              MaxLength="{TemplateBinding MaxLength}" />
                     <Popup Name="PART_Popup"
                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"

@@ -23,7 +23,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend}" />
@@ -38,7 +38,7 @@
                                Value="10000"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend}"
@@ -61,7 +61,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend}" />
@@ -76,7 +76,7 @@
                                hc:InfoElement.ShowClearButton="True"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend}"
@@ -98,7 +98,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
@@ -113,7 +113,7 @@
                                Value="10000"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend.Small}"
@@ -136,7 +136,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
@@ -151,7 +151,7 @@
                                hc:InfoElement.ShowClearButton="True"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend.Small}"
