@@ -29,6 +29,10 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -43,6 +47,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Update="UserControl\Styles\WindowDemo.axaml.cs">
+      <DependentUpon>WindowDemo.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 

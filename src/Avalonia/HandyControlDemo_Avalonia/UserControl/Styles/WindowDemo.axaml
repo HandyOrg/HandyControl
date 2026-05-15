@@ -1,0 +1,12 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:data="using:HandyControlDemo.Data"
+             x:DataType="{x:Type data:DemoDataModel}"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.WindowDemo">
+    <!--<hc:TransitioningContentControl>-->
+    <hc:UniformSpacingPanel Margin="32" ChildWrapping="Wrap" Spacing="16" VerticalAlignment="Center" MaxWidth="500">
+        <Button Click="ButtonMessage_OnClick" Content="OpenMessageWindow"/>
+    </hc:UniformSpacingPanel>
+    <!--</hc:TransitioningContentControl>-->
+</UserControl>

@@ -17,5 +17,8 @@
     <avalonia:MarginMultiplierConverter x:Key="LeftMarginConverter"
                                         Indent="16"
                                         Left="True" />
+    <hc:Object2BooleanConverter x:Key="Object2BooleanConverter" />
+    <hc:Object2BooleanReConverter x:Key="Object2BooleanReConverter" />
+    <hc:BooleanArr22BooleanConverter x:Key="BooleanArr22BooleanConverter" />
 
 </ResourceDictionary>
