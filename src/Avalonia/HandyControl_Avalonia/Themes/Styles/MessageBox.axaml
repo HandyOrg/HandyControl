@@ -34,7 +34,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Button Name="PART_ButtonIcon" IsVisible="{TemplateBinding Icon,Converter={StaticResource Object2BooleanConverter}}" Background="Transparent" Margin="10,0,0,0" Theme="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                        <Button Name="PART_ButtonIcon" IsVisible="{TemplateBinding Icon,Converter={StaticResource ObjectConverters.IsNotNull}}" Background="Transparent" Margin="10,0,0,0" Theme="{StaticResource ButtonCustom}" VerticalAlignment="Center">
                             <Image IsHitTestVisible="False" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16"/>
                         </Button>
 
@@ -43,7 +43,7 @@
                                 <MultiBinding Converter="{StaticResource BooleanArr22BooleanConverter}">
                                     <MultiBinding.Bindings>
                                         <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}"/>
-                                        <Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}"/>
+                                        <Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{x:Static ObjectConverters.IsNotNull}"/>
                                     </MultiBinding.Bindings>
                                 </MultiBinding>
                             </TextBlock.IsVisible>
