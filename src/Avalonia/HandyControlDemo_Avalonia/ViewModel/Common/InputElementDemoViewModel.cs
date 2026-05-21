@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using HandyControl.Controls;
 using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools.Converter;
 
@@ -42,5 +45,11 @@ public partial class InputElementDemoViewModel : ObservableValidator
         }
 
         return list;
+    }
+
+    [RelayCommand]
+    private static async Task Search(string key)
+    {
+        await MessageBox.Info(key);
     }
 }

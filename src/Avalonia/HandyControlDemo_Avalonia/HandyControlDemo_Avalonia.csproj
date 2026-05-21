@@ -48,6 +48,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Update="UserControl\Styles\SearchBarDemo.axaml.cs">
+      <DependentUpon>SearchBarDemo.axaml</DependentUpon>
+    </Compile>
     <Compile Update="UserControl\Styles\WindowDemo.axaml.cs">
       <DependentUpon>WindowDemo.axaml</DependentUpon>
     </Compile>

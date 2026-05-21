@@ -1,8 +1,9 @@
-﻿<!-- ReSharper disable once Xaml.RedundantNamespaceAlias -->
-<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:ClassModifier="internal"
-        xmlns:hc="clr-namespace:HandyControl.Controls">
+﻿<!--  ReSharper disable once Xaml.RedundantNamespaceAlias  -->
+<Styles
+    x:ClassModifier="internal"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:hc="clr-namespace:HandyControl.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Styles.Resources>
         <ResourceDictionary>
@@ -58,6 +59,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/SelectableTextBlock.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/HeaderedContentControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/MessageBox.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/SearchBar.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

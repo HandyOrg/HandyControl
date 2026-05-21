@@ -1,0 +1,132 @@
+﻿<UserControl
+    DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}"
+    x:Class="HandyControlDemo.UserControl.SearchBarDemo"
+    x:CompileBindings="False"
+    x:DataType="{x:Type vm:InputElementDemoViewModel}"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:data="using:HandyControlDemo.Data"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:vm="using:HandyControlDemo.ViewModel"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel
+            ChildWrapping="Wrap"
+            Margin="32"
+            Spacing="32">
+            <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
+                <hc:SearchBar Command="{Binding SearchCommand}" CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}" />
+                <hc:SearchBar IsEnabled="False" />
+                <hc:SearchBar Theme="{StaticResource SearchBarExtend}" hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend}"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend}"
+                    Width="380"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend}"
+                    Width="380"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
+                <hc:SearchBar Theme="{StaticResource SearchBarPlus}" hc:InfoElement.ShowClearButton="True" />
+                <hc:SearchBar IsEnabled="False" Theme="{StaticResource SearchBarPlus}" />
+
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus}"
+                    hc:InfoElement.ShowClearButton="True"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Text="{Binding Email1, UpdateSourceTrigger=PropertyChanged}"
+                    Theme="{StaticResource SearchBarPlus}"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterEmail"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus}"
+                    Width="380"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus}"
+                    Width="380"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:InfoElement.ShowClearButton="True"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
+                <hc:SearchBar
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding Text, RelativeSource={RelativeSource Self}}"
+                    Theme="{StaticResource SearchBar.Small}" />
+                <hc:SearchBar IsEnabled="False" Theme="{StaticResource SearchBar.Small}" />
+
+                <hc:SearchBar Theme="{StaticResource SearchBarExtend.Small}" hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend.Small}"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend.Small}"
+                    Width="380"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarExtend.Small}"
+                    Width="380"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
+                <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}" hc:InfoElement.ShowClearButton="True" />
+                <hc:SearchBar IsEnabled="False" Theme="{StaticResource SearchBarPlus.Small}" />
+
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus.Small}"
+                    hc:InfoElement.ShowClearButton="True"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Text="{Binding Email1, UpdateSourceTrigger=PropertyChanged}"
+                    Theme="{StaticResource SearchBarPlus.Small}"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterEmail"
+                    hc:TitleElement.Title="TitleDemoStr1" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus.Small}"
+                    Width="380"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+                <hc:SearchBar
+                    Theme="{StaticResource SearchBarPlus.Small}"
+                    Width="380"
+                    hc:InfoElement.Necessary="True"
+                    hc:InfoElement.Placeholder="PlsEnterContent"
+                    hc:InfoElement.ShowClearButton="True"
+                    hc:TitleElement.Title="TitleDemoStr3"
+                    hc:TitleElement.TitlePlacement="Left"
+                    hc:TitleElement.TitleWidth="140" />
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>
