@@ -1,0 +1,270 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-hcdemo-all-frameworks",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-c",
+        "Debug",
+        "-v",
+        "minimal"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "run-hcdemo-net10.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net10.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-netcoreapp3.0",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "netcoreapp3.0"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-netcoreapp3.1",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "netcoreapp3.1"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net45",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net45"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net451",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net451"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net452",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net452"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net46",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net46"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net461",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net461"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net462",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net462"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net47",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net47"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net471",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net471"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net472",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net472"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net48",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net48"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net481",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net481"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net5.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net5.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net6.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net6.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net7.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net7.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net8.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net8.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-hcdemo-net9.0-windows",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj",
+        "-f",
+        "net9.0-windows"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

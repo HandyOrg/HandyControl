@@ -111,7 +111,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     public SideMenuItemRole Role
     {
         get => (SideMenuItemRole) GetValue(RoleProperty);
-        internal set => SetValue(RoleProperty, value);
+        set => SetValue(RoleProperty, value);
     }
 
     protected override DependencyObject GetContainerForItemOverride() => new SideMenuItem();

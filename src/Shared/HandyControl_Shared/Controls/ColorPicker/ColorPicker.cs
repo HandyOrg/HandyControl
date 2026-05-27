@@ -299,22 +299,22 @@ public class ColorPicker : Control, ISingleOpen
         set => SetValue(SelectedBrushProperty, value);
     }
 
-    internal static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
         nameof(SelectedBrushWithoutOpacity), typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White));
 
-    internal SolidColorBrush SelectedBrushWithoutOpacity
+    public SolidColorBrush SelectedBrushWithoutOpacity
     {
         get => (SolidColorBrush) GetValue(SelectedBrushWithoutOpacityProperty);
-        set => SetValue(SelectedBrushWithoutOpacityProperty, value);
+        internal set => SetValue(SelectedBrushWithoutOpacityProperty, value);
     }
 
-    internal static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
         nameof(BackColor), typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.Red));
 
-    internal SolidColorBrush BackColor
+    public SolidColorBrush BackColor
     {
         get => (SolidColorBrush) GetValue(BackColorProperty);
-        set => SetValue(BackColorProperty, value);
+        internal set => SetValue(BackColorProperty, value);
     }
 
     internal static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(

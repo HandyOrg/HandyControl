@@ -237,7 +237,7 @@ public class ImageViewer : Control, IDisposable
     internal static readonly DependencyProperty ImgSizeProperty = DependencyProperty.Register(
         nameof(ImgSize), typeof(long), typeof(ImageViewer), new PropertyMetadata(-1L));
 
-    internal static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
         nameof(ShowFullScreenButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     internal static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
@@ -246,25 +246,25 @@ public class ImageViewer : Control, IDisposable
     internal static readonly DependencyProperty ImageContentProperty = DependencyProperty.Register(
         nameof(ImageContent), typeof(object), typeof(ImageViewer), new PropertyMetadata(default(object)));
 
-    internal static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register(
         nameof(ImageMargin), typeof(Thickness), typeof(ImageViewer), new PropertyMetadata(default(Thickness)));
 
-    internal static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
         nameof(ImageWidth), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
-    internal static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
         nameof(ImageHeight), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
     internal static readonly DependencyProperty ImageScaleProperty = DependencyProperty.Register(
         nameof(ImageScale), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
 
-    internal static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
         nameof(ScaleStr), typeof(string), typeof(ImageViewer), new PropertyMetadata("100%"));
 
     internal static readonly DependencyProperty ImageRotateProperty = DependencyProperty.Register(
         nameof(ImageRotate), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
-    internal static readonly DependencyProperty ShowSmallImgInternalProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ShowSmallImgInternalProperty = DependencyProperty.Register(
         nameof(ShowSmallImgInternal), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsFullScreen
@@ -326,28 +326,28 @@ public class ImageViewer : Control, IDisposable
     /// <summary>
     ///     是否显示全屏按钮
     /// </summary>
-    internal bool ShowFullScreenButton
+    public bool ShowFullScreenButton
     {
         get => (bool) GetValue(ShowFullScreenButtonProperty);
-        set => SetValue(ShowFullScreenButtonProperty, ValueBoxes.BooleanBox(value));
+        internal set => SetValue(ShowFullScreenButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
-    internal Thickness ImageMargin
+    public Thickness ImageMargin
     {
         get => (Thickness) GetValue(ImageMarginProperty);
-        set => SetValue(ImageMarginProperty, value);
+        internal set => SetValue(ImageMarginProperty, value);
     }
 
-    internal double ImageWidth
+    public double ImageWidth
     {
         get => (double) GetValue(ImageWidthProperty);
-        set => SetValue(ImageWidthProperty, value);
+        internal set => SetValue(ImageWidthProperty, value);
     }
 
-    internal double ImageHeight
+    public double ImageHeight
     {
         get => (double) GetValue(ImageHeightProperty);
-        set => SetValue(ImageHeightProperty, value);
+        internal set => SetValue(ImageHeightProperty, value);
     }
 
     internal double ImageScale
@@ -356,10 +356,10 @@ public class ImageViewer : Control, IDisposable
         set => SetValue(ImageScaleProperty, value);
     }
 
-    internal string ScaleStr
+    public string ScaleStr
     {
         get => (string) GetValue(ScaleStrProperty);
-        set => SetValue(ScaleStrProperty, value);
+        internal set => SetValue(ScaleStrProperty, value);
     }
 
     internal double ImageRotate
@@ -368,10 +368,10 @@ public class ImageViewer : Control, IDisposable
         set => SetValue(ImageRotateProperty, value);
     }
 
-    internal bool ShowSmallImgInternal
+    public bool ShowSmallImgInternal
     {
         get => (bool) GetValue(ShowSmallImgInternalProperty);
-        set => SetValue(ShowSmallImgInternalProperty, ValueBoxes.BooleanBox(value));
+        internal set => SetValue(ShowSmallImgInternalProperty, ValueBoxes.BooleanBox(value));
     }
 
     /// <summary>
@@ -387,10 +387,10 @@ public class ImageViewer : Control, IDisposable
     /// <summary>
     ///     关闭按钮是否显示中
     /// </summary>
-    internal bool ShowCloseButton
+    public bool ShowCloseButton
     {
         get => (bool) GetValue(ShowCloseButtonProperty);
-        set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
+        internal set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
     /// <summary>

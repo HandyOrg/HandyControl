@@ -1,0 +1,195 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run HandyControlDemo (netcoreapp3.0)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "netcoreapp3.0"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (netcoreapp3.1)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "netcoreapp3.1"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net45)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net45"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net451)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net451"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net452)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net452"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net46)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net46"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net461)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net461"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net462)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net462"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net47)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net47"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net471)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net471"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net472)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net472"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net48)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net48"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net481)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net481"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net5.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net5.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net6.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net6.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net7.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net7.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net8.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net8.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net9.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net9.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    },
+    {
+      "name": "Run HandyControlDemo (net10.0-windows)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": ["run", "--project", "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45/HandyControlDemo_Net_GE45.csproj", "-f", "net10.0-windows"],
+      "cwd": "${workspaceFolder}/src/Net_GE45/HandyControlDemo_Net_GE45",
+      "console": "integratedTerminal",
+      "stopAtEntry": false
+    }
+  ]
+}

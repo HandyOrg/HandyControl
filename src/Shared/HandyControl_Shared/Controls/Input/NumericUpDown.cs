@@ -312,13 +312,13 @@ public class NumericUpDown : Control
     /// <summary>
     ///     是否显示上下调值按钮
     /// </summary>
-    internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
+    public static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
         nameof(ShowUpDownButton), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
 
     /// <summary>
     ///     是否显示上下调值按钮
     /// </summary>
-    internal bool ShowUpDownButton
+    public bool ShowUpDownButton
     {
         get => (bool) GetValue(ShowUpDownButtonProperty);
         set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
