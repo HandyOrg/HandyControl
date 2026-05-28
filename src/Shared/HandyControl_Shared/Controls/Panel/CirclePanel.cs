@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -38,12 +39,13 @@ public class CirclePanel : Panel
     protected override Size MeasureOverride(Size availableSize)
     {
         var diameter = Diameter;
+        var layoutChildren = Children.OfType<UIElement>().Where(element => element.Visibility != Visibility.Collapsed).ToList();
 
-        if (Children.Count == 0) return new Size(diameter, diameter);
+        if (layoutChildren.Count == 0) return new Size(diameter, diameter);
 
         var newSize = new Size(diameter, diameter);
 
-        foreach (UIElement element in Children)
+        foreach (var element in layoutChildren)
         {
             element.Measure(newSize);
         }
@@ -55,12 +57,18 @@ public class CirclePanel : Panel
     {
         var keepVertical = KeepVertical;
         var offsetAngle = OffsetAngle;
+        var layoutChildren = Children.OfType<UIElement>().Where(element => element.Visibility != Visibility.Collapsed).ToList();
+
+        if (layoutChildren.Count == 0)
+        {
+            return finalSize;
+        }
 
         var i = 0;
-        var perDeg = 360.0 / Children.Count;
+        var perDeg = 360.0 / layoutChildren.Count;
         var radius = Diameter / 2;
 
-        foreach (UIElement element in Children)
+        foreach (var element in layoutChildren)
         {
             var centerX = element.DesiredSize.Width / 2.0;
             var centerY = element.DesiredSize.Height / 2.0;

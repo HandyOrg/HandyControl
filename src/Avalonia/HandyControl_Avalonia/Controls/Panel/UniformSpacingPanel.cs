@@ -163,6 +163,7 @@ public class UniformSpacingPanel : Panel
             for (int i = 0, count = Children.Count; i < count; ++i)
             {
                 var child = Children[i];
+                if (!child.IsVisible) continue;
 
                 if (itemHorizontalAlignmentSet)
                 {
@@ -192,6 +193,7 @@ public class UniformSpacingPanel : Panel
             for (int i = 0, count = Children.Count; i < count; i++)
             {
                 var child = Children[i];
+                if (!child.IsVisible) continue;
 
                 if (itemHorizontalAlignmentSet)
                 {
@@ -258,6 +260,7 @@ public class UniformSpacingPanel : Panel
             for (int i = 0, count = Children.Count; i < count; i++)
             {
                 var child = Children[i];
+                if (!child.IsVisible) continue;
 
                 var sz = new PanelUvSize(
                     _orientation,
@@ -327,6 +330,7 @@ public class UniformSpacingPanel : Panel
         for (int i = 0; i < Children.Count; i++)
         {
             Control child = Children[i];
+            if (!child.IsVisible) continue;
             var childSize = new PanelUvSize(orientation, child.DesiredSize);
             double layoutSlotU = useItemU ? itemU : childSize.U;
 
@@ -354,6 +358,7 @@ public class UniformSpacingPanel : Panel
         for (int i = start; i < end; i++)
         {
             var child = Children[i];
+            if (!child.IsVisible) continue;
 
             var childSize = new PanelUvSize(_orientation, child.DesiredSize);
             double layoutSlotU = useItemU ? itemU : childSize.U;

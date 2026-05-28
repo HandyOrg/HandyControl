@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -60,21 +61,19 @@ public class HoneycombPanel : Panel
     protected override Size MeasureOverride(Size availableSize)
     {
         var maxSize = new Size();
+        var layoutChildren = InternalChildren.Cast<UIElement>().Where(child => child != null && child.Visibility != Visibility.Collapsed).ToList();
 
-        foreach (UIElement child in InternalChildren)
+        foreach (var child in layoutChildren)
         {
-            if (child != null)
-            {
-                child.Measure(availableSize);
-                maxSize.Width = Math.Max(maxSize.Width, child.DesiredSize.Width);
-                maxSize.Height = Math.Max(maxSize.Height, child.DesiredSize.Height);
-            }
+            child.Measure(availableSize);
+            maxSize.Width = Math.Max(maxSize.Width, child.DesiredSize.Width);
+            maxSize.Height = Math.Max(maxSize.Height, child.DesiredSize.Height);
         }
 
         _unitLength = Math.Max(maxSize.Width, maxSize.Height) / 2;
 
-        var xCount = GetXCount(InternalChildren.Count);
-        var yCount = GetYCount(InternalChildren.Count);
+        var xCount = GetXCount(layoutChildren.Count);
+        var yCount = GetYCount(layoutChildren.Count);
 
         var availableWidth = xCount * _unitLength;
         var availableHeight = yCount * Math.Pow(3, 0.5) * _unitLength + _unitLength * 2;
@@ -90,6 +89,7 @@ public class HoneycombPanel : Panel
 
         foreach (UIElement child in InternalChildren)
         {
+            if (child == null || child.Visibility == Visibility.Collapsed) continue;
             child.Arrange(_stuffer.Move());
         }
 
