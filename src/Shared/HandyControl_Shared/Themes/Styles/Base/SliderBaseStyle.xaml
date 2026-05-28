@@ -199,19 +199,19 @@
             <TickBar x:Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2" Placement="Top" Grid.Row="0" Visibility="Collapsed"/>
             <TickBar x:Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Grid.Row="1" Height="2" VerticalAlignment="center" Margin="9,0">
-                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden">
+                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden" Margin="-9,0,0,0">
                     <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Height="2"/>
                 </Canvas>
             </Border>
-            <Track Margin="9,0" x:Name="PART_Track" Grid.Row="1">
+            <Track x:Name="PART_Track" Grid.Row="1">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource SliderRepeatButtonHorizontalStyle}"/>
+                    <RepeatButton Margin="9,0,0,0" Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource SliderRepeatButtonHorizontalStyle}"/>
                 </Track.DecreaseRepeatButton>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonHorizontalStyle}"/>
+                    <RepeatButton Margin="0,0,9,0" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonHorizontalStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb ClipToBounds="False" Width="18" Margin="-9,0" Height="18" x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" VerticalAlignment="Center"/>
+                    <Thumb ClipToBounds="False" Width="18" Margin="0" Height="18" x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" VerticalAlignment="Center"/>
                 </Track.Thumb>
             </Track>
         </Grid>
@@ -256,19 +256,19 @@
             <TickBar x:Name="LeftTick" Grid.Column="0" Fill="{TemplateBinding Foreground}" Margin="0,0,2,0" Placement="Left" Visibility="Collapsed" Width="4"/>
             <TickBar x:Name="RightTick" Grid.Column="2" Fill="{TemplateBinding Foreground}" Margin="2,0,0,0" Placement="Right" Visibility="Collapsed" Width="4"/>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Grid.Column="1" HorizontalAlignment="center" Margin="0,9" Width="2">
-                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden">
+                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden" Margin="0,-9,0,0">
                     <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Width="2"/>
                 </Canvas>
             </Border>
-            <Track Margin="0,9" x:Name="PART_Track" Grid.Column="1">
+            <Track x:Name="PART_Track" Grid.Column="1">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource SliderRepeatButtonVerticalStyle}"/>
+                    <RepeatButton Margin="0,9,0,0" Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource SliderRepeatButtonVerticalStyle}"/>
                 </Track.DecreaseRepeatButton>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonVerticalStyle}"/>
+                    <RepeatButton Margin="0,0,0,9" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonVerticalStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb Margin="0,-9" x:Name="Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" HorizontalAlignment="Center" Width="18"/>
+                    <Thumb Margin="0" x:Name="Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" HorizontalAlignment="Center" Width="18"/>
                 </Track.Thumb>
             </Track>
         </Grid>
