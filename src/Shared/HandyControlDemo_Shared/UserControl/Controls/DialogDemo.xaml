@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.DialogDemo"
+<UserControl x:Class="HandyControlDemo.UserControl.DialogDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
@@ -24,6 +24,7 @@
                     <TextBox Margin="0,32,0,0" Text="{Binding DialogResult,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PleaseInput}}"/>
                     <Button Margin="0,10,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.InteractiveDialog}}" Command="{Binding ShowInteractiveDialogCmd}"/>
                     <Button Margin="0,32,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.NewWindow}}" Command="{Binding NewWindowCmd}"/>
+                    <Button Margin="0,32,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.DragDialog}}" Command="{Binding DragDialogCmd}"/>
                 </StackPanel>
             </hc:SimplePanel>
         </hc:TransitioningContentControl>

@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 #if !NET40
@@ -82,4 +82,8 @@ public class DialogDemoViewModel : ViewModelBase
     public RelayCommand<string> ShowWithTokenCmd => new(token => Dialog.Show(new TextDialog(), token));
 
     public RelayCommand<string> CloseMainWindowDialogCmd => new(Dialog.Close);
+
+    public RelayCommand DragDialogCmd => new(() => {
+        Dialog.Show(new DragDialogDemo(), MessageToken.MainWindow);
+    });
 }
