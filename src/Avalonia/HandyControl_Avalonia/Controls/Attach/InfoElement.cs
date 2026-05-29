@@ -2,8 +2,16 @@ using Avalonia;
 
 namespace HandyControl.Controls;
 
-public class InfoElement
+public class InfoElement : AvaloniaObject
 {
+    public static readonly AttachedProperty<string> PlaceholderProperty =
+    AvaloniaProperty.RegisterAttached<InfoElement, AvaloniaObject, string>("Placeholder", inherits: true);
+
+    public static void SetPlaceholder(AvaloniaObject element, string value) => element.SetValue(PlaceholderProperty, value);
+
+    public static string GetPlaceholder(AvaloniaObject element) => element.GetValue(PlaceholderProperty);
+
+
     public static readonly AttachedProperty<bool> NecessaryProperty =
         AvaloniaProperty.RegisterAttached<InfoElement, AvaloniaObject, bool>("Necessary", inherits: true);
 

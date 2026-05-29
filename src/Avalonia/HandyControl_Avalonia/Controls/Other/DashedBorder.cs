@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
@@ -145,7 +145,7 @@ public class DashedBorder : Decorator
             Thickness thickness = BorderThickness;
             if (UseLayoutRounding)
             {
-                thickness = LayoutHelper.RoundLayoutThickness(thickness, _scale, _scale);
+                thickness = LayoutHelper.RoundLayoutThickness(thickness, _scale);
             }
 
             _layoutThickness = thickness;

@@ -1,0 +1,603 @@
+﻿<ResourceDictionary
+    x:ClassModifier="internal"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTheme
+        BasedOn="{StaticResource TextBoxBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarBaseStyle">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hc:SearchBar">
+                    <hc:SimplePanel x:Name="root">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            x:Name="border" />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <ScrollViewer
+                                AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                Margin="-2,0"
+                                Name="PART_ScrollViewer"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                <TextPresenter
+                                    CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                    CaretBrush="{TemplateBinding CaretBrush}"
+                                    CaretIndex="{TemplateBinding CaretIndex}"
+                                    LetterSpacing="{TemplateBinding LetterSpacing}"
+                                    LineHeight="{TemplateBinding LineHeight}"
+                                    Margin="{TemplateBinding Padding}"
+                                    Name="PART_TextPresenter"
+                                    PasswordChar="{TemplateBinding PasswordChar}"
+                                    RevealPassword="{TemplateBinding RevealPassword}"
+                                    SelectionBrush="{TemplateBinding SelectionBrush}"
+                                    SelectionEnd="{TemplateBinding SelectionEnd}"
+                                    SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                    SelectionStart="{TemplateBinding SelectionStart}"
+                                    Text="{TemplateBinding Text,
+                                                           Mode=TwoWay}"
+                                    TextAlignment="{TemplateBinding TextAlignment}"
+                                    TextWrapping="{TemplateBinding TextWrapping}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <ScrollViewer.Styles>
+                                    <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Cursor" Value="IBeam" />
+                                    </Style>
+                                </ScrollViewer.Styles>
+                            </ScrollViewer>
+                            <Button
+                                Command="{TemplateBinding Command}"
+                                CommandParameter="{TemplateBinding CommandParameter}"
+                                Focusable="False"
+                                Foreground="{TemplateBinding BorderBrush}"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                HorizontalAlignment="Stretch"
+                                Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                Theme="{StaticResource ButtonIcon}"
+                                VerticalAlignment="Stretch"
+                                hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                                hc:IconElement.Width="14" />
+                        </Grid>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTemplate TargetType="hc:SearchBar" x:Key="SearchBarExtendTopTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
+            </Grid.RowDefinitions>
+            <DockPanel
+                HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                LastChildFill="True"
+                Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter
+                    Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    DockPanel.Dock="Right"
+                    IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="4,0,0,0"
+                    TextElement.Foreground="{DynamicResource DangerBrush}" />
+                <TextBlock
+                    Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap"
+                    hc:TextBlockAttach.AutoTooltip="True" />
+            </DockPanel>
+            <Border
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Grid.Row="1"
+                x:Name="border" />
+            <Grid
+                ColumnDefinitions="*,Auto"
+                Grid.Row="1"
+                x:Name="root">
+                <TextBlock
+                    HorizontalAlignment="Stretch"
+                    IsVisible="{TemplateBinding Text,
+                                                Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                    Margin="{TemplateBinding Padding}"
+                    Text="{Binding Path=(hc:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                    Theme="{StaticResource TextBlockDefaultThiLight}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                <ScrollViewer
+                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                    Margin="-2,0"
+                    Name="PART_ScrollViewer"
+                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter
+                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                        CaretBrush="{TemplateBinding CaretBrush}"
+                        CaretIndex="{TemplateBinding CaretIndex}"
+                        LetterSpacing="{TemplateBinding LetterSpacing}"
+                        LineHeight="{TemplateBinding LineHeight}"
+                        Margin="{TemplateBinding Padding}"
+                        Name="PART_TextPresenter"
+                        PasswordChar="{TemplateBinding PasswordChar}"
+                        RevealPassword="{TemplateBinding RevealPassword}"
+                        SelectionBrush="{TemplateBinding SelectionBrush}"
+                        SelectionEnd="{TemplateBinding SelectionEnd}"
+                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                        SelectionStart="{TemplateBinding SelectionStart}"
+                        Text="{TemplateBinding Text,
+                                               Mode=TwoWay}"
+                        TextAlignment="{TemplateBinding TextAlignment}"
+                        TextWrapping="{TemplateBinding TextWrapping}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ScrollViewer.Styles>
+                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Cursor" Value="IBeam" />
+                        </Style>
+                    </ScrollViewer.Styles>
+                </ScrollViewer>
+                <Button
+                    Command="{TemplateBinding Command}"
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                    hc:IconElement.Width="14" />
+            </Grid>
+        </Grid>
+
+
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="hc:SearchBar" x:Key="SearchBarExtendLeftTemplate">
+        <Grid Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=(hc:TitleElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <DockPanel
+                HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                LastChildFill="True"
+                Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}"
+                VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter
+                    Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    DockPanel.Dock="Right"
+                    IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="4,0,0,0"
+                    TextElement.Foreground="{DynamicResource DangerBrush}" />
+                <TextBlock
+                    Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap"
+                    hc:TextBlockAttach.AutoTooltip="True" />
+            </DockPanel>
+            <Border
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Grid.Column="1"
+                x:Name="border" />
+            <Grid
+                ColumnDefinitions="*,Auto"
+                Grid.Column="1"
+                x:Name="root">
+                <TextBlock
+                    HorizontalAlignment="Stretch"
+                    IsVisible="{TemplateBinding Text,
+                                                Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                    Margin="{TemplateBinding Padding}"
+                    Text="{Binding Path=(hc:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                    Theme="{StaticResource TextBlockDefaultThiLight}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                <ScrollViewer
+                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                    Margin="-2,0"
+                    Name="PART_ScrollViewer"
+                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter
+                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                        CaretBrush="{TemplateBinding CaretBrush}"
+                        CaretIndex="{TemplateBinding CaretIndex}"
+                        LetterSpacing="{TemplateBinding LetterSpacing}"
+                        LineHeight="{TemplateBinding LineHeight}"
+                        Margin="{TemplateBinding Padding}"
+                        Name="PART_TextPresenter"
+                        PasswordChar="{TemplateBinding PasswordChar}"
+                        RevealPassword="{TemplateBinding RevealPassword}"
+                        SelectionBrush="{TemplateBinding SelectionBrush}"
+                        SelectionEnd="{TemplateBinding SelectionEnd}"
+                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                        SelectionStart="{TemplateBinding SelectionStart}"
+                        Text="{TemplateBinding Text,
+                                               Mode=TwoWay}"
+                        TextAlignment="{TemplateBinding TextAlignment}"
+                        TextWrapping="{TemplateBinding TextWrapping}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ScrollViewer.Styles>
+                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Cursor" Value="IBeam" />
+                        </Style>
+                    </ScrollViewer.Styles>
+                </ScrollViewer>
+                <Button
+                    Command="{TemplateBinding Command}"
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                    hc:IconElement.Width="14" />
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarExtendBaseStyle">
+        <Setter Property="hc:InfoElement.Symbol" Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template" Value="{StaticResource SearchBarExtendTopTemplate}" />
+
+        <Style Selector="^[(hc|TitleElement.TitlePlacement)=Left]">
+            <Setter Property="Template" Value="{StaticResource SearchBarExtendLeftTemplate}" />
+        </Style>
+        <Style Selector="^:disabled /template/Border#border">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+        <Style Selector="^:disabled /template/Grid#root">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTemplate TargetType="hc:SearchBar" x:Key="SearchBarPlusTopTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
+            </Grid.RowDefinitions>
+            <DockPanel
+                HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                LastChildFill="True"
+                Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter
+                    Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    DockPanel.Dock="Right"
+                    IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="4,0,0,0"
+                    TextElement.Foreground="{DynamicResource DangerBrush}" />
+                <TextBlock
+                    Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap"
+                    hc:TextBlockAttach.AutoTooltip="True" />
+            </DockPanel>
+            <Border
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Grid.Row="1"
+                x:Name="border" />
+            <Grid
+                ColumnDefinitions="* auto auto"
+                Grid.Row="1"
+                x:Name="root">
+                <Button
+                    Command="{Binding $parent[TextBox].Clear}"
+                    Focusable="False"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    IsVisible="False"
+                    Name="ButtonClear"
+                    Padding="0,0,2,0"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                    hc:IconElement.Width="14" />
+                <Button
+                    Command="{TemplateBinding Command}"
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    Focusable="False"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                    hc:IconElement.Width="14" />
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    IsVisible="{TemplateBinding Text,
+                                                Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                    Margin="{TemplateBinding Padding}"
+                    Text="{Binding Path=(hc:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                    Theme="{StaticResource TextBlockDefaultThiLight}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                <ScrollViewer
+                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                    Margin="-2,0"
+                    Name="PART_ScrollViewer"
+                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter
+                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                        CaretBrush="{TemplateBinding CaretBrush}"
+                        CaretIndex="{TemplateBinding CaretIndex}"
+                        LetterSpacing="{TemplateBinding LetterSpacing}"
+                        LineHeight="{TemplateBinding LineHeight}"
+                        Margin="{TemplateBinding Padding}"
+                        Name="PART_TextPresenter"
+                        PasswordChar="{TemplateBinding PasswordChar}"
+                        RevealPassword="{TemplateBinding RevealPassword}"
+                        SelectionBrush="{TemplateBinding SelectionBrush}"
+                        SelectionEnd="{TemplateBinding SelectionEnd}"
+                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                        SelectionStart="{TemplateBinding SelectionStart}"
+                        Text="{TemplateBinding Text,
+                                               Mode=TwoWay}"
+                        TextAlignment="{TemplateBinding TextAlignment}"
+                        TextWrapping="{TemplateBinding TextWrapping}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ScrollViewer.Styles>
+                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Cursor" Value="IBeam" />
+                        </Style>
+                    </ScrollViewer.Styles>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="hc:SearchBar" x:Key="SearchBarPlusLeftTemplate">
+        <Grid Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=(hc:TitleElement.TitleWidth), RelativeSource={RelativeSource TemplatedParent}}" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <DockPanel
+                HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                IsVisible="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                LastChildFill="True"
+                Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft), RelativeSource={RelativeSource TemplatedParent}}"
+                VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment), RelativeSource={RelativeSource TemplatedParent}}">
+                <ContentPresenter
+                    Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    DockPanel.Dock="Right"
+                    IsVisible="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="4,0,0,0"
+                    TextElement.Foreground="{DynamicResource DangerBrush}" />
+                <TextBlock
+                    Text="{Binding Path=(hc:TitleElement.Title), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap"
+                    hc:TextBlockAttach.AutoTooltip="True" />
+            </DockPanel>
+            <Border
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Grid.Column="1"
+                x:Name="border" />
+            <Grid Grid.Column="1" x:Name="root">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Command="{Binding $parent[TextBox].Clear}"
+                    Focusable="False"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    IsVisible="False"
+                    Name="ButtonClear"
+                    Padding="0,0,2,0"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                    hc:IconElement.Width="14" />
+                <Button
+                    Command="{TemplateBinding Command}"
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    Focusable="False"
+                    Foreground="{TemplateBinding BorderBrush}"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    HorizontalContentAlignment="Left"
+                    Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                    Theme="{StaticResource ButtonIcon}"
+                    VerticalAlignment="Stretch"
+                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                    hc:IconElement.Width="14" />
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalAlignment="Stretch"
+                    IsVisible="{TemplateBinding Text,
+                                                Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                    Margin="{TemplateBinding Padding}"
+                    Text="{Binding Path=(hc:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                    Theme="{StaticResource TextBlockDefaultThiLight}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                <ScrollViewer
+                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                    BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                    Margin="-2,0"
+                    Name="PART_ScrollViewer"
+                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                    <TextPresenter
+                        CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                        CaretBrush="{TemplateBinding CaretBrush}"
+                        CaretIndex="{TemplateBinding CaretIndex}"
+                        LetterSpacing="{TemplateBinding LetterSpacing}"
+                        LineHeight="{TemplateBinding LineHeight}"
+                        Margin="{TemplateBinding Padding}"
+                        Name="PART_TextPresenter"
+                        PasswordChar="{TemplateBinding PasswordChar}"
+                        RevealPassword="{TemplateBinding RevealPassword}"
+                        SelectionBrush="{TemplateBinding SelectionBrush}"
+                        SelectionEnd="{TemplateBinding SelectionEnd}"
+                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                        SelectionStart="{TemplateBinding SelectionStart}"
+                        Text="{TemplateBinding Text,
+                                               Mode=TwoWay}"
+                        TextAlignment="{TemplateBinding TextAlignment}"
+                        TextWrapping="{TemplateBinding TextWrapping}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ScrollViewer.Styles>
+                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Cursor" Value="IBeam" />
+                        </Style>
+                    </ScrollViewer.Styles>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarExtendBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarPlusBaseStyle">
+        <Setter Property="Template" Value="{StaticResource SearchBarPlusTopTemplate}" />
+        <Style Selector="^[(hc|TitleElement.TitlePlacement)=Left]">
+            <Setter Property="Template" Value="{StaticResource SearchBarPlusLeftTemplate}" />
+        </Style>
+        <Style Selector="^:disabled /template/Border#border">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+        <Style Selector="^:disabled /template/Grid#root">
+            <Setter Property="Opacity" Value="0.4" />
+        </Style>
+
+        <Style Selector="^/template/Grid#root:pointerover ^">
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+            <Style Selector="^[(hc|InfoElement.ShowClearButton)=True] /template/Button#ButtonClear">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+        <Style Selector="^:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="{x:Type hc:SearchBar}" />
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBar.Small">
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="Padding" Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarExtendBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarExtend" />
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarExtend}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarExtend.Small">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop" Value="6,0,0,1" />
+        <Setter Property="Padding" Value="6,0" />
+        <Setter Property="MinHeight" Value="20" />
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarPlusBaseStyle}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarPlus" />
+
+    <ControlTheme
+        BasedOn="{StaticResource SearchBarPlus}"
+        TargetType="hc:SearchBar"
+        x:Key="SearchBarPlus.Small">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop" Value="6,0,0,1" />
+        <Setter Property="Padding" Value="6,0" />
+        <Setter Property="MinHeight" Value="20" />
+    </ControlTheme>
+
+</ResourceDictionary>

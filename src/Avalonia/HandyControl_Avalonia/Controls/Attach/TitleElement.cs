@@ -6,7 +6,7 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls;
 
-public class TitleElement
+public class TitleElement: AvaloniaObject
 {
     public static readonly AttachedProperty<string> TitleProperty =
         AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, string>("Title");

@@ -1,0 +1,177 @@
+﻿<ResourceDictionary
+    x:ClassModifier="internal"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:hc="clr-namespace:HandyControl.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme
+        BasedOn="{StaticResource ButtonDefault}"
+        TargetType="Button"
+        x:Key="MessageBoxButtonStyle">
+        <Setter Property="MinWidth" Value="88" />
+        <Setter Property="IsVisible" Value="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="Margin" Value="5,0" />
+    </ControlTheme>
+    <ControlTheme
+        BasedOn="{StaticResource ButtonPrimary}"
+        TargetType="Button"
+        x:Key="MessageBoxPrimaryButtonStyle">
+        <Setter Property="MinWidth" Value="88" />
+        <Setter Property="IsVisible" Value="{Binding IsEnabled, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="Margin" Value="5,0" />
+    </ControlTheme>
+
+    <ControlTemplate TargetType="hc:MessageBox" x:Key="DefaultMessageBoxControlTemplate">
+        <Border
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+            <Grid Margin="{TemplateBinding Padding}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid
+                    Background="{DynamicResource RegionBrush}"
+                    Name="PART_NonClientArea"
+                    TextElement.Foreground="{DynamicResource PrimaryTextBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal"
+                        UseLayoutRounding="True"
+                        VerticalAlignment="Top">
+                        <Button
+                            Background="Transparent"
+                            BorderThickness="1,0,0,0"
+                            Foreground="{DynamicResource PrimaryTextBrush}"
+                            Height="29"
+                            IsTabStop="False"
+                            Name="PART_ButtonClose"
+                            Theme="{StaticResource ButtonIcon}"
+                            Width="46"
+                            hc:IconElement.Geometry="{StaticResource CloseGeometry}"
+                            hc:IconElement.Height="10"
+                            hc:IconElement.Width="10" />
+                    </StackPanel>
+                    <Grid Grid.Column="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Background="Transparent"
+                            IsVisible="{TemplateBinding Icon,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Margin="10,0,0,0"
+                            Name="PART_ButtonIcon"
+                            Theme="{StaticResource ButtonCustom}"
+                            VerticalAlignment="Center">
+                            <Image
+                                Height="16"
+                                IsHitTestVisible="False"
+                                Source="{TemplateBinding Icon}"
+                                VerticalAlignment="Center"
+                                Width="16" />
+                        </Button>
+
+                        <TextBlock
+                            Grid.Column="1"
+                            Padding="10,0,0,0"
+                            Text="{TemplateBinding Title}"
+                            VerticalAlignment="Center">
+                            <TextBlock.IsVisible>
+                                <MultiBinding Converter="{StaticResource BooleanArr22BooleanConverter}">
+                                    <MultiBinding.Bindings>
+                                        <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding
+                                            Converter="{x:Static ObjectConverters.IsNotNull}"
+                                            Path="Title"
+                                            RelativeSource="{RelativeSource TemplatedParent}" />
+                                    </MultiBinding.Bindings>
+                                </MultiBinding>
+                            </TextBlock.IsVisible>
+                        </TextBlock>
+                        <ContentPresenter
+                            Content="{TemplateBinding NonClientAreaContent}"
+                            Grid.Column="2"
+                            x:Name="ContentPresenterMain" />
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Path
+                        Data="{TemplateBinding Image}"
+                        Fill="{TemplateBinding ImageBrush}"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        Height="30"
+                        HorizontalAlignment="Center"
+                        IsVisible="{TemplateBinding ShowImage}"
+                        Margin="20,32,0,0"
+                        Stretch="Uniform"
+                        VerticalAlignment="Top"
+                        Width="30" />
+                    <ScrollViewer
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        VerticalAlignment="Top">
+                        <Border
+                            HorizontalAlignment="Left"
+                            Margin="10,32,10,10"
+                            MinHeight="30">
+                            <TextBlock
+                                Text="{TemplateBinding Message}"
+                                TextWrapping="Wrap"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </ScrollViewer>
+                    <StackPanel
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,16"
+                        Name="PART_Panel"
+                        Orientation="Horizontal" />
+                </Grid>
+            </Grid>
+        </Border>
+
+
+    </ControlTemplate>
+
+
+    <ControlTheme TargetType="{x:Type Window}" x:Key="DefaultMessageBoxStyle">
+        <Setter Property="MinHeight" Value="172" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+        <Setter Property="MinWidth" Value="335" />
+        <Setter Property="MaxWidth" Value="476" />
+        <Setter Property="MaxHeight" Value="680" />
+        <Setter Property="CanResize" Value="False" />
+        <Setter Property="WindowDecorations" Value="None" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#262e2f" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="Template" Value="{StaticResource DefaultMessageBoxControlTemplate}" />
+
+        <Style Selector="^ /template/Button#PART_ButtonClose:pointerover">
+            <Setter Property="Background" Value="#e81123" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

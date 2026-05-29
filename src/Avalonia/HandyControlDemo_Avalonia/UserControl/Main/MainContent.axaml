@@ -1,5 +1,7 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.MainContent"
              xmlns="https://github.com/avaloniaui"
+             xmlns:vm="using:HandyControlDemo.ViewModel"
+             x:DataType="{x:Type vm:MainViewModel}"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Panel>
         <Border Margin="16">
