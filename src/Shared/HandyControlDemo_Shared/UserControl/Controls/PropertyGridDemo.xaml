@@ -1,6 +1,7 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.PropertyGridDemo"
+<UserControl x:Class="HandyControlDemo.UserControl.PropertyGridDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
@@ -10,7 +11,23 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <hc:PropertyGrid Width="500" SelectedObject="{Binding DemoModel}"/>
+            <hc:PropertyGrid Width="500" SelectedObject="{Binding DemoModel}">
+                <hc:PropertyGrid.CategoryOrder>
+                    <x:Array Type="{x:Type sys:String}">
+                        <sys:String>Category2</sys:String>
+                        <sys:String>Category1</sys:String>
+                    </x:Array>
+                </hc:PropertyGrid.CategoryOrder>
+                <hc:PropertyGrid.PropertyOrder>
+                    <x:Array Type="{x:Type sys:String}">
+                        <sys:String>Boolean</sys:String>
+                        <sys:String>Integer</sys:String>
+                        <sys:String>Enum</sys:String>
+                        <sys:String>String</sys:String>
+                        <sys:String>ImageSource</sys:String>
+                    </x:Array>
+                </hc:PropertyGrid.PropertyOrder>
+            </hc:PropertyGrid>
             <StackPanel hc:TitleElement.TitleWidth="168" Grid.Row="1" Margin="20,16,17,10">
                 <TextBox hc:TitleElement.Title="String" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.String,Mode=OneWay}" IsReadOnly="True"/>
                 <TextBox hc:TitleElement.Title="Enum" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Enum,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>

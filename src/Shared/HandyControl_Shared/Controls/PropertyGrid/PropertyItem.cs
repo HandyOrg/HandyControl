@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -87,6 +87,24 @@ public class PropertyItem : ListBoxItem
     {
         get => (string) GetValue(CategoryProperty);
         set => SetValue(CategoryProperty, value);
+    }
+
+    public static readonly DependencyProperty CategoryOrderProperty = DependencyProperty.Register(
+        nameof(CategoryOrder), typeof(int), typeof(PropertyItem), new PropertyMetadata(default(int)));
+
+    public int CategoryOrder
+    {
+        get => (int) GetValue(CategoryOrderProperty);
+        set => SetValue(CategoryOrderProperty, value);
+    }
+
+    public static readonly DependencyProperty PropertyOrderProperty = DependencyProperty.Register(
+        nameof(PropertyOrder), typeof(int), typeof(PropertyItem), new PropertyMetadata(default(int)));
+
+    public int PropertyOrder
+    {
+        get => (int) GetValue(PropertyOrderProperty);
+        set => SetValue(PropertyOrderProperty, value);
     }
 
     public static readonly DependencyProperty EditorProperty = DependencyProperty.Register(
