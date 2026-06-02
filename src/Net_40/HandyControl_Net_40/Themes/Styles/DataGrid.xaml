@@ -71,6 +71,7 @@
                                             <hc:SimplePanel.Visibility>
                                                 <MultiBinding Converter="{StaticResource DataGridSelectAllButtonVisibilityConverter}">
                                                     <Binding Path="HeadersVisibility" RelativeSource="{RelativeSource AncestorType=DataGrid}"/>
+                                                    <Binding Path="SelectionMode" RelativeSource="{RelativeSource AncestorType=DataGrid}"/>
                                                     <Binding Path="(hc:DataGridAttach.ShowSelectAllButton)" RelativeSource="{RelativeSource AncestorType=DataGrid}"/>
                                                 </MultiBinding>
                                             </hc:SimplePanel.Visibility>

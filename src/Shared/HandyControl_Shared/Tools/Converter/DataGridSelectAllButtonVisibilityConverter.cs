@@ -8,16 +8,23 @@ namespace HandyControl.Tools.Converter;
 
 public class DataGridSelectAllButtonVisibilityConverter : IMultiValueConverter
 {
+    private const int DesiredParamsCount = 3;
+
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
     {
-        if (values?.Length is 2 &&
-            values[0] is DataGridHeadersVisibility.All &&
-            values[1] is bool showButton)
+        if (values?.Length is not DesiredParamsCount)
         {
-            return showButton ? Visibility.Visible : Visibility.Hidden;
+            return Visibility.Collapsed;
         }
 
-        return Visibility.Collapsed;
+        if (values[0] is not DataGridHeadersVisibility.All)
+        {
+            return Visibility.Hidden;
+        }
+
+        return values[1] is not SelectionMode.Single && values[2] is true
+            ? Visibility.Visible
+            : Visibility.Hidden;
     }
 
     public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
