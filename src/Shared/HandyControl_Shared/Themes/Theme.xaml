@@ -9371,6 +9371,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsSelected" Value="true" />
 					<Condition Property="Selector.IsSelectionActive" Value="false" />
+					<Condition Property="hc:VisualElement.StaysHighlighted" Value="false" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -9477,6 +9478,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsSelected" Value="true" />
 					<Condition Property="Selector.IsSelectionActive" Value="false" />
+					<Condition Property="hc:VisualElement.StaysHighlighted" Value="false" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -11740,6 +11742,7 @@
 							<MultiTrigger.Conditions>
 								<Condition Property="IsSelected" Value="true" />
 								<Condition Property="IsSelectionActive" Value="false" />
+								<Condition Property="hc:VisualElement.StaysHighlighted" Value="false" />
 							</MultiTrigger.Conditions>
 							<Setter Property="Background" TargetName="Bd" Value="{DynamicResource DarkDefaultBrush}" />
 							<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -11991,6 +11994,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsSelected" Value="true" />
 					<Condition Property="Selector.IsSelectionActive" Value="false" />
+					<Condition Property="hc:VisualElement.StaysHighlighted" Value="false" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -12043,6 +12047,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsSelected" Value="true" />
 					<Condition Property="Selector.IsSelectionActive" Value="false" />
+					<Condition Property="hc:VisualElement.StaysHighlighted" Value="false" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
