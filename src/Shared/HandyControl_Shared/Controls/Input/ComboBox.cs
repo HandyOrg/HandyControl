@@ -192,6 +192,7 @@ public class ComboBox : System.Windows.Controls.ComboBox
         var ctl = (ComboBox) d;
         if (ctl._isAutoCompleteAction)
         {
+            ctl.IsDropDownOpen = false;
 #if NET40
             ctl._searchText = e.NewValue as string;
             ctl._autoCompleteTimer.Stop();
