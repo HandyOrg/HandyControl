@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using HandyControl.Data;
-using HandyControl.Input;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls;
@@ -15,11 +13,26 @@ namespace HandyControl.Controls;
 /// </summary>
 public class ToggleBlock : Control
 {
-    public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(nameof(IsChecked), typeof(bool?), typeof(ToggleBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
-    public static readonly DependencyProperty CheckedContentProperty = DependencyProperty.Register(nameof(CheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty UnCheckedContentProperty = DependencyProperty.Register(nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty IndeterminateContentProperty = DependencyProperty.Register(nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
-    public static readonly DependencyProperty ToggleGestureProperty = DependencyProperty.Register(nameof(ToggleGesture), typeof(MouseGesture), typeof(ToggleBlock), new UIPropertyMetadata(new MouseGesture(MouseAction.None), OnToggleGestureChanged));
+    public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(nameof(IsChecked),
+        typeof(bool?), typeof(ToggleBlock),
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
+            FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
+
+    public static readonly DependencyProperty CheckedContentProperty =
+        DependencyProperty.Register(nameof(CheckedContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty UnCheckedContentProperty =
+        DependencyProperty.Register(nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty IndeterminateContentProperty =
+        DependencyProperty.Register(nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock),
+            new PropertyMetadata(default(object)));
+
+    public static readonly DependencyProperty ToggleGestureProperty = DependencyProperty.Register(nameof(ToggleGesture),
+        typeof(MouseGesture), typeof(ToggleBlock),
+        new PropertyMetadata(new MouseGesture(MouseAction.None)));
 
     [Category("Appearance")]
     [TypeConverter(typeof(NullableBoolConverter))]
@@ -65,22 +78,24 @@ public class ToggleBlock : Control
     public ToggleBlock()
     {
         CommandBindings.Add(new CommandBinding(ControlCommands.Toggle, OnToggled));
-        OnToggleGestureChanged(ToggleGesture);
     }
 
-    private static void OnToggleGestureChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    protected override void OnMouseDown(MouseButtonEventArgs e)
     {
-        ((ToggleBlock) d).OnToggleGestureChanged((MouseGesture) e.NewValue);
-    }
+        base.OnMouseDown(e);
 
-    private void OnToggleGestureChanged(MouseGesture newValue)
-    {
-        foreach (var binding in InputBindings.OfType<SimpleMouseBinding>().ToList())
+        if (e.ChangedButton is MouseButton.Left && ToggleGesture.MouseAction is MouseAction.LeftClick ||
+            e.ChangedButton is MouseButton.Right && ToggleGesture.MouseAction is MouseAction.RightClick ||
+            e.ChangedButton is MouseButton.Middle && ToggleGesture.MouseAction is MouseAction.MiddleClick ||
+            e.ChangedButton is MouseButton.Left && ToggleGesture.MouseAction is MouseAction.LeftDoubleClick &&
+            e.ClickCount == 2 ||
+            e.ChangedButton is MouseButton.Right && ToggleGesture.MouseAction is MouseAction.RightDoubleClick &&
+            e.ClickCount == 2 ||
+            e.ChangedButton is MouseButton.Middle && ToggleGesture.MouseAction is MouseAction.MiddleDoubleClick &&
+            e.ClickCount == 2)
         {
-            InputBindings.Remove(binding);
+            ControlCommands.Toggle.Execute(null, this);
         }
-
-        InputBindings.Add(new SimpleMouseBinding(ControlCommands.Toggle, newValue));
     }
 
     private void OnToggled(object sender, ExecutedRoutedEventArgs e)
