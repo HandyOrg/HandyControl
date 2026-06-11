@@ -1,8 +1,10 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
              x:Class="HandyControlDemo.UserControl.NumericUpDownDemo"
+             x:DataType="{x:Type vm:InputElementDemoViewModel}"
+             x:CompileBindings="False"
              DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
     <ScrollViewer>
         <hc:UniformSpacingPanel Spacing="32"
@@ -21,7 +23,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend}" />
@@ -36,7 +38,7 @@
                                Value="10000"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend}"
@@ -59,7 +61,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend}" />
@@ -74,7 +76,7 @@
                                hc:InfoElement.ShowClearButton="True"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend}"
@@ -96,7 +98,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
@@ -111,7 +113,7 @@
                                Value="10000"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend.Small}"
@@ -134,7 +136,7 @@
                                hc:TitleElement.Title="This is the title"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
                 <NumericUpDown Value="0"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.Title="This is the title"
                                hc:InfoElement.Necessary="True"
                                Theme="{StaticResource NumericUpDownExtend.Small}" />
@@ -149,7 +151,7 @@
                                hc:InfoElement.ShowClearButton="True"
                                Width="380"
                                hc:TitleElement.TitleWidth="140"
-                               Watermark="Please enter content"
+                               PlaceholderText="Please enter content"
                                hc:TitleElement.TitlePlacement="Left"
                                hc:TitleElement.Title="The title is on the left"
                                Theme="{StaticResource NumericUpDownExtend.Small}"

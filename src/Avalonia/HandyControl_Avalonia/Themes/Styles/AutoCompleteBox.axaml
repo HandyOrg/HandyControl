@@ -1,4 +1,4 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
@@ -41,7 +41,7 @@
                              CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
                              ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
                              DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                             Watermark="{TemplateBinding Watermark}"
+                             PlaceholderText="{TemplateBinding PlaceholderText}"
                              MaxLength="{TemplateBinding MaxLength}" />
                     <Popup Name="PART_Popup"
                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
@@ -95,7 +95,7 @@
                 Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <HeaderedContentControl Header="{Binding $parent.(hc:TitleElement.Title)}">
+                <HeaderedContentControl Header="{Binding $parent[AutoCompleteBox].(hc:TitleElement.Title)}">
                     <Panel>
                         <TextBox Name="PART_TextBox"
                                  Padding="{TemplateBinding Padding}"
@@ -107,7 +107,7 @@
                                  CaretIndex="{TemplateBinding CaretIndex, Mode=TwoWay}"
                                  ClearSelectionOnLostFocus="{TemplateBinding ClearSelectionOnLostFocus}"
                                  DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
-                                 Watermark="{TemplateBinding Watermark}"
+                                 PlaceholderText="{TemplateBinding PlaceholderText}"
                                  MaxLength="{TemplateBinding MaxLength}" />
                         <Popup Name="PART_Popup"
                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
