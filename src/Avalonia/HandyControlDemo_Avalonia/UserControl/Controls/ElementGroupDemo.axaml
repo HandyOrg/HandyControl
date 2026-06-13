@@ -1,0 +1,45 @@
+<UserControl x:Class="HandyControlDemo.UserControl.ElementGroupDemo"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <hc:UniformSpacingPanel Margin="32" VerticalAlignment="Center" Orientation="Vertical" Spacing="16">
+            <hc:ElementGroup Orientation="Horizontal" Layout="Stack">
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+            </hc:ElementGroup>
+            <hc:ElementGroup Orientation="Horizontal" MaxWidth="500">
+                <ToggleButton HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.ToggleButton}"/>
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+                <ToggleButton HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.ToggleButton}"/>
+                <Button HorizontalAlignment="Stretch" Width="NaN" Content="{x:Static langs:Lang.Button}"/>
+            </hc:ElementGroup>
+            <hc:ElementGroup Orientation="Horizontal" Layout="Stack">
+                <Border Theme="{StaticResource BorderRegion}" Padding="6,0">
+                    <Path Data="{StaticResource ClockGeometry}" Width="16" Height="16" Stretch="Uniform" Fill="{DynamicResource BorderBrush}"/>
+                </Border>
+                <TextBox MinWidth="200"/>
+                <Button Content="{x:Static langs:Lang.Button}"/>
+                <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+            </hc:ElementGroup>
+            <hc:ElementGroup>
+                <hc:ElementGroup.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </hc:ElementGroup.ItemsPanel>
+                <TextBox HorizontalAlignment="Stretch"/>
+                <Button Grid.Column="1" Width="100" Content="{x:Static langs:Lang.Button}" HorizontalAlignment="Right" Theme="{StaticResource ButtonPrimary}"/>
+            </hc:ElementGroup>
+        </hc:UniformSpacingPanel>
+    </TransitioningContentControl>
+</UserControl>

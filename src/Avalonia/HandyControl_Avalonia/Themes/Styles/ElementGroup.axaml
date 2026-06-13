@@ -1,0 +1,56 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ItemsPanelTemplate x:Key="UniformHorizontalItemsPanelTemplate">
+        <UniformGrid Rows="1" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="UniformVerticalItemsPanelTemplate">
+        <UniformGrid Columns="1" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="StackHorizontalItemsPanelTemplate">
+        <StackPanel Orientation="Horizontal" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="StackVerticalItemsPanelTemplate">
+        <StackPanel Orientation="Vertical" />
+    </ItemsPanelTemplate>
+
+    <ControlTheme x:Key="ElementGroupBaseStyle"
+                  TargetType="hc:ElementGroup">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Layout" Value="Uniform" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:ElementGroup">
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[Layout=Uniform][Orientation=Vertical]">
+            <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}" />
+        </Style>
+        <Style Selector="^[Layout=Stack][Orientation=Horizontal]">
+            <Setter Property="ItemsPanel" Value="{StaticResource StackHorizontalItemsPanelTemplate}" />
+        </Style>
+        <Style Selector="^[Layout=Stack][Orientation=Vertical]">
+            <Setter Property="ItemsPanel" Value="{StaticResource StackVerticalItemsPanelTemplate}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:ElementGroup}"
+                  BasedOn="{StaticResource ElementGroupBaseStyle}"
+                  TargetType="hc:ElementGroup" />
+
+</ResourceDictionary>
