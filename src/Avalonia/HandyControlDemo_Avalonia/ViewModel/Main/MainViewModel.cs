@@ -3,10 +3,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging.Messages;
 using HandyControlDemo.Data;
 using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
+using HandyControlDemo.UserControl;
 
 namespace HandyControlDemo.ViewModel;
 
@@ -103,6 +105,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         ContentTitle = Lang.ResourceManager.GetString(item.Name, Lang.Culture);
         object? demoControl = AssemblyHelper.ResolveByKey(item.TargetCtlName) ??
                               AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
+        WeakReferenceMessenger.Default.Send(new ValueChangedMessage<bool>(demoControl is IFull), MessageToken.FullSwitch);
         SubContent = demoControl;
     }
 }

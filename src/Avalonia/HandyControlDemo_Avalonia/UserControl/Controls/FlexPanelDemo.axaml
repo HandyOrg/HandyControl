@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.FlexPanelDemo"
+             Background="{DynamicResource RegionBrush}">
+    <UserControl.Resources>
+        <ControlTheme x:Key="Border4FlexPanelDemoStyle" TargetType="Border">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="CornerRadius" Value="10" />
+        </ControlTheme>
+    </UserControl.Resources>
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <hc:FlexPanel Margin="32"
+                          AlignItems="FlexStart"
+                          AlignContent="SpaceBetween"
+                          JustifyContent="SpaceAround"
+                          FlexWrap="WrapReverse"
+                          FlexDirection="RowReverse">
+                <Border hc:FlexPanel.Order="99" Height="50" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="0" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border hc:FlexPanel.FlexBasis="200" Height="100" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="1" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border hc:FlexPanel.AlignSelf="FlexEnd" Height="50" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="2" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="100" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="3" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="50" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="4" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="100" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="5" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="50" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="6" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="100" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="7" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="50" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="8" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+                <Border Height="100" Theme="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="9" Theme="{StaticResource TextBlockTitle}" />
+                </Border>
+            </hc:FlexPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>
