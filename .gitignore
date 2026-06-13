@@ -7,3 +7,4 @@
 packages/
 build/outputs
 build/tools
+.DS_Store
