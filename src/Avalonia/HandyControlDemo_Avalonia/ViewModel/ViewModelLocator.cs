@@ -20,6 +20,7 @@ public class ViewModelLocator
         services.AddSingleton<DataService>();
         services.AddTransient<MainViewModel>();
         services.AddTransient<InputElementDemoViewModel>();
+        services.AddTransient<HoneycombPanelDemoViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
     }
@@ -27,4 +28,6 @@ public class ViewModelLocator
     public MainViewModel Main => _serviceProvider.GetService<MainViewModel>()!;
 
     public InputElementDemoViewModel InputElementDemo => _serviceProvider.GetService<InputElementDemoViewModel>()!;
+
+    public HoneycombPanelDemoViewModel HoneycombPanelDemo => _serviceProvider.GetService<HoneycombPanelDemoViewModel>()!;
 }
