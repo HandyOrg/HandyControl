@@ -1,0 +1,170 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="ToggleSwitchBaseStyle"
+                  TargetType="ToggleSwitch">
+        <Setter Property="hc:VisualElement.HighlightBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground"
+                Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="6,0,0,0" />
+        <Setter Property="Height"
+                Value="24" />
+        <Setter Property="ClipToBounds"
+                Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Grid Background="Transparent"
+                      ColumnDefinitions="Auto, *">
+                    <Viewbox ClipToBounds="False">
+                        <Panel Width="80"
+                               Height="48">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="24"
+                                    x:Name="innerBorder">
+                                <Ellipse HorizontalAlignment="Right"
+                                         IsVisible="{TemplateBinding hc:ToggleButtonAttach.ShowLabel}"
+                                         Margin="0 0 12 0"
+                                         Width="16"
+                                         Height="16"
+                                         StrokeThickness="2"
+                                         Stroke="{TemplateBinding hc:VisualElement.HighlightForeground}" />
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity"
+                                                          Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Opacity="0"
+                                    Background="{TemplateBinding hc:VisualElement.HighlightBrush}"
+                                    CornerRadius="24"
+                                    x:Name="lightBorder">
+                                <Rectangle HorizontalAlignment="Left"
+                                           IsVisible="{TemplateBinding hc:ToggleButtonAttach.ShowLabel}"
+                                           Margin="18 0 0 0"
+                                           Width="2"
+                                           Height="16"
+                                           RadiusX="1"
+                                           RadiusY="1"
+                                           Fill="{DynamicResource TextIconBrush}" />
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity"
+                                                          Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <Panel x:Name="PART_MovingKnobs"
+                                   HorizontalAlignment="Left"
+                                   RenderTransform="translateX(0px)">
+                                <Panel.Transitions>
+                                    <Transitions>
+                                        <TransformOperationsTransition Property="RenderTransform"
+                                                                       Easing="CubicEaseInOut"
+                                                                       Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Panel.Transitions>
+                                <Border Margin="2"
+                                        x:Name="SwitchKnobBorder"
+                                        CornerRadius="22"
+                                        Effect="{StaticResource EffectShadow2}"
+                                        Background="White"
+                                        Width="44"
+                                        Height="44">
+                                    <Panel x:Name="PART_SwitchKnob" />
+                                </Border>
+                            </Panel>
+                        </Panel>
+                    </Viewbox>
+                    <Panel Grid.Column="1"
+                           Margin="{TemplateBinding Padding}"
+                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                        <ContentPresenter x:Name="PART_OffContentPresenter"
+                                          Focusable="False"
+                                          Content="{TemplateBinding OffContent}"
+                                          ContentTemplate="{TemplateBinding OffContentTemplate}"
+                                          IsVisible="False" />
+                        <ContentPresenter x:Name="PART_OnContentPresenter"
+                                          Focusable="False"
+                                          Content="{TemplateBinding OnContent}"
+                                          ContentTemplate="{TemplateBinding OnContentTemplate}"
+                                          IsVisible="False" />
+                    </Panel>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Panel#PART_MovingKnobs">
+                <Setter Property="RenderTransform"
+                        Value="translateX(32px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
+                <Setter Property="IsVisible"
+                        Value="True" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Panel#PART_MovingKnobs">
+                <Setter Property="RenderTransform"
+                        Value="translateX(0px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="IsVisible"
+                        Value="True" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ToggleSwitch}"
+                  BasedOn="{StaticResource ToggleSwitchBaseStyle}"
+                  TargetType="ToggleSwitch" />
+
+    <ControlTheme x:Key="ToggleSwitch.Small"
+                  BasedOn="{StaticResource ToggleSwitchBaseStyle}"
+                  TargetType="ToggleSwitch">
+        <Setter Property="Height"
+                Value="16" />
+    </ControlTheme>
+
+</ResourceDictionary>

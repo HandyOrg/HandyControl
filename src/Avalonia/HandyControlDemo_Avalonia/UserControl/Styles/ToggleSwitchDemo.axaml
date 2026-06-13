@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.ToggleSwitchDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <StackPanel Margin="32" Spacing="20">
+                <TextBlock Text="Default" Theme="{StaticResource TextBlockLargeBold}" />
+                <WrapPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Center" />
+                        <ToggleSwitch Margin="5" HorizontalAlignment="Center" />
+                        <ToggleSwitch IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" />
+                        <ToggleSwitch IsEnabled="False" Margin="5" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Center"
+                                      hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}" />
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Center"
+                                      hc:VisualElement.HighlightBrush="{DynamicResource SuccessBrush}" />
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Center"
+                                      hc:VisualElement.HighlightBrush="{DynamicResource WarningBrush}" />
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Center"
+                                      hc:VisualElement.HighlightBrush="{DynamicResource InfoBrush}" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch hc:ToggleButtonAttach.ShowLabel="True" IsChecked="True" Margin="5" HorizontalAlignment="Center" />
+                        <ToggleSwitch hc:ToggleButtonAttach.ShowLabel="True" Margin="5" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch IsChecked="True" Margin="5" HorizontalAlignment="Left"
+                                      OnContent="On" OffContent="Off" />
+                        <ToggleSwitch Margin="5" HorizontalAlignment="Left"
+                                      OnContent="On" OffContent="Off" />
+                    </StackPanel>
+                </WrapPanel>
+
+                <Separator />
+
+                <TextBlock Text="Small" Theme="{StaticResource TextBlockLargeBold}" />
+                <WrapPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch Theme="{StaticResource ToggleSwitch.Small}" IsChecked="True" Margin="5,8" HorizontalAlignment="Center" />
+                        <ToggleSwitch Theme="{StaticResource ToggleSwitch.Small}" Margin="5,8" HorizontalAlignment="Center" />
+                        <ToggleSwitch Theme="{StaticResource ToggleSwitch.Small}" IsEnabled="False" IsChecked="True" Margin="5,8" HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Margin="10">
+                        <ToggleSwitch Theme="{StaticResource ToggleSwitch.Small}" hc:ToggleButtonAttach.ShowLabel="True" IsChecked="True" Margin="5,8" HorizontalAlignment="Center" />
+                        <ToggleSwitch Theme="{StaticResource ToggleSwitch.Small}" hc:ToggleButtonAttach.ShowLabel="True" Margin="5,8" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>

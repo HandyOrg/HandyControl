@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.LeftMainContent"
+<UserControl x:Class="HandyControlDemo.UserControl.LeftMainContent"
              Background="{DynamicResource RegionBrush}"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -34,11 +34,13 @@
                                  ItemsSource="{Binding DemoItemList}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate DataType="data:DemoItemModel">
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                         <Rectangle Width="16"
                                                    Height="16"
+                                                   VerticalAlignment="Center"
                                                    Fill="{Binding ImageBrush}" />
                                         <TextBlock Margin="6,0,0,0"
+                                                   VerticalAlignment="Center"
                                                    Text="{Binding Name}" />
                                         <Path IsVisible="{Binding IsNew}"
                                               VerticalAlignment="Center"

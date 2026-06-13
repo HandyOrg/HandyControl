@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             x:Class="HandyControlDemo.UserControl.UniformSpacingPanelDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <StackPanel Margin="32" Spacing="10">
+                <hc:UniformSpacingPanel Spacing="10">
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                </hc:UniformSpacingPanel>
+                <Separator/>
+                <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                </hc:UniformSpacingPanel>
+                <Separator/>
+                <hc:UniformSpacingPanel Spacing="10" Width="300" ChildWrapping="Wrap" HorizontalAlignment="Left">
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                </hc:UniformSpacingPanel>
+                <Separator/>
+                <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical" Height="70" ChildWrapping="Wrap" HorizontalAlignment="Left">
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                    <Button Content="{x:Static langs:Lang.ContentDemoStr}"/>
+                </hc:UniformSpacingPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>
