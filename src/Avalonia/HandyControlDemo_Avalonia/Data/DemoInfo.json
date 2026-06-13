@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "title": "Styles",
     "selectedIndex": 0,
@@ -35,6 +35,7 @@
     "group": true,
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemo", "Brush.LikeFilled", "", "Interacting" ],
+      [ "ConfettiCannon", "ConfettiCannonDemo", "Brush.Favorite", "", "Interacting" ],
       [ "PropertyGrid", "PropertyGridDemo", "Brush.PropertyGridEditorPart", "", "DataEntry" ],
       [ "ImageSelector", "ImageSelectorDemo", "Brush.Image", "", "DataEntry" ],
       [ "ImageBlock", "ImageBlockDemo", "Brush.ImageStack", "", "DataDisplay" ],

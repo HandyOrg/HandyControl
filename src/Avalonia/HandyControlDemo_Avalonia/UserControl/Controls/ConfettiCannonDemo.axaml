@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.ConfettiCannonDemo"
+             hc:ConfettiCannon.Token="ConfettiCannonDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <hc:UniformSpacingPanel Margin="32"
+                                    Orientation="Vertical"
+                                    Spacing="16">
+                <Button Content="Basic Cannon"
+                        Click="ButtonBasicCannonOnClick" />
+                <Button Content="Random Direction"
+                        Click="ButtonRandomDirectionOnClick" />
+                <Button Content="Realistic Look"
+                        Click="ButtonRealisticLookClick" />
+                <Button Content="Fireworks"
+                        Click="ButtonFireworksOnClick" />
+                <Button Content="Stars"
+                        Click="ButtonStarsOnClick" />
+                <Button Content="Snow"
+                        Click="ButtonSnowOnClick" />
+                <Button Content="School Pride"
+                        Click="ButtonSchoolPrideOnClick" />
+                <Button Content="Custom Canvas"
+                        Click="ButtonCustomCanvasOnClick" />
+                <hc:ConfettiCannonContainer>
+                    <Border MinWidth="500"
+                            Height="300"
+                            Theme="{StaticResource BorderRegion}" />
+                </hc:ConfettiCannonContainer>
+            </hc:UniformSpacingPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>
