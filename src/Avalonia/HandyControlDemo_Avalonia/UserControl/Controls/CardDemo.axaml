@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             xmlns:cv="clr-namespace:HandyControlDemo.Tools.Converter"
+             x:Class="HandyControlDemo.UserControl.CardDemo"
+             x:DataType="vm:CardDemoViewModel"
+             DataContext="{Binding CardDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
+    <UserControl.Resources>
+        <cv:StringToBitmapConverter x:Key="StringToBitmap" />
+    </UserControl.Resources>
+    <ScrollViewer>
+        <ItemsControl Margin="32"
+                      ItemsSource="{Binding DataList}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="data:CardModel">
+                    <hc:Card MaxWidth="240"
+                             BorderThickness="0"
+                             Effect="{StaticResource EffectShadow2}"
+                             Margin="8">
+                        <hc:Card.Footer>
+                            <StackPanel Margin="10">
+                                <TextBlock TextWrapping="NoWrap"
+                                           TextTrimming="CharacterEllipsis"
+                                           Theme="{StaticResource TextBlockLargeBold}"
+                                           Text="{Binding Header}"
+                                           HorizontalAlignment="Left" />
+                                <TextBlock TextWrapping="NoWrap"
+                                           TextTrimming="CharacterEllipsis"
+                                           Text="{Binding Footer}"
+                                           Margin="0,6,0,0"
+                                           HorizontalAlignment="Left" />
+                            </StackPanel>
+                        </hc:Card.Footer>
+                        <Border CornerRadius="4,4,0,0"
+                                ClipToBounds="True">
+                            <Image Width="240"
+                                   Height="240"
+                                   Source="{Binding Content, Converter={StaticResource StringToBitmap}}"
+                                   Stretch="Uniform" />
+                        </Border>
+                    </hc:Card>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+</UserControl>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -12,6 +13,31 @@ namespace HandyControlDemo.Service;
 
 public class DataService
 {
+    internal ObservableCollection<CardModel> GetCardDataList()
+    {
+        return
+        [
+            new CardModel { Header = "Atomic", Content = "avares://HandyControlDemo/Resources/Img/Album/1.jpg", Footer = "Stive Morgan" },
+            new CardModel { Header = "Zinderlong", Content = "avares://HandyControlDemo/Resources/Img/Album/2.jpg", Footer = "Zonderling" },
+            new CardModel { Header = "Busy Doin' Nothin'", Content = "avares://HandyControlDemo/Resources/Img/Album/3.jpg", Footer = "Ace Wilder" },
+            new CardModel { Header = "Wrong", Content = "avares://HandyControlDemo/Resources/Img/Album/4.jpg", Footer = "Blaxy Girls" },
+            new CardModel { Header = "The Lights", Content = "avares://HandyControlDemo/Resources/Img/Album/5.jpg", Footer = "Panda Eyes" },
+            new CardModel { Header = "EA7-50-Cent Disco", Content = "avares://HandyControlDemo/Resources/Img/Album/6.jpg", Footer = "еяхат музыка" },
+            new CardModel { Header = "Monsters", Content = "avares://HandyControlDemo/Resources/Img/Album/7.jpg", Footer = "Different Heaven" },
+            new CardModel { Header = "Gangsta Walk", Content = "avares://HandyControlDemo/Resources/Img/Album/8.jpg", Footer = "Illusionize" },
+            new CardModel { Header = "Won't Back Down", Content = "avares://HandyControlDemo/Resources/Img/Album/9.jpg", Footer = "Boehm / Benjamin Francis Leftwich" },
+            new CardModel { Header = "Katchi", Content = "avares://HandyControlDemo/Resources/Img/Album/10.jpg", Footer = "Ofenbach / Nick Waterhouse" }
+        ];
+    }
+
+    internal CardModel GetCardData()
+    {
+        return new CardModel
+        {
+            Content = $"avares://HandyControlDemo/Resources/Img/Album/{DateTime.Now.Second % 10 + 1}.jpg"
+        };
+    }
+
     internal List<DemoDataModel> GetDemoDataList()
     {
         var list = new List<DemoDataModel>();

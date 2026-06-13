@@ -20,6 +20,7 @@
     <None Remove="Resources\Img\cloud.png" />
     <None Remove="Resources\Img\icon.ico" />
     <None Remove="Resources\Img\Avatar\*.png" />
+    <None Remove="Resources\Img\Album\*.jpg" />
   </ItemGroup>
   
   <ItemGroup>
@@ -27,6 +28,7 @@
     <AvaloniaResource Include="Resources\Img\cloud.png" />
     <AvaloniaResource Include="Resources\Img\icon.ico" />
     <AvaloniaResource Include="Resources\Img\Avatar\*.png" />
+    <AvaloniaResource Include="Resources\Img\Album\*.jpg" />
   </ItemGroup>
 
   <ItemGroup>

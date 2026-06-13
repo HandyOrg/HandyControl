@@ -2,8 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             xmlns:cv="clr-namespace:HandyControlDemo.Tools.Converter"
              x:Class="HandyControlDemo.UserControl.HoneycombPanelDemo"
-             DataContext="{Binding HoneycombPanelDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
+             x:DataType="vm:CardDemoViewModel"
+             DataContext="{Binding CardDemo, Source={x:Static vm:ViewModelLocator.Instance}}">
+    <UserControl.Resources>
+        <cv:StringToBitmapConverter x:Key="StringToBitmap" />
+    </UserControl.Resources>
     <Grid Margin="32">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -25,13 +31,14 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate DataType="data:CardModel">
                     <Border Width="60"
                             Height="60"
                             Margin="6"
                             CornerRadius="30"
                             ClipToBounds="True">
-                        <Image Source="{Binding}" Stretch="UniformToFill" />
+                        <Image Source="{Binding Content, Converter={StaticResource StringToBitmap}}"
+                               Stretch="UniformToFill" />
                     </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
