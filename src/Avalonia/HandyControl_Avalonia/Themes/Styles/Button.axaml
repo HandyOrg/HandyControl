@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
@@ -453,6 +453,117 @@
                 Value="1" />
         <Setter Property="hc:IconElement.Height"
                 Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemBaseStyle"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Border x:Name="BorderRoot"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}">
+                        <Path x:Name="PathMain"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Fill="{TemplateBinding Foreground}"
+                              IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              Stretch="Uniform"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                        <ContentPresenter x:Name="contentPresenter"
+                                          RecognizesAccessKey="True"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                          Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+            <Style Selector="^ /template/ ContentPresenter#contentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemDefault"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button" />
+
+    <ControlTheme x:Key="ButtonGroupItemHorizontalFirst"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="4,0,0,4" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemHorizontalLast"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0,4,4,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemSingle"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemVerticalFirst"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="4,4,0,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonGroupItemVerticalLast"
+                  BasedOn="{StaticResource ButtonGroupItemBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0,0,4,4" />
     </ControlTheme>
 
     <ControlTheme x:Key="ButtonCustom"

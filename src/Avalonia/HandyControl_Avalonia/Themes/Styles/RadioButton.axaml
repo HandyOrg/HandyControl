@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
@@ -214,5 +214,135 @@
                 Value="6,1" />
         <Setter Property="hc:IconElement.Height"
                 Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemBaseStyle"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="hc:IconElement.Width"
+                Value="16" />
+        <Setter Property="hc:IconElement.Height"
+                Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border x:Name="BorderRoot"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}">
+                        <Path x:Name="PathMain"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Fill="{Binding $parent[RadioButton].Foreground}"
+                              IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              Stretch="Uniform"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                        <ContentPresenter x:Name="contentPresenter"
+                                          RecognizesAccessKey="True"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                          Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+            <Style Selector="^ /template/ ContentPresenter#contentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="^:checked">
+            <Setter Property="ZIndex"
+                    Value="2147483647" />
+            <Style Selector="^ /template/ Border#BorderRoot">
+                <Setter Property="BorderBrush"
+                        Value="{Binding $parent[RadioButton].(hc:VisualElement.HighlightBorderBrush)}" />
+                <Setter Property="Background"
+                        Value="{Binding $parent[RadioButton].(hc:VisualElement.HighlightBackground)}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#contentPresenter">
+                <Setter Property="Foreground"
+                        Value="{Binding $parent[RadioButton].(hc:VisualElement.HighlightForeground)}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemDefault"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton" />
+
+    <ControlTheme x:Key="RadioGroupItemHorizontalFirst"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="4,0,0,4" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemHorizontalLast"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0,4,4,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemSingle"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemVerticalFirst"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="4,4,0,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioGroupItemVerticalLast"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0,0,4,4" />
     </ControlTheme>
 </ResourceDictionary>

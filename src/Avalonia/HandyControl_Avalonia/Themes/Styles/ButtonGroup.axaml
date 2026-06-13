@@ -1,0 +1,67 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ItemsPanelTemplate x:Key="ButtonGroupHorizontalUniformItemsPanelTemplate">
+        <UniformGrid Rows="1" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="ButtonGroupVerticalUniformItemsPanelTemplate">
+        <UniformGrid Columns="1" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="ButtonGroupHorizontalStackItemsPanelTemplate">
+        <StackPanel Orientation="Horizontal" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="ButtonGroupVerticalStackItemsPanelTemplate">
+        <StackPanel Orientation="Vertical" />
+    </ItemsPanelTemplate>
+
+    <ControlTheme x:Key="ButtonGroupBaseStyle"
+                  TargetType="hc:ButtonGroup">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Layout" Value="Uniform" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalUniformItemsPanelTemplate}" />
+        <Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:ButtonGroup">
+                <Border Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ItemsPresenter Name="PART_ItemsPresenter"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[Layout=Uniform][Orientation=Vertical]">
+            <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalUniformItemsPanelTemplate}" />
+        </Style>
+        <Style Selector="^[Layout=Stack][Orientation=Horizontal]">
+            <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalStackItemsPanelTemplate}" />
+        </Style>
+        <Style Selector="^[Layout=Stack][Orientation=Vertical]">
+            <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalStackItemsPanelTemplate}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:ButtonGroup}"
+                  BasedOn="{StaticResource ButtonGroupBaseStyle}"
+                  TargetType="hc:ButtonGroup" />
+
+    <ControlTheme x:Key="ButtonGroupSolid"
+                  BasedOn="{StaticResource ButtonGroupBaseStyle}"
+                  TargetType="hc:ButtonGroup">
+        <Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource TitleBrush}" />
+        <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,73 @@
+<UserControl x:Class="HandyControlDemo.UserControl.ButtonGroupDemo"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <hc:UniformSpacingPanel Margin="32" Spacing="32" ChildWrapping="Wrap" VerticalAlignment="Center">
+                <hc:UniformSpacingPanel Spacing="32" Orientation="Vertical">
+                    <hc:ButtonGroup>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup Theme="{StaticResource ButtonGroupSolid}">
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                    </hc:ButtonGroup>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="32" ChildWrapping="Wrap">
+                    <hc:ButtonGroup Orientation="Vertical">
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup Orientation="Vertical">
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup Theme="{StaticResource ButtonGroupSolid}" Orientation="Vertical">
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup Orientation="Vertical">
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                        <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                        <Button Content="{x:Static langs:Lang.Button}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                        <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                    </hc:ButtonGroup>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>
