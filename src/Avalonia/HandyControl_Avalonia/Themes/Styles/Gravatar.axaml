@@ -1,0 +1,57 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="GravatarBaseStyle"
+                  TargetType="hc:Gravatar">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Width" Value="72" />
+        <Setter Property="Height" Value="72" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:Gravatar">
+                <Border ClipToBounds="True"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Gravatar}"
+                  BasedOn="{StaticResource GravatarBaseStyle}"
+                  TargetType="hc:Gravatar" />
+
+    <ControlTheme x:Key="GravatarCircle"
+                  BasedOn="{StaticResource GravatarBaseStyle}"
+                  TargetType="hc:Gravatar">
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:Gravatar">
+                <Border Theme="{StaticResource BorderCircularClip}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                    <ContentPresenter Margin="{TemplateBinding Padding}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="GravatarCircleImg"
+                  BasedOn="{StaticResource GravatarCircle}"
+                  TargetType="hc:Gravatar">
+        <Setter Property="Padding" Value="0" />
+    </ControlTheme>
+
+</ResourceDictionary>

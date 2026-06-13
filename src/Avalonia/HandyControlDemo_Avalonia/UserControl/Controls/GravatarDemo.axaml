@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:cv="clr-namespace:HandyControlDemo.Tools.Converter"
+             x:Class="HandyControlDemo.UserControl.GravatarDemo"
+             Background="{DynamicResource RegionBrush}">
+    <UserControl.Resources>
+        <cv:StringToBitmapConverter x:Key="StringToBitmap" />
+    </UserControl.Resources>
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <hc:UniformSpacingPanel Margin="32" ChildWrapping="Wrap" Spacing="16" ItemHorizontalAlignment="Center">
+                <UniformGrid Rows="3" Columns="3" Width="240" Height="240">
+                    <hc:Gravatar Id="User1" />
+                    <hc:Gravatar Id="User2" />
+                    <hc:Gravatar Theme="{StaticResource GravatarCircleImg}">
+                        <Image Source="{Binding Source='avares://HandyControlDemo/Resources/Img/Album/2.jpg', Converter={StaticResource StringToBitmap}}" />
+                    </hc:Gravatar>
+                    <hc:Gravatar Id="User4" />
+                    <hc:Gravatar Id="User5" Theme="{StaticResource GravatarCircle}" />
+                    <hc:Gravatar Id="User6" />
+                    <hc:Gravatar Theme="{StaticResource GravatarCircle}"
+                                 Source="{Binding Source='avares://HandyControlDemo/Resources/Img/Album/1.jpg', Converter={StaticResource StringToBitmap}}" />
+                    <hc:Gravatar Id="User8" />
+                    <hc:Gravatar Id="User9" />
+                </UniformGrid>
+                <StackPanel Width="240" Height="220" VerticalAlignment="Center">
+                    <TextBox Text="User1" Name="TextBoxName" Width="180" />
+                    <hc:Gravatar Height="180" Width="180" Id="{Binding #TextBoxName.Text}" Margin="10" />
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>

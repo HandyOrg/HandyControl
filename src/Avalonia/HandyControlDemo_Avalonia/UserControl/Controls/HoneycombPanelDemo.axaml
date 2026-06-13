@@ -23,27 +23,23 @@
                 <Button Command="{Binding RemoveItemCommand}" Content="{x:Static langs:Lang.RemoveItem}" />
             </hc:ButtonGroup>
             <Border Grid.Row="1" Padding="0" Theme="{StaticResource BorderRegion}">
-                <ItemsControl HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              ItemsSource="{Binding DataList}">
-                    <ItemsControl.ItemsPanel>
+                <ListBox Background="Transparent"
+                         BorderThickness="0"
+                         Theme="{StaticResource ListBoxCustom}"
+                         ItemsSource="{Binding DataList}">
+                    <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <hc:HoneycombPanel />
                         </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
                         <DataTemplate DataType="data:CardModel">
-                            <Border Width="60"
-                                    Height="60"
-                                    Margin="6"
-                                    CornerRadius="30"
-                                    ClipToBounds="True">
-                                <Image Source="{Binding Content, Converter={StaticResource StringToBitmap}}"
-                                       Stretch="UniformToFill" />
-                            </Border>
+                            <hc:Gravatar Theme="{StaticResource GravatarCircle}"
+                                         Margin="10"
+                                         Source="{Binding Content, Converter={StaticResource StringToBitmap}}" />
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Border>
         </Grid>
     </TransitioningContentControl>

@@ -60,6 +60,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Card.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ElementGroup.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ButtonGroup.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Gravatar.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
