@@ -23,6 +23,7 @@
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],
       [ "ProgressBar", "NativeProgressBarDemo", "Brush.ProgressBar", "", "" ],
       [ "Calendar", "CalendarDemo", "Brush.Calendar", "", "" ],
+      [ "CalendarDatePicker", "CalendarDatePickerDemo", "Brush.Calendar", "", "" ],
       [ "DatePicker", "DatePickerDemo", "Brush.Calendar", "", "" ],
       [ "TimePicker", "TimePickerDemo", "Brush.Calendar", "", "" ],
       [ "TabControl", "NativeTabControlDemo", "Brush.TabPage", "", "" ],
