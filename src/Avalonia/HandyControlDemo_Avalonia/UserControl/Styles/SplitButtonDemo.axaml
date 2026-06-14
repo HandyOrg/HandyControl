@@ -8,116 +8,401 @@
                                 Spacing="32"
                                 Margin="32">
             <hc:UniformSpacingPanel Orientation="Vertical"
-                                    Spacing="16">
-                <TextBlock Text="SplitButton (Default)"
-                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                                    Spacing="32">
                 <WrapPanel>
-                    <SplitButton Content="Default"
-                                 Margin="5">
-                        <SplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Item 1" />
-                                <MenuItem Header="Item 2" />
-                                <MenuItem Header="Item 3" />
-                            </MenuFlyout>
-                        </SplitButton.Flyout>
-                    </SplitButton>
-                    <SplitButton Content="Disabled"
-                                 IsEnabled="False"
-                                 Margin="5" />
-                    <SplitButton Content="Calendar"
-                                 Margin="5"
-                                 hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
-                        <SplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Today" />
-                                <MenuItem Header="Tomorrow" />
-                            </MenuFlyout>
-                        </SplitButton.Flyout>
-                    </SplitButton>
+                    <StackPanel>
+                        <SplitButton Content="Default"
+                                     Margin="5">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Default"
+                                     Margin="5" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonPrimary}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonSuccess}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonInfo}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonWarning}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonDanger}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonDanger}" />
+                    </StackPanel>
                 </WrapPanel>
 
-                <TextBlock Text="SplitButton.Small"
-                           Theme="{StaticResource TextBlockSubTitleBold}" />
                 <WrapPanel>
-                    <SplitButton Content="Default"
-                                 Margin="5"
-                                 Theme="{StaticResource SplitButton.Small}">
-                        <SplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Item 1" />
-                                <MenuItem Header="Item 2" />
-                            </MenuFlyout>
-                        </SplitButton.Flyout>
-                    </SplitButton>
-                    <SplitButton Content="Disabled"
-                                 IsEnabled="False"
-                                 Margin="5"
-                                 Theme="{StaticResource SplitButton.Small}" />
-                    <SplitButton Content="Clock"
-                                 Margin="5"
-                                 hc:IconElement.Geometry="{StaticResource ClockGeometry}"
-                                 Theme="{StaticResource SplitButton.Small}">
-                        <SplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Now" />
-                                <MenuItem Header="Later" />
-                            </MenuFlyout>
-                        </SplitButton.Flyout>
-                    </SplitButton>
+                    <StackPanel>
+                        <SplitButton Content="Calendar"
+                                     Margin="5"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Today" />
+                                    <MenuItem Header="Tomorrow" />
+                                    <MenuItem Header="Next Week" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Calendar"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonPrimary}"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Today" />
+                                    <MenuItem Header="Tomorrow" />
+                                    <MenuItem Header="Next Week" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                    </StackPanel>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Default"
+                                           Margin="5"
+                                           IsChecked="True">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Primary"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonPrimary}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Success"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonSuccess}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Info"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonInfo}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Warning"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonWarning}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Danger"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonDanger}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
                 </WrapPanel>
             </hc:UniformSpacingPanel>
 
             <hc:UniformSpacingPanel Orientation="Vertical"
-                                    Spacing="16">
-                <TextBlock Text="ToggleSplitButton"
-                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                                    Spacing="32">
                 <WrapPanel>
-                    <ToggleSplitButton Content="Toggle"
-                                       Margin="5">
-                        <ToggleSplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Option A" />
-                                <MenuItem Header="Option B" />
-                            </MenuFlyout>
-                        </ToggleSplitButton.Flyout>
-                    </ToggleSplitButton>
-                    <ToggleSplitButton Content="Checked"
-                                       IsChecked="True"
-                                       Margin="5">
-                        <ToggleSplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Option A" />
-                                <MenuItem Header="Option B" />
-                            </MenuFlyout>
-                        </ToggleSplitButton.Flyout>
-                    </ToggleSplitButton>
-                    <ToggleSplitButton Content="Disabled"
-                                       IsEnabled="False"
-                                       Margin="5" />
+                    <StackPanel>
+                        <SplitButton Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButton.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButton.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonPrimary.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonPrimary.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonSuccess.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonSuccess.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonInfo.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonInfo.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonWarning.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonWarning.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <SplitButton Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonDanger.Small}">
+                            <SplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </SplitButton.Flyout>
+                        </SplitButton>
+                        <SplitButton IsEnabled="False"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource SplitButtonDanger.Small}" />
+                    </StackPanel>
                 </WrapPanel>
 
-                <TextBlock Text="ToggleSplitButton.Small"
-                           Theme="{StaticResource TextBlockSubTitleBold}" />
                 <WrapPanel>
-                    <ToggleSplitButton Content="Toggle"
-                                       Margin="5"
-                                       Theme="{StaticResource ToggleSplitButton.Small}">
-                        <ToggleSplitButton.Flyout>
-                            <MenuFlyout>
-                                <MenuItem Header="Option A" />
-                                <MenuItem Header="Option B" />
-                            </MenuFlyout>
-                        </ToggleSplitButton.Flyout>
-                    </ToggleSplitButton>
-                    <ToggleSplitButton Content="Checked"
-                                       IsChecked="True"
-                                       Margin="5"
-                                       Theme="{StaticResource ToggleSplitButton.Small}" />
-                    <ToggleSplitButton Content="Disabled"
-                                       IsEnabled="False"
-                                       Margin="5"
-                                       Theme="{StaticResource ToggleSplitButton.Small}" />
+                    <StackPanel>
+                        <ToggleSplitButton Content="Default"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButton.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Primary"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonPrimary.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Success"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonSuccess.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Info"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonInfo.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Warning"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonWarning.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <ToggleSplitButton Content="Danger"
+                                           Margin="5"
+                                           IsChecked="True"
+                                           Theme="{StaticResource ToggleSplitButtonDanger.Small}">
+                            <ToggleSplitButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Option A" />
+                                    <MenuItem Header="Option B" />
+                                </MenuFlyout>
+                            </ToggleSplitButton.Flyout>
+                        </ToggleSplitButton>
+                    </StackPanel>
                 </WrapPanel>
             </hc:UniformSpacingPanel>
         </hc:UniformSpacingPanel>

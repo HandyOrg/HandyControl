@@ -1,0 +1,249 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.DropDownButtonDemo"
+             Background="{DynamicResource RegionBrush}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Default"
+                                        Margin="5">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Default"
+                                        Margin="5" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Primary"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonPrimary}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Primary"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Success"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonSuccess}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Success"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Info"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonInfo}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Info"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Warning"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonWarning}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Warning"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Danger"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonDanger}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                    <MenuItem Header="Item 3" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Danger"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+
+                <WrapPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Calendar"
+                                        Margin="5"
+                                        hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Today" />
+                                    <MenuItem Header="Tomorrow" />
+                                    <MenuItem Header="Next Week" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Calendar"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonPrimary}"
+                                        hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Today" />
+                                    <MenuItem Header="Tomorrow" />
+                                    <MenuItem Header="Next Week" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Default"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButton.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Default"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButton.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Primary"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonPrimary.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Primary"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonPrimary.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Success"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonSuccess.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Success"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonSuccess.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Info"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonInfo.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Info"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonInfo.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Warning"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonWarning.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Warning"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonWarning.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <DropDownButton Content="Danger"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonDanger.Small}">
+                            <DropDownButton.Flyout>
+                                <MenuFlyout>
+                                    <MenuItem Header="Item 1" />
+                                    <MenuItem Header="Item 2" />
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
+                        </DropDownButton>
+                        <DropDownButton IsEnabled="False"
+                                        Content="Danger"
+                                        Margin="5"
+                                        Theme="{StaticResource DropDownButtonDanger.Small}" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

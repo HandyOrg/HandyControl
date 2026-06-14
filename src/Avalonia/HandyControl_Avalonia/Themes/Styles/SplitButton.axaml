@@ -40,28 +40,18 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ Border#border">
-            <Setter Property="Background"
-                    Value="{DynamicResource SecondaryRegionBrush}" />
+            <Setter Property="Opacity"
+                    Value="0.9" />
         </Style>
 
         <Style Selector="^:pressed /template/ Border#border">
-            <Setter Property="Background"
-                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="Opacity"
+                    Value="0.6" />
         </Style>
 
         <Style Selector="^[Tag=flyout-open] /template/ Border#border">
-            <Setter Property="Background"
-                    Value="{DynamicResource BorderBrush}" />
-        </Style>
-
-        <Style Selector="^[Tag=checked] /template/ Border#border">
-            <Setter Property="Background"
-                    Value="{DynamicResource PrimaryBrush}" />
-        </Style>
-
-        <Style Selector="^[Tag=checked]">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Opacity"
+                    Value="0.6" />
         </Style>
     </ControlTheme>
 
@@ -196,6 +186,116 @@
                 Value="12" />
     </ControlTheme>
 
+    <ControlTheme x:Key="SplitButtonPrimary"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonPrimary.Small"
+                  BasedOn="{StaticResource SplitButtonPrimary}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonSuccess"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonSuccess.Small"
+                  BasedOn="{StaticResource SplitButtonSuccess}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonInfo"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonInfo.Small"
+                  BasedOn="{StaticResource SplitButtonInfo}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonWarning"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonWarning.Small"
+                  BasedOn="{StaticResource SplitButtonWarning}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonDanger"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SplitButtonDanger.Small"
+                  BasedOn="{StaticResource SplitButtonDanger}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
     <!-- ToggleSplitButton uses StyleKeyOverride => typeof(SplitButton), so it inherits the
          SplitButton default theme automatically. The :checked dark mask is defined in
          SplitButtonBaseStyle and only triggers when InternalIsChecked == true (i.e. on
@@ -203,5 +303,45 @@
 
     <ControlTheme x:Key="ToggleSplitButton.Small"
                   BasedOn="{StaticResource SplitButton.Small}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonPrimary"
+                  BasedOn="{StaticResource SplitButtonPrimary}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonPrimary.Small"
+                  BasedOn="{StaticResource SplitButtonPrimary.Small}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonSuccess"
+                  BasedOn="{StaticResource SplitButtonSuccess}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonSuccess.Small"
+                  BasedOn="{StaticResource SplitButtonSuccess.Small}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonInfo"
+                  BasedOn="{StaticResource SplitButtonInfo}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonInfo.Small"
+                  BasedOn="{StaticResource SplitButtonInfo.Small}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonWarning"
+                  BasedOn="{StaticResource SplitButtonWarning}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonWarning.Small"
+                  BasedOn="{StaticResource SplitButtonWarning.Small}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonDanger"
+                  BasedOn="{StaticResource SplitButtonDanger}"
+                  TargetType="ToggleSplitButton" />
+
+    <ControlTheme x:Key="ToggleSplitButtonDanger.Small"
+                  BasedOn="{StaticResource SplitButtonDanger.Small}"
                   TargetType="ToggleSplitButton" />
 </ResourceDictionary>

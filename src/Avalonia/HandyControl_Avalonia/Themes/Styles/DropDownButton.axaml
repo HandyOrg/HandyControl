@@ -1,0 +1,239 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="DropDownButtonBaseStyle"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border x:Name="RootBorder"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid ColumnDefinitions="*,Auto"
+                              Margin="{TemplateBinding Padding}">
+                            <StackPanel Grid.Column="0"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Path Width="{TemplateBinding hc:IconElement.Width}"
+                                      Height="{TemplateBinding hc:IconElement.Height}"
+                                      Fill="{TemplateBinding Foreground}"
+                                      IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                      Stretch="Uniform"
+                                      Data="{TemplateBinding hc:IconElement.Geometry}" />
+                                <ContentPresenter x:Name="PART_ContentPresenter"
+                                                  RecognizesAccessKey="True"
+                                                  VerticalAlignment="Center"
+                                                  Content="{TemplateBinding Content}"
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                  Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                            </StackPanel>
+                            <Path Grid.Column="1"
+                                  Width="8"
+                                  Height="5"
+                                  Margin="8,0,0,0"
+                                  Stretch="Uniform"
+                                  VerticalAlignment="Center"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsHitTestVisible="False"
+                                  Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
+                        </Grid>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:flyout-open">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type DropDownButton}"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="^:flyout-open">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButton.Small"
+                  BasedOn="{StaticResource {x:Type DropDownButton}}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonPrimary"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonPrimary.Small"
+                  BasedOn="{StaticResource DropDownButtonPrimary}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonSuccess"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonSuccess.Small"
+                  BasedOn="{StaticResource DropDownButtonSuccess}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonInfo"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonInfo.Small"
+                  BasedOn="{StaticResource DropDownButtonInfo}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonWarning"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonWarning.Small"
+                  BasedOn="{StaticResource DropDownButtonWarning}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonDanger"
+                  BasedOn="{StaticResource DropDownButtonBaseStyle}"
+                  TargetType="DropDownButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="DropDownButtonDanger.Small"
+                  BasedOn="{StaticResource DropDownButtonDanger}"
+                  TargetType="DropDownButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+</ResourceDictionary>
