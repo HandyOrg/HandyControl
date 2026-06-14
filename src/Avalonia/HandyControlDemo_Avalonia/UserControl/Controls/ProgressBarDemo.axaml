@@ -1,0 +1,88 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.ProgressBarDemo">
+    <ScrollViewer>
+        <StackPanel Margin="32">
+            <Slider Value="50"
+                    Name="SliderDemo"
+                    Maximum="100" />
+            <hc:UniformSpacingPanel Spacing="16"
+                                    Margin="0,32,0,0">
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}" />
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}"
+                                      FontSize="30" />
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}"
+                                      ShowText="False"
+                                      Width="20"
+                                      Height="20"
+                                      ArcThickness="2"
+                                      Theme="{StaticResource ProgressBarSuccessCircle}" />
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}"
+                                      ShowText="False"
+                                      Width="30"
+                                      Height="30"
+                                      ArcThickness="6"
+                                      Theme="{StaticResource ProgressBarInfoCircle}" />
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}"
+                                      ShowText="False"
+                                      Width="40"
+                                      Height="40"
+                                      ArcThickness="10"
+                                      Theme="{StaticResource ProgressBarWarningCircle}" />
+                <hc:CircleProgressBar Value="{Binding #SliderDemo.Value}"
+                                      Width="50"
+                                      Height="50"
+                                      Theme="{StaticResource ProgressBarDangerCircle}" />
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Spacing="16"
+                                    Margin="0,32,0,0">
+                <hc:CircleProgressBar IsIndeterminate="True" />
+                <hc:CircleProgressBar IsIndeterminate="True"
+                                      Background="Transparent" />
+                <hc:CircleProgressBar IsIndeterminate="True"
+                                      Width="20"
+                                      Height="20"
+                                      ArcThickness="2"
+                                      Theme="{StaticResource ProgressBarSuccessCircle}" />
+                <hc:CircleProgressBar IsIndeterminate="True"
+                                      Width="30"
+                                      Height="30"
+                                      ArcThickness="6"
+                                      Theme="{StaticResource ProgressBarInfoCircle}" />
+                <hc:CircleProgressBar IsIndeterminate="True"
+                                      Width="40"
+                                      Height="40"
+                                      ArcThickness="10"
+                                      Theme="{StaticResource ProgressBarWarningCircle}" />
+                <hc:CircleProgressBar IsIndeterminate="True"
+                                      Width="50"
+                                      Height="50"
+                                      Theme="{StaticResource ProgressBarDangerCircle}" />
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Spacing="16"
+                                    Margin="0,32,0,0">
+                <hc:WaveProgressBar Value="{Binding #SliderDemo.Value}" />
+                <hc:WaveProgressBar Value="{Binding #SliderDemo.Value}"
+                                    FontSize="20"
+                                    WaveThickness="4"
+                                    WaveStroke="#FFFF0080">
+                    <hc:WaveProgressBar.WaveFill>
+                        <LinearGradientBrush EndPoint="0,1"
+                                             StartPoint="0,0">
+                            <GradientStop Color="#66FF0080"
+                                          Offset="0" />
+                            <GradientStop Color="#FFFF0080"
+                                          Offset="1" />
+                        </LinearGradientBrush>
+                    </hc:WaveProgressBar.WaveFill>
+                </hc:WaveProgressBar>
+                <hc:WaveProgressBar Value="{Binding #SliderDemo.Value}"
+                                    ShowText="False"
+                                    Width="50"
+                                    Height="50"
+                                    Theme="{StaticResource ProgressBarWarningWave}" />
+            </hc:UniformSpacingPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

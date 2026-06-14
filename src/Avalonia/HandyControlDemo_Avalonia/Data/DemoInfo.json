@@ -47,7 +47,8 @@
       [ "FlexPanel", "FlexPanelDemo", "Brush.FlowLayoutPanel", "", "Layout" ],
       [ "WaterfallPanel", "WaterfallPanelDemo", "Brush.Panel", "", "Layout" ],
       [ "HoneycombPanel", "HoneycombPanelDemo", "Brush.PolygonHexagon", "", "Layout" ],
-      [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "", "Layout" ]
+      [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "", "Layout" ],
+      [ "ProgressBar", "ProgressBarDemo", "Brush.ProgressBar", "", "Feedback" ]
     ]
   }
 ]

@@ -1,7 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal"
-                    xmlns:hc="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:shapes="clr-namespace:Avalonia.Controls.Shapes;assembly=Avalonia.Controls">
     <ControlTheme x:Key="ProgressBarBaseStyle"
                   TargetType="ProgressBar">
         <Setter Property="hc:BorderElement.CornerRadius"
@@ -646,5 +647,338 @@
                         Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
             </Style>
         </Style>
+    </ControlTheme>
+
+    <!-- CircleProgressBar -->
+    <ControlTheme x:Key="CircleProgressBarTemplate"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Height"
+                Value="100" />
+        <Setter Property="Width"
+                Value="100" />
+        <Setter Property="ArcThickness"
+                Value="4" />
+        <Setter Property="Text"
+                Value="{Binding $self.Value, StringFormat={}{0:F0} %}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:CircleProgressBar">
+                <Panel Name="TemplateRoot">
+                    <shapes:Arc StartAngle="-90"
+                                SweepAngle="360"
+                                Stretch="None"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Stroke="{TemplateBinding Background}"
+                                StrokeThickness="{TemplateBinding ArcThickness}"
+                                StrokeLineCap="Flat" />
+                    <shapes:Arc Name="PART_Indicator"
+                                StartAngle="-90"
+                                SweepAngle="0"
+                                Stretch="None"
+                                Width="{TemplateBinding Width}"
+                                Height="{TemplateBinding Height}"
+                                Stroke="{TemplateBinding Foreground}"
+                                StrokeThickness="{TemplateBinding ArcThickness}"
+                                StrokeLineCap="Flat" />
+                    <TextBlock IsVisible="{TemplateBinding ShowText}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="{TemplateBinding Text}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[IsIndeterminate=True]">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="hc:CircleProgressBar">
+                    <Panel Name="TemplateRoot"
+                           RenderTransformOrigin="50%,50%">
+                        <Panel.RenderTransform>
+                            <RotateTransform />
+                        </Panel.RenderTransform>
+                        <shapes:Arc StartAngle="-90"
+                                    SweepAngle="360"
+                                    Stretch="None"
+                                    Width="{TemplateBinding Width}"
+                                    Height="{TemplateBinding Height}"
+                                    Stroke="{TemplateBinding Background}"
+                                    StrokeThickness="{TemplateBinding ArcThickness}"
+                                    StrokeLineCap="Flat" />
+                        <shapes:Arc Name="arc"
+                                    StartAngle="-5"
+                                    SweepAngle="10"
+                                    Stretch="None"
+                                    Width="{TemplateBinding Width}"
+                                    Height="{TemplateBinding Height}"
+                                    Stroke="{TemplateBinding Foreground}"
+                                    StrokeThickness="{TemplateBinding ArcThickness}"
+                                    StrokeLineCap="Flat"
+                                    RenderTransformOrigin="50%,50%">
+                            <shapes:Arc.RenderTransform>
+                                <RotateTransform />
+                            </shapes:Arc.RenderTransform>
+                        </shapes:Arc>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+
+            <!-- TemplateRoot 整体旋转：1.568s 转 360° -->
+            <Style Selector="^ /template/ Panel#TemplateRoot">
+                <Style.Animations>
+                    <Animation IterationCount="Infinite"
+                               Easing="LinearEasing"
+                               Duration="0:0:1.568">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="360" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+
+            <!-- arc 自身额外旋转：5.332s 转 1080°，按 WPF 分 8 段 (每段 0.666s，+135°)，每段独立 0.4,0,0.2,1 缓动 -->
+            <Style Selector="^ /template/ shapes|Arc#arc">
+                <Style.Animations>
+                    <Animation IterationCount="Infinite"
+                               Duration="0:0:5.332">
+                        <KeyFrame Cue="0%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="0" />
+                        </KeyFrame>
+                        <KeyFrame Cue="12.5%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="135" />
+                        </KeyFrame>
+                        <KeyFrame Cue="25%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="270" />
+                        </KeyFrame>
+                        <KeyFrame Cue="37.5%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="405" />
+                        </KeyFrame>
+                        <KeyFrame Cue="50%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="540" />
+                        </KeyFrame>
+                        <KeyFrame Cue="62.5%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="675" />
+                        </KeyFrame>
+                        <KeyFrame Cue="75%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="810" />
+                        </KeyFrame>
+                        <KeyFrame Cue="87.5%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="945" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="RotateTransform.Angle"
+                                    Value="1080" />
+                        </KeyFrame>
+                    </Animation>
+                    <!-- StartAngle: -5 → -130 → -5（每 1.333s 一个周期） -->
+                    <Animation IterationCount="Infinite"
+                               Duration="0:0:1.333">
+                        <KeyFrame Cue="0%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.StartAngle"
+                                    Value="-5" />
+                        </KeyFrame>
+                        <KeyFrame Cue="50%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.StartAngle"
+                                    Value="-130" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.StartAngle"
+                                    Value="-5" />
+                        </KeyFrame>
+                    </Animation>
+                    <!-- SweepAngle: 10 → 260 → 10（弧长伸缩） -->
+                    <Animation IterationCount="Infinite"
+                               Duration="0:0:1.333">
+                        <KeyFrame Cue="0%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.SweepAngle"
+                                    Value="10" />
+                        </KeyFrame>
+                        <KeyFrame Cue="50%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.SweepAngle"
+                                    Value="260" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%"
+                                  KeySpline="0.4,0,0.2,1">
+                            <Setter Property="shapes:Arc.SweepAngle"
+                                    Value="10" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:CircleProgressBar}"
+                  BasedOn="{StaticResource CircleProgressBarTemplate}"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarSuccessCircle"
+                  BasedOn="{StaticResource CircleProgressBarTemplate}"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarInfoCircle"
+                  BasedOn="{StaticResource CircleProgressBarTemplate}"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarWarningCircle"
+                  BasedOn="{StaticResource CircleProgressBarTemplate}"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarDangerCircle"
+                  BasedOn="{StaticResource CircleProgressBarTemplate}"
+                  TargetType="hc:CircleProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <!-- WaveProgressBar -->
+    <ControlTheme x:Key="ProgressBarWaveBaseStyle"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Width"
+                Value="100" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Text"
+                Value="{Binding $self.Value, StringFormat={}{0:F0} %}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:WaveProgressBar">
+                <StackPanel>
+                    <Border Theme="{StaticResource BorderCircular}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <Viewbox>
+                            <Border Name="PART_Clip"
+                                    Theme="{StaticResource BorderCircularClip}"
+                                    CornerRadius="100"
+                                    Width="200"
+                                    Height="200">
+                                <Panel Name="PART_Wave"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top">
+                                    <Path Name="PART_WaveAnim"
+                                          Stroke="{TemplateBinding WaveStroke}"
+                                          StrokeThickness="{TemplateBinding WaveThickness}"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          Width="600"
+                                          Height="250"
+                                          Fill="{TemplateBinding WaveFill}"
+                                          Stretch="Fill"
+                                          UseLayoutRounding="False"
+                                          Margin="0,0,-400,-20"
+                                          Data="M 0,1 C 0.5,1 0.5,0 1,0 C 1.5,0 1.5,1 2,1 C 2.5,1 2.5,0 3,0 L 3,10 0,10 0,1 Z" />
+                                </Panel>
+                            </Border>
+                        </Viewbox>
+                    </Border>
+                    <TextBlock Margin="0,10,0,0"
+                               IsVisible="{TemplateBinding ShowText}"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="{TemplateBinding Foreground}"
+                               Text="{TemplateBinding Text}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Path#PART_WaveAnim">
+            <Style.Animations>
+                <Animation IterationCount="Infinite"
+                           Easing="LinearEasing"
+                           Duration="0:0:2">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="TranslateTransform.X"
+                                Value="0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="TranslateTransform.X"
+                                Value="-400" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:WaveProgressBar}"
+                  BasedOn="{StaticResource ProgressBarWaveBaseStyle}"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="WaveFill"
+                Value="{DynamicResource DarkPrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarSuccessWave"
+                  BasedOn="{StaticResource ProgressBarWaveBaseStyle}"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="WaveFill"
+                Value="{DynamicResource DarkSuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarInfoWave"
+                  BasedOn="{StaticResource ProgressBarWaveBaseStyle}"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="WaveFill"
+                Value="{DynamicResource DarkInfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarWarningWave"
+                  BasedOn="{StaticResource ProgressBarWaveBaseStyle}"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="WaveFill"
+                Value="{DynamicResource DarkWarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarDangerWave"
+                  BasedOn="{StaticResource ProgressBarWaveBaseStyle}"
+                  TargetType="hc:WaveProgressBar">
+        <Setter Property="WaveFill"
+                Value="{DynamicResource DarkDangerBrush}" />
     </ControlTheme>
 </ResourceDictionary>
