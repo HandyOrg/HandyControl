@@ -1,0 +1,111 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.MaskedTextBoxDemo">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Spacing="32"
+                                Margin="32"
+                                ChildWrapping="Wrap">
+            <StackPanel>
+                <MaskedTextBox Mask="000-000-0000"
+                               Watermark="Phone number" />
+                <MaskedTextBox Mask="000-000-0000"
+                               Watermark="Phone number"
+                               Margin="0,16,0,0"
+                               IsEnabled="False" />
+
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               Mask="00/00/0000"
+                               Watermark="MM/DD/YYYY"
+                               Theme="{StaticResource TextBoxExtend}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               hc:InfoElement.ShowClearButton="True"
+                               Mask="L0L 0L0"
+                               Watermark="A1B 2C3"
+                               Theme="{StaticResource TextBoxExtend}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               Mask="000-00-0000"
+                               Watermark="123-45-6789"
+                               Theme="{StaticResource TextBoxExtend}"
+                               Margin="0,16,0,0"
+                               IsEnabled="False" />
+                <MaskedTextBox Watermark="please enter phone"
+                               Mask="(999) 000-0000"
+                               hc:TitleElement.Title="This item must be filled in"
+                               Theme="{StaticResource TextBoxExtend}"
+                               hc:InfoElement.Necessary="True"
+                               Margin="0,16,0,0" />
+                <MaskedTextBox Width="380"
+                               Mask="0000-0000-0000-0000"
+                               hc:TitleElement.TitleWidth="120"
+                               hc:TitleElement.TitlePlacement="Left"
+                               hc:TitleElement.Title="The title is on the left"
+                               Watermark="Card number"
+                               Theme="{StaticResource TextBoxExtend}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox Width="380"
+                               Mask="00:00"
+                               hc:TitleElement.TitleWidth="120"
+                               Watermark="HH:mm"
+                               hc:TitleElement.TitlePlacement="Left"
+                               hc:TitleElement.Title="The title is on the left"
+                               hc:InfoElement.Necessary="True"
+                               Theme="{StaticResource TextBoxExtend}"
+                               Margin="0,16,0,0" />
+            </StackPanel>
+            <StackPanel>
+                <MaskedTextBox Mask="000-000-0000"
+                               Watermark="Phone number"
+                               Theme="{StaticResource TextBox.Small}" />
+                <MaskedTextBox Mask="000-000-0000"
+                               Watermark="Phone number"
+                               Margin="0,16,0,0"
+                               IsEnabled="False"
+                               Theme="{StaticResource TextBox.Small}" />
+
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               Mask="00/00/0000"
+                               Watermark="MM/DD/YYYY"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               hc:InfoElement.ShowClearButton="True"
+                               Mask="L0L 0L0"
+                               Watermark="A1B 2C3"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox hc:TitleElement.Title="This is the title"
+                               Mask="000-00-0000"
+                               Watermark="123-45-6789"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               Margin="0,16,0,0"
+                               IsEnabled="False" />
+                <MaskedTextBox Watermark="please enter phone"
+                               Mask="(999) 000-0000"
+                               hc:TitleElement.Title="This item must be filled in"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               hc:InfoElement.Necessary="True"
+                               Margin="0,16,0,0" />
+                <MaskedTextBox Width="380"
+                               Mask="0000-0000-0000-0000"
+                               hc:TitleElement.TitleWidth="120"
+                               hc:TitleElement.TitlePlacement="Left"
+                               hc:TitleElement.Title="The title is on the left"
+                               Watermark="Card number"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               Margin="0,32,0,0" />
+                <MaskedTextBox Width="380"
+                               Mask="00:00"
+                               hc:TitleElement.TitleWidth="120"
+                               Watermark="HH:mm"
+                               hc:TitleElement.TitlePlacement="Left"
+                               hc:TitleElement.Title="The title is on the left"
+                               hc:InfoElement.Necessary="True"
+                               Theme="{StaticResource TextBoxExtend.Small}"
+                               Margin="0,16,0,0" />
+            </StackPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

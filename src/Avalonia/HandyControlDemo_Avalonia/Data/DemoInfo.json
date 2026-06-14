@@ -17,6 +17,7 @@
       [ "TextBlock", "TextBlockDemo", "Brush.TextBlock", "", "" ],
       [ "NumericUpDown", "NumericUpDownDemo", "Brush.NumericListBox", "", "" ],
       [ "TextBox", "TextBoxDemo", "Brush.TextBox", "", "" ],
+      [ "MaskedTextBox", "MaskedTextBoxDemo", "Brush.TextBox", "", "" ],
       [ "AutoCompleteBox", "AutoCompleteBoxDemo", "Brush.AutoComplete", "", "" ],
       [ "ComboBox", "ComboBoxDemo", "Brush.ComboBox", "", "" ],
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],
