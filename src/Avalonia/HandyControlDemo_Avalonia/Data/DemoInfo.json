@@ -8,7 +8,7 @@
       [ "Button", "ButtonDemo", "Brush.ButtonClick", "", "" ],
       [ "RepeatButton", "RepeatButtonDemo", "Brush.RepeatButton", "", "" ],
       [ "ToggleButton", "ToggleButtonDemo", "Brush.Toggle", "", "" ],
-      [ "ToggleSwitch", "ToggleSwitchDemo", "Brush.Toggle", "1", "" ],
+      [ "ToggleSwitch", "ToggleSwitchDemo", "Brush.Toggle", "", "" ],
       [ "RadioButton", "RadioButtonDemo", "Brush.RadioButton", "", "" ],
       [ "HyperlinkButton", "HyperlinkButtonDemo", "Brush.Hyperlink", "", "" ],
       [ "CheckBox", "CheckBoxDemo", "Brush.CheckBoxChecked", "", "" ],
@@ -22,6 +22,8 @@
       [ "Expander", "ExpanderDemo", "Brush.Expander", "", "" ],
       [ "ProgressBar", "NativeProgressBarDemo", "Brush.ProgressBar", "", "" ],
       [ "Calendar", "CalendarDemo", "Brush.Calendar", "", "" ],
+      [ "DatePicker", "DatePickerDemo", "Brush.Calendar", "", "" ],
+      [ "TimePicker", "TimePickerDemo", "Brush.Calendar", "", "" ],
       [ "TabControl", "NativeTabControlDemo", "Brush.TabPage", "", "" ],
       [ "TreeView", "TreeViewDemo", "Brush.TreeView", "", "" ],
       [ "ListBox", "ListBoxDemo", "Brush.ListBox", "", "" ],
@@ -39,13 +41,13 @@
       [ "Gravatar", "GravatarDemo", "Brush.User", "", "DataDisplay" ],
       [ "ButtonGroup", "ButtonGroupDemo", "Brush.ButtonGroup", "", "Button" ],
       [ "Card", "CardDemo", "Brush.ContactCard", "", "DataDisplay" ],
-      [ "ElementGroup", "ElementGroupDemo", "Brush.ButtonGroup", "1", "Layout" ],
+      [ "ElementGroup", "ElementGroupDemo", "Brush.ButtonGroup", "", "Layout" ],
       [ "CirclePanel", "CirclePanelDemo", "Brush.ColorWheel", "", "Layout" ],
       [ "Grid", "GridDemo", "Brush.GridPane", "", "Layout" ],
-      [ "FlexPanel", "FlexPanelDemo", "Brush.FlowLayoutPanel", "1", "Layout" ],
+      [ "FlexPanel", "FlexPanelDemo", "Brush.FlowLayoutPanel", "", "Layout" ],
       [ "WaterfallPanel", "WaterfallPanelDemo", "Brush.Panel", "", "Layout" ],
       [ "HoneycombPanel", "HoneycombPanelDemo", "Brush.PolygonHexagon", "", "Layout" ],
-      [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "1", "Layout" ]
+      [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "", "Layout" ]
     ]
   }
 ]

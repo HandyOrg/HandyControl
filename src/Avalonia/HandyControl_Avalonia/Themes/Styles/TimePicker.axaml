@@ -1,0 +1,259 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <ControlTheme x:Key="TimePickerBaseStyle"
+                  TargetType="hc:TimePicker">
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,7,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="8,0,0,5" />
+        <Setter Property="hc:TitleElement.HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="MinWidth"
+                Value="120" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultInputPadding}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid x:Name="PART_Root"
+                      ColumnDefinitions="*,Auto">
+                    <Border x:Name="border"
+                            Grid.ColumnSpan="2"
+                            CornerRadius="{TemplateBinding hc:BorderElement.CornerRadius}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" />
+                    <TextBox x:Name="PART_TextBox"
+                             Grid.Column="0"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             CornerRadius="0"
+                             Padding="{TemplateBinding Padding}"
+                             Watermark="{TemplateBinding Watermark}"
+                             Text="{Binding $parent[hc:TimePicker].Text, Mode=TwoWay}"
+                             VerticalContentAlignment="Center"
+                             HorizontalContentAlignment="Left"
+                             Foreground="{TemplateBinding Foreground}" />
+                    <Button x:Name="PART_Button"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Theme="{StaticResource ButtonIcon}"
+                            hc:IconElement.Width="14"
+                            hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                            Padding="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                            Foreground="{Binding BorderBrush, ElementName=border}"
+                            Focusable="False" />
+                    <Popup x:Name="PART_Popup"
+                           WindowManagerAddShadowHint="False"
+                           PlacementTarget="border"
+                           Placement="BottomEdgeAlignedLeft"
+                           IsLightDismissEnabled="True"
+                           InheritsTransform="True" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:focus-within /template/ Border#border">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:dropdownopen /template/ Border#border">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:TimePicker}"
+                  BasedOn="{StaticResource TimePickerBaseStyle}"
+                  TargetType="hc:TimePicker" />
+
+    <ControlTheme x:Key="TimePicker.Small"
+                  BasedOn="{StaticResource TimePickerBaseStyle}"
+                  TargetType="hc:TimePicker">
+        <Setter Property="MinHeight"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TimePickerExtend"
+                  BasedOn="{StaticResource TimePickerBaseStyle}"
+                  TargetType="hc:TimePicker">
+        <Setter Property="hc:InfoElement.Symbol"
+                Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent[hc:TimePicker].(hc:TitleElement.Title)}">
+                    <Grid x:Name="PART_Root"
+                          ColumnDefinitions="*,Auto">
+                        <Border x:Name="border"
+                                Grid.ColumnSpan="2"
+                                CornerRadius="{TemplateBinding hc:BorderElement.CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <TextBox x:Name="PART_TextBox"
+                                 Grid.Column="0"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 CornerRadius="0"
+                                 Padding="{TemplateBinding Padding}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 Text="{Binding $parent[hc:TimePicker].Text, Mode=TwoWay}"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Left"
+                                 Foreground="{TemplateBinding Foreground}" />
+                        <Button x:Name="PART_Button"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Width="14"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Padding="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                Foreground="{Binding BorderBrush, ElementName=border}"
+                                Focusable="False" />
+                        <Popup x:Name="PART_Popup"
+                               WindowManagerAddShadowHint="False"
+                               PlacementTarget="border"
+                               Placement="BottomEdgeAlignedLeft"
+                               IsLightDismissEnabled="True"
+                               InheritsTransform="True" />
+                    </Grid>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TimePickerExtend.Small"
+                  BasedOn="{StaticResource TimePickerExtend}"
+                  TargetType="hc:TimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TimePickerPlus"
+                  BasedOn="{StaticResource TimePickerExtend}"
+                  TargetType="hc:TimePicker">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent[hc:TimePicker].(hc:TitleElement.Title)}">
+                    <Grid x:Name="PART_Root"
+                          ColumnDefinitions="*,Auto,Auto">
+                        <Border x:Name="border"
+                                Grid.ColumnSpan="3"
+                                CornerRadius="{TemplateBinding hc:BorderElement.CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <TextBox x:Name="PART_TextBox"
+                                 Grid.Column="0"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 CornerRadius="0"
+                                 Padding="{TemplateBinding Padding}"
+                                 Watermark="{TemplateBinding Watermark}"
+                                 Text="{Binding $parent[hc:TimePicker].Text, Mode=TwoWay}"
+                                 VerticalContentAlignment="Center"
+                                 HorizontalContentAlignment="Left"
+                                 Foreground="{TemplateBinding Foreground}" />
+                        <Button x:Name="ButtonClear"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                hc:IconElement.Width="14"
+                                Command="{Binding $parent[hc:TimePicker].Clear}"
+                                Focusable="False"
+                                Theme="{StaticResource ButtonIcon}"
+                                Padding="0,0,2,0"
+                                hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{Binding BorderBrush, ElementName=border}">
+                            <Button.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsPointerOver" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="(hc:InfoElement.ShowClearButton)" />
+                                </MultiBinding>
+                            </Button.IsVisible>
+                        </Button>
+                        <Button x:Name="PART_Button"
+                                Grid.Column="2"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Width="14"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Padding="{TemplateBinding Padding, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                Foreground="{Binding BorderBrush, ElementName=border}"
+                                Focusable="False" />
+                        <Popup x:Name="PART_Popup"
+                               WindowManagerAddShadowHint="False"
+                               PlacementTarget="border"
+                               Placement="BottomEdgeAlignedLeft"
+                               IsLightDismissEnabled="True"
+                               InheritsTransform="True" />
+                    </Grid>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TimePickerPlus.Small"
+                  BasedOn="{StaticResource TimePickerPlus}"
+                  TargetType="hc:TimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+    </ControlTheme>
+</ResourceDictionary>
