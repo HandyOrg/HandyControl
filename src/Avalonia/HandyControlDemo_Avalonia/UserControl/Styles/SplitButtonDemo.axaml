@@ -1,0 +1,125 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.SplitButtonDemo"
+             Background="{DynamicResource RegionBrush}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="16">
+                <TextBlock Text="SplitButton (Default)"
+                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                <WrapPanel>
+                    <SplitButton Content="Default"
+                                 Margin="5">
+                        <SplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Item 1" />
+                                <MenuItem Header="Item 2" />
+                                <MenuItem Header="Item 3" />
+                            </MenuFlyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                    <SplitButton Content="Disabled"
+                                 IsEnabled="False"
+                                 Margin="5" />
+                    <SplitButton Content="Calendar"
+                                 Margin="5"
+                                 hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
+                        <SplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Today" />
+                                <MenuItem Header="Tomorrow" />
+                            </MenuFlyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </WrapPanel>
+
+                <TextBlock Text="SplitButton.Small"
+                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                <WrapPanel>
+                    <SplitButton Content="Default"
+                                 Margin="5"
+                                 Theme="{StaticResource SplitButton.Small}">
+                        <SplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Item 1" />
+                                <MenuItem Header="Item 2" />
+                            </MenuFlyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                    <SplitButton Content="Disabled"
+                                 IsEnabled="False"
+                                 Margin="5"
+                                 Theme="{StaticResource SplitButton.Small}" />
+                    <SplitButton Content="Clock"
+                                 Margin="5"
+                                 hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                 Theme="{StaticResource SplitButton.Small}">
+                        <SplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Now" />
+                                <MenuItem Header="Later" />
+                            </MenuFlyout>
+                        </SplitButton.Flyout>
+                    </SplitButton>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="16">
+                <TextBlock Text="ToggleSplitButton"
+                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                <WrapPanel>
+                    <ToggleSplitButton Content="Toggle"
+                                       Margin="5">
+                        <ToggleSplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option A" />
+                                <MenuItem Header="Option B" />
+                            </MenuFlyout>
+                        </ToggleSplitButton.Flyout>
+                    </ToggleSplitButton>
+                    <ToggleSplitButton Content="Checked"
+                                       IsChecked="True"
+                                       Margin="5">
+                        <ToggleSplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option A" />
+                                <MenuItem Header="Option B" />
+                            </MenuFlyout>
+                        </ToggleSplitButton.Flyout>
+                    </ToggleSplitButton>
+                    <ToggleSplitButton Content="Disabled"
+                                       IsEnabled="False"
+                                       Margin="5" />
+                </WrapPanel>
+
+                <TextBlock Text="ToggleSplitButton.Small"
+                           Theme="{StaticResource TextBlockSubTitleBold}" />
+                <WrapPanel>
+                    <ToggleSplitButton Content="Toggle"
+                                       Margin="5"
+                                       Theme="{StaticResource ToggleSplitButton.Small}">
+                        <ToggleSplitButton.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Option A" />
+                                <MenuItem Header="Option B" />
+                            </MenuFlyout>
+                        </ToggleSplitButton.Flyout>
+                    </ToggleSplitButton>
+                    <ToggleSplitButton Content="Checked"
+                                       IsChecked="True"
+                                       Margin="5"
+                                       Theme="{StaticResource ToggleSplitButton.Small}" />
+                    <ToggleSplitButton Content="Disabled"
+                                       IsEnabled="False"
+                                       Margin="5"
+                                       Theme="{StaticResource ToggleSplitButton.Small}" />
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

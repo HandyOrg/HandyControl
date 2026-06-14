@@ -6,6 +6,7 @@
     "demoItemList": [
       [ "Brush", "BrushDemo", "Brush.Brush", "", "" ],
       [ "Button", "ButtonDemo", "Brush.ButtonClick", "", "" ],
+      [ "SplitButton", "SplitButtonDemo", "Brush.ButtonClick", "", "" ],
       [ "RepeatButton", "RepeatButtonDemo", "Brush.RepeatButton", "", "" ],
       [ "ToggleButton", "ToggleButtonDemo", "Brush.Toggle", "", "" ],
       [ "ToggleSwitch", "ToggleSwitchDemo", "Brush.Toggle", "", "" ],

@@ -1,0 +1,207 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <!-- Inner button theme used by SplitButton's PART_PrimaryButton / PART_SecondaryButton.
+         Reacts to its own pointer/pressed states; outer SplitButton can also overlay state via Tag. -->
+    <ControlTheme x:Key="SplitButtonComponent"
+                  TargetType="Button">
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}">
+                        <Path Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Fill="{TemplateBinding Foreground}"
+                              IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              Stretch="Uniform"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                        <ContentPresenter RecognizesAccessKey="True"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                          Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ Border#border">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Border#border">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="^[Tag=flyout-open] /template/ Border#border">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+
+        <Style Selector="^[Tag=checked] /template/ Border#border">
+            <Setter Property="Background"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^[Tag=checked]">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextIconBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <!-- SplitButton base: HC default look -->
+    <ControlTheme x:Key="SplitButtonBaseStyle"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="*,Auto,Auto">
+                    <Button x:Name="PART_PrimaryButton"
+                            Grid.Column="0"
+                            Theme="{StaticResource SplitButtonComponent}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,1,0,1'}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Command="{TemplateBinding Command}"
+                            CommandParameter="{TemplateBinding CommandParameter}"
+                            CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontWeight="{TemplateBinding FontWeight}"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Padding="{TemplateBinding Padding}"
+                            hc:IconElement.Geometry="{TemplateBinding hc:IconElement.Geometry}"
+                            hc:IconElement.Width="{TemplateBinding hc:IconElement.Width}"
+                            hc:IconElement.Height="{TemplateBinding hc:IconElement.Height}"
+                            Focusable="False"
+                            KeyboardNavigation.IsTabStop="False" />
+
+                    <Border x:Name="SeparatorBorder"
+                            Grid.Column="1"
+                            Width="1"
+                            Background="{TemplateBinding BorderBrush}" />
+
+                    <Button x:Name="PART_SecondaryButton"
+                            Grid.Column="2"
+                            Theme="{StaticResource SplitButtonComponent}"
+                            MinWidth="28"
+                            Foreground="{TemplateBinding Foreground}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,1,1,1'}"
+                            CornerRadius="{TemplateBinding CornerRadius, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}"
+                            Padding="0"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Focusable="False"
+                            KeyboardNavigation.IsTabStop="False">
+                        <Path Width="8"
+                              Height="5"
+                              Stretch="Uniform"
+                              Fill="{TemplateBinding Foreground}"
+                              Data="M1939 486L2029 576L1024 1581L19 576L109 486L1024 1401L1939 486Z" />
+                    </Button>
+
+                    <Border Name="CheckedMask"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Margin="-1"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="4"
+                            BorderBrush="{DynamicResource DarkMaskBrush}"
+                            IsHitTestVisible="False"
+                            IsVisible="False" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <!-- :checked only triggers for ToggleSplitButton (SplitButton.InternalIsChecked is always false) -->
+        <Style Selector="^:checked /template/ Border#CheckedMask">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <!-- Mirror SplitButton pseudo-state into the secondary inner button via Tag,
+             so :flyout-open visually highlights only the dropdown side. -->
+        <Style Selector="^:flyout-open /template/ Button#PART_SecondaryButton">
+            <Setter Property="Tag"
+                    Value="flyout-open" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type SplitButton}"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton" />
+
+    <ControlTheme x:Key="SplitButton.Small"
+                  BasedOn="{StaticResource SplitButtonBaseStyle}"
+                  TargetType="SplitButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <!-- ToggleSplitButton uses StyleKeyOverride => typeof(SplitButton), so it inherits the
+         SplitButton default theme automatically. The :checked dark mask is defined in
+         SplitButtonBaseStyle and only triggers when InternalIsChecked == true (i.e. on
+         ToggleSplitButton instances). -->
+
+    <ControlTheme x:Key="ToggleSplitButton.Small"
+                  BasedOn="{StaticResource SplitButton.Small}"
+                  TargetType="ToggleSplitButton" />
+</ResourceDictionary>
