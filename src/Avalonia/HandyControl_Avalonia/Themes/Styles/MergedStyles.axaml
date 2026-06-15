@@ -48,6 +48,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TreeView.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Label.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Slider.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Rate.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Expander.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ProgressBar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Calendar.axaml" />

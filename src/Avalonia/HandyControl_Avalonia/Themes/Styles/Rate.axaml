@@ -1,0 +1,104 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="RateItemBaseStyle"
+                  TargetType="hc:RateItem">
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="ClipToBounds"
+                Value="False" />
+        <Setter Property="RenderTransformOrigin"
+                Value="50%,50%" />
+        <Setter Property="RenderTransform">
+            <ScaleTransform ScaleX="1"
+                            ScaleY="1" />
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <TransformOperationsTransition Property="RenderTransform"
+                                               Duration="0:0:0.12" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="Transparent">
+                    <Path Width="{TemplateBinding Width}"
+                          Height="{TemplateBinding Height}"
+                          Data="{TemplateBinding Icon}"
+                          Fill="{TemplateBinding Background}"
+                          Stretch="Uniform" />
+                    <Border x:Name="PART_Icon"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            ClipToBounds="True"
+                            IsVisible="False">
+                        <Path Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Data="{TemplateBinding Icon}"
+                              Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="RenderTransform">
+                <ScaleTransform ScaleX="1.1"
+                                ScaleY="1.1" />
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RateBaseStyle"
+                  TargetType="hc:Rate">
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="ItemWidth"
+                Value="20" />
+        <Setter Property="ItemHeight"
+                Value="20" />
+        <Setter Property="ItemMargin"
+                Value="5,0" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Icon"
+                Value="{StaticResource StarGeometry}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource RateItemBaseStyle}" />
+        <Setter Property="ClipToBounds"
+                Value="False" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal"
+                            Margin="-5,0" />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Background="Transparent"
+                            Orientation="Horizontal">
+                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    <TextBlock Text="{TemplateBinding Text}"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"
+                               IsVisible="{TemplateBinding ShowText}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Rate}"
+                  BasedOn="{StaticResource RateBaseStyle}"
+                  TargetType="hc:Rate" />
+</ResourceDictionary>
