@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.LoadingDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <StackPanel Width="600"
+                    Margin="32"
+                    VerticalAlignment="Center">
+            <hc:LoadingLine />
+            <hc:LoadingLine Margin="0,30"
+                            Foreground="BlueViolet"
+                            Theme="{StaticResource LoadingLineLarge}" />
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <hc:LoadingCircle />
+                <Border VerticalAlignment="Center"
+                        Margin="32,0,0,0"
+                        Background="{DynamicResource PrimaryBrush}"
+                        CornerRadius="10">
+                    <hc:LoadingCircle Theme="{StaticResource LoadingCircleLight}"
+                                      Margin="10" />
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </TransitioningContentControl>
+</UserControl>

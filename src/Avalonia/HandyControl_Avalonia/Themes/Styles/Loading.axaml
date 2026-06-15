@@ -1,0 +1,89 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="LoadingBaseStyle"
+                  TargetType="hc:LoadingBase">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="DotDiameter" Value="10" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!-- LoadingLine -->
+    <ControlTheme x:Key="LoadingLineBaseStyle"
+                  BasedOn="{StaticResource LoadingBaseStyle}"
+                  TargetType="hc:LoadingLine">
+        <Setter Property="DotDiameter" Value="5" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:LoadingLine}"
+                  BasedOn="{StaticResource LoadingLineBaseStyle}"
+                  TargetType="hc:LoadingLine" />
+
+    <ControlTheme x:Key="LoadingLineLight"
+                  BasedOn="{StaticResource LoadingLineBaseStyle}"
+                  TargetType="hc:LoadingLine">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LoadingLineLarge"
+                  BasedOn="{StaticResource LoadingLineBaseStyle}"
+                  TargetType="hc:LoadingLine">
+        <Setter Property="DotDiameter" Value="10" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LoadingLineLargeLight"
+                  BasedOn="{StaticResource LoadingLineLarge}"
+                  TargetType="hc:LoadingLine">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <!-- LoadingCircle -->
+    <ControlTheme x:Key="LoadingCircleBaseStyle"
+                  BasedOn="{StaticResource LoadingBaseStyle}"
+                  TargetType="hc:LoadingCircle">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="DotDiameter" Value="5" />
+        <Setter Property="DotInterval" Value="30" />
+        <Setter Property="DotOffSet" Value="60" />
+        <Setter Property="DotDelayTime" Value="90" />
+        <Setter Property="DotSpeed" Value="4" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:LoadingCircle}"
+                  BasedOn="{StaticResource LoadingCircleBaseStyle}"
+                  TargetType="hc:LoadingCircle" />
+
+    <ControlTheme x:Key="LoadingCircleLight"
+                  BasedOn="{StaticResource LoadingCircleBaseStyle}"
+                  TargetType="hc:LoadingCircle">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LoadingCircleLarge"
+                  BasedOn="{StaticResource LoadingCircleBaseStyle}"
+                  TargetType="hc:LoadingCircle">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="DotDiameter" Value="10" />
+        <Setter Property="DotInterval" Value="20" />
+        <Setter Property="DotOffSet" Value="40" />
+        <Setter Property="DotDelayTime" Value="120" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LoadingCircleLargeLight"
+                  BasedOn="{StaticResource LoadingCircleLarge}"
+                  TargetType="hc:LoadingCircle">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+    </ControlTheme>
+
+</ResourceDictionary>
