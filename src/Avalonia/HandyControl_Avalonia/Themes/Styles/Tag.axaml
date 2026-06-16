@@ -1,0 +1,147 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:sys="using:System">
+
+    <ControlTheme x:Key="TagBaseStyle"
+                  TargetType="hc:Tag">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="hc:TitleElement.Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="ShowCloseButton"
+                Value="{Binding Path=(hc:TagContainer.ShowCloseButton), RelativeSource={RelativeSource Self}}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:Tag">
+                <Border Theme="{StaticResource BorderCircular}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Width="{Binding $self.Bounds.Height}"
+                                Theme="{StaticResource BorderCircularClip}"
+                                BorderBrush="{Binding Path=(hc:TitleElement.BorderBrush), RelativeSource={RelativeSource TemplatedParent}}"
+                                Background="{Binding Path=(hc:TitleElement.Background), RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentPresenter TextElement.Foreground="{Binding Path=(hc:TitleElement.Foreground), RelativeSource={RelativeSource TemplatedParent}}"
+                                              Content="{TemplateBinding Header}"
+                                              ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="sys:String">
+                                        <TextBlock Text="{Binding}"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                        </Border>
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          Grid.Column="1"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          RecognizesAccessKey="True" />
+                        <Button Name="PART_CloseButton"
+                                Focusable="False"
+                                Padding="0"
+                                BorderThickness="0"
+                                hc:IconElement.Width="8"
+                                IsVisible="{TemplateBinding ShowCloseButton}"
+                                Margin="0,0,6,0"
+                                Width="16"
+                                Grid.Column="2"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Geometry="{StaticResource DeleteGeometry}"
+                                Foreground="{TemplateBinding Foreground}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^/template/ Button#PART_CloseButton:pointerover">
+            <Setter Property="hc:IconElement.Geometry"
+                    Value="{StaticResource DeleteFillCircleGeometry}" />
+            <Setter Property="hc:IconElement.Width"
+                    Value="14" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource DarkMaskBrush}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Background"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextIconBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Tag}"
+                  BasedOn="{StaticResource TagBaseStyle}"
+                  TargetType="hc:Tag" />
+
+    <ControlTheme x:Key="TagContainerBaseStyle"
+                  TargetType="hc:TagContainer">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource TagBaseStyle}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:TagContainer">
+                <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}">
+                    <ScrollViewer Focusable="False">
+                        <ItemsPresenter Margin="{TemplateBinding Padding}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:TagContainer}"
+                  BasedOn="{StaticResource TagContainerBaseStyle}"
+                  TargetType="hc:TagContainer" />
+
+</ResourceDictionary>

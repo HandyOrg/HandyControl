@@ -1,0 +1,79 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.TagDemo"
+             Background="{DynamicResource RegionBrush}">
+    <UserControl.Resources>
+        <ControlTheme x:Key="TagCustomStyle"
+                      BasedOn="{StaticResource {x:Type hc:Tag}}"
+                      TargetType="hc:Tag">
+            <Setter Property="Content"
+                    Value="{Binding Name}" />
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="IsSelected"
+                    Value="{Binding IsSelected}" />
+        </ControlTheme>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <StackPanel Margin="11">
+            <hc:TagContainer Margin="11"
+                             MaxWidth="420"
+                             Padding="5">
+                <hc:Tag Header="H"
+                        hc:TitleElement.Background="{DynamicResource PrimaryBrush}"
+                        Margin="5"
+                        ShowCloseButton="False"
+                        Content="TextText" />
+                <hc:Tag Margin="5"
+                        Selectable="True"
+                        Content="TextTextText" />
+                <hc:Tag Margin="5"
+                        ShowCloseButton="False"
+                        Content="TextTextTextText" />
+                <hc:Tag Margin="5"
+                        Content="TextTextTextTextText" />
+                <hc:Tag Margin="5"
+                        IsSelected="True"
+                        Selectable="True"
+                        ShowCloseButton="False"
+                        Content="TextTextTextText" />
+                <hc:Tag Margin="5"
+                        Content="TextTextText" />
+                <hc:Tag Margin="5"
+                        ShowCloseButton="False"
+                        Content="TextText">
+                    <hc:Tag.Header>
+                        <Image Source="/Resources/Img/Album/1.jpg" />
+                    </hc:Tag.Header>
+                </hc:Tag>
+                <hc:Tag Margin="5"
+                        IsSelected="True"
+                        Selectable="True"
+                        Content="TextTextText">
+                    <hc:Tag.Header>
+                        <Image Source="/Resources/Img/Avatar/avatar2.png" />
+                    </hc:Tag.Header>
+                </hc:Tag>
+                <hc:Tag Margin="5"
+                        ShowCloseButton="False"
+                        Content="TextTextTextText" />
+                <hc:Tag Margin="5"
+                        Content="TextTextTextTextText" />
+            </hc:TagContainer>
+            <hc:TagContainer Name="BoundContainer"
+                             Margin="11"
+                             MaxWidth="420"
+                             Padding="5"
+                             ItemContainerTheme="{StaticResource TagCustomStyle}" />
+            <DockPanel LastChildFill="True"
+                       Margin="11,0,11,11">
+                <Button Name="AddButton"
+                        Margin="10,0,0,0"
+                        DockPanel.Dock="Right"
+                        Content="Add an item" />
+                <TextBox Name="TagNameBox" />
+            </DockPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
