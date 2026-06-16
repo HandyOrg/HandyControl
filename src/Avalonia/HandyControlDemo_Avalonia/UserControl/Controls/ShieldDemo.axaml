@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.ShieldDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <StackPanel Orientation="Horizontal"
+                    Margin="32">
+            <hc:Shield Subject=".net"
+                       Status=">=4.0"
+                       Color="#1182c3" />
+            <hc:Shield Subject="c#"
+                       Status="7.0"
+                       Margin="4,0,0,0"
+                       Color="#1182c3" />
+            <hc:Shield Subject="IDE"
+                       Status="2017"
+                       Margin="4,0,0,0"
+                       Color="#1182c3" />
+        </StackPanel>
+    </TransitioningContentControl>
+</UserControl>

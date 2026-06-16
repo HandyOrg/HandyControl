@@ -56,7 +56,8 @@
       [ "Rate", "RateDemo", "Brush.Favorite", "", "Feedback" ],
       [ "Loading", "LoadingDemo", "Brush.Loading", "", "Feedback" ],
       [ "Tag", "TagDemo", "Brush.Tag", "", "DataDisplay" ],
-      [ "Badge", "BadgeDemo", "Brush.CheckDot", "", "DataDisplay" ]
+      [ "Badge", "BadgeDemo", "Brush.CheckDot", "", "DataDisplay" ],
+      [ "Shield", "ShieldDemo", "Brush.SplitKeyValuePair", "", "DataDisplay" ]
     ]
   }
 ]
