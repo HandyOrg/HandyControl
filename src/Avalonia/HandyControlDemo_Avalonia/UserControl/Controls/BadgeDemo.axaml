@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.BadgeDemo"
+             Background="{DynamicResource RegionBrush}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Margin="32"
+                                Spacing="32"
+                                ChildWrapping="Wrap"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+            <hc:Badge Text="New"
+                      BadgeMargin="0,-14,-20,0"
+                      Height="30">
+                <Button Content="Comment" />
+            </hc:Badge>
+            <hc:Badge Text="New"
+                      BadgeMargin="0,-14,-20,0"
+                      Height="30"
+                      Theme="{StaticResource BadgeDanger}">
+                <Button Content="Comment" />
+            </hc:Badge>
+            <hc:Badge Name="CountBadge"
+                      Value="0"
+                      BadgeMargin="0,-14,-10,0"
+                      Height="30"
+                      Theme="{StaticResource BadgePrimary}">
+                <Button Name="CountButton"
+                        Content="Click to Count" />
+            </hc:Badge>
+            <hc:Badge Value="100"
+                      BadgeMargin="0,-14,-20,0"
+                      Height="30"
+                      Theme="{StaticResource BadgeDanger}">
+                <Button Content="Comment" />
+            </hc:Badge>
+            <hc:Badge Status="Dot"
+                      Height="30"
+                      Theme="{StaticResource BadgeDanger}">
+                <Button Content="Reply" />
+            </hc:Badge>
+            <hc:Badge Status="Processing"
+                      Height="30"
+                      Theme="{StaticResource BadgeDanger}">
+                <Button Content="Reply" />
+            </hc:Badge>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

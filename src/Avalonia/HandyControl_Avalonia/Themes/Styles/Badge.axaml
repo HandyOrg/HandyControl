@@ -1,0 +1,188 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="BadgeBaseStyle"
+                  TargetType="hc:Badge">
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="ClipToBounds"
+                Value="False" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Padding"
+                Value="6,2" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Right" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Top" />
+        <Setter Property="BadgeMargin"
+                Value="0,-10,-10,0" />
+
+        <!-- Default: Text template -->
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:Badge">
+                <Panel>
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    <Border Name="PART_Badge"
+                            IsVisible="{TemplateBinding ShowBadge}"
+                            RenderTransformOrigin="50%,50%"
+                            Theme="{StaticResource BorderCircular}"
+                            Margin="{TemplateBinding BadgeMargin}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border.RenderTransform>
+                            <ScaleTransform />
+                        </Border.RenderTransform>
+                        <ContentPresenter Content="{TemplateBinding Text}"
+                                          Margin="{TemplateBinding Padding}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Dot template -->
+        <Style Selector="^[Status=Dot]">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BadgeMargin"
+                    Value="0,-5,-5,0" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="hc:Badge">
+                    <Panel>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <Border IsVisible="{TemplateBinding ShowBadge}"
+                                Margin="{TemplateBinding BadgeMargin}"
+                                Width="10"
+                                Height="10"
+                                CornerRadius="5"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <!-- Processing template -->
+        <Style Selector="^[Status=Processing]">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrush}" />
+            <Setter Property="BadgeMargin"
+                    Value="0,-5,-5,0" />
+            <Setter Property="Template">
+                <ControlTemplate TargetType="hc:Badge">
+                    <Panel>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <Ellipse Name="PART_Pulse"
+                                 IsVisible="{TemplateBinding ShowBadge}"
+                                 Width="10"
+                                 Height="10"
+                                 Fill="{TemplateBinding Background}"
+                                 RenderTransformOrigin="50%,50%"
+                                 Margin="{TemplateBinding BadgeMargin}"
+                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse.RenderTransform>
+                                <ScaleTransform />
+                            </Ellipse.RenderTransform>
+                        </Ellipse>
+                        <Border IsVisible="{TemplateBinding ShowBadge}"
+                                Margin="{TemplateBinding BadgeMargin}"
+                                Width="10"
+                                Height="10"
+                                CornerRadius="5"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^[Status=Processing] /template/ Ellipse#PART_Pulse">
+            <Style.Animations>
+                <Animation IterationCount="Infinite"
+                           Easing="SineEaseOut"
+                           Duration="0:0:1">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleX"
+                                Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY"
+                                Value="1" />
+                        <Setter Property="Opacity"
+                                Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleX"
+                                Value="2" />
+                        <Setter Property="ScaleTransform.ScaleY"
+                                Value="2" />
+                        <Setter Property="Opacity"
+                                Value="0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Badge}"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BadgePrimary"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BadgeSuccess"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BadgeInfo"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BadgeWarning"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BadgeDanger"
+                  BasedOn="{StaticResource BadgeBaseStyle}"
+                  TargetType="hc:Badge">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+</ResourceDictionary>
