@@ -18,6 +18,7 @@
   <ItemGroup>
     <None Remove="Data\DemoInfo.json" />
     <None Remove="Resources\Img\cloud.png" />
+    <None Remove="Resources\Img\Dance.png" />
     <None Remove="Resources\Img\icon.ico" />
     <None Remove="Resources\Img\Avatar\*.png" />
     <None Remove="Resources\Img\Album\*.jpg" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Data\DemoInfo.json" />
     <AvaloniaResource Include="Resources\Img\cloud.png" />
+    <AvaloniaResource Include="Resources\Img\Dance.png" />
     <AvaloniaResource Include="Resources\Img\icon.ico" />
     <AvaloniaResource Include="Resources\Img\Avatar\*.png" />
     <AvaloniaResource Include="Resources\Img\Album\*.jpg" />

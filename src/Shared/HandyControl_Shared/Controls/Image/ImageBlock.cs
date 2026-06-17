@@ -33,6 +33,7 @@ public class ImageBlock : FrameworkElement
         {
             Interval = Interval
         };
+        _dispatcherTimer.Tick += DispatcherTimer_Tick;
 
         IsVisibleChanged += ImageBlock_IsVisibleChanged;
     }
@@ -44,6 +45,7 @@ public class ImageBlock : FrameworkElement
         if (_isDisposed) return;
 
         IsVisibleChanged -= ImageBlock_IsVisibleChanged;
+        _dispatcherTimer.Tick -= DispatcherTimer_Tick;
         _dispatcherTimer.Stop();
         _isDisposed = true;
 
@@ -52,18 +54,13 @@ public class ImageBlock : FrameworkElement
 
     private void ImageBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (IsVisible)
+        if (IsVisible && IsPlaying)
         {
-            _dispatcherTimer.Tick += DispatcherTimer_Tick;
-            if (IsPlaying)
-            {
-                _dispatcherTimer.Start();
-            }
+            _dispatcherTimer.Start();
         }
         else
         {
             _dispatcherTimer.Stop();
-            _dispatcherTimer.Tick -= DispatcherTimer_Tick;
         }
     }
 
@@ -139,7 +136,7 @@ public class ImageBlock : FrameworkElement
     private static void OnIsPlayingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var ctl = (ImageBlock) d;
-        if ((bool) e.NewValue)
+        if ((bool) e.NewValue && ctl.IsVisible)
         {
             ctl._dispatcherTimer.Start();
         }

@@ -57,7 +57,8 @@
       [ "Loading", "LoadingDemo", "Brush.Loading", "", "Feedback" ],
       [ "Tag", "TagDemo", "Brush.Tag", "", "DataDisplay" ],
       [ "Badge", "BadgeDemo", "Brush.CheckDot", "", "DataDisplay" ],
-      [ "Shield", "ShieldDemo", "Brush.SplitKeyValuePair", "", "DataDisplay" ]
+      [ "Shield", "ShieldDemo", "Brush.SplitKeyValuePair", "", "DataDisplay" ],
+      [ "ImageBlock", "ImageBlockDemo", "Brush.ImageStack", "", "DataDisplay" ]
     ]
   }
 ]
