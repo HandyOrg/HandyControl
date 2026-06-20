@@ -1,0 +1,61 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="{x:Type hc:ImageSelector}"
+                  TargetType="hc:ImageSelector">
+        <Setter Property="Stretch" Value="UniformToFill" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="StrokeDashArray" Value="2,2" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}"
+                        CornerRadius="{Binding $self.(hc:BorderElement.CornerRadius)}">
+                    <hc:DashedBorder BorderDashArray="{TemplateBinding StrokeDashArray}"
+                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     BorderDashThickness="{TemplateBinding StrokeThickness}"
+                                     Background="{TemplateBinding PreviewBrush}"
+                                     CornerRadius="{Binding $self.(hc:BorderElement.CornerRadius)}"
+                                     ClipToBounds="True">
+                        <!-- Add / Remove icon -->
+                        <Border Width="30"
+                                Height="30"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="15"
+                                BorderThickness="0">
+                            <Panel>
+                                <Path IsVisible="{Binding HasValue, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static BoolConverters.Not}}"
+                                      Data="{StaticResource AddGeometry}"
+                                      Width="16"
+                                      Height="16"
+                                      Fill="{DynamicResource PrimaryBrush}" />
+                                <Path IsVisible="{Binding HasValue, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Data="{StaticResource RemoveGeometry}"
+                                      Width="12"
+                                      Height="12"
+                                      Fill="{DynamicResource PrimaryBrush}" />
+                            </Panel>
+                        </Border>
+                    </hc:DashedBorder>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

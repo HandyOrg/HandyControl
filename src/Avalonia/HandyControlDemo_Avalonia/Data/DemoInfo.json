@@ -64,7 +64,8 @@
       [ "Badge", "BadgeDemo", "Brush.CheckDot", "", "DataDisplay" ],
       [ "Shield", "ShieldDemo", "Brush.SplitKeyValuePair", "", "DataDisplay" ],
       [ "ImageBlock", "ImageBlockDemo", "Brush.ImageStack", "", "DataDisplay" ],
-      [ "AnimationPath", "AnimationPathDemo", "Brush.Path", "", "DataDisplay" ]
+      [ "AnimationPath", "AnimationPathDemo", "Brush.Path", "", "DataDisplay" ],
+      [ "ImageSelector", "ImageSelectorDemo", "Brush.Image", "", "DataEntry" ]
     ]
   }
 ]
