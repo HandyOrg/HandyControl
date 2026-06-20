@@ -1,0 +1,294 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:sys="using:System">
+
+    <ControlTheme x:Key="SearchBarBaseStyle"
+                  BasedOn="{StaticResource TextBoxBaseStyle}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <Panel>
+                        <Border x:Name="border"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       Margin="{TemplateBinding Padding}"
+                                       IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                       HorizontalAlignment="Stretch"
+                                       Theme="{StaticResource TextBlockDefaultThiLight}"
+                                       Text="{TemplateBinding Watermark}" />
+                            <ScrollViewer Grid.Column="0"
+                                          Name="PART_ScrollViewer"
+                                          AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                          BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                          HorizontalScrollBarVisibility="Hidden"
+                                          IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                          VerticalScrollBarVisibility="Hidden">
+                                <TextPresenter Name="PART_TextPresenter"
+                                               Margin="{TemplateBinding Padding}"
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                               CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                               CaretBrush="{TemplateBinding CaretBrush}"
+                                               CaretIndex="{TemplateBinding CaretIndex}"
+                                               LineHeight="{TemplateBinding LineHeight}"
+                                               LetterSpacing="{TemplateBinding LetterSpacing}"
+                                               PasswordChar="{TemplateBinding PasswordChar}"
+                                               RevealPassword="{TemplateBinding RevealPassword}"
+                                               SelectionBrush="{TemplateBinding SelectionBrush}"
+                                               SelectionEnd="{TemplateBinding SelectionEnd}"
+                                               SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                               SelectionStart="{TemplateBinding SelectionStart}"
+                                               Text="{TemplateBinding Text, Mode=TwoWay}"
+                                               TextAlignment="{TemplateBinding TextAlignment}"
+                                               TextWrapping="{TemplateBinding TextWrapping}" />
+                            </ScrollViewer>
+                            <Button Grid.Column="1"
+                                    x:Name="PART_SearchButton"
+                                    HorizontalContentAlignment="Left"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Focusable="False"
+                                    Theme="{StaticResource ButtonIcon}"
+                                    hc:IconElement.Width="14"
+                                    Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                    hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                                    Foreground="{Binding BorderBrush, ElementName=border}" />
+                        </Grid>
+                    </Panel>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ Border#border">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:focus">
+            <Style Selector="^:pointerover /template/ Border#border">
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:error /template/ Border#border">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource DangerBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:SearchBar}"
+                  BasedOn="{StaticResource SearchBarBaseStyle}"
+                  TargetType="hc:SearchBar" />
+
+    <ControlTheme x:Key="SearchBar.Small"
+                  BasedOn="{StaticResource SearchBarBaseStyle}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="MinHeight"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SearchBarExtend"
+                  BasedOn="{StaticResource SearchBarBaseStyle}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="hc:InfoElement.Symbol"
+                Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="{x:Static sys:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent.(hc:TitleElement.Title)}">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Border x:Name="border"
+                                Grid.ColumnSpan="2"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <TextBlock Grid.Column="0"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Margin="{TemplateBinding Padding}"
+                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                   HorizontalAlignment="Stretch"
+                                   Theme="{StaticResource TextBlockDefaultThiLight}"
+                                   Text="{TemplateBinding Watermark}" />
+                        <ScrollViewer Grid.Column="0"
+                                      Name="PART_ScrollViewer"
+                                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                      BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                      VerticalScrollBarVisibility="Hidden">
+                            <TextPresenter Name="PART_TextPresenter"
+                                           Margin="{TemplateBinding Padding}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                           LineHeight="{TemplateBinding LineHeight}"
+                                           LetterSpacing="{TemplateBinding LetterSpacing}"
+                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                        </ScrollViewer>
+                        <Button Grid.Column="1"
+                                x:Name="PART_SearchButton"
+                                HorizontalContentAlignment="Left"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Focusable="False"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Width="14"
+                                Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                                Foreground="{Binding BorderBrush, ElementName=border}" />
+                    </Grid>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SearchBarExtend.Small"
+                  BasedOn="{StaticResource SearchBarExtend}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="SearchBarPlus"
+                  BasedOn="{StaticResource SearchBarExtend}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <HeaderedContentControl Header="{Binding $parent.(hc:TitleElement.Title)}">
+                    <Grid ColumnDefinitions="*,Auto,Auto">
+                        <Border x:Name="border"
+                                Grid.ColumnSpan="3"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" />
+                        <TextBlock Grid.Column="0"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   Margin="{TemplateBinding Padding}"
+                                   IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                   HorizontalAlignment="Stretch"
+                                   Theme="{StaticResource TextBlockDefaultThiLight}"
+                                   Text="{TemplateBinding Watermark}" />
+                        <ScrollViewer Grid.Column="0"
+                                      Name="PART_ScrollViewer"
+                                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                      BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                      VerticalScrollBarVisibility="Hidden">
+                            <TextPresenter Name="PART_TextPresenter"
+                                           Margin="{TemplateBinding Padding}"
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                           CaretBrush="{TemplateBinding CaretBrush}"
+                                           CaretIndex="{TemplateBinding CaretIndex}"
+                                           LineHeight="{TemplateBinding LineHeight}"
+                                           LetterSpacing="{TemplateBinding LetterSpacing}"
+                                           PasswordChar="{TemplateBinding PasswordChar}"
+                                           RevealPassword="{TemplateBinding RevealPassword}"
+                                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                           SelectionStart="{TemplateBinding SelectionStart}"
+                                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                                           TextAlignment="{TemplateBinding TextAlignment}"
+                                           TextWrapping="{TemplateBinding TextWrapping}" />
+                        </ScrollViewer>
+                        <Button Grid.Column="1"
+                                HorizontalContentAlignment="Left"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Focusable="False"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Width="14"
+                                Padding="0,0,2,0"
+                                hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                Foreground="{Binding BorderBrush, ElementName=border}"
+                                Command="{Binding $parent[TextBox].Clear}">
+                            <Button.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsPointerOver" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="(hc:InfoElement.ShowClearButton)" />
+                                    <Binding RelativeSource="{RelativeSource TemplatedParent}"
+                                             Path="IsReadOnly"
+                                             Converter="{x:Static BoolConverters.Not}" />
+                                </MultiBinding>
+                            </Button.IsVisible>
+                        </Button>
+                        <Button Grid.Column="2"
+                                x:Name="PART_SearchButton"
+                                HorizontalContentAlignment="Left"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Focusable="False"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Width="14"
+                                Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}"
+                                hc:IconElement.Geometry="{StaticResource SearchGeometry}"
+                                Foreground="{Binding BorderBrush, ElementName=border}" />
+                    </Grid>
+                </HeaderedContentControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SearchBarPlus.Small"
+                  BasedOn="{StaticResource SearchBarPlus}"
+                  TargetType="hc:SearchBar">
+        <Setter Property="hc:InfoElement.MinContentHeight"
+                Value="20" />
+        <Setter Property="hc:InfoElement.ContentHeight"
+                Value="20" />
+        <Setter Property="hc:TitleElement.MarginOnTheLeft"
+                Value="0,3,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop"
+                Value="6,0,0,1" />
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="20" />
+    </ControlTheme>
+
+</ResourceDictionary>

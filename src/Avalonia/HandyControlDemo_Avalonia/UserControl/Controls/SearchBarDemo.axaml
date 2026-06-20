@@ -1,0 +1,144 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+             x:Class="HandyControlDemo.UserControl.SearchBarDemo"
+             DataContext="{Binding InputElementDemo, Source={x:Static vm:ViewModelLocator.Instance}}"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <ScrollViewer>
+            <hc:UniformSpacingPanel Spacing="32"
+                                    Margin="32"
+                                    ChildWrapping="Wrap">
+                <StackPanel Spacing="16">
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar IsEnabled="False" />
+
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend}"
+                                  hc:TitleElement.Title="This is the title"
+                                  SearchStarted="SearchBar_OnSearchStarted"
+                                  Margin="0,16,0,0" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend}"
+                                  Watermark="Please enter content"
+                                  hc:TitleElement.Title="This item must be filled in"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                </StackPanel>
+
+                <StackPanel Spacing="16">
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  IsEnabled="False" />
+
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  hc:TitleElement.Title="This is the title"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  Watermark="please enter email"
+                                  Text="{Binding Email1, UpdateSourceTrigger=PropertyChanged}"
+                                  hc:TitleElement.Title="This item must be filled in"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus}"
+                                  Width="380"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                </StackPanel>
+
+                <StackPanel Spacing="16">
+                    <hc:SearchBar Theme="{StaticResource SearchBar.Small}"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBar.Small}"
+                                  IsEnabled="False" />
+
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend.Small}"
+                                  hc:TitleElement.Title="This is the title"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend.Small}"
+                                  Watermark="Please enter content"
+                                  hc:TitleElement.Title="This item must be filled in"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend.Small}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarExtend.Small}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                </StackPanel>
+
+                <StackPanel Spacing="16">
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  IsEnabled="False" />
+
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  hc:TitleElement.Title="This is the title"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  Watermark="please enter email"
+                                  Text="{Binding Email2, UpdateSourceTrigger=PropertyChanged}"
+                                  hc:TitleElement.Title="This item must be filled in"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  Width="380"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                    <hc:SearchBar Theme="{StaticResource SearchBarPlus.Small}"
+                                  Width="380"
+                                  hc:InfoElement.ShowClearButton="True"
+                                  hc:TitleElement.TitleWidth="120"
+                                  hc:TitleElement.TitlePlacement="Left"
+                                  hc:TitleElement.Title="The title is on the left"
+                                  Watermark="Please enter content"
+                                  hc:InfoElement.Necessary="True"
+                                  SearchStarted="SearchBar_OnSearchStarted" />
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </ScrollViewer>
+    </TransitioningContentControl>
+</UserControl>

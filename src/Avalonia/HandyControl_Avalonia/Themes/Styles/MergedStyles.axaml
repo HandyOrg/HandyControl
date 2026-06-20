@@ -59,6 +59,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Clock.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TimePicker.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TextBox.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/SearchBar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/PinBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/AutoCompleteBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ButtonSpinner.axaml" />
