@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.PinBoxDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <hc:UniformSpacingPanel Spacing="16"
+                                Orientation="Vertical"
+                                Margin="32"
+                                VerticalAlignment="Center">
+            <hc:PinBox Length="4"
+                       Password="1234"
+                       Completed="PinBox_OnCompleted" />
+            <hc:PinBox x:Name="PinBoxUnsafe"
+                       Length="4"
+                       Password="1234"
+                       IsSafeEnabled="False"
+                       Completed="PinBox_OnCompleted" />
+            <TextBox Text="{Binding #PinBoxUnsafe.UnsafePassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <hc:PinBox Length="6"
+                       Password="123456"
+                       PasswordChar="❤"
+                       Completed="PinBox_OnCompleted" />
+        </hc:UniformSpacingPanel>
+    </TransitioningContentControl>
+</UserControl>

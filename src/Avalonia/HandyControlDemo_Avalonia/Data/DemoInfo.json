@@ -46,6 +46,7 @@
       [ "ButtonGroup", "ButtonGroupDemo", "Brush.ButtonGroup", "", "Button" ],
       [ "ProgressButton", "ProgressButtonDemo", "Brush.ProgressBarStatusBar8", "", "Button" ],
       [ "Card", "CardDemo", "Brush.ContactCard", "", "DataDisplay" ],
+      [ "PinBox", "PinBoxDemo", "Brush.Ellipsis", "", "DataEntry" ],
       [ "ElementGroup", "ElementGroupDemo", "Brush.ButtonGroup", "", "Layout" ],
       [ "CirclePanel", "CirclePanelDemo", "Brush.ColorWheel", "", "Layout" ],
       [ "Grid", "GridDemo", "Brush.GridPane", "", "Layout" ],

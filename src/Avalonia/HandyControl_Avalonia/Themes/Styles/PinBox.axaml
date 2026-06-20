@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="{x:Type hc:PinBox}"
+                  TargetType="hc:PinBox">
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="ItemMargin"
+                Value="4,0" />
+        <Setter Property="ItemWidth"
+                Value="{DynamicResource DefaultControlHeight}" />
+        <Setter Property="ItemHeight"
+                Value="{DynamicResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <UniformGrid x:Name="PART_Panel"
+                             Columns="{TemplateBinding Length}"
+                             Rows="1" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>
