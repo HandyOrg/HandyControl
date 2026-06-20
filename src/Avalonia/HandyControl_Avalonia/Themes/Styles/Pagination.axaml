@@ -1,0 +1,105 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="PaginationButtonTheme"
+                  BasedOn="{StaticResource RadioGroupItemBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="MinWidth"
+                Value="30" />
+        <Setter Property="Padding"
+                Value="10,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Pagination}"
+                  TargetType="hc:Pagination">
+        <Setter Property="hc:VisualElement.HighlightBorderBrush"
+                Value="{DynamicResource TitleBrush}" />
+        <Setter Property="hc:VisualElement.HighlightBackground"
+                Value="{DynamicResource TitleBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="PaginationButtonTheme"
+                Value="{StaticResource PaginationButtonTheme}" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Top">
+                    <Button x:Name="PART_ButtonLeft"
+                            MinWidth="30"
+                            Padding="10,8"
+                            Theme="{StaticResource ButtonDefault}"
+                            hc:IconElement.Geometry="{StaticResource LeftGeometry}"
+                            hc:BorderElement.CornerRadius="{Binding $self.(hc:BorderElement.CornerRadius), Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}" />
+
+                    <StackPanel ZIndex="999"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                        <RadioButton x:Name="PART_ButtonFirst"
+                                     Theme="{TemplateBinding PaginationButtonTheme}"
+                                     IsChecked="True" />
+                        <Border x:Name="PART_MoreLeft"
+                                Margin="-1,0,0,0"
+                                BorderThickness="1"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{DynamicResource SecondaryRegionBrush}"
+                                Padding="10,0">
+                            <TextBlock FontWeight="Bold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="..."
+                                       VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel x:Name="PART_PanelMain"
+                                    Orientation="Horizontal" />
+                        <Border x:Name="PART_MoreRight"
+                                Margin="-1,0,0,0"
+                                BorderThickness="1"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{DynamicResource SecondaryRegionBrush}"
+                                Padding="10,0">
+                            <TextBlock FontWeight="Bold"
+                                       Foreground="{DynamicResource SecondaryTextBrush}"
+                                       Text="..."
+                                       VerticalAlignment="Center" />
+                        </Border>
+                        <RadioButton x:Name="PART_ButtonLast"
+                                     Margin="-1,0,0,0"
+                                     Theme="{TemplateBinding PaginationButtonTheme}" />
+                    </StackPanel>
+
+                    <Button x:Name="PART_ButtonRight"
+                            MinWidth="30"
+                            Padding="10,8"
+                            Margin="-1,0,0,0"
+                            Theme="{StaticResource ButtonDefault}"
+                            hc:IconElement.Geometry="{StaticResource RightGeometry}"
+                            hc:BorderElement.CornerRadius="{Binding $self.(hc:BorderElement.CornerRadius), Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}" />
+
+                    <NumericUpDown x:Name="PART_Jump"
+                                   IsEnabled="{TemplateBinding IsJumpEnabled}"
+                                   IsVisible="{TemplateBinding IsJumpEnabled}"
+                                   Margin="6,0,0,0"
+                                   Minimum="1"
+                                   Maximum="{TemplateBinding MaxPageCount}" />
+
+                    <Button x:Name="PART_ButtonJump"
+                            IsEnabled="{TemplateBinding IsJumpEnabled}"
+                            IsVisible="{TemplateBinding IsJumpEnabled}"
+                            Margin="6,0,0,0"
+                            Content="Jump"
+                            Theme="{StaticResource ButtonDefault}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+</ResourceDictionary>

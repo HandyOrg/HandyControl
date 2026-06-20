@@ -58,6 +58,7 @@
       [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "", "Layout" ],
       [ "ProgressBar", "ProgressBarDemo", "Brush.ProgressBar", "", "Feedback" ],
       [ "Rate", "RateDemo", "Brush.Favorite", "", "Feedback" ],
+      [ "Pagination", "PaginationDemo", "Brush.Paginator", "", "Navigation" ],
       [ "Loading", "LoadingDemo", "Brush.Loading", "", "Feedback" ],
       [ "Tag", "TagDemo", "Brush.Tag", "", "DataDisplay" ],
       [ "Badge", "BadgeDemo", "Brush.CheckDot", "", "DataDisplay" ],

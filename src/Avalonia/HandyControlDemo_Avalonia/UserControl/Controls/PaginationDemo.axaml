@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HandyControlDemo.UserControl.PaginationDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <Grid Margin="32"
+              RowDefinitions="Auto,*">
+            <hc:Pagination x:Name="PaginationCtl"
+                           MaxPageCount="10"
+                           DataCountPerPage="10"
+                           PageIndex="1"
+                           IsJumpEnabled="True"
+                           PageUpdated="Pagination_OnPageUpdated" />
+
+            <Border Grid.Row="1"
+                    MaxWidth="600"
+                    Margin="0,16,0,0"
+                    Padding="12"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    Background="{DynamicResource RegionBrush}">
+                <Grid RowDefinitions="Auto,*">
+                    <TextBlock Text="Current Page Data"
+                               FontWeight="Bold"
+                               Margin="0,0,0,8" />
+                    <ListBox Grid.Row="1"
+                             ItemsSource="{Binding DataList}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="60,160,90,*"
+                                      Margin="0,4">
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding Index}" />
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding Name}" />
+                                    <TextBlock Grid.Column="2"
+                                               Text="{Binding Type}" />
+                                    <TextBlock Grid.Column="3"
+                                               Text="{Binding Remark}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Border>
+        </Grid>
+    </TransitioningContentControl>
+</UserControl>
