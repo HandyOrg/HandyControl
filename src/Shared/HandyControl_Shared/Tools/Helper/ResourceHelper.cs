@@ -10,6 +10,8 @@ namespace HandyControl.Tools;
 /// </summary>
 public class ResourceHelper
 {
+    private static readonly Lazy<ResourceDictionary> _themeLazy = new(GetStandaloneTheme);
+
     private static ResourceDictionary _theme;
 
     /// <summary>
@@ -29,9 +31,15 @@ public class ResourceHelper
 
     internal static T GetResourceInternal<T>(string key)
     {
-        if (GetTheme()[key] is T resource)
+        var theme = GetTheme();
+        if (theme != null && theme[key] is T resource)
         {
             return resource;
+        }
+
+        if (Application.Current != null && Application.Current.TryFindResource(key) is T appResource)
+        {
+            return appResource;
         }
 
         return default;
@@ -72,7 +80,7 @@ public class ResourceHelper
     /// <summary>
     ///     get HandyControl theme
     /// </summary>
-    public static ResourceDictionary GetTheme() => _theme ??= GetStandaloneTheme();
+    public static ResourceDictionary GetTheme() => _theme ??= _themeLazy.Value;
 
     public static ResourceDictionary GetStandaloneTheme()
     {
