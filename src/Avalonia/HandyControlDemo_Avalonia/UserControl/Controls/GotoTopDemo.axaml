@@ -1,0 +1,34 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.GotoTopDemo"
+             Background="{DynamicResource RegionBrush}">
+    <TransitioningContentControl>
+        <Panel Height="400">
+            <ScrollViewer x:Name="ScrollViewerDemo"
+                          Height="390"
+                          VerticalAlignment="Top"
+                          Margin="0,10,0,0">
+                <Border Height="2000"
+                        Margin="8,0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="50%,0%"
+                                             EndPoint="50%,100%">
+                            <GradientStop Offset="0"
+                                          Color="White" />
+                            <GradientStop Offset="1"
+                                          Color="Black" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+            </ScrollViewer>
+            <hc:GotoTop Animated="True"
+                        AutoHiding="True"
+                        AnimationTime="500"
+                        Target="{Binding #ScrollViewerDemo}"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,20,20" />
+        </Panel>
+    </TransitioningContentControl>
+</UserControl>

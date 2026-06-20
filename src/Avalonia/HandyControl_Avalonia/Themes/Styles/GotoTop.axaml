@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="GotoTopBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="hc:GotoTop">
+        <Setter Property="Width"
+                Value="50" />
+        <Setter Property="Height"
+                Value="50" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="25" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="hc:IconElement.Geometry"
+                Value="{StaticResource UpGeometry}" />
+        <Setter Property="hc:IconElement.Width"
+                Value="14" />
+        <Setter Property="hc:IconElement.Height"
+                Value="14" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Padding"
+                Value="16" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:GotoTop}"
+                  BasedOn="{StaticResource GotoTopBaseStyle}"
+                  TargetType="hc:GotoTop" />
+
+</ResourceDictionary>

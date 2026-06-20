@@ -46,6 +46,7 @@
       [ "ButtonGroup", "ButtonGroupDemo", "Brush.ButtonGroup", "", "Button" ],
       [ "ProgressButton", "ProgressButtonDemo", "Brush.ProgressBarStatusBar8", "", "Button" ],
       [ "Card", "CardDemo", "Brush.ContactCard", "", "DataDisplay" ],
+      [ "GotoTop", "GotoTopDemo", "Brush.GoToTop", "", "Interacting" ],
       [ "PinBox", "PinBoxDemo", "Brush.Ellipsis", "", "DataEntry" ],
       [ "SearchBar", "SearchBarDemo", "Brush.Search", "", "DataEntry" ],
       [ "ElementGroup", "ElementGroupDemo", "Brush.ButtonGroup", "", "Layout" ],
