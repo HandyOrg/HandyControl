@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.ProgressButtonDemo">
+    <ScrollViewer>
+        <WrapPanel Margin="16"
+                   VerticalAlignment="Center">
+            <StackPanel Margin="16"
+                        Spacing="0">
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Theme="{StaticResource ProgressButtonPrimary}"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Theme="{StaticResource ProgressButtonSuccess}"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Theme="{StaticResource ProgressButtonInfo}"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Theme="{StaticResource ProgressButtonWarning}"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+                <hc:ProgressButton Width="180"
+                                   Margin="5"
+                                   Theme="{StaticResource ProgressButtonDanger}"
+                                   Progress="{Binding Progress}"
+                                   IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                                   Content="{Binding UploadContent}" />
+            </StackPanel>
+            <StackPanel Margin="16"
+                        Spacing="0">
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoading}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoadingPrimary}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoadingSuccess}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoadingInfo}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoadingWarning}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+                <ToggleButton Width="180"
+                              Margin="5"
+                              Theme="{StaticResource ToggleButtonLoadingDanger}"
+                              IsChecked="{Binding IsUploading, Mode=TwoWay}"
+                              Content="{Binding UploadContent}" />
+            </StackPanel>
+        </WrapPanel>
+    </ScrollViewer>
+</UserControl>

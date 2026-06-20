@@ -58,6 +58,8 @@ public class LoadingCircle : LoadingBase
         var dotDelayTime = DotDelayTime;
         var needHidden = NeedHidden;
         var dotOffset = DotOffSet;
+        var totalSeconds = dotSpeed + 0.4d;
+        var visibleCue = dotSpeed / totalSeconds;
 
         if (dotCount < 1) return;
         PrivateCanvas.Children.Clear();
@@ -73,20 +75,21 @@ public class LoadingCircle : LoadingBase
 
             var rotateAnimation = new Animation
             {
-                Duration = TimeSpan.FromSeconds(dotSpeed),
+                Duration = TimeSpan.FromSeconds(totalSeconds),
                 Delay = TimeSpan.FromMilliseconds(dotDelayTime * i),
                 IterationCount = IterationCount.Infinite,
                 FillMode = FillMode.Forward,
                 Easing = new LinearEasing(),
                 Children =
                 {
-                    BuildAngleFrame(0d / 7d, 0 + subAngle, null),
-                    BuildAngleFrame(0.75d / 7d, 180 + subAngle, EaseOutSpline),
-                    BuildAngleFrame(2.75d / 7d, 180 + dotOffset + subAngle, null),
-                    BuildAngleFrame(3.5d / 7d, 360 + subAngle, EaseInSpline),
-                    BuildAngleFrame(4.25d / 7d, 540 + subAngle, EaseOutSpline),
-                    BuildAngleFrame(6.25d / 7d, 540 + dotOffset + subAngle, null),
-                    BuildAngleFrame(1d, 720 + subAngle, EaseInSpline),
+                    BuildAngleFrame(0d, 0 + subAngle, null),
+                    BuildAngleFrame((dotSpeed * (0.75d / 7d)) / totalSeconds, 180 + subAngle, EaseOutSpline),
+                    BuildAngleFrame((dotSpeed * (2.75d / 7d)) / totalSeconds, 180 + dotOffset + subAngle, null),
+                    BuildAngleFrame((dotSpeed * (3.5d / 7d)) / totalSeconds, 360 + subAngle, EaseInSpline),
+                    BuildAngleFrame((dotSpeed * (4.25d / 7d)) / totalSeconds, 540 + subAngle, EaseOutSpline),
+                    BuildAngleFrame((dotSpeed * (6.25d / 7d)) / totalSeconds, 540 + dotOffset + subAngle, null),
+                    BuildAngleFrame(visibleCue, 720 + subAngle, EaseInSpline),
+                    BuildAngleFrame(1d, 720 + subAngle, null),
                 }
             };
 
@@ -96,10 +99,7 @@ public class LoadingCircle : LoadingBase
 
             if (needHidden)
             {
-                var totalSeconds = dotSpeed + 0.4d;
-                var visibleCue = dotSpeed / totalSeconds;
-
-                var opacityAnimation = new Animation
+                var visibleAnimation = new Animation
                 {
                     Duration = TimeSpan.FromSeconds(totalSeconds),
                     Delay = TimeSpan.FromMilliseconds(dotDelayTime * i),
@@ -111,29 +111,29 @@ public class LoadingCircle : LoadingBase
                         new KeyFrame
                         {
                             Cue = new Cue(0d),
-                            Setters = { new Setter(Visual.OpacityProperty, 1d) }
+                            Setters = { new Setter(Visual.IsVisibleProperty, true) }
                         },
                         new KeyFrame
                         {
                             Cue = new Cue(Math.Max(0d, visibleCue - 0.0001d)),
-                            Setters = { new Setter(Visual.OpacityProperty, 1d) }
+                            Setters = { new Setter(Visual.IsVisibleProperty, true) }
                         },
                         new KeyFrame
                         {
                             Cue = new Cue(visibleCue),
-                            Setters = { new Setter(Visual.OpacityProperty, 0d) }
+                            Setters = { new Setter(Visual.IsVisibleProperty, false) }
                         },
                         new KeyFrame
                         {
                             Cue = new Cue(1d),
-                            Setters = { new Setter(Visual.OpacityProperty, 0d) }
+                            Setters = { new Setter(Visual.IsVisibleProperty, false) }
                         }
                     }
                 };
 
-                var opacityCts = new CancellationTokenSource();
-                AnimationTokens.Add(opacityCts);
-                _ = opacityAnimation.RunAsync(border, opacityCts.Token);
+                var visibleCts = new CancellationTokenSource();
+                AnimationTokens.Add(visibleCts);
+                _ = visibleAnimation.RunAsync(border, visibleCts.Token);
             }
         }
     }
@@ -166,7 +166,7 @@ public class LoadingCircle : LoadingBase
             Child = ellipse,
             RenderTransformOrigin = RelativePoint.Center,
             RenderTransform = rotate,
-            Opacity = needHidden ? 0d : 1d
+            IsVisible = !needHidden
         };
         border.Bind(WidthProperty, new Binding(nameof(Width)) { Source = this });
         border.Bind(HeightProperty, new Binding(nameof(Height)) { Source = this });

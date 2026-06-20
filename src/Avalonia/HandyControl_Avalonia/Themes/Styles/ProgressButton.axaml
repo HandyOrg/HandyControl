@@ -1,0 +1,158 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="ProgressBarFlat4ProgressButton"
+                  TargetType="ProgressBar">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource DarkMaskBrush}" />
+        <Setter Property="ShowProgressText"
+                Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="PART_Track">
+                                        <Border x:Name="PART_Indicator"
+                                                        HorizontalAlignment="Left">
+                        <Border Background="{TemplateBinding Foreground}"
+                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                                        </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonBaseStyle"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="ProgressTheme"
+                Value="{StaticResource ProgressBarFlat4ProgressButton}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="Chrome"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Background="{TemplateBinding Background}">
+                    <Panel>
+                        <ProgressBar x:Name="ProgressBar"
+                                     Maximum="100"
+                                     Value="{TemplateBinding Progress}"
+                                     Theme="{TemplateBinding ProgressTheme}"
+                                     IsVisible="False" />
+                        <ContentPresenter x:Name="UnCheckedElement"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        <ContentPresenter x:Name="CheckedElement"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True"
+                                          Content="{TemplateBinding hc:StatusSwitchElement.CheckedElement}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="False" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:checked /template/ ProgressBar#ProgressBar">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <Style Selector="^:checked /template/ ContentPresenter#CheckedElement">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <Style Selector="^[(hc|StatusSwitchElement.HideUncheckedElement)=True]:checked /template/ ContentPresenter#UnCheckedElement">
+            <Setter Property="IsVisible"
+                    Value="False" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonDefault"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:ProgressButton}"
+                  BasedOn="{StaticResource ProgressButtonDefault}"
+                  TargetType="hc:ProgressButton" />
+
+    <ControlTheme x:Key="ProgressButtonPrimary"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonSuccess"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonInfo"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonWarning"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressButtonDanger"
+                  BasedOn="{StaticResource ProgressButtonBaseStyle}"
+                  TargetType="hc:ProgressButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+</ResourceDictionary>

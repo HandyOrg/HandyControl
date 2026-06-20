@@ -895,4 +895,129 @@
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="0,0,4,4" />
     </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoadingPrimary"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="Chrome"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Background="{TemplateBinding Background}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Panel>
+                            <ContentPresenter x:Name="UnCheckedElement"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <ContentPresenter x:Name="CheckedElement"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              IsVisible="False"
+                                              Content="{TemplateBinding hc:StatusSwitchElement.CheckedElement}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        </Panel>
+                        <Viewbox Margin="0,4">
+                            <hc:LoadingCircle x:Name="Loading"
+                                              Width="22"
+                                              Height="22"
+                                              Foreground="{TemplateBinding Foreground}"
+                                              DotDiameter="3"
+                                              IsRunning="{TemplateBinding IsChecked}"
+                                              IsVisible="False" />
+                        </Viewbox>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:checked /template/ hc|LoadingCircle#Loading">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <Style Selector="^:checked /template/ ContentPresenter#CheckedElement">
+            <Setter Property="IsVisible"
+                    Value="True" />
+        </Style>
+
+        <Style Selector="^[(hc|StatusSwitchElement.HideUncheckedElement)=True]:checked /template/ ContentPresenter#UnCheckedElement">
+            <Setter Property="IsVisible"
+                    Value="False" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoading"
+                  BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoadingSuccess"
+                  BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoadingInfo"
+                  BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoadingWarning"
+                  BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonLoadingDanger"
+                  BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
 </ResourceDictionary>
