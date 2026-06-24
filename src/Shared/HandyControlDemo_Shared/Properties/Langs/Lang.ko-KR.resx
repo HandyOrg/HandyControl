@@ -810,4 +810,7 @@
   <data name="ConfettiCannon" xml:space="preserve">
     <value>ConfettiCannon</value>
   </data>
+  <data name="DragDialog" xml:space="preserve">
+    <value>드래그 가능한 대화상자</value>
+  </data>
 </root>
