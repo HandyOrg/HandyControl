@@ -1,0 +1,35 @@
+<Border x:Class="HandyControlDemo.UserControl.TextDialogWithTimer"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        CornerRadius="10"
+        Width="400"
+        Height="247"
+        Background="{DynamicResource RegionBrush}">
+    <Panel>
+        <Viewbox Width="80"
+                 Height="80"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+            <TextBlock TextWrapping="Wrap"
+                       Theme="{StaticResource TextBlockLargeBold}"
+                       Text="Please wait..." />
+        </Viewbox>
+        <Button x:Name="CloseButton"
+                Width="22"
+                Height="22"
+                Foreground="{DynamicResource PrimaryBrush}"
+                hc:IconElement.Geometry="{StaticResource ErrorGeometry}"
+                Padding="0"
+                Theme="{StaticResource ButtonIcon}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,4,4,0" />
+        <hc:CircleProgressBar x:Name="ProgressBarTimer"
+                              ShowText="False"
+                              Width="120"
+                              Height="120"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" />
+    </Panel>
+</Border>

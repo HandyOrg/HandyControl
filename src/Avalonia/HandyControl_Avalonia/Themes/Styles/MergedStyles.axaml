@@ -57,6 +57,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Calendar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/CalendarDatePicker.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/DatePicker.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Dialog.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Clock.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TimePicker.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TextBox.axaml" />

@@ -1,0 +1,30 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:ClassModifier="internal"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <ControlTheme x:Key="DialogBaseStyle"
+                  TargetType="hc:Dialog">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="hc:Dialog">
+                <Border Name="PART_BackElement"
+                        Background="{TemplateBinding MaskBrush}">
+                    <ContentPresenter Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      Margin="{TemplateBinding Padding}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:Dialog}"
+                  BasedOn="{StaticResource DialogBaseStyle}"
+                  TargetType="hc:Dialog" />
+
+</ResourceDictionary>

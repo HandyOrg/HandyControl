@@ -21,6 +21,7 @@ public class ViewModelLocator
         services.AddTransient<MainViewModel>();
         services.AddTransient<InputElementDemoViewModel>();
         services.AddTransient<CardDemoViewModel>();
+        services.AddTransient<DialogDemoViewModel>();
 
         _serviceProvider = services.BuildServiceProvider();
     }
@@ -30,4 +31,6 @@ public class ViewModelLocator
     public InputElementDemoViewModel InputElementDemo => _serviceProvider.GetService<InputElementDemoViewModel>()!;
 
     public CardDemoViewModel CardDemo => _serviceProvider.GetService<CardDemoViewModel>()!;
+
+    public DialogDemoViewModel DialogDemo => _serviceProvider.GetService<DialogDemoViewModel>()!;
 }

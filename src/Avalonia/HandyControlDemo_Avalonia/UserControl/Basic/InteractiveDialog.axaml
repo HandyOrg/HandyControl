@@ -1,0 +1,22 @@
+<Border x:Class="HandyControlDemo.UserControl.InteractiveDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        CornerRadius="10"
+        Width="400"
+        Height="247"
+        Background="{DynamicResource RegionBrush}">
+    <StackPanel VerticalAlignment="Center"
+                Margin="32"
+                Spacing="32">
+        <TextBlock Theme="{StaticResource TextBlockLargeBold}"
+                   Text="{Binding Message}" />
+        <TextBox Text="{Binding Result, Mode=TwoWay}"
+                 Theme="{StaticResource TextBoxExtend}" />
+        <Button Width="120"
+                Command="{Binding CloseCommand}"
+                Theme="{StaticResource ButtonPrimary}"
+                HorizontalAlignment="Center"
+                Content="OK" />
+    </StackPanel>
+</Border>

@@ -42,6 +42,7 @@
     "group": true,
     "demoItemList": [
       [ "ConfettiCannon", "ConfettiCannonDemo", "Brush.Favorite", "", "Interacting" ],
+      [ "Dialog", "DialogDemo", "Brush.Dialog", "", "Feedback" ],
       [ "Gravatar", "GravatarDemo", "Brush.User", "", "DataDisplay" ],
       [ "ButtonGroup", "ButtonGroupDemo", "Brush.ButtonGroup", "", "Button" ],
       [ "ProgressButton", "ProgressButtonDemo", "Brush.ProgressBarStatusBar8", "", "Button" ],

@@ -1,0 +1,25 @@
+<Border x:Class="HandyControlDemo.UserControl.TextDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        CornerRadius="10"
+        Width="400"
+        Height="247"
+        Background="{DynamicResource RegionBrush}">
+    <Panel>
+        <TextBlock Theme="{StaticResource TextBlockLargeBold}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Please wait..." />
+        <Button x:Name="CloseButton"
+                Width="22"
+                Height="22"
+                Theme="{StaticResource ButtonIcon}"
+                Foreground="{DynamicResource PrimaryBrush}"
+                hc:IconElement.Geometry="{StaticResource ErrorGeometry}"
+                Padding="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,4,4,0" />
+    </Panel>
+</Border>

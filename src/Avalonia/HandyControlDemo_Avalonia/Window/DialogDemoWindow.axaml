@@ -1,0 +1,29 @@
+<Window x:Class="HandyControlDemo.Window.DialogDemoWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:vm="clr-namespace:HandyControlDemo.ViewModel"
+        xmlns:data="clr-namespace:HandyControlDemo.Data"
+        x:DataType="vm:DialogDemoViewModel"
+        DataContext="{Binding DialogDemo, Source={x:Static vm:ViewModelLocator.Instance}}"
+        Width="800"
+        Height="500"
+        Background="{DynamicResource SecondaryRegionBrush}">
+    <TransitioningContentControl>
+        <hc:UniformSpacingPanel Margin="32"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Orientation="Vertical"
+                                Spacing="10">
+            <Button Content="ShowInCurrentWindow"
+                    Command="{Binding ShowWithTokenCommand}"
+                    CommandParameter="{Binding $parent[Window].DialogToken}" />
+            <Button Content="ShowInMainWindow"
+                    Command="{Binding ShowWithTokenCommand}"
+                    CommandParameter="{x:Static data:MessageToken.MainWindow}" />
+            <Button Content="CloseMainWindowDialog"
+                    Command="{Binding CloseMainWindowDialogCommand}"
+                    CommandParameter="{x:Static data:MessageToken.MainWindow}" />
+        </hc:UniformSpacingPanel>
+    </TransitioningContentControl>
+</Window>
