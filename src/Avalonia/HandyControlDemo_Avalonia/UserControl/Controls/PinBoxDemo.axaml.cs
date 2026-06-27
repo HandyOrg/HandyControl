@@ -1,7 +1,7 @@
-using Avalonia.Interactivity;
-using HandyControl.Controls;
 using System;
 using System.Reflection;
+using Avalonia.Interactivity;
+using HandyControl.Controls;
 
 namespace HandyControlDemo.UserControl;
 
