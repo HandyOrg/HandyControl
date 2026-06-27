@@ -13,7 +13,16 @@
     ❤
     <a href="https://github.com/HandyOrg/HandyControl/blob/master/README.md">English</a>
 </p>
-
+<h3 align="center">
+  <a href="https://ghost1372.github.io">Documentation</a>
+  <span> · </span>
+  <a href="https://github.com/HandyOrg/HandyControl/releases">Release notes</a>
+  <span> · </span>
+  <a href="https://github.com/HandyOrg/HandyControl/tree/master/src/Shared/HandyControlDemo_Shared">Samples</a>
+  <span> · </span>
+  <a href="https://apps.microsoft.com/detail/HandyControl/9nxrsbg32mff?launch=true
+	&mode=mini">Gallery App (Store)</a>
+</h3>
 <p align="center">
     <img alt="dotnet-version" src="https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg"></img>
     <img alt="csharp-version" src="https://img.shields.io/badge/C%23-latest-blue.svg"></img>
@@ -175,6 +184,16 @@ Step 3: Add NameSpace:
 `xmlns:hc="https://handyorg.github.io/handycontrol"`
 
 Step 4: Enjoy coding
+
+## 🚀 Explore Our Gallery App 🚀
+
+> [!NOTE]
+>  Want to see HandyControl in action? Head over to our Gallery App for a hands-on experience. You’ll find practical examples, usage scenarios, and interactive demos that showcase the power of our toolkit. Download from Microsoft Store.
+
+<a href="https://apps.microsoft.com/detail/HandyControl/9nxrsbg32mff?launch=true
+    &mode=mini">
+    <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200"/>
+</a>
 
 ## VSIX packages for Visual Studio
 
