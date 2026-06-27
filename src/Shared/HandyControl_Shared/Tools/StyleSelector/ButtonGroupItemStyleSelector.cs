@@ -34,17 +34,17 @@ public class ButtonGroupItemStyleSelector : StyleSelector
         [ResourceToken.ToggleButtonGroupItemDefault] = ResourceHelper.GetResourceInternal<Style>(ResourceToken.ToggleButtonGroupItemDefault)
     };
 
-    public override Style SelectStyle(object item, DependencyObject container)
+        public override Style SelectStyle(object item, DependencyObject container)
     {
-        if (container is ButtonGroup buttonGroup && item is ButtonBase buttonBase)
+        if (container is ButtonGroup buttonGroup && buttonGroup.GetButtonBaseByItem(item) is ButtonBase buttonBase)
         {
             var count = GetVisibleButtonsCount(buttonGroup);
 
             switch (buttonBase)
             {
-                case RadioButton: return GetRadioButtonStyle(count, buttonGroup, buttonBase);
-                case Button: return GetButtonStyle(count, buttonGroup, buttonBase);
-                case ToggleButton: return GetToggleButtonStyle(count, buttonGroup, buttonBase);
+                case RadioButton: return GetRadioButtonStyle(count, buttonGroup, item);
+                case Button: return GetButtonStyle(count, buttonGroup, item);
+                case ToggleButton: return GetToggleButtonStyle(count, buttonGroup, item);
             }
         }
 
@@ -53,17 +53,25 @@ public class ButtonGroupItemStyleSelector : StyleSelector
 
     private static int GetVisibleButtonsCount(ButtonGroup buttonGroup)
     {
-        return buttonGroup.Items.OfType<ButtonBase>().Count(button => button.IsVisible);
+        var count = 0;
+        foreach (var button in buttonGroup.Items)
+        {
+            if (buttonGroup.GetButtonBaseByItem(button) is ButtonBase buttonBase && buttonBase.IsVisible)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
-    private static Style GetToggleButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+    private static Style GetToggleButtonStyle(int count, ButtonGroup buttonGroup, object buttonItem)
     {
         if (count == 1)
         {
             return StyleDict[ResourceToken.ToggleButtonGroupItemSingle];
         }
 
-        var index = buttonGroup.Items.IndexOf(button);
+        var index = buttonGroup.Items.IndexOf(buttonItem);
         return buttonGroup.Orientation == Orientation.Horizontal
             ? index == 0
                 ? StyleDict[ResourceToken.ToggleButtonGroupItemHorizontalFirst]
@@ -77,14 +85,14 @@ public class ButtonGroupItemStyleSelector : StyleSelector
                     : ResourceToken.ToggleButtonGroupItemDefault];
     }
 
-    private static Style GetButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+    private static Style GetButtonStyle(int count, ButtonGroup buttonGroup, object buttonItem)
     {
         if (count == 1)
         {
             return StyleDict[ResourceToken.ButtonGroupItemSingle];
         }
 
-        var index = buttonGroup.Items.IndexOf(button);
+        var index = buttonGroup.Items.IndexOf(buttonItem);
         return buttonGroup.Orientation == Orientation.Horizontal
             ? index == 0
                 ? StyleDict[ResourceToken.ButtonGroupItemHorizontalFirst]
@@ -98,14 +106,14 @@ public class ButtonGroupItemStyleSelector : StyleSelector
                     : ResourceToken.ButtonGroupItemDefault];
     }
 
-    private static Style GetRadioButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+    private static Style GetRadioButtonStyle(int count, ButtonGroup buttonGroup, object buttonItem)
     {
         if (count == 1)
         {
             return StyleDict[ResourceToken.RadioGroupItemSingle];
         }
 
-        var index = buttonGroup.Items.IndexOf(button);
+        var index = buttonGroup.Items.IndexOf(buttonItem);
         return buttonGroup.Orientation == Orientation.Horizontal
             ? index == 0
                 ? StyleDict[ResourceToken.RadioGroupItemHorizontalFirst]

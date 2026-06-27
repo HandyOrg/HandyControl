@@ -28,13 +28,43 @@ public class ButtonGroup : ItemsControl
         set => SetValue(LayoutProperty, value);
     }
 
-    protected override void OnRender(DrawingContext drawingContext)
+        protected override void OnRender(DrawingContext drawingContext)
     {
         var count = Items.Count;
         for (var i = 0; i < count; i++)
         {
-            var item = (ButtonBase) Items[i];
-            item.Style = ItemContainerStyleSelector?.SelectStyle(item, this);
+            if (this.GetButtonBaseByIndex(i) is ButtonBase buttonBase)
+            {
+                buttonBase.Style = ItemContainerStyleSelector?.SelectStyle(Items[i], this);
+            }
         }
+    }
+
+}
+
+public static class ButtonGroupExtensions
+{
+    public static ButtonBase GetButtonBaseByIndex(this ButtonGroup buttonGroup, int index)
+    {
+        return GetButtonBaseByItem(buttonGroup, buttonGroup.Items[index]);
+    }
+
+    public static ButtonBase GetButtonBaseByItem(this ButtonGroup buttonGroup, object item)
+    {
+        if (item is ButtonBase buttonBase)
+        {
+            return buttonBase;
+        }
+        var container = buttonGroup.ItemContainerGenerator.ContainerFromItem(item);
+
+        if (container is ButtonBase buttonBase2)
+        {
+            return buttonBase2;
+        }
+        else if (container != null && VisualTreeHelper.GetChildrenCount(container) > 0 && VisualTreeHelper.GetChild(container, 0) is ButtonBase buttonBase3)
+        {
+            return buttonBase3;
+        }
+        return null;
     }
 }
