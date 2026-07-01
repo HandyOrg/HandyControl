@@ -94,7 +94,18 @@ public class ToggleBlock : Control
             e.ChangedButton is MouseButton.Middle && ToggleGesture.MouseAction is MouseAction.MiddleDoubleClick &&
             e.ClickCount == 2)
         {
+            CaptureMouse();
             ControlCommands.Toggle.Execute(null, this);
+        }
+    }
+
+    protected override void OnMouseUp(MouseButtonEventArgs e)
+    {
+        base.OnMouseUp(e);
+
+        if (IsMouseCaptured)
+        {
+            ReleaseMouseCapture();
         }
     }
 
