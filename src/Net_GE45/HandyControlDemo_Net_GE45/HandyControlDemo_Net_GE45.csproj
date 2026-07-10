@@ -290,6 +290,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.it.resx">
+      <Link>Properties\Langs\Lang.it.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -332,6 +335,7 @@
       rd /s /q Langs\pt-BR
       rd /s /q Langs\pl
       rd /s /q Langs\ru
+      rd /s /q Langs\it
       rd /s /q Langs\tr
       rd /s /q Langs\ca-Es
       move cs Langs
@@ -344,6 +348,7 @@
       move pt-BR Langs
       move pl Langs
       move ru Langs
+      move it Langs
       move tr Langs
       move ca-Es Langs
     </PostBuildEvent>
