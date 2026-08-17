@@ -88,7 +88,9 @@ public class Row : Panel
 
         foreach (var child in cols)
         {
-            if (!child.IsVisible)
+            // Check the local Visibility, not IsVisible: Cols skipped while the hosting
+            // window is hidden can never recover their layout once it is shown again.
+            if (child.Visibility != Visibility.Visible)
             {
                 continue;
             }
