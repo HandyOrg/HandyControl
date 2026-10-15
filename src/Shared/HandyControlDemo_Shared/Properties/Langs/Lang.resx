@@ -810,4 +810,7 @@
   <data name="ConfettiCannon" xml:space="preserve">
     <value>礼炮</value>
   </data>
+  <data name="DragDialog" xml:space="preserve">
+    <value>可拖拽对话框</value>
+  </data>
 </root>

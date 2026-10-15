@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
@@ -101,6 +101,7 @@ public class LangProvider : INotifyPropertyChanged
 	OnPropertyChanged(nameof(Doc_cn));
 	OnPropertyChanged(nameof(Doc_en));
 	OnPropertyChanged(nameof(Documentation));
+    OnPropertyChanged(nameof(DragDialog));
 	OnPropertyChanged(nameof(DragHere));
 	OnPropertyChanged(nameof(Drawer));
 	OnPropertyChanged(nameof(Effects));
@@ -569,7 +570,10 @@ public class LangProvider : INotifyPropertyChanged
     ///   查找类似 文献资料 的本地化字符串。
     /// </summary>
 	public string Documentation => Lang.Documentation;
-
+    /// <summary>
+    ///   查找类似 在这里拖拽 的本地化字符串。
+    /// </summary>
+    public string DragDialog => Lang.DragDialog;
     /// <summary>
     ///   查找类似 在这里拖拽 的本地化字符串。
     /// </summary>
@@ -1733,7 +1737,10 @@ public class LangKeys
     ///   查找类似 文献资料 的本地化字符串。
     /// </summary>
 	public static string Documentation = nameof(Documentation);
-
+    /// <summary>
+    ///   查找类似 可拖拽对话框 的本地化字符串。
+    /// </summary>
+    public static string DragDialog = nameof(DragDialog);
     /// <summary>
     ///   查找类似 在这里拖拽 的本地化字符串。
     /// </summary>
