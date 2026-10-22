@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,7 +15,7 @@ public class PropertyGridDemoModel
     [Category("Category2")]
     public bool Boolean { get; set; }
 
-    [Category("Category1")]
+    [Category("Category2")]
     public Gender Enum { get; set; }
 
     public HorizontalAlignment HorizontalAlignment { get; set; }
@@ -27,6 +27,8 @@ public class PropertyGridDemoModel
 
 public enum Gender
 {
+    [Description("Boy/Man/Male")]
     Male,
+    [Description("Girl/Woman/Female")]
     Female
 }
