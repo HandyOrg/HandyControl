@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
@@ -432,6 +432,12 @@ public class ImageViewer : Control, IDisposable
             var t = new RotateTransform();
             BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) { Source = this });
             _imageMain.LayoutTransform = t;
+            //在选项卡中可能会加载失败，这里渲染后在加载一次
+            if (_imageMain.Source == null && ImageSource != null)
+            {
+                _imageMain.Source = ImageSource;
+                Init();
+            }
         }
 
         if (_canvasSmallImg != null)
@@ -584,7 +590,7 @@ public class ImageViewer : Control, IDisposable
             var path = SaveFileDialog.FileName;
             using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
             var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(ImageSource));
+            encoder.Frames.Add(ImageSource);
             encoder.Save(fileStream);
         }
     }
@@ -983,7 +989,8 @@ public class ImageViewer : Control, IDisposable
         {
             try
             {
-                return BitmapFrame.Create(source);
+                //将图片在加到内存中，这样子外部软件，程序都可以读取，删除这个文件
+                return BitmapFrame.Create(source, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
             }
             catch
             {
@@ -1011,5 +1018,17 @@ public class ImageViewer : Control, IDisposable
     {
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
+    }
+
+    /// <summary>
+    /// 加载图片（可以避免在某些情况下加载失败的情况）
+    /// </summary>
+    /// <param name="uri">地址</param>
+    public void LoadImage(Uri uri)
+    {
+        Uri = uri;
+        ImageSource = BitmapFrame.Create(uri, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.OnLoad);
+        if (_imageMain != null)//在继承等某些情况下肯定会失败，直接使用属性直接赋值才有用
+            _imageMain.Source = ImageSource;
     }
 }
